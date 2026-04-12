@@ -1,9 +1,9 @@
 
-(..5) hostile
-(5..14.9) frigid
-(14.9..29.9) cold
-(29.9..39.9) cool
-(39.9..54.9) neutral
-(54.9..64.9) warm
-(64.9..74.9) friendly
-(74.9..) very friendly
+(..5) <span style="color: #d42f2f;">hostile</span>
+(5..14.9) <span style="color: rgb(201, 106, 106);">frigid</span>
+(14.9..29.9) <span style="color: #bd9364;">cold</span>
+(29.9..39.9) <span style="color: #ac9754;">cool</span>
+(39.9..54.9) <span style="color: #dda131;">neutral</span>
+(54.9..64.9) <span style="color: #b6d42f;">warm</span>
+(64.9..74.9) <span style="color: #93e22b;">friendly</span>
+(74.9..) <span style="color: #2fd479;">very friendly</span>

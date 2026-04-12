@@ -72,7 +72,7 @@ header {
   margin-bottom: 0.5em;
   padding-left: 1em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: var(--bg-color);
+  background-color: var(--content-bg-color);
 }
 #header-links a {
   padding-right: 1em;
@@ -493,7 +493,7 @@ img {
       width: 90%;
       margin: 2em 0 1em 0;
       margin: 0.4em;
-  }
+    }
   .tools.left {
       float: none;
       left: 0;
@@ -546,37 +546,23 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
+.seat.reactionary {
     fill: #8B0000;
 }
-.seat.spd {
-    fill: #E3000F;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
+.seat.conservative {
+    fill: #c91c1c;
 }
-.seat.ddp {
-    fill: #DCCA4A;
+.seat.red_moderate {
+    fill: #ff3a3a;
 }
-.seat.z {
-    fill: #000;
+.seat.blue_moderate {
+    fill: #74c8ff;
 }
-.seat.bvp {
-    fill: #69A2BE;
+.seat.liberal {
+    fill: #2b8eff;
 }
-.seat.dvp {
-    fill: #D5AC27;
-}
-.seat.other {
-    fill: #909090;
-}
-.seat.dnvp {
-    fill: #3F7BC1;
-}
-.seat.nsdap {
-    fill: #954B00;
-}
-.seat.sapd {
-    fill: #C40000;
+.seat.progressive {
+    fill: #0044ff;
 }
 
 .tooltip-text {
@@ -604,4 +590,26 @@ table {
 }
 .advice_text {
   width: 100%;
+}
+
+.scrollable-box {
+  width: 540px;
+  /* Default width */
+  height: 200px;
+  /* Fixed height */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+
+.box {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  position: relative;
+  top: 4px;
+}
+
+.small-text {
+  font-size: 0.8em;
 }

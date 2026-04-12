@@ -1,0 +1,83 @@
+title: Status
+new-page: true
+is-special: true
+on-display: {!
+data = [
+    {
+        "id": "reactionary",
+        "legend": "Reactionary",
+        "name": "Reactionary",
+        "seats": Math.round(Q.reactionary_s),
+    },
+    {
+        "id": "conservative",
+        "legend": "Conservative",
+        "name": "Conservative",
+        "seats": Math.round(Q.conservative_s),
+    },
+    {
+        "id": "red_moderate",
+        "legend": "Republican Moderate",
+        "name": "Republican Moderate",
+        "seats": Math.round(Q.red_moderate_s),
+    },
+    {
+        "id": "blue_moderate",
+        "legend": "Moderate Democrat",
+        "name": "Moderate Democrat",
+        "seats": Math.round(Q.blue_moderate_s),
+    },
+    {
+        "id": "liberal",
+        "legend": "Liberal",
+        "name": "Liberal",
+        "seats": Math.round(Q.liberal_s),
+    },
+    {
+        "id": "progressive",
+        "legend": "Progressive",
+        "name": "Progressive",
+        "seats": Math.round(Q.progressive_s),
+    },
+];
+
+if (window && d3) {
+    var width = 200; 
+    var height = 100;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+
+!}
+
+= City Council - [+ council_s +] seats
+
+{!<svg id="reichstag" style="width: 200px; height: 100px;"> </svg>!}
+
+{!<div class="small-text">!}
+
+{!<span style="color:#ff3a3a">!}[+ republican_s +] Republican{!</span>!} and {!<span style="color:#74c8ff">!}[+ democrat_s +] Democrat{!</span>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats, [+ reactionary_relation : relationships +] relations {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats, [+ conservative_relation : relationships +] relations {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats, [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats, [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats, [+ liberal_relation : relationships +] relations {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats, [+ progressive_relation : relationships +] relations {!</td></tr>!}
+
+{!</div>!}
