@@ -1,0 +1,21 @@
+title: Training & Gear
+new-page: true
+is-card: true
+tags: streets
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+As just a man, your edge over all your adversaries ready to use fire arms if not powers higher than humans is your intense training and your gear. However, while you have reached a certain plateau in your training, your gear can always be improved. Furthermore, the rest of the bat-familly can always gain much from being trained and equiped better. It's only a question on what to buy and who to train first.
+
+- @gear: Crime is always upgrading it's capabilities, we must upgrade our own to keep up.
+- @train: I cannot do this work alone. They are people that need my support and need it now.
+
+@gear
+subtitle: You can buy as many equipment as you want at once
+
+a
+
+@train
+subtitle: You can train no more than two persons at once
+
+a

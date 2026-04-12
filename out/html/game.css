@@ -1,5 +1,5 @@
 body {
-  --bg-color: #f3f3e3;
+  --bg-color: #000;
   --border-color: #000;
   --content-bg-color: #f3f3f3;
   --text-color: #431;
@@ -199,6 +199,15 @@ blockquote + blockquote.attribution {
   float: right;
   right: 0.4em;
 }
+.advice {
+  padding: 0.6em;
+  width: 14rem;
+  color: var(--text-color);
+  background-color: var(--content-bg-color);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 500px;
+}
+
 #qualities {
   text-indent: 0;
   line-height: 1.3em;
@@ -573,4 +582,26 @@ table {
 .tooltip-text {
     text-decoration: underline;
     text-decoration-style: dotted;
+}
+
+
+
+
+  /* Testing advice board PLEASE UPDATE THE VARIABLES LATER BRO DONT USE THESE NAMES */
+
+.adviceboard {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+}
+
+.advice_img {
+    float: left;
+    max-width: 60%;
+    max-height: 60%;
+}
+.advice_text {
+  width: 100%;
 }

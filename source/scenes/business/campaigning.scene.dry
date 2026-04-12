@@ -1,0 +1,39 @@
+title: Campaigning
+new-page: true
+is-card: true
+tags: business
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+While not exactly the thing you prefer , as election are closing in, you are expected to campaign to the population. As an non ideological candidate, your objective was always the broadest appeal, who would you target?
+
+- @bluecollar: Blue collar workers, they are the largest base of swing voters.
+- @whitecollar: White collar workers, they are the largest individual group of voters.
+- @businessowner: Business Owners, they are the base of our usual adversaries.
+- @black: The Black Community, they are the most loyal voters.
+- @latino: The Latino Community, they are the fastest growing voting segment.
+- @unemployed: The Unemployed, they need our help more than anyone else.
+
+@bluecollar
+
+--
+
+@whitecollar
+
+--
+
+@businessowner
+
+--
+
+@black
+
+--
+
+@latino
+
+--
+
+@unemployed
+
+--

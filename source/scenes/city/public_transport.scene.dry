@@ -1,0 +1,70 @@
+title: Public Transport
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+Public transportation inside of Gotham is a lifeblood that is keeping the entire city from breaking upon it's own car dependency. They have since become universal in support and universal in the requirement for them not to cost any money and not to disrupt them in any way. Which of the great pillars of Gothamite transportation would you wish to invest upon?
+
+- @subway: The current system is in clear need of expansion.
+- @buses: They need to be more than just a band-aid solution.
+- @taxis: The mess they have found themselves in is simply unacceptable.
+
+@subway
+
+Oh wow! Trains! Trains are so cool!
+
+@buses
+
+Bus are in the shitter yaddi yaddi yadda, will be more personable later :>|
+
+
+@taxis
+
+The taxi system of Gotham city is filled corruption bound into rot settled inside of putrefaction. Their is so much wrong with the current system that entangling it all will require a guillotine to the gordian knot. Where would you begin?
+
+- @medallion: We need to reform the medallion system. Their's simply not enough medallion to serve the current city and too many "Gypsie Cabs" pushed on to compensate the demand.
+- @lease: We need to reform the leasing System. Cabs should not be exploited and this current exploitation needs to end now!
+- @tech: The drivers are driving with decade old technology that limit both their efficiency and put them into unnecessary risk.
+
+@medallion
+
+- @medallion_cap: Remove the cap on Medallion.
+- @medallion_number: Progressively increase Medallion numbers.
+- @medallion_buy: Buy up the Medallions. (Allows you to turn it into a municipally owned corporation or turn it into a coop)
+- @medallion_buy_lease: Buy up the car lease of the city.
+- @medallion_cap_buy: Remove the cap on medallion, and then buy them after the price crashed.
+
+@medallion_cap
+
+@medallion_number
+
+@medallion_buy
+
+@medallion_buy_lease
+
+@medallion_cap_buy
+
+@lease
+
+- @lease_reform: Reform the Leasing System.
+- @lease_buy: Buy the Leasing company.
+
+@lease_reform
+
+@lease_buy
+
+@tech
+
+- @tech_camera: Camera's in every cars
+- @tech_gps: GPS in every cars.
+- @tech_buy: Buy up new cars (if you have bought the leasing companies)
+
+
+@tech_camera
+
+@tech_gps
+
+@tech_buy
+

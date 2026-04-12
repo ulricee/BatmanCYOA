@@ -1,0 +1,58 @@
+title: Labor
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+Union busting as been the unsaid policy of the Quincy Sharp Year's, however, they have since become much stronger and organized since Lonnie Machin's ascension. If you are to avoid their wrath, a proactive position on Union right's whould help satisfy their needs.
+
+You may push the following reforms to the City council:
+
+- @safety: We need to reform the city safety and work standards:
+- @contract: We need to reinforce their Job and contract security.
+- @overtime: We need to support their right to overtime pay.
+- @salary: We need to support a salary increase for workers.
+- @pension: We need to support workers pension.
+- @healthcare: We need to support Worker's Healthcare Benefit.
+- @hours: We need to renegotiate the workers Working Hours.
+- @lonnie: We need to do something about Lonnie Machin...
+
+@safety
+subtitle: This subject isn't seen as too toxic by the council.
+
+A
+
+@contract
+subtitle: This subject isn't seen as too toxic by the council.
+
+a
+
+@overtime
+subtitle: This subject isn't seen as too toxic by the council.
+
+a
+
+@salary
+subtitle: This subject is seen as toxic by the council.
+
+A
+
+@pension
+subtitle: This subject is seen as toxic by the council.
+
+a
+
+@healthcare
+subtitle: This Subject is seen as toxic by the council.
+
+a
+
+@hours
+subtitle: This Subject is seen as Toxic by the council.
+
+A
+
+@lonnie
+
+A

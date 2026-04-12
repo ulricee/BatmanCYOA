@@ -206,6 +206,16 @@
 
   window.onDisplayContent = function() {
       window.updateSidebar();
+      window.advice();
+    };
+
+
+  window.advice = function() {
+      $('#turn_advice').empty();
+      var scene = dendryUI.game.scenes[window.adviceBoard];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#turn_advice').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
   /*
@@ -242,6 +252,7 @@
 
   window.justLoaded = true;
   window.statusTab = "status";
+  window.adviceBoard = "turn_advice";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 

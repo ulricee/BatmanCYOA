@@ -1,0 +1,89 @@
+title: Taxation
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+No one want to pay them, but if anything is to get done in the City, money as to be taken from somewhere. The previous administration have been rather light on taxation, seemingly rather found of the ideas of Flat Taxes espoused by Steve Forbes. In the current situation, while the town isn't getting poorer, further increase in taxation would do a great amount of good if things are to be built and reform throughout the city.
+
+- @property: Let's explore Property Taxes, our main avenue of revenue.
+- @income: Let's explore Income Tax, the one everyone know.
+- @sales: Let's explore sales tax, the most unpopular one.
+
+
+@property
+
+
+- @property_increase: Increase Property tax
+- @property_decrease: Decrease Property tax
+- @land: Institute a Land Tax
+- @cap: Cap property tax on income
+
+@property_increase
+subtitle: Will make most of everybody very upset
+
+a
+
+@property_decrease
+subtitle: Would be very popular but very financially unsustainable
+
+a
+
+@land
+subtitle: Very Innovative and efficient but also has great pushback from a lot of land owners.
+
+a
+
+@cap
+subtitle: Will limit the property tax home owners to a certain percentage of their income, avoiding them being overwhelmed by it.
+
+a
+
+@income
+
+- @income_increase: Increase income tax
+- @income_decrease: Decrease income tax
+- @high: Increase tax on the high income.
+- @commuter: Restore the Commuter Tax
+
+@income_increase
+subtitle: Will make everyone upset
+
+a
+
+@income_decrease
+subtitle: One way of pleasing everyone.
+
+a
+
+@high
+subtitle: Will end the flat taxation while limiting the amount of people scorned.
+
+a
+
+@commuter
+subtitle: Will require a conversation with the governor and most likely concession in return.
+
+a
+
+@sales
+
+- @increase_sales: Increase Sales Tax
+- @decrease_sales: Diminish Sales Tax
+- @abolish: Abolish Sales Tax
+
+@increase_sales
+subtitle: Overwhelmingly unpopular
+
+a
+
+@decrease_sales
+subtitle: Overwhelmingly popular
+
+a
+
+@abolish
+subtitle: Overwhelmingly popular but will need to be compensated with other revenue source.
+
+a
