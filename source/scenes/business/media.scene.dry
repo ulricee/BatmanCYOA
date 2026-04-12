@@ -1,0 +1,32 @@
+title: Media
+new-page: true
+is-card: true
+tags: business
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+#subtitle: Setting the direction for our newspapers and radio.
+
+= Media
+
+Unlike most of the country, Gotham still possesses a vibrant Newspaper industry in addition to it's radio's and Local TV stations. However, this is a part of the pie that the Wayne Empire as not been using to it's fullest extent preferring to operate out of view. While contacts have been formed during your electoral campaign, they are still vastly undersized compared to what they ought to be. What should be done?
+
+- @dailyplanet: Let us strengthen our contact with the Daily Planet. It's been the paper most positive about super heroes after all.
+- @gothamstar: Our best bet would most likely be the Gotham Star. It's been the paper of choice for most of the population.
+- @gothamgazette: Maybe we should try and reach for the Gotham Gazette. It would do good to broaden the appeal of my administration.
+- @mediaempire: It may sound Cavalier but... Wouldn't it be good for us to form our own media empire? Bloomberg and Forbes did it, Why not us? (Cost 2PF)
+
+@dailyplanet
+
+As the Daily planet isn't based in Gotham, it's reach is smaller than other newspaper. It's Liberal leaning appeal generally rest in the middle class of the city. However, it could open us to it's great investigative journalist.
+
+@gothamstar
+
+The Gotham Star tries to appeal both to the largest amount of people while brandishing impartiality. It cast the broadest net of all papers.
+
+@gothamgazette
+
+The Gotham Gazette conservative bias made it the most popular among business owners and some blue collar workers. Persons that read it tended not to vote for you.
+
+@mediaempire
+
+Creating your media empire is a risky investment as it's likely to work at a loss for it's first years of operation. It's also your best shot toward achieving the best messaging you could hope for.

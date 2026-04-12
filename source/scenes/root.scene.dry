@@ -21,7 +21,7 @@ on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
-Q.year = 1928;
+Q.year = 1994;
 Q.month = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -534,47 +534,28 @@ Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
 
-// all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
-Q.muller_dead = 0;
-// okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
-Q.crispien_advisor = 0; // Arthur Crispien
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+// initial advisors.
+Q.gordon_advisor = 1; // James Gordon
+Q.rupert_advisor = 1; // Rupert Thorne
+Q.lucius_advisor = 1; // Lucius Fox
 
-// left advisors
-Q.sender_advisor = 0; // Toni Sender
-Q.levi_advisor = 0; // Paul Levi
-Q.levi_dead = 0;
-Q.rosenfeld_advisor = 0; // Kurt Rosenfeld
-Q.seydewitz_advisor = 0; // Max Seydewitz
+// Police Commissioners
 
-// centrist alternate advisors
-Q.pfulf_advisor = 0; // Antonie Pfülf
-Q.breitscheid_advisor = 0; // Rudolf Breitscheid
+Q.harvey_advisor = 0; //Harvey Bullock
+Q.gil_advisor = 0; // Gil Mason
+Q.montoya_advisor = 0; // Renée Montoya
 
-// Reformist advisors
-Q.severing_advisor = 0; // Carl Severing
-Q.braun_advisor = 0; // Otto Braun
-Q.juchacz_advisor = 0; // Marie Juchacz
-Q.baade_advisor = 0; // Fritz Baade
 
-// Labor advisors
-Q.leipart_advisor = 0; // Theodor Leipart
-Q.aufhauser_advisor = 0; // Siegfried Aufhäuser
-Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
-Q.wissell_advisor = 0; // Rudolf Wissell
+// Speakers
 
-// Revisionist advisors
-Q.mierendorff_advisor = 0; // Carlo Mierendorf (post-1930)
+Q.hamilton_advisor = 0; // Hamilton Hill (Liberal Democrat)
+Q.doug_advisor = 0; // Doug Thomas (Independant)
 
-Q.leber_advisor = 0; // Julius Leber (post-1930)
-Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
+// Business Advisor
+Q.selina_advisor = 0; // Selina Kyle
+Q.alfred_advisor = 0; // Alfred Pennyworth
 
-// Nonfactional advisors
-Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
-Q.radbruch_advisor = 0; // Gustav Radbruch
-Q.stampfer_advisor = 0; // Friedrich Stampfer
+
 !}
 set-bg: img/map_2.jpg
 new-page: true
@@ -625,10 +606,10 @@ audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= 1928
+= January 1994
 
-It is a bright time for German democracy. After a period of struggle, inflation is finally under control, and the economy is expanding steadily. In foreign policy, we have reached agreements with the Western powers and the Soviet Union that might make genuine peace a reality. 
+After an easier than expected electoral triumph against Quincy Sharp, you now have powers greater than you've ever seen before to change everything inside of Gotham.
 
-Now, the task of Social Democracy is to prepare for the next election. The bourgeois-right government of Wilhelm Marx is unpopular, and we stand to gain. Perhaps the next government will have a socialist majority.
+However, power is never without its cost. For every power gained, a reflection imparts its influence on something else. If power doesn't corrupts you, it will corrupt someone else.
 
-
+Yet, as the stakes have never been higher, it is on you to finally break the cycle. Gotham's fate was never a fatality.

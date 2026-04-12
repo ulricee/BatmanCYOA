@@ -1,10 +1,11 @@
 {
-  "name": " social_democracy_alternate_history",
+  "name": "social_democracy_alternate_history",
   "version": "0.11.1",
   "description": "Building the game:",
   "main": "out/html/index.html",
   "scripts": {
-    "dendrynexus": "dendrynexus"
+    "dendrynexus": "dendrynexus",
+    "dendry": "dendry"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/aucchen/social_democracy_alternate_history",
   "dependencies": {
     "dendrynexus": "github:aucchen/dendrynexus",
-    "parliament-svg": "^3.0.0"
+    "parliament-svg": "^3.0.0",
+    "dendry": "github:aucchen/dendry"
   }
 }

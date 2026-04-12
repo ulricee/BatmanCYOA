@@ -1,0 +1,43 @@
+title: Special Squads
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+a
+
+- @robin: Reactivating "We Are Robin"
+- @suicide_squad: The "Suicide Squad"
+
+@robin
+subtitle: "We are Robin" as been put down as an actual self defense group since the end of the dark year as the situation no longer called for a bunch of teenager cosplaying as the warriors to help bring peace into the city. However, depending on how you wish to reactivate it, it may still have a place.
+
+@suicide_squad
+subtitle: This idea that as been floating around would use criminals to take down criminals. Among a selected group of vilains, they would be granted sentence reduction against high risk operations. Unless the situation truly becomes critical, having it approved will be a challenge.
+
+- @bane: Bane
+- @killer_croc: Killer Croc
+- @polka: Polka Dot Man
+- @kite: Kite Man
+- @catman:  Catman
+- @clue: Clue Master
+- @captain_boomerang: Captain Boomerang
+- @catwoman: Catwoman
+
+@bane
+
+@killer_croc
+
+@polka
+
+@kite
+
+@catman
+
+@clue
+
+@captain_boomerang
+
+@catwoman
+

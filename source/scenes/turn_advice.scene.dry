@@ -1,0 +1,22 @@
+title: Advice Board
+new-page: true
+is-special: true
+
+= Advice Board
+
+{!
+    <div class="adviceboard">
+    <div class="fleximg">
+        <img src="img/portraits/james_gordon.png" class="advice_img">
+        <div class="fleximg2">
+            <p class="advice_text"><b>James Gordon:</b></p>
+            <p>Hi Batman
+               tougher on crime pls</p>
+        </div>
+    </div>
+    </div>
+
+!}
+
+
+

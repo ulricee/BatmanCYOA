@@ -1,0 +1,8 @@
+title: Lucius Fox
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/lucius_fox.png
+view-if: lucius_advisor = 1
+new-page: true 
+
+Lucius

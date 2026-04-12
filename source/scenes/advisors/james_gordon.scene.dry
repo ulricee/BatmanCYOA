@@ -1,0 +1,8 @@
+title: James Gordon
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/james_gordon.png
+view-if: gordon_advisor = 1
+new-page: true 
+
+Gordon
