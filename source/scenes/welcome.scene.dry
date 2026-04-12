@@ -1,0 +1,201 @@
+title: Welcome
+new-page: true
+is-special: true
+
+WIP
+
+- @law_and_order: Law and Order promises.
+- @admnistration: Admnistration policies.
+
+@law_and_order
+
+- @law_crime: Reduce the Crime Rate
+- @law_police: Increase Number of Policemen
+- @law_prison: Resolve Prison Overcrowding
+- @law_reform: Reform the police
+- @law_demilitarize: Demilitarize the police
+- @law_system: Reform the prison system
+- @law_mob: Takedown the mob
+- @law_discrimination: Fight discrimination
+
+
+@law_crime
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+
+@law_police
+
+WIP
+
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_prison
+
+WIP
+
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_reform
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_demilitarize
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_system
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_mob
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@law_discrimination
+
+WIP
+
+- @law_and_order: More promises
+- @admnistration: Admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration
+
+- @admnistration_transport: Build up Public Transport
+- @admnistration_taxes_lower: Lower Taxes
+- @admnistration_taxes_same: Keep taxes the same
+- @admnistration_taxes_increase: Increase Taxes
+- @admnistration_social_lower: Lower Social benefits
+- @admnistration_social_maintain: Maintain Social benefits
+- @admnistration_social_increase: Increase social benefits
+- @admnistration_poverty_decrease: Decrease poverty
+- @admnistration_unemployment: Decrease Unemployment
+- @admnistration_economy: Improve the economy
+- @admnistration_labor: Improve labor rights
+- @admnistration_corruption: Root out corruption
+
+@admnistration_transport
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_taxes_lower
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_taxes_same
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_taxes_increase
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_social_lower
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_social_maintain
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_social_increase
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_poverty_decrease
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_unemployment
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_economy
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_labor
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@admnistration_corruption
+
+WIP
+
+- @law_and_order: Law promises
+- @admnistration: More admnistration promises.
+- @campaign_end: We've promised enough.
+
+@campaign_end
+go-to: root.1928_main
