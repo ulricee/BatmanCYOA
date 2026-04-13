@@ -68,16 +68,281 @@ if (window && d3) {
 
 {!<span style="color:#ff3a3a">!}[+ republican_s +] Republican{!</span>!} and {!<span style="color:#74c8ff">!}[+ democrat_s +] Democrat{!</span>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats, [+ reactionary_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats ([+ reactionary_percent +]%), [+ reactionary_relation : relationships +] relations {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats, [+ conservative_relation : relationships +] relations {!</td></tr>!}
+[? if bristol_seats_reactionary > 0 : - [+ bristol_seats_reactionary +] from Bristol Seats ?]
 
-{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats, [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
+[? if bristol_burnley_seats_reactionary > 0 : - [+ bristol_burnley_seats_reactionary +] from Bristol-Burnley ?]
 
-{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats, [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
+[? if new_gotham_seats_reactionary > 0 : - [+ new_gotham_seats_reactionary +] from New Gotham ?]
 
-{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats, [+ liberal_relation : relationships +] relations {!</td></tr>!}
+[? if mr_gerrymander_reactionary > 0 : - [+ mr_gerrymander_seats_reactionary +] from New Gotham - Burnley - Sommerset ?]
 
-{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats, [+ progressive_relation : relationships +] relations {!</td></tr>!}
+[? if old_gotham_seats_reactionary > 0 : - [+ old_gotham_seats_reactionary +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_reactionary > 0 : - [+ old_gotham_burnside_seats_reactionary +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_reactionary > 0 : - [+ burnside_seats_reactionary +] from Burnside ?]
+
+[? if sommerset_seats_reactionary > 0 : - [+ sommerset_seats_reactionary +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_reactionary > 0 : - [+ sommerset_burnley_seats_reactionary +] from Sommerset - burnley ?]
+
+[? if burnley_seats_reactionary > 0 : - [+ burnley_seats_reactionary +] from Burnley ?]
+
+{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats ([+ conservative_percent +]%), [+ conservative_relation : relationships +] relations {!</td></tr>!}
+
+
+[? if bristol_seats_conservative > 0 : - [+ bristol_seats_conservative +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_conservative > 0 : - [+ bristol_burnley_seats_conservative +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_conservative > 0 : - [+ new_gotham_seats_conservative +] from New Gotham ?]
+
+[? if mr_gerrymander_conservative > 0 : - [+ mr_gerrymander_seats_conservative +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_conservative > 0 : - [+ old_gotham_seats_conservative +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_conservative > 0 : - [+ old_gotham_burnside_seats_conservative +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_conservative > 0 : - [+ burnside_seats_conservative +] from Burnside ?]
+
+[? if sommerset_seats_conservative > 0 : - [+ sommerset_seats_conservative +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_conservative > 0 : - [+ sommerset_burnley_seats_conservative +] from Sommerset - burnley ?]
+
+[? if burnley_seats_conservative > 0 : - [+ burnley_seats_conservative +] from Burnley ?]
+
+{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats ([+ red_moderate_percent +]%), [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_red_moderate > 0 : - [+ bristol_seats_red_moderate +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_red_moderate > 0 : - [+ bristol_burnley_seats_red_moderate +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_red_moderate > 0 : - [+ new_gotham_seats_red_moderate +] from New Gotham ?]
+
+[? if mr_gerrymander_red_moderate > 0 : - [+ mr_gerrymander_seats_red_moderate +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_red_moderate > 0 : - [+ old_gotham_seats_red_moderate +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_red_moderate > 0 : - [+ old_gotham_burnside_seats_red_moderate +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_red_moderate > 0 : - [+ burnside_seats_red_moderate +] from Burnside ?]
+
+[? if sommerset_seats_red_moderate > 0 : - [+ sommerset_seats_red_moderate +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_red_moderate > 0 : - [+ sommerset_burnley_seats_red_moderate +] from Sommerset - burnley ?]
+
+[? if burnley_seats_red_moderate > 0 : - [+ burnley_seats_red_moderate +] from Burnley ?]
+
+{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats ([+ blue_moderate_percent +]%), [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_blue_moderate > 0 : - [+ bristol_seats_blue_moderate +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_blue_moderate > 0 : - [+ bristol_burnley_seats_blue_moderate +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_blue_moderate > 0 : - [+ new_gotham_seats_blue_moderate +] from New Gotham ?]
+
+[? if mr_gerrymander_blue_moderate > 0 : - [+ mr_gerrymander_seats_blue_moderate +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_blue_moderate > 0 : - [+ old_gotham_seats_blue_moderate +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_blue_moderate > 0 : - [+ old_gotham_burnside_seats_blue_moderate +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_blue_moderate > 0 : - [+ burnside_seats_blue_moderate +] from Burnside ?]
+
+[? if sommerset_seats_blue_moderate > 0 : - [+ sommerset_seats_blue_moderate +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_blue_moderate > 0 : - [+ sommerset_burnley_seats_blue_moderate +] from Sommerset - burnley ?]
+
+[? if burnley_seats_blue_moderate > 0 : - [+ burnley_seats_blue_moderate +] from Burnley ?]
+
+{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats ([+ liberal_percent +]%), [+ liberal_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_liberal > 0 : - [+ bristol_seats_liberal +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_liberal > 0 : - [+ bristol_burnley_seats_liberal +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_liberal > 0 : - [+ new_gotham_seats_liberal +] from New Gotham ?]
+
+[? if mr_gerrymander_liberal > 0 : - [+ mr_gerrymander_seats_liberal +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_liberal > 0 : - [+ old_gotham_seats_liberal +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_liberal > 0 : - [+ old_gotham_burnside_seats_liberal +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_liberal > 0 : - [+ burnside_seats_liberal +] from Burnside ?]
+
+[? if sommerset_seats_liberal > 0 : - [+ sommerset_seats_liberal +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_liberal > 0 : - [+ sommerset_burnley_seats_liberal +] from Sommerset - burnley ?]
+
+[? if burnley_seats_liberal > 0 : - [+ burnley_seats_liberal +] from Burnley ?]
+
+{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats ([+ progressive_percent +]%), [+ progressive_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_progressive > 0 : - [+ bristol_seats_progressive +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_progressive > 0 : - [+ bristol_burnley_seats_progressive +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_progressive > 0 : - [+ new_gotham_seats_progressive +] from New Gotham ?]
+
+[? if mr_gerrymander_progressive > 0 : - [+ mr_gerrymander_seats_progressive +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_progressive > 0 : - [+ old_gotham_seats_progressive +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_progressive > 0 : - [+ old_gotham_burnside_seats_progressive +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_progressive > 0 : - [+ burnside_seats_progressive +] from Burnside ?]
+
+[? if sommerset_seats_progressive > 0 : - [+ sommerset_seats_progressive +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_progressive > 0 : - [+ sommerset_burnley_seats_progressive +] from Sommerset - burnley ?]
+
+[? if burnley_seats_progressive > 0 : - [+ burnley_seats_progressive +] from Burnley ?]
+
+{!</div>!}
+
+debug content:
+
+unemployed [+ unemployed_weight_election +]
+
+blue [+ blue_collar_weight_election +]
+
+white [+ white_collar_weight_election +]
+
+business [+ business_weight_election +]
+
+black [+ black_weight_election +]
+
+latino [+ latino_weight_election +]
+
+@polls
+
+= City Wide Support [+ city_wide_support_display +]%
+
+[+ approval_gap +]
+
+
+{!<div class="small-text">!}
+
+Unemployed Support: [+ unemployed_support_display +]% 
+
+Blue Collar Support: [+ blue_collar_support_display +]%
+
+White Collar Support: [+ white_collar_support_display +]%
+
+Business Support: [+ business_support_display +]%
+
+Black Support: [+ black_support_display +]%
+
+Latino Support: [+ latino_support_display +]%
+
+{!<div class="scrollable-box-polls">!}
+
+= Burnley ([+ burnley_total_display +]% Approval)
+
+The old industrial heart of the city that has since then went into quite some decline.
+
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnley_approval_display +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_burnley_support_display +]%{!</b>!} out of {!<b>!}[+ unemployed_burnley +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_burnley_city_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnley_city_total_display +]%{!</b>!} possible.
+
+{!<b>!}Blue Collar:{!</b>!} [+ blue_collar_burnley_approval_display +]% supports Bruce. 
+This is [+ blue_collar_burnley_support_display +]% out of [+ blue_collar_burnley +]% of the district population.
+
+
+{!<b>!}White Collar:{!</b>!} [+ white_collar_burnley_approval_display +]% supports Bruce. 
+This is [+ white_collar_burnley_support_display +]% out of [+ white_collar_burnley +]% of the district population.
+
+{!<b>!}Business:{!</b>!} [+ business_burnley_approval_display +]% supports Bruce. 
+This is [+ business_burnley_support_display +]% out of [+ business_burnley +]% of the district population.
+
+{!<b>!}Black:{!</b>!} [+ black_burnley_approval_display +]% supports Bruce. 
+This is [+ black_burnley_support_display +]% out of [+ black_burnley +]% of the district population.
+
+{!<b>!}Latino:{!</b>!} [+ latino_burnley_approval_display +]% supports Bruce. 
+This is [+ latino_burnley_support_display +]% out of [+ latino_burnley +]% of the district population.
+
+
+= Somerset ([+ somerset_total_display +]% Approval)
+
+Set right in the middle of Gotham, it's the bustling commercial center.
+
+Unemployed: [+ unemployed_somerset_support_display +]%
+
+Blue Collar: [+ blue_collar_somerset_support_display +]%
+
+White Collar:[+ white_collar_somerset_support_display +]% 
+
+Business:[+ business_somerset_support_display +]% 
+
+Black:[+ black_somerset_support_display +]% 
+
+Latino:[+ latino_somerset_support_display +]% 
+
+= New Gotham ([+ new_gotham_total_display +]% Approval)
+
+Highly international. Tech companies. New wealth. That's what goes on in New Gotham.
+
+Unemployed: [+ unemployed_new_gotham_support_display +]% 
+
+Blue Collar: [+ blue_collar_new_gotham_support_display +]% 
+
+White Collar:[+ white_collar_new_gotham_support_display +]% 
+
+Business:[+ business_new_gotham_support_display +]% 
+
+Black:[+ black_new_gotham_support_display +]% 
+
+Latino:[+ latino_new_gotham_support_display +]% 
+
+= Old Gotham ([+ old_gotham_total_display +]% Approval)
+
+The old gothic part of the city, with some very rich estates and some very poor slums.
+
+Unemployed: [+ unemployed_old_gotham_support_display +]% 
+
+Blue Collar: [+ blue_collar_old_gotham_support_display +]% 
+
+White Collar:[+ white_collar_old_gotham_support_display +]% 
+
+Business:[+ business_old_gotham_support_display +]% 
+
+Black:[+ black_old_gotham_support_display +]% 
+
+Latino:[+ latino_old_gotham_support_display +]% 
+
+= Burnside ([+ burnside_total_display +]% Approval)
+
+An upper middle class district.
+
+Unemployed: [+ unemployed_burnside_support_display +]% 
+
+Blue Collar: [+ blue_collar_burnside_support_display +]% 
+
+White Collar: [+ white_collar_burnside_support_display +]% 
+
+Business:[+ business_burnside_support_display +]% 
+
+Black:[+ black_burnside_support_display +]% 
+
+Latino:[+ latino_burnside_support_display +]% 
+
+= Bristol ([+ bristol_total_display +]% Approval)
+
+Unemployed: [+ unemployed_bristol_support_display +]% 
+
+Blue Collar: [+ blue_collar_bristol_support_display +]% 
+
+White Collar: [+ white_collar_bristol_support_display +]% 
+
+Business: [+ business_bristol_support_display +]% 
+
+Black: [+ black_bristol_support_display +]% 
+
+Latino: [+ latino_bristol_support_display +]% 
+
+{!</div>!}
 
 {!</div>!}

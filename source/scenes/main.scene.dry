@@ -26,6 +26,12 @@ max-cards: 3
 
 {!</div>!}
 
+{!
+<audio controls class="audio" loop eager autoplay>
+  <source src="audio/horse.mp3" type="audio/mp3">
+</audio>
+!}
+
 - @business
 - @city
 - @streets

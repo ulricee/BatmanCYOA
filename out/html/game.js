@@ -229,6 +229,7 @@
 
   window.onDisplayContent = function() {
       window.updateSidebar();   
+      window.updateSidebarRight();
       window.advice();
     };
 
@@ -275,6 +276,7 @@
 
   window.justLoaded = true;
   window.statusTab = "status";
+  window.statusTabRight = "status_right";
   window.adviceBoard = "turn_advice";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
@@ -287,4 +289,9 @@
     window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
   };
 
-}());
+// Progress bar test
+
+
+}
+
+());

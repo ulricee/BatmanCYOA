@@ -8,17 +8,19 @@ is-special: true
 
 Approval Rate: [+ approval_rating : approval_display +]%
 
-Credibility: 5.0%
+Credibility: 5.0% ↓
 
-Personal Funds: 5.0
+Personal Funds: 5.0 ↑
 
-Mayoral Budget: 10.0
+Mayoral Budget: 10.0 ↑
 
-Poverty Rate: Growing Dangerously
+Poverty Rate: Growing Dangerously ↑
 
-Economic Situation: Fragile Balance
+Economic Situation: Fragile Balance ↑
 
-Order/Freedom: -5
+Order: [+ order +]
+
+Freedom: [+ freedom +]
 
 @city
 
@@ -61,23 +63,44 @@ Socialists: [+ socialist_relation : relationships +]
 
 @crime
 
-a
+Crime Rate:
 
-@polls
-on-arrival: {!
-Q.pro_republic_disp = Math.round(Q.pro_republic);
-Q.nationalism_disp = Math.round(Q.nationalism);
-Q.socialism_disp = Math.round(Q.socialism);
-!}
+Falcone Status:
 
-= Burnley
+Penguin Status:
 
-= Somerset
+black Mask Status: (start's hidden)
 
-= New Gotham
+Joker Status:
 
-= Old Gotham
+Size of the police:
 
-= Burnside
+Equipment of the Police:
 
-= Bristol
+Curative / Preventive:
+
+Militarization:
+
+Lethality:
+
+Hero Support:
+
+Prison Glut:
+
+Punitive / Corrective / Rehabilitative
+
+Arkham City project: (start's hidden)
+
+"We Are Robin" (size and status if reactivated)
+
+Suicide Squad (Size and Status)
+
+County Prosecutor:
+
+Judges:
+
+Jury:
+
+@family 
+
+Family is good.

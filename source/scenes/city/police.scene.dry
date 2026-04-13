@@ -1,0 +1,28 @@
+title: Police
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+- @commissioner: Commissioner Appointment
+
+
+@commissioner
+
+- @gilmason: Gil Mason
+- @harveybullock: Harvey Bullock
+- @reneemontoya: Renée Montoya
+
+@gilmason
+
+WIP
+
+@harveybullock
+
+WIP
+
+@reneemontoya
+
+WIP
+
