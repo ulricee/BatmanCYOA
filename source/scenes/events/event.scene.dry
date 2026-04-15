@@ -1,6 +1,8 @@
-title: Status
+title: Event
 new-page: true
-is-special: true
+tags: event
+view-if: year = 1994 and month = 2
+max-visits: 1
 on-display: {!
 data = [
     {
@@ -44,25 +46,24 @@ data = [
 
 
 if (window && d3) {
-    var width = 200; 
-    var height = 100;
+    var width = 1000; 
+    var height = 500;
     var screenWidth = document.getElementById('content').offsetWidth;
     if (screenWidth < width - 50) {
         width = screenWidth - 50; 
         height = width;
-        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+        document.getElementById("parliament").style.height = screenWidth/2 + "px";
     } 
 
     var parliament = d3.parliament();
     parliament.width(width).height(height).innerRadiusCoef(0.4);
     parliament.enter.fromCenter(true).smallToBig(true);
     parliament.exit.toCenter(false).bigToSmall(true);
-    d3.select("#reichstag").datum(data).call(parliament);
+    d3.select("#parliament").datum(data).call(parliament);
 }
 
-
  displayReactionarySeat = function () {
-    const resultsDiv = document.getElementById('hiddenreaction');
+    const resultsDiv = document.getElementById('hiddenreaction2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -72,7 +73,7 @@ if (window && d3) {
 };
 
  displayConservativeSeat = function () {
-    const resultsDiv = document.getElementById('hiddenconservative');
+    const resultsDiv = document.getElementById('hiddenconservative2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -82,7 +83,7 @@ if (window && d3) {
 };
 
  displayRepSeat = function () {
-    const resultsDiv = document.getElementById('hiddenred');
+    const resultsDiv = document.getElementById('hiddenred2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -92,7 +93,7 @@ if (window && d3) {
 };
 
  displayDemSeat = function () {
-    const resultsDiv = document.getElementById('hiddenblue');
+    const resultsDiv = document.getElementById('hiddenblue2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -104,7 +105,7 @@ if (window && d3) {
 
 
  displayLiberalSeat = function () {
-    const resultsDiv = document.getElementById('hiddenliberal');
+    const resultsDiv = document.getElementById('hiddenliberal2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -115,7 +116,7 @@ if (window && d3) {
 
 
  displayProgressiveSeat = function () {
-    const resultsDiv = document.getElementById('hiddenprogressive');
+    const resultsDiv = document.getElementById('hiddenprogressive2');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
@@ -182,17 +183,16 @@ for (var i = 0; i < r.length; i++) {
 
 = City Council - [+ council_s +] seats
 
-{!<svg id="reichstag" class="reichstag" style="width: 200px; height: 100px;"> </svg>!}
+{!<svg id="parliament" style="width: 1000px; height: 500px;"> </svg>!}
 
-{!<div class="small-text">!}
 
 Click on seat to show category.
 
 {!<button class="button_show_council" onclick="displayRepublicanSeats();"> <span style="color:#ff3a3a" id="republicanshow">!}[+ republican_s +] Republican{!</span></button>!} and {!<button class="button_show_council" onclick="displayDemocratSeats();"><span style="color:#74c8ff" id="democratshow">!}[+ democrat_s +] Democrat{!</span></button>!}
 
-{!<div class="hiddenrep" id="hiddenrep">!}
+{!<div class="hiddenrep" id="hiddenrep2">!}
 
-{!<div class="hiddenreaction" id="hiddenreaction">!}
+{!<div class="hiddenreaction" id="hiddenreaction2">!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats ([+ reactionary_percent +]%), [+ reactionary_relation : relationships +] relations {!</td></tr>!}
 
@@ -218,7 +218,7 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!<div class="hiddenconservative" id="hiddenconservative">!}
+{!<div class="hiddenconservative" id="hiddenconservative2">!}
 
 {!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats ([+ conservative_percent +]%), [+ conservative_relation : relationships +] relations {!</td></tr>!}
 
@@ -244,7 +244,7 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!<div class="hiddenred" id="hiddenred">!}
+{!<div class="hiddenred" id="hiddenred2">!}
 
 {!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats ([+ red_moderate_percent +]%), [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
 
@@ -272,9 +272,9 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!<div class="hiddendem" id="hiddendem">!}
+{!<div class="hiddendem" id="hiddendem2">!}
 
-{!<div class="hiddenblue" id="hiddenblue">!}
+{!<div class="hiddenblue" id="hiddenblue2">!}
 
 {!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats ([+ blue_moderate_percent +]%), [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
 
@@ -300,7 +300,7 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!<div class="hiddenliberal" id="hiddenliberal">!}
+{!<div class="hiddenliberal" id="hiddenliberal2">!}
 
 {!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats ([+ liberal_percent +]%), [+ liberal_relation : relationships +] relations {!</td></tr>!}
 
@@ -326,7 +326,7 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!<div class="hiddenprogressive" id="hiddenprogressive">!}
+{!<div class="hiddenprogressive" id="hiddenprogressive2">!}
 
 {!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats ([+ progressive_percent +]%), [+ progressive_relation : relationships +] relations {!</td></tr>!}
 
@@ -354,166 +354,8 @@ Click on seat to show category.
 
 {!</div>!}
 
-{!</div>!}
+- @no: a
 
+@no
 
-debug content:
-
-unemployed [+ unemployed_weight_election +]
-
-blue [+ blue_collar_weight_election +]
-
-white [+ white_collar_weight_election +]
-
-business [+ business_weight_election +]
-
-black [+ black_weight_election +]
-
-latino [+ latino_weight_election +]
-
-debug ideolol 
-
-unemployed [+ unemployed_ideology +]
-
-blue [+ blue_collar_ideology +]
-
-white [+ white_collar_ideology +]
-
-business [+ business_ideology +]
-
-black [+ black_ideology +]
-
-latino [+ latino_ideology +]
-
-[+ ideology_support +]
-
-
-@polls
-
-= City Wide Support [+ city_wide_support_display +]%
-
-[+ approval_gap +]
-
-
-{!<div class="small-text">!}
-
-Unemployed Support: [+ unemployed_support_display +]% 
-
-Blue Collar Support: [+ blue_collar_support_display +]%
-
-White Collar Support: [+ white_collar_support_display +]%
-
-Business Support: [+ business_support_display +]%
-
-Black Support: [+ black_support_display +]%
-
-Latino Support: [+ latino_support_display +]%
-
-{!<div class="scrollable-box-polls">!}
-
-= Burnley ([+ burnley_total_display +]% Approval)
-
-The old industrial heart of the city that has since then went into quite some decline.
-
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnley_approval_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_burnley_support_display +]%{!</b>!} out of {!<b>!}[+ unemployed_burnley +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_burnley_city_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnley_city_total_display +]%{!</b>!} possible.
-
-{!<b>!}Blue Collar:{!</b>!} [+ blue_collar_burnley_approval_display +]% supports Bruce. 
-This is [+ blue_collar_burnley_support_display +]% out of [+ blue_collar_burnley +]% of the district population.
-
-
-{!<b>!}White Collar:{!</b>!} [+ white_collar_burnley_approval_display +]% supports Bruce. 
-This is [+ white_collar_burnley_support_display +]% out of [+ white_collar_burnley +]% of the district population.
-
-{!<b>!}Business:{!</b>!} [+ business_burnley_approval_display +]% supports Bruce. 
-This is [+ business_burnley_support_display +]% out of [+ business_burnley +]% of the district population.
-
-{!<b>!}Black:{!</b>!} [+ black_burnley_approval_display +]% supports Bruce. 
-This is [+ black_burnley_support_display +]% out of [+ black_burnley +]% of the district population.
-
-{!<b>!}Latino:{!</b>!} [+ latino_burnley_approval_display +]% supports Bruce. 
-This is [+ latino_burnley_support_display +]% out of [+ latino_burnley +]% of the district population.
-
-
-= Somerset ([+ somerset_total_display +]% Approval)
-
-Set right in the middle of Gotham, it's the bustling commercial center.
-
-Unemployed: [+ unemployed_somerset_support_display +]%
-
-Blue Collar: [+ blue_collar_somerset_support_display +]%
-
-White Collar:[+ white_collar_somerset_support_display +]% 
-
-Business:[+ business_somerset_support_display +]% 
-
-Black:[+ black_somerset_support_display +]% 
-
-Latino:[+ latino_somerset_support_display +]% 
-
-= New Gotham ([+ new_gotham_total_display +]% Approval)
-
-Highly international. Tech companies. New wealth. That's what goes on in New Gotham.
-
-Unemployed: [+ unemployed_new_gotham_support_display +]% 
-
-Blue Collar: [+ blue_collar_new_gotham_support_display +]% 
-
-White Collar:[+ white_collar_new_gotham_support_display +]% 
-
-Business:[+ business_new_gotham_support_display +]% 
-
-Black:[+ black_new_gotham_support_display +]% 
-
-Latino:[+ latino_new_gotham_support_display +]% 
-
-= Old Gotham ([+ old_gotham_total_display +]% Approval)
-
-The old gothic part of the city, with some very rich estates and some very poor slums.
-
-Unemployed: [+ unemployed_old_gotham_support_display +]% 
-
-Blue Collar: [+ blue_collar_old_gotham_support_display +]% 
-
-White Collar:[+ white_collar_old_gotham_support_display +]% 
-
-Business:[+ business_old_gotham_support_display +]% 
-
-Black:[+ black_old_gotham_support_display +]% 
-
-Latino:[+ latino_old_gotham_support_display +]% 
-
-= Burnside ([+ burnside_total_display +]% Approval)
-
-An upper middle class district.
-
-Unemployed: [+ unemployed_burnside_support_display +]% 
-
-Blue Collar: [+ blue_collar_burnside_support_display +]% 
-
-White Collar: [+ white_collar_burnside_support_display +]% 
-
-Business:[+ business_burnside_support_display +]% 
-
-Black:[+ black_burnside_support_display +]% 
-
-Latino:[+ latino_burnside_support_display +]% 
-
-= Bristol ([+ bristol_total_display +]% Approval)
-
-Unemployed: [+ unemployed_bristol_support_display +]% 
-
-Blue Collar: [+ blue_collar_bristol_support_display +]% 
-
-White Collar: [+ white_collar_bristol_support_display +]% 
-
-Business: [+ business_bristol_support_display +]% 
-
-Black: [+ black_bristol_support_display +]% 
-
-Latino: [+ latino_bristol_support_display +]% 
-
-{!</div>!}
-
-{!</div>!}
+a

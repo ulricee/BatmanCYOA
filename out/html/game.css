@@ -569,6 +569,56 @@ table {
     fill: #0044ff;
 }
 
+.seat.reactionary:hover {
+    fill: #000000;
+}
+.seat.conservative:hover {
+    fill: #000000;
+}
+.seat.red_moderate:hover {
+    fill: #000000;
+}
+.seat.blue_moderate:hover {
+    fill: #000000;
+}
+.seat.liberal:hover {
+    fill: #000000;
+}
+.seat.progressive:hover {
+    fill: #000000;
+}
+
+.hiddenreaction {
+  display: none;
+}
+
+.hiddenconservative {
+  display: none;
+}
+
+.hiddenliberal {
+  display: none;
+}
+
+.hiddenprogressive {
+  display: none;
+}
+
+.hiddenblue {
+  display: none;
+}
+
+
+.hiddenred {
+  display: none;
+}
+
+
+.button_show_council {
+  border: 0px;
+  background-color: var(--content-bg-color);
+}
+
 .tooltip-text {
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -652,4 +702,58 @@ table {
 #progress_size {
   background-color: green;
   width: 10%;
+}
+
+  /* original applywholesome */
+
+  .mytooltip {
+  position: relative;
+  cursor: pointer;
+  background-color: rgb(100, 140, 220, 0.5);
+  padding: 2px 5px;
+}
+
+.mytooltip:hover { background-color: rgb(100, 140, 220); }
+
+.mytooltip .mytooltiptext {
+  position: fixed;
+  z-index: 999999;
+  width: 260px;
+  background: #fff4e6;
+  color: #3b1f0a;
+  text-align: left;
+  border-radius: 8px;
+  padding: 12px 14px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  border: 1px solid #b22222;
+  pointer-events: none;
+  font-size: 14px !important;
+  line-height: 1.5em !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transform: translateY(5px);
+  text-align: center;
+}
+
+.mytooltip:hover .mytooltiptext { opacity: 1; }
+.mytooltip .mytooltiptext img { display: block; margin: 0 auto 4px auto; max-width: 90%; height: auto; }
+
+.mytooltip .mytooltiptext {
+  bottom: auto;
+  top: calc(var(--mouse-y, 0px) - 20px);
+  left: calc(var(--mouse-x, 0px));
+  transform: translate(-50%, -100%);
+}
+
+#republicanshow {
+  border: 0px;
+  background-color: var(--content-bg-color);
+  font-weight: 1px;
+}
+
+#democratshow {
+  border: 0px;
+  background-color: var(--content-bg-color);
+  font-weight: 1px;
 }

@@ -2,10 +2,17 @@ title: Root Scene
 new-page: true
 go-to: post_event if started = 1; start_menu if started = 0
 on-arrival: {!
-    const toolsWrapper = document.getElementById('tools_wrapper');
-if (toolsWrapper) {
+  Q.toolsonce = 0;
+ 
+  const toolsWrapper = document.getElementById('tools_wrapper');
+  
+  if (Q.toolsonce == 0) {
+  if (toolsWrapper) {
   toolsWrapper.style.display = 'none';
-}
+  }
+  Q.toolsonce = 1;
+
+}    
 !}
 
 @start_menu
@@ -72,6 +79,7 @@ Q.governor = "Milton Finger";
 
 Q.budget = 4;
 
+Q.factions = ['left']
 
 
 Q.classes = ['unemployed', 'blue_collar', 'white_collar', 'business', 'black', 'latino'];
@@ -189,8 +197,107 @@ Q.approval_rating = 68;
 Q.credibility = 5.0;
 Q.pf = 5.0;
 Q.budget = 10.0;
-Q.order = 10;
-Q.freedom = (Q.order)*(-1);
+Q.order = 1;
+Q.freedom = ((Q.order)*(-1));
+
+// Crime tab values
+Q.crime_rate = "bad"
+Q.falcone_status = "ok";
+Q.penguin_status = "ok";
+Q.black_mask_active = "no";
+Q.black_mask_status = "ok";
+Q.joker_status = "ok";
+Q.police_size = 42000;
+Q.police_equipment = 4;
+Q.police_curative = "Curative";
+Q.police_attitude = "Punitive";
+Q.police_militarization = 4;
+Q.police_lethality = "Lethal";
+Q.hero_support = "Good";
+Q.arkham_city = 1;
+Q.we_are_robin = 1;
+Q.suicide_squad = 1;
+Q.county_prosecutor = "Harvey Dent";
+Q.judges = "BLANK";
+Q.jury = "BLANK";
+Q.glut = "10";
+
+// Suicide Squad Personnel
+
+Q.suicide_bane = 1;
+Q.suicide_killer_croc = 1;
+Q.suicide_polka = 1;
+Q.suicide_kite = 1;
+Q.suicide_catman = 1;
+Q.suicide_clue = 1;
+Q.suicide_boomerang = 1;
+Q.suicide_catwoman = 1;
+
+
+Q.suicide_bane_status = "Active";
+Q.suicide_killer_croc_status = "Active";
+Q.suicide_polka_status = "Active";
+Q.suicide_kite_status = "Active";
+Q.suicide_catman_status = "Active";
+Q.suicide_clue_status = "Active";
+Q.suicide_boomerang_status = "Active";
+Q.suicide_catwoman_status = "Active";
+
+// Bat Family
+
+Q.dick_grayson = 1;
+Q.dick_grayson_status = "Active"
+Q.dick_grayson_gear = "Equipment Placeholder"
+Q.dick_grayson_training = "Trained"
+
+Q.jason_todd = 0;
+Q.jason_todd_status = "Active"
+Q.jason_todd_gear = "Equipment Placeholder"
+Q.jason_todd_training = "Trained"
+
+Q.tim_drake = 1;
+Q.tim_drake_status = "Active"
+Q.tim_drake_gear = "Equipment Placeholder"
+Q.tim_drake_training = "Trained"
+
+Q.damian_wayne = 0;
+Q.damian_wayne_status = "Active"
+Q.damian_wayne_gear = "Equipment Placeholder"
+Q.damian_wayne_training = "Trained"
+
+Q.barbara_gordon = 1;
+Q.barbara_gordon_status = "Active"
+Q.barbara_gordon_gear = "Equipment Placeholder"
+Q.barbara_gordon_training = "Trained"
+
+Q.cassandra_cain = 0;
+Q.cassandra_cain_status = "Active"
+Q.cassandra_cain_gear = "Equipment Placeholder"
+Q.cassandra_cain_training = "Trained"
+
+Q.duke_thomas = 0;
+Q.duke_thomas_status = "Active"
+Q.duke_thomas_gear = "Equipment Placeholder"
+Q.duke_thomas_training = "Trained"
+
+Q.polka_batfamily = 0;
+Q.polka_batfamily_status = "Active"
+Q.polka_batfamily_gear = "Equipment Placeholder"
+Q.polka_batfamily_training = "Trained"
+
+Q.selina_kyle = 0;
+Q.selina_kyle_status = "Active"
+Q.selina_kyle_gear = "Equipment Placeholder"
+Q.selina_kyle_training = "Trained"
+
+Q.dinah_lance = 0;
+Q.dinah_lance_status = "Active"
+Q.dinah_lance_gear = "Equipment Placeholder"
+Q.dinah_lance_training = "Trained"
+
+
+
+
 
 
 // This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
@@ -216,18 +323,27 @@ for (var c of Q.classes) {
 // We'll now scale it by order and liberty below.
 //
 
-Q.unemployed_ideology = 10;
-Q.blue_collar_ideology = 10;
-Q.white_collar_ideology = 10;
-Q.black_ideology = 10;
-Q.latino_ideology = 10;
-Q.business_ideology = 10;
+Q.unemployed_ideology = (Q.order)/4;
+Q.blue_collar_ideology = (Q.order)/2;
+Q.white_collar_ideology = (Q.freedom);
+Q.black_ideology = (Q.freedom)/2;
+Q.latino_ideology = (Q.freedom)/4;
+Q.business_ideology = (Q.order);
 
-Q.ideology_support = 1;
+Q.ideology_support = 0;
+
+
   for (var c of Q.classes) {
-      Q.ideology_support += Q[c + '_ideology'];
-  }
+      if ([Q[c + '_ideology']] > 0) {
+        Q.ideology_support += (Q[c + '_ideology']);
+      } else if ([Q[c + '_ideology']] < 0) {
+        Q.ideology_support += (Q[c + '_ideology'])*(-1);
+      }
+}
 
+if (Q.ideology_support == 0) {
+  Q.ideology_support = 1;
+} 
 
 // this also gives us a weight of how much "for bruce" each person is.
 
@@ -246,7 +362,12 @@ Q.approval_gap = 0;
 // Now, we distribute them with percentages going to .
 
  for (var c of Q.classes) {
-      Q[c + '_weight_election'] = (Q[c + '_ideology']/Q.ideology_support);
+      if (Q[c + '_ideology'] > 0) {
+        Q[c + '_weight_election'] = (Q[c + '_ideology']/Q.ideology_support);
+      }
+      if (Q[c + '_ideology'] < 0) {
+        Q[c + '_weight_election'] = (((Q[c + '_ideology'])*(-1))/Q.ideology_support);
+      }
   }
 
  for (var c of Q.classes) {
