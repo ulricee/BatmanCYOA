@@ -1,4 +1,3 @@
-
 title: library
 new-page: true
 is-special: true
@@ -6,12 +5,12 @@ go-to: menu
 
 = The Library
 
-Herein contains relevant information about the government and politics of the German republic.
+Herein contains relevant information about the government, history, mechanics and politics of the Gotham City and it's governance.
 
 @menu
 
-- @government: Germany's system of government
-- @weimar_timeline: Timeline of the Weimar Republic before 1928
+- @government: Gotham City's system of government
+- @timeline: Timeline of the Weimar Republic before 1928
 - @curr_gov: Current government details
 - @demographics: Demographics
 - @parties: Parties
@@ -24,15 +23,48 @@ Herein contains relevant information about the government and politics of the Ge
 @government
 go-to: menu
 
-The German Republic, called by some of our detractors as the "Weimar Republic", is a parliamentary republic with a somewhat weak president and a strong parliament, called the Reichstag. The Reichstag is responsible for governing, while the President has a largely ceremonial role but also has some important governing responsibilities.
+= Gotham City's System of Governance:
 
-The Reichstag is elected based on a proportional representation system, giving parties seats roughly proportional to their vote share in each electoral district. The Reichstag then elects the Chancellor and the cabinet by a majority vote, who are responsible for government. A majority vote-of-no-confidence can remove the current government.
+Gotham City, as a town more populated than some countries, has many time being described as an island in it of itself which system of governance is vastly separated from the broader system of politics of the nation. This however has not allowed them safe-guard against the domination of the two party system. Yet, here, instead of political factions, oppositions between liberal and conservatives have rather focused on individual cliques, personal popularity system and influence rather than ideology. This symptom caused by the corruption of the City is however slowly loosing it's steam especially as new comers enter the scene of the Town.
 
-The President is elected by a national direct vote, in two rounds. The second round is used if the first round does not result in a majority for one candidate; the candidate who receives a plurality in the second round becomes president (there is no obligation for weaker candidates to drop out). The role of the president is mostly to represent Germany, but he also has some crucial governing powers. The president and chancellor can together use emergency decrees to govern, bypassing the Reichstag. The president can also appoint or remove a chancellor when a parliamentary majority is unable to be established, and can thus influence the formation of a government.
+Unlike the rest of the state of New Jersey, Gotham City dispose of a much more centralized municipal system closer to that of New York City. The seperation of powers is thus:
 
-Germany is divided into a number of states, each of which have their own governments with some responsibilities. By far the largest and most important state is Prussia.
+Executive: Represented by the Mayor of Gotham City and Borough Mayors elected for renewable 4 year mandate by a majority of the vote of the people in a one round election cycle.
 
-@weimar_timeline
+The Mayor of the city dispose of the following executive powers:
+
+• Appointing and firing the heads of the following position at will and without required cause: Police Commissioner, Fire Commissioner, Schools Chancellor, Department of Health Commissioner, Sanitation Commissioner.
+• Proposing and managing the City Budget.
+• Issuing executive orders: Establishment of new offices and task force, Directing Agency behavior, Reorganizing government Structure under it's jurisdiction, Establishing state of emergency policies and guiding Policy Priorities.
+• Control of the Gotham Police Department (GPD): directing policing strategy, deploying officers, setting enforcement priorities
+• Vetoing legislation passed by the City Council
+• Negotiating labor contracts with city unions
+ 
+= Legislative
+The Legislative branch of the City is led by the City Council. It's an Unicameral body consisting of 65 council members representing each discricts of the city containing on average 150 000 individuals for 4 years renewable terms. The City Council is directed by a Speaker which is elected by it's members.
+
+In practice, this make the second most powerful position in Gotham city a story that was many time mirred in corruption and patronage considering it's influence and power. The position of the speaker being in control of the legislative Calendar, influencing which bills will be voted on on which day as well as vast influence on budget spending and it's negociation.
+
+As a Unit, the City council powers include:
+
+Introducing and voting on legislation pertaining to the city. After it's introduction and approval by comittee, the legislation is passed by a simple majority vote to be sent and signed by the mayor. If the bill is vetoed, the council has 30 days to overide it with a two-third majority vote (44 votes). Once signed, the bill becomes law.
+
+Negociating and Approving the city's budget.
+
+Monitoring city agencies and departments.
+
+Approving mayoral appointees to the Department of Investigation as well as various board and commission members across the city.
+
+The control of the Department of Investigation by the Executive and legislative Branch as ofcourse caused a large amount of controversy in the city as councilor push for a tendency of self policing rotting the system from it's inside. The current DOI commissionner that as been appointed under Quincy Sharp need to have the reason of it's removal made public for it to be valid, this may turn into a political quagmire unless a deal can be reached, a resignation can be forced or some other opportunities to lower the shield of the legislature and municipal corruption. 
+
+= Judiciary
+Unlike the Executive and Legislative, the Judicial branch partly transcend the bondaries of the city as while municipal court are localy controlled, regulating minor offenses, each higher court is under the jurisdiction of the state and de-facto, the governor.
+
+The Superior Court's representing each of New Jersey's 21 Counties and Gotham, treating of high crimes and finally the supreme court of New Jersey dealing with crimes and legal issues of even higher order. 
+
+Prosecutors are appointed by the city council on the municipal level while county and state level are appointed by the governor and state senate. While Municipal Prosecutors and the Attorney General do not serve fixed terms, County prosecutors are appointed for 5 years.
+
+@timeline
 go-to: menu
 
 = Timeline of the SPD and the Republic (until 1928)

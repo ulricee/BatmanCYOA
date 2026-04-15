@@ -1,8 +1,8 @@
 title: Special Squads
 new-page: true
 is-card: true
-tags: city
 on-arrival: month_actions += 1;
+tags: city
 card-image: img/sangerbund.jpg
 
 a

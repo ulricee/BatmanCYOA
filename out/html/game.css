@@ -190,6 +190,7 @@ blockquote + blockquote.attribution {
   color: var(--text-color);
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 .tools.left {
   float: left;
@@ -235,6 +236,8 @@ blockquote + blockquote.attribution {
     margin-top: -0.6em;
     margin-left: -0.6em;
     margin-right: -0.6em;
+    border-radius: 10px;
+
 }
 .tab_button {
     font-family: "Minion Pro", Georgia, serif;
@@ -244,6 +247,7 @@ blockquote + blockquote.attribution {
     border: none;
     outline: none;
     padding: 10px;
+    border-radius: 10px 10px 0px 0px;
 }
 .tab_button.active {
     background-color: var(--content-bg-color);
@@ -565,6 +569,56 @@ table {
     fill: #0044ff;
 }
 
+.seat.reactionary:hover {
+    fill: #000000;
+}
+.seat.conservative:hover {
+    fill: #000000;
+}
+.seat.red_moderate:hover {
+    fill: #000000;
+}
+.seat.blue_moderate:hover {
+    fill: #000000;
+}
+.seat.liberal:hover {
+    fill: #000000;
+}
+.seat.progressive:hover {
+    fill: #000000;
+}
+
+.hiddenreaction {
+  display: none;
+}
+
+.hiddenconservative {
+  display: none;
+}
+
+.hiddenliberal {
+  display: none;
+}
+
+.hiddenprogressive {
+  display: none;
+}
+
+.hiddenblue {
+  display: none;
+}
+
+
+.hiddenred {
+  display: none;
+}
+
+
+.button_show_council {
+  border: 0px;
+  background-color: var(--content-bg-color);
+}
+
 .tooltip-text {
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -581,6 +635,7 @@ table {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: space-between;
+  border-radius: 10px;
 }
 
 .advice_img {
@@ -592,6 +647,14 @@ table {
   width: 100%;
 }
 
+#stats_sidebar {
+}
+
+#stats_sidebar2 {
+    border-radius: 10px;
+    position: relative;
+}
+
 .scrollable-box {
   width: 540px;
   /* Default width */
@@ -601,15 +664,96 @@ table {
   /* Enable vertical scrolling */
 }
 
+.scrollable-box-polls {
+  width: 17em;
+  /* Default width */
+  height: 600px;
+  /* Fixed height */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  border-top: 2px inset #000;
+  scrollbar-color: #000;
+}
+
 .box {
   display: inline-block;
   height: 1em;
   width: 1em;
   border-radius: 50%;
   position: relative;
-  top: 4px;
+  top: 2px;
 }
 
 .small-text {
   font-size: 0.8em;
+}
+
+.audio {
+  display: block;
+  width: 540px;
+}
+
+#progress_bar {
+  width: 0%;
+  height: 10px;
+  background-color: green;
+}
+
+#progress_size {
+  background-color: green;
+  width: 10%;
+}
+
+  /* original applywholesome */
+
+  .mytooltip {
+  position: relative;
+  cursor: pointer;
+  background-color: rgb(100, 140, 220, 0.5);
+  padding: 2px 5px;
+}
+
+.mytooltip:hover { background-color: rgb(100, 140, 220); }
+
+.mytooltip .mytooltiptext {
+  position: fixed;
+  z-index: 999999;
+  width: 260px;
+  background: #fff4e6;
+  color: #3b1f0a;
+  text-align: left;
+  border-radius: 8px;
+  padding: 12px 14px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  border: 1px solid #b22222;
+  pointer-events: none;
+  font-size: 14px !important;
+  line-height: 1.5em !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transform: translateY(5px);
+  text-align: center;
+}
+
+.mytooltip:hover .mytooltiptext { opacity: 1; }
+.mytooltip .mytooltiptext img { display: block; margin: 0 auto 4px auto; max-width: 90%; height: auto; }
+
+.mytooltip .mytooltiptext {
+  bottom: auto;
+  top: calc(var(--mouse-y, 0px) - 20px);
+  left: calc(var(--mouse-x, 0px));
+  transform: translate(-50%, -100%);
+}
+
+#republicanshow {
+  border: 0px;
+  background-color: var(--content-bg-color);
+  font-weight: 1px;
+}
+
+#democratshow {
+  border: 0px;
+  background-color: var(--content-bg-color);
+  font-weight: 1px;
 }

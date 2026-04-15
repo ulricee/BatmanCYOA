@@ -1,0 +1,361 @@
+title: Event
+new-page: true
+tags: event
+view-if: year = 1994 and month = 2
+max-visits: 1
+on-display: {!
+data = [
+    {
+        "id": "reactionary",
+        "legend": "Reactionary",
+        "name": "Reactionary",
+        "seats": Math.round(Q.reactionary_s),
+    },
+    {
+        "id": "conservative",
+        "legend": "Conservative",
+        "name": "Conservative",
+        "seats": Math.round(Q.conservative_s),
+    },
+    {
+        "id": "red_moderate",
+        "legend": "Republican Moderate",
+        "name": "Republican Moderate",
+        "seats": Math.round(Q.red_moderate_s),
+    },
+    {
+        "id": "blue_moderate",
+        "legend": "Moderate Democrat",
+        "name": "Moderate Democrat",
+        "seats": Math.round(Q.blue_moderate_s),
+    },
+    {
+        "id": "liberal",
+        "legend": "Liberal",
+        "name": "Liberal",
+        "seats": Math.round(Q.liberal_s),
+    },
+    {
+        "id": "progressive",
+        "legend": "Progressive",
+        "name": "Progressive",
+        "seats": Math.round(Q.progressive_s),
+    },
+];
+
+
+
+if (window && d3) {
+    var width = 1000; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("parliament").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#parliament").datum(data).call(parliament);
+}
+
+ displayReactionarySeat = function () {
+    const resultsDiv = document.getElementById('hiddenreaction2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+ displayConservativeSeat = function () {
+    const resultsDiv = document.getElementById('hiddenconservative2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+ displayRepSeat = function () {
+    const resultsDiv = document.getElementById('hiddenred2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+ displayDemSeat = function () {
+    const resultsDiv = document.getElementById('hiddenblue2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+
+ displayLiberalSeat = function () {
+    const resultsDiv = document.getElementById('hiddenliberal2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+ displayProgressiveSeat = function () {
+    const resultsDiv = document.getElementById('hiddenprogressive2');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+ displayRepublicanSeats = function () {
+    displayRepSeat();
+    displayConservativeSeat();
+    displayReactionarySeat();
+}
+
+ displayDemocratSeats = function () {
+    displayProgressiveSeat();
+    displayLiberalSeat();
+    displayDemSeat();
+};
+    var r = document.getElementsByClassName('seat reactionary');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayReactionarySeat);
+}
+
+    var r = document.getElementsByClassName('seat conservative');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayConservativeSeat);
+}
+
+    var r = document.getElementsByClassName('seat red_moderate');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayRepSeat);
+}
+
+    var r = document.getElementsByClassName('seat blue_moderate');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayDemSeat);
+}
+
+    var r = document.getElementsByClassName('seat liberal');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayLiberalSeat);
+}
+
+    var r = document.getElementsByClassName('seat progressive');
+for (var i = 0; i < r.length; i++) {
+    r[i].style.pointerEvents = 'all';
+    r[i].style.cursor = 'pointer';
+    r[i].addEventListener('click', displayProgressiveSeat);
+}
+
+!}
+
+= City Council - [+ council_s +] seats
+
+{!<svg id="parliament" style="width: 1000px; height: 500px;"> </svg>!}
+
+
+Click on seat to show category.
+
+{!<button class="button_show_council" onclick="displayRepublicanSeats();"> <span style="color:#ff3a3a" id="republicanshow">!}[+ republican_s +] Republican{!</span></button>!} and {!<button class="button_show_council" onclick="displayDemocratSeats();"><span style="color:#74c8ff" id="democratshow">!}[+ democrat_s +] Democrat{!</span></button>!}
+
+{!<div class="hiddenrep" id="hiddenrep2">!}
+
+{!<div class="hiddenreaction" id="hiddenreaction2">!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats ([+ reactionary_percent +]%), [+ reactionary_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_reactionary > 0 : - [+ bristol_seats_reactionary +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_reactionary > 0 : - [+ bristol_burnley_seats_reactionary +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_reactionary > 0 : - [+ new_gotham_seats_reactionary +] from New Gotham ?]
+
+[? if mr_gerrymander_reactionary > 0 : - [+ mr_gerrymander_seats_reactionary +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_reactionary > 0 : - [+ old_gotham_seats_reactionary +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_reactionary > 0 : - [+ old_gotham_burnside_seats_reactionary +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_reactionary > 0 : - [+ burnside_seats_reactionary +] from Burnside ?]
+
+[? if sommerset_seats_reactionary > 0 : - [+ sommerset_seats_reactionary +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_reactionary > 0 : - [+ sommerset_burnley_seats_reactionary +] from Sommerset - burnley ?]
+
+[? if burnley_seats_reactionary > 0 : - [+ burnley_seats_reactionary +] from Burnley ?]
+
+{!</div>!}
+
+{!<div class="hiddenconservative" id="hiddenconservative2">!}
+
+{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats ([+ conservative_percent +]%), [+ conservative_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_conservative > 0 : - [+ bristol_seats_conservative +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_conservative > 0 : - [+ bristol_burnley_seats_conservative +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_conservative > 0 : - [+ new_gotham_seats_conservative +] from New Gotham ?]
+
+[? if mr_gerrymander_conservative > 0 : - [+ mr_gerrymander_seats_conservative +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_conservative > 0 : - [+ old_gotham_seats_conservative +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_conservative > 0 : - [+ old_gotham_burnside_seats_conservative +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_conservative > 0 : - [+ burnside_seats_conservative +] from Burnside ?]
+
+[? if sommerset_seats_conservative > 0 : - [+ sommerset_seats_conservative +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_conservative > 0 : - [+ sommerset_burnley_seats_conservative +] from Sommerset - burnley ?]
+
+[? if burnley_seats_conservative > 0 : - [+ burnley_seats_conservative +] from Burnley ?]
+
+{!</div>!}
+
+{!<div class="hiddenred" id="hiddenred2">!}
+
+{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats ([+ red_moderate_percent +]%), [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_red_moderate > 0 : - [+ bristol_seats_red_moderate +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_red_moderate > 0 : - [+ bristol_burnley_seats_red_moderate +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_red_moderate > 0 : - [+ new_gotham_seats_red_moderate +] from New Gotham ?]
+
+[? if mr_gerrymander_red_moderate > 0 : - [+ mr_gerrymander_seats_red_moderate +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_red_moderate > 0 : - [+ old_gotham_seats_red_moderate +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_red_moderate > 0 : - [+ old_gotham_burnside_seats_red_moderate +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_red_moderate > 0 : - [+ burnside_seats_red_moderate +] from Burnside ?]
+
+[? if sommerset_seats_red_moderate > 0 : - [+ sommerset_seats_red_moderate +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_red_moderate > 0 : - [+ sommerset_burnley_seats_red_moderate +] from Sommerset - burnley ?]
+
+[? if burnley_seats_red_moderate > 0 : - [+ burnley_seats_red_moderate +] from Burnley ?]
+
+{!</div>!}
+
+{!</div>!}
+
+{!<div class="hiddendem" id="hiddendem2">!}
+
+{!<div class="hiddenblue" id="hiddenblue2">!}
+
+{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats ([+ blue_moderate_percent +]%), [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_blue_moderate > 0 : - [+ bristol_seats_blue_moderate +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_blue_moderate > 0 : - [+ bristol_burnley_seats_blue_moderate +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_blue_moderate > 0 : - [+ new_gotham_seats_blue_moderate +] from New Gotham ?]
+
+[? if mr_gerrymander_blue_moderate > 0 : - [+ mr_gerrymander_seats_blue_moderate +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_blue_moderate > 0 : - [+ old_gotham_seats_blue_moderate +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_blue_moderate > 0 : - [+ old_gotham_burnside_seats_blue_moderate +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_blue_moderate > 0 : - [+ burnside_seats_blue_moderate +] from Burnside ?]
+
+[? if sommerset_seats_blue_moderate > 0 : - [+ sommerset_seats_blue_moderate +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_blue_moderate > 0 : - [+ sommerset_burnley_seats_blue_moderate +] from Sommerset - burnley ?]
+
+[? if burnley_seats_blue_moderate > 0 : - [+ burnley_seats_blue_moderate +] from Burnley ?]
+
+{!</div>!}
+
+{!<div class="hiddenliberal" id="hiddenliberal2">!}
+
+{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats ([+ liberal_percent +]%), [+ liberal_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_liberal > 0 : - [+ bristol_seats_liberal +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_liberal > 0 : - [+ bristol_burnley_seats_liberal +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_liberal > 0 : - [+ new_gotham_seats_liberal +] from New Gotham ?]
+
+[? if mr_gerrymander_liberal > 0 : - [+ mr_gerrymander_seats_liberal +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_liberal > 0 : - [+ old_gotham_seats_liberal +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_liberal > 0 : - [+ old_gotham_burnside_seats_liberal +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_liberal > 0 : - [+ burnside_seats_liberal +] from Burnside ?]
+
+[? if sommerset_seats_liberal > 0 : - [+ sommerset_seats_liberal +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_liberal > 0 : - [+ sommerset_burnley_seats_liberal +] from Sommerset - burnley ?]
+
+[? if burnley_seats_liberal > 0 : - [+ burnley_seats_liberal +] from Burnley ?]
+
+{!</div>!}
+
+{!<div class="hiddenprogressive" id="hiddenprogressive2">!}
+
+{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats ([+ progressive_percent +]%), [+ progressive_relation : relationships +] relations {!</td></tr>!}
+
+[? if bristol_seats_progressive > 0 : - [+ bristol_seats_progressive +] from Bristol Seats ?]
+
+[? if bristol_burnley_seats_progressive > 0 : - [+ bristol_burnley_seats_progressive +] from Bristol-Burnley ?]
+
+[? if new_gotham_seats_progressive > 0 : - [+ new_gotham_seats_progressive +] from New Gotham ?]
+
+[? if mr_gerrymander_progressive > 0 : - [+ mr_gerrymander_seats_progressive +] from New Gotham - Burnley - Sommerset ?]
+
+[? if old_gotham_seats_progressive > 0 : - [+ old_gotham_seats_progressive +] from Old Gotham ?]
+
+[? if old_gotham_burnside_seats_progressive > 0 : - [+ old_gotham_burnside_seats_progressive +] from Old Gotham - Burnside ?]
+
+[? if burnside_seats_progressive > 0 : - [+ burnside_seats_progressive +] from Burnside ?]
+
+[? if sommerset_seats_progressive > 0 : - [+ sommerset_seats_progressive +] from Sommerset ?]
+
+[? if sommerset_burnley_seats_progressive > 0 : - [+ sommerset_burnley_seats_progressive +] from Sommerset - burnley ?]
+
+[? if burnley_seats_progressive > 0 : - [+ burnley_seats_progressive +] from Burnley ?]
+
+{!</div>!}
+
+{!</div>!}
+
+- @no: a
+
+@no
+
+a

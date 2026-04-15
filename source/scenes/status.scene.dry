@@ -8,17 +8,19 @@ is-special: true
 
 Approval Rate: [+ approval_rating : approval_display +]%
 
-Credibility: 5.0%
+Credibility: 5.0% ↓
 
-Personal Funds: 5.0
+Personal Funds: 5.0 ↑
 
-Mayoral Budget: 10.0
+Mayoral Budget: 10.0 ↑
 
-Poverty Rate: Growing Dangerously
+Poverty Rate: Growing Dangerously ↑
 
-Economic Situation: Fragile Balance
+Economic Situation: Fragile Balance ↑
 
-Order/Freedom: -5
+Order: [+ order +]
+
+Freedom: [+ freedom +]
 
 @city
 
@@ -28,9 +30,9 @@ Order/Freedom: -5
 
 = The State
 
-[+ governor +] (The Governor): [+ governor_relation : relationships +]
+Governor [+ governor +]: [+ governor_relation : relationships +]
 
-The State Legislature: [+ state_legislature_relation : relationships +]
+State Legislature: [+ state_legislature_relation : relationships +]
 
 = The Establishment
 
@@ -61,23 +63,146 @@ Socialists: [+ socialist_relation : relationships +]
 
 @crime
 
-a
+Crime Rate: [+ crime_rate +]
 
-@polls
-on-arrival: {!
-Q.pro_republic_disp = Math.round(Q.pro_republic);
-Q.nationalism_disp = Math.round(Q.nationalism);
-Q.socialism_disp = Math.round(Q.socialism);
-!}
+Falcone Status: [+ falcone_status +]
 
-= Burnley
+Penguin Status: [+ penguin_status +]
 
-= Somerset
+[? if black_mask_active = 1 : Black Mask: [+ black_mask_status +] ?]
 
-= New Gotham
+Joker Status: [+ joker_status +]
 
-= Old Gotham
+Size of the police: [+ police_size +]
 
-= Burnside
+Equipment of the Police: [+ police_equipment +]
 
-= Bristol
+Curative / Preventive: [+ police_curative +]
+
+Militarization: [+ police_militarization +]
+
+Lethality: [+ police_lethality +]
+
+Hero Support: [+ hero_support +]
+
+Prison Glut: [+ glut +]
+
+Punitive / Corrective / Rehabilitative: [+ police_attitude +]
+
+County Prosecutor: [+ county_prosecutor +]
+
+Judges: [+ judges +]
+
+Jury: [+ jury +]
+
+= [? if arkham_city = 1 : Arkham City project ?]
+
+I saw this in a videogame
+
+= [? if suicide_squad == 1 : Suicide Squad ?]
+
+[? if suicide_bane == 1 : Bane: [+ suicide_bane_status +] ?]
+
+[? if suicide_killer_croc == 1 : Killer Croc: [+ suicide_killer_croc_status +] ?]
+
+[? if suicide_polka == 1 : Polka Dot Man: [+ suicide_polka_status +] ?]
+
+[? if suicide_kite == 1 : Kite Man: [+ suicide_kite_status +] ?]
+
+[? if suicide_catman == 1 : Catman: [+ suicide_catman_status +] ?]
+
+[? if suicide_clue == 1 : Clue Master: [+ suicide_clue_status +] ?]
+
+[? if suicide_boomerang == 1 : Captain Boomerang: [+ suicide_boomerang_status +] ?]
+
+[? if suicide_catwoman == 1 : Catwoman: [+ suicide_catwoman_status +] ?]
+
+= [? if we_are_robin == 1 : We Are Robin ?]
+not much here
+
+
+@family 
+
+= Alfred 
+
+Awesome butler as always
+
+= [? if tim_drake == 1 : Robin (Tim Drake) ?]
+
+[? if tim_drake == 1 : Status: [+ tim_drake_status +]?]
+
+[? if tim_drake == 1 : Training: [+ tim_drake_training +]?]
+
+[? if tim_drake == 1 : Gear: [+ tim_drake_gear +]?]
+
+= [? if dick_grayson == 1 : Nightwing (Dick Grayson) ?]
+
+[? if dick_grayson == 1 : Status: [+ dick_grayson_status +]?]
+
+[? if dick_grayson == 1 : Training: [+ dick_grayson_training +]?]
+
+[? if dick_grayson == 1 : Gear: [+ dick_grayson_gear +]?]
+
+= [? if jason_todd == 1 : Jason Todd?]
+
+[? if jason_todd == 1 : if jason_todd == 1 :Status: [+ jason_todd_status +]?]
+
+[? if jason_todd == 1 : Training: [+ jason_todd_training +]?]
+
+[? if jason_todd == 1 : Gear: [+ jason_todd_gear +]?]
+
+= [? if damian_wayne == 1 : Damian Wayne ?]
+
+[? if damian_wayne == 1 : Status: [+ damian_wayne_status +]?]
+
+[? if damian_wayne == 1 : Training: [+ damian_wayne_training +]?]
+
+[? if damian_wayne == 1 : Gear: [+ damian_wayne_gear +]?]
+
+= [? if barbara_gordon == 1 : Barbara Gordon ?]
+
+[? if barbara_gordon == 1 : Status: [+ barbara_gordon_status +]?]
+
+[? if barbara_gordon == 1 : Training: [+ barbara_gordon_training +]?]
+
+[? if barbara_gordon == 1 : Gear: [+ barbara_gordon_gear +]?]
+
+= [? if cassandra_cain == 1 : Cassandra Cain ?]
+
+[? if cassandra_cain == 1 : Status: [+ cassandra_cain_status +]?]
+
+[? if cassandra_cain == 1 : Training: [+ cassandra_cain_training +]?]
+
+[? if cassandra_cain == 1 : Gear: [+ cassandra_cain_gear +]?]
+
+= [? if duke_thomas == 1 : Duke Thomas ?]
+
+[? if duke_thomas == 1 : Status: [+ duke_thomas_status +]?]
+
+[? if duke_thomas == 1 : Training: [+ duke_thomas_training +]?]
+
+[? if duke_thomas == 1 : Gear: [+ duke_thomas_gear +]?]
+
+= [? if polka_batfamily == 1 : Polka Dot Man ?]
+
+[? if polka_batfamily == 1 : Status: [+ polka_batfamily_status +]?]
+
+[? if polka_batfamily == 1 : Training: [+ polka_batfamily_training +]?]
+
+[? if polka_batfamily == 1 : Gear: [+ polka_batfamily_gear +]?]
+
+= [? if selina_kyle == 1 : Selina Kyle ?]
+
+[? if selina_kyle == 1 : Status: [+ selina_kyle_status +]?]
+
+[? if selina_kyle == 1 : Training: [+ selina_kyle_training +]?]
+
+[? if selina_kyle == 1 : Gear: [+ selina_kyle_gear +]?]
+
+= [? if dinah_lance == 1 : Dinah Lance ?]
+
+[? if dinah_lance == 1 : Status: [+ dinah_lance_status +]?]
+
+[? if dinah_lance == 1 : Training: [+ dinah_lance_training +]?]
+
+[? if dinah_lance == 1 : Gear: [+ dinah_lance_gear +]?]

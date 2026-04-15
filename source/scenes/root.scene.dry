@@ -2,10 +2,17 @@ title: Root Scene
 new-page: true
 go-to: post_event if started = 1; start_menu if started = 0
 on-arrival: {!
-    const toolsWrapper = document.getElementById('tools_wrapper');
-if (toolsWrapper) {
+  Q.toolsonce = 0;
+ 
+  const toolsWrapper = document.getElementById('tools_wrapper');
+  
+  if (Q.toolsonce == 0) {
+  if (toolsWrapper) {
   toolsWrapper.style.display = 'none';
-}
+  }
+  Q.toolsonce = 1;
+
+}    
 !}
 
 @start_menu
@@ -41,78 +48,16 @@ Q.old_demographics = 0;
 // TODO: not yet implemented
 Q.use_decimals = 0;
 
-// party resources
-Q.resources = 2;
-// party dues
-Q.dues = 2;
-
-// the state of the party
-// overall dissent reduces every increase in party support.
-Q.dissent = 0.05;
-Q.dissent_percent = 5;
-
-// factions
-Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
-// should this be normalized to 100%?
-Q.left_strength = 15;
-Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
-
-// secret events...
-Q.unions_independent = 0;
-Q.centrists_resign = 0;
-Q.left_split = 0;
-Q.reformists_resigned = 0;
-
-// have we discovered neorevisionism?
-Q.neorevisionism = 0;
-
-// crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
-Q.crisis_urgency = 0;
-// nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
-Q.nazi_urgency = 0;
-// radicalization indicates how radical the SPD's rhetoric is - scale from 0 to 10.
-Q.radicalization = 0;
-// Support for the WTB plan and proto-Keynesian works creation plans in general
-Q.wtb_support = 0;
-// Support for Pacifism within the SPD relative to 1928
-Q.pacifism = 0;
-// Support for democratic reform within the SPD relative to 1928
-Q.democratization = 0;
-// Support for a communist coalition relative to 1928
-Q.communist_coalition = 0;
-// economic_plan: have we adopted *any* economic plan?
-// 1 - WTB plan, 2 - AfA-bund plan, 3 - radical plan (mass nationalization of industries)
-Q.economic_plan = 0;
-// have we officially adopted the WTB plan?
-Q.wtb_adopted = 0;
-// have we formed the iron front?
-Q.iron_front_formed = 0;
-// people's party support
-Q.peoples_party_support = 0;
-// support for nationalizations
-Q.nationalization_support = 0;
-Q.nationalization_adopted = 0;
-// moderate economic plan
-Q.moderate_plan_support = 0;
-Q.moderate_plan_adopted = 0;
 
 // organizations
 
 // inter-party relations
-Q.reactionary_relation = 30;
-Q.conservative_relation = 40;
-Q.red_moderate_relation = 50;
+Q.reactionary_relation = 25;
+Q.conservative_relation = 50;
+Q.red_moderate_relation = 60;
 Q.blue_moderate_relation = 60;
 Q.liberal_relation = 70;
-Q.progressive_relation = 80;
+Q.progressive_relation = 60;
 // non mainstream parties
 
 Q.reform_relation = 60;
@@ -132,109 +77,10 @@ Q.governor_favor = 0;
 Q.president = "Lex Luthor";
 Q.governor = "Milton Finger";
 
-// Does the SPD lead in Prussia?
-Q.spd_prussia = 1;
-// Options: spd, z, dnvp, papen, nsdap
-Q.prussian_government = "SPD";
-
-// The array of forces - paramilitary groups
-// Number of members in 1928 (in thousands)
-// Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.rb_strength = 2000;
-Q.rb_militancy = 0.01;
-Q.women_in_rb = 0;
-Q.rb_banned = 0;
-Q.sh_strength = 500;
-Q.sh_militancy = 0.5;
-Q.sh_banned = 0;
-Q.sh_banned_prussia = 0;
-Q.sa_strength = 80;
-Q.sa_militancy = 0.5;
-Q.sa_banned = 0;
-Q.sa_banned_prussia = 0;
-Q.rfb_strength = 130;
-Q.rfb_militancy = 0.5;
-Q.rfb_banned = 0;
-Q.rfb_banned_prussia = 0;
-
-Q.interior_police_strength = 50;
-Q.interior_police_militancy = 1;
-Q.interior_police_loyalty = 0.45;
-
-Q.prussian_police_strength = 90;
-Q.prussian_police_militancy = 1;
-Q.prussian_police_loyalty = 0.5;
-
-// strength includes actual military and de facto reserves?
-Q.reichswehr_strength = 100;
-Q.reichswehr_militancy = 5;
-Q.reichswehr_loyalty = 0.2;
-
-// The state of the country
-
-// popular opinion
-// national ideology - on a binary scale
-// nationalism vs internationalism or pacifism or non-nationalism
-Q.nationalism = 60;
-// socialism vs capitalism
-Q.socialism = 40;
-// pro-republic vs anti-republic
-Q.pro_republic = 59;
-
-Q.emergency_rule = 0;
-
-// minimum percentage of votes to be represented in the Reichstag
-Q.electoral_threshold = 0;
-// constitutional reform level
-Q.constitutional_reform = 0;
-// constructive vote of no confidence
-Q.constructive_vonc = 0;
-// reduction in presidential powers
-Q.presidential_powers = 0;
-// allows banning of non-constitutional parties
-Q.constitutional_protection = 0;
-Q.kpd_banned = 0;
-Q.nsdap_banned = 0;
-
-// coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
-// when coup_progress reaches 10 or capital_strike_progress reaches 10, there's a special event that launches the coup.
-Q.coup_progress = 0;
-Q.capital_strike_progress = 0;
-
 Q.budget = 4;
 
-// Proportion of different social groups
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+Q.factions = ['left']
 
-// unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
-
-// income for industrial workers in reichsmarks/year - 1928 = 1600 Reichsmarks/year; 1931 = 1440 Reichsmarks/year; 1933 = 1138 Reichsmarks/year - source: https://babel.hathitrust.org/cgi/pt?id=uiug.30112104147985&seq=50
-Q.income = 1600;
-// what about incomes for different classes? rural workers? middle-class workers?
-
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
-Q.inflation = 2.9;
-
-// economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
-Q.economic_growth = 4.4;
-
-// economic expansion timer
-Q.economic_expansion = 0;
-
-// quality of life (as % of 1928 - currently unused - should be welfare-adjusted.)
-Q.workers_qol = 100;
-Q.rural_qol = 100;
-Q.unemployed_qol = 100;
-Q.old_middle_qol = 100;
-Q.new_middle_qol = 100;
 
 Q.classes = ['unemployed', 'blue_collar', 'white_collar', 'business', 'black', 'latino'];
 Q.parties = ['reactionary', 'conservative', 'red_moderate', 'blue_moderate', 'liberal', 'progressive'];
@@ -258,9 +104,9 @@ Q.blue_collar_progressive = 25;
 Q.white_collar_reactionary = 25;
 Q.white_collar_conservative = 15;
 Q.white_collar_red_moderate = 10;
-Q.white_collar_blue_moderate = 0;
-Q.white_collar_liberal = 0;
-Q.white_collar_progressive = 0;
+Q.white_collar_blue_moderate = 20;
+Q.white_collar_liberal = 20;
+Q.white_collar_progressive = 10;
 
 Q.business_reactionary = 25;
 Q.business_conservative = 15;
@@ -283,20 +129,489 @@ Q.latino_blue_moderate = 10;
 Q.latino_liberal = 10;
 Q.latino_progressive = 30;
 
+
+// District sizes
+
+Q.districts = ['burnley', 'somerset', 'new_gotham', 'old_gotham', 'burnside', 'bristol'];
+
+// Burnley
+
+Q.unemployed_burnley = 16;
+Q.blue_collar_burnley = 38;
+Q.white_collar_burnley = 14;
+Q.business_burnley = 6;
+Q.black_burnley = 13;
+Q.latino_burnley = 13;
+
+// Somerset
+
+Q.unemployed_somerset = 8;
+Q.blue_collar_somerset = 30;
+Q.white_collar_somerset = 28;
+Q.business_somerset = 12;
+Q.black_somerset = 13;
+Q.latino_somerset = 9;
+
+// New Gotham
+Q.unemployed_new_gotham = 4;
+Q.blue_collar_new_gotham = 8;
+Q.white_collar_new_gotham = 48;
+Q.business_new_gotham = 18;
+Q.black_new_gotham = 12;
+Q.latino_new_gotham = 10;
+
+// Old Gotham
+Q.unemployed_old_gotham = 15;
+Q.blue_collar_old_gotham = 21;
+Q.white_collar_old_gotham = 24;
+Q.business_old_gotham = 9;
+Q.black_old_gotham = 19;
+Q.latino_old_gotham = 12;
+// Burnside
+Q.unemployed_burnside = 5;
+Q.blue_collar_burnside = 15;
+Q.white_collar_burnside = 42;
+Q.business_burnside = 20;
+Q.black_burnside = 10;
+Q.latino_burnside = 8;
+// Bristol
+Q.unemployed_bristol = 2;
+Q.blue_collar_bristol = 5;
+Q.white_collar_bristol = 58;
+Q.business_bristol = 27;
+Q.black_bristol = 5;
+Q.latino_bristol = 3;
+
+// district sizes:
+
+Q.burnley_size = 30;
+Q.somerset_size = 20;
+Q.new_gotham_size = 12;
+Q.old_gotham_size = 18;
+Q.burnside_size = 15;
+Q.bristol_size = 5;
+
 // Main Tab values
 
 Q.approval_rating = 68;
 Q.credibility = 5.0;
 Q.pf = 5.0;
-Q.budget = 10.0
-Q.order_freedom = -5;
+Q.budget = 10.0;
+Q.order = 1;
+Q.freedom = ((Q.order)*(-1));
 
-// Current Reichstag composition
-// % of Reichstag in Jan 1928
-// source: wikipedia
-// note: the Z figures also include the BVP (Bavarian people's party)
-// since they were ideologically similar, but they were separate parties.
-// They did not have a CDU/CSU-style relationship.
+// Crime tab values
+Q.crime_rate = "bad"
+Q.falcone_status = "ok";
+Q.penguin_status = "ok";
+Q.black_mask_active = "no";
+Q.black_mask_status = "ok";
+Q.joker_status = "ok";
+Q.police_size = 42000;
+Q.police_equipment = 4;
+Q.police_curative = "Curative";
+Q.police_attitude = "Punitive";
+Q.police_militarization = 4;
+Q.police_lethality = "Lethal";
+Q.hero_support = "Good";
+Q.arkham_city = 1;
+Q.we_are_robin = 1;
+Q.suicide_squad = 1;
+Q.county_prosecutor = "Harvey Dent";
+Q.judges = "BLANK";
+Q.jury = "BLANK";
+Q.glut = "10";
+
+// Suicide Squad Personnel
+
+Q.suicide_bane = 1;
+Q.suicide_killer_croc = 1;
+Q.suicide_polka = 1;
+Q.suicide_kite = 1;
+Q.suicide_catman = 1;
+Q.suicide_clue = 1;
+Q.suicide_boomerang = 1;
+Q.suicide_catwoman = 1;
+
+
+Q.suicide_bane_status = "Active";
+Q.suicide_killer_croc_status = "Active";
+Q.suicide_polka_status = "Active";
+Q.suicide_kite_status = "Active";
+Q.suicide_catman_status = "Active";
+Q.suicide_clue_status = "Active";
+Q.suicide_boomerang_status = "Active";
+Q.suicide_catwoman_status = "Active";
+
+// Bat Family
+
+Q.dick_grayson = 1;
+Q.dick_grayson_status = "Active"
+Q.dick_grayson_gear = "Equipment Placeholder"
+Q.dick_grayson_training = "Trained"
+
+Q.jason_todd = 0;
+Q.jason_todd_status = "Active"
+Q.jason_todd_gear = "Equipment Placeholder"
+Q.jason_todd_training = "Trained"
+
+Q.tim_drake = 1;
+Q.tim_drake_status = "Active"
+Q.tim_drake_gear = "Equipment Placeholder"
+Q.tim_drake_training = "Trained"
+
+Q.damian_wayne = 0;
+Q.damian_wayne_status = "Active"
+Q.damian_wayne_gear = "Equipment Placeholder"
+Q.damian_wayne_training = "Trained"
+
+Q.barbara_gordon = 1;
+Q.barbara_gordon_status = "Active"
+Q.barbara_gordon_gear = "Equipment Placeholder"
+Q.barbara_gordon_training = "Trained"
+
+Q.cassandra_cain = 0;
+Q.cassandra_cain_status = "Active"
+Q.cassandra_cain_gear = "Equipment Placeholder"
+Q.cassandra_cain_training = "Trained"
+
+Q.duke_thomas = 0;
+Q.duke_thomas_status = "Active"
+Q.duke_thomas_gear = "Equipment Placeholder"
+Q.duke_thomas_training = "Trained"
+
+Q.polka_batfamily = 0;
+Q.polka_batfamily_status = "Active"
+Q.polka_batfamily_gear = "Equipment Placeholder"
+Q.polka_batfamily_training = "Trained"
+
+Q.selina_kyle = 0;
+Q.selina_kyle_status = "Active"
+Q.selina_kyle_gear = "Equipment Placeholder"
+Q.selina_kyle_training = "Trained"
+
+Q.dinah_lance = 0;
+Q.dinah_lance_status = "Active"
+Q.dinah_lance_gear = "Equipment Placeholder"
+Q.dinah_lance_training = "Trained"
+
+
+
+
+
+
+// This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
+// I will move it to election algorithm once I set up an elections event
+
+// convert party alignment into support based on relationship
+for (var c of Q.classes) {
+  for (var party of Q.parties) {
+    Q[c+'_support'] = 0;
+  }
+
+}
+
+for (var c of Q.classes) {
+  for (var party of Q.parties) {
+    Q[c + '_' + party + '_support'] = (Q[c+'_'+party])*((Q[party+'_relation'])/100);
+    Q[c + '_support'] += (Q[c+'_'+party+'_support']);
+  }
+
+}
+
+
+// We'll now scale it by order and liberty below.
+//
+
+Q.unemployed_ideology = (Q.order)/4;
+Q.blue_collar_ideology = (Q.order)/2;
+Q.white_collar_ideology = (Q.freedom);
+Q.black_ideology = (Q.freedom)/2;
+Q.latino_ideology = (Q.freedom)/4;
+Q.business_ideology = (Q.order);
+
+Q.ideology_support = 0;
+
+
+  for (var c of Q.classes) {
+      if ([Q[c + '_ideology']] > 0) {
+        Q.ideology_support += (Q[c + '_ideology']);
+      } else if ([Q[c + '_ideology']] < 0) {
+        Q.ideology_support += (Q[c + '_ideology'])*(-1);
+      }
+}
+
+if (Q.ideology_support == 0) {
+  Q.ideology_support = 1;
+} 
+
+// this also gives us a weight of how much "for bruce" each person is.
+
+// We now will scale the support by the approval rating.
+// We do so first by checking every demographic support and seeing if it's under the approval rating.
+// If it's under the approval rating, it adds to an approval gap.
+
+
+Q.approval_gap = 0;
+
+  for (var c of Q.classes) { 
+        Q[c + '_approval_gap'] = ((Q.approval_rating)-(Q[c + '_support']));
+        Q.approval_gap += (Q[c + '_approval_gap']);
+  }
+
+// Now, we distribute them with percentages going to .
+
+ for (var c of Q.classes) {
+      if (Q[c + '_ideology'] > 0) {
+        Q[c + '_weight_election'] = (Q[c + '_ideology']/Q.ideology_support);
+      }
+      if (Q[c + '_ideology'] < 0) {
+        Q[c + '_weight_election'] = (((Q[c + '_ideology'])*(-1))/Q.ideology_support);
+      }
+  }
+
+ for (var c of Q.classes) {
+      Q[c + '_support'] += ((Q.approval_gap)*(Q[c + '_weight_election']));
+  }
+
+
+
+// second last, we need to find districts. Since they are based off preexisting support, we affect it here.
+
+
+// Now we get the per district support values by taking the support and scaling it by size within a district.
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_support'] = Q[c + '_support']*(Q[c + '_' + district]/100);
+  }
+}
+
+// We have the sizes now. E.c 8% unemployed in Burnley, with 55% city unemployed support, you get 4.4% of the unemployed supporting you.
+// now we have to convert it back to percentage.
+// First we define each district total, then take the district support and add them all together to form total support
+
+
+for (var district of Q.districts) {
+  Q[district + '_total'] = 0;
+  for (var c of Q.classes) {
+      Q[district + '_total'] += (Q[c + '_' + district + '_support']);
+  }
+}
+
+// This gives us the support combined, but not the individual contributions. Luckily we can now simply scale the support by the district's total.
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + 'district' + '_total'] += ((Q[c + '_' + district + '_support'])/(Q[district + '_total']))*100;
+  }
+}
+
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_approval'] = (Q[c + '_' + district + '_support']/Q[c + '_' + district])*100;
+  }
+}
+
+// For short. With c as class and district as the district.
+// Using the values of 8% unemployed in burnley and 55% unemployed support as examples.
+// c_district_support gives us the population's exact contribution. E.c if there are 8% unemployed in Burnley, and we have 55% support, we get 4.4%. This can then be affected by individual factors.
+// c_district_total gives us the individual contribution to the support. E.c if we have 55% support in burnley and the aforementioned values, unemployed/district gives us a 8% contribution. This lets us see our biggest demographics and such.
+// c_support is citywide support from a given demographic.
+// Lastly, c_district_approval is simply the percentage.
+
+// All things that affect districts should affect c_district_support.
+
+
+
+// must be calculated at ending:
+// getting city wide support
+  Q.city_wide_support = 0;
+
+  for (var c of Q.classes) {
+      Q.city_wide_support += (Q[c + '_support'])/6;
+  }
+
+// District to city wide support.
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_city'] = Q[c + '_' + district + '_approval']/Q[district + '_size']
+  }
+}
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_city' + '_total'] = Q[c + '_' + district + '_support']*(Q[district + '_size']/100)
+  }
+}
+
+// display wip
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_support' + '_display'] = (Q[c + '_' + district + '_support']).toFixed(1);
+  }
+}
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_approval' + '_display'] = (Q[c + '_' + district + '_approval']).toFixed(1);
+  }
+}
+
+for (var c of Q.classes) {
+  for (var party of Q.parties) {
+    Q[c+'_'+party+'_support'+'_display'] = (Q[c+'_'+party+'_support']).toFixed(1);
+ } 
+  Q[c+'_support'+'_display'] = (Q[c+'_support']).toFixed(1);
+}
+
+for (var district of Q.districts) {
+      Q[district + '_total' + '_display'] = Q[district + '_total'].toFixed(1);
+}
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city'] = Q[c + '_' + district + '_approval']/Q[district + '_size']).toFixed(1)
+  }
+}
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q[c + '_' + district + '_city' + '_total' + '_display'] = (Q[c + '_' + district + '_city' + '_total']).toFixed(1)
+  }
+}
+  Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
+
+
+
+// TO DO: Fix ideology
+// Add in negative approval gap push
+
+
+// now we check out gerrymandering.
+
+Q.seats = ['seat1', 'seat2', 'seat3', 'seat4', 'seat5', 'seat6', 'seat7', 'seat8', 'seat9', 'seat10', 'seat11', 'seat12', 'seat13', 'seat14', 'seat15', 'seat16', 'seat18', 'seat19', 'seat20', 'seat21', 'seat22', 'seat23', 'seat24', 'seat25', 'seat26', 'seat27', 'seat28', 'seat29', 'seat30', 'seat31', 'seat32', 'seat33', 'seat34', 'seat35', 'seat36', 'seat37', 'seat38', 'seat39', 'seat40', 'seat41', 'seat42', 'seat43', 'seat44', 'seat45', 'seat46', 'seat47', 'seat48', 'seat49', 'seat50', 'seat51', 'seat52', 'seat53', 'seat54', 'seat55', 'seat56', 'seat57', 'seat58', 'seat59', 'seat60', 'seat61', 'seat62', 'seat63', 'seat64', 'seat65'];
+
+Q.electorald = ['bristol', 'bristol_burnley', 'new_gotham', 'mr_gerrymander', 'old_gotham', 'old_gotham_burnside', 'burnside', 'sommerset', 'sommerset_burnley', 'burnley'];
+
+Q.bristol_seats = 3;
+Q.bristol_burnley_seats = 1;
+Q.new_gotham_seats = 10
+Q.mr_gerrymander_seats = 1;
+Q.old_gotham_seats = 12;
+Q.old_gotham_burnside_seats = 1;
+Q.burnside_seats = 9;
+Q.sommerset_seats = 10;
+Q.sommerset_burnley_seats = 2;
+Q.burnley_seats = 16;
+
+Q.bristol_seats_reactionary = 0;
+Q.bristol_seats_conservative = 1;
+Q.bristol_seats_red_moderate = 1;
+Q.bristol_seats_blue_moderate = 1;
+Q.bristol_seats_liberal = 0;
+Q.bristol_seats_progressive = 0;
+
+Q.bristol_burnley_seats_reactionary = 1;
+Q.bristol_burnley_seats_conservative = 0;
+Q.bristol_burnley_seats_red_moderate = 0;
+Q.bristol_burnley_seats_blue_moderate = 0;
+Q.bristol_burnley_seats_liberal = 0;
+Q.bristol_burnley_seats_progressive = 0;
+
+
+Q.new_gotham_seats_reactionary = 0;
+Q.new_gotham_seats_conservative = 3;
+Q.new_gotham_seats_red_moderate = 1;
+Q.new_gotham_seats_blue_moderate = 1;
+Q.new_gotham_seats_liberal = 3;
+Q.new_gotham_seats_progressive = 2;
+
+Q.mr_gerrymander_seats_reactionary = 0;
+Q.mr_gerrymander_seats_conservative = 1;
+Q.mr_gerrymander_seats_red_moderate = 0;
+Q.mr_gerrymander_seats_blue_moderate = 0;
+Q.mr_gerrymander_seats_liberal = 0;
+Q.mr_gerrymander_seats_progressive = 0;
+
+Q.old_gotham_seats_reactionary = 1;
+Q.old_gotham_seats_conservative = 3;
+Q.old_gotham_seats_red_moderate = 3;
+Q.old_gotham_seats_blue_moderate = 3;
+Q.old_gotham_seats_liberal = 2;
+Q.old_gotham_seats_progressive = 0;
+
+Q.old_gotham_burnside_seats_reactionary = 0;
+Q.old_gotham_burnside_seats_conservative = 0;
+Q.old_gotham_burnside_seats_red_moderate = 0;
+Q.old_gotham_burnside_seats_blue_moderate = 1;
+Q.old_gotham_burnside_seats_liberal = 0;
+Q.old_gotham_burnside_seats_progressive = 0;
+
+Q.burnside_seats_reactionary = 2;
+Q.burnside_seats_conservative = 0;
+Q.burnside_seats_red_moderate = 2;
+Q.burnside_seats_blue_moderate = 1;
+Q.burnside_seats_liberal = 3;
+Q.burnside_seats_progressive = 1;
+
+Q.sommerset_seats_reactionary = 2;
+Q.sommerset_seats_conservative = 0;
+Q.sommerset_seats_red_moderate = 1;
+Q.sommerset_seats_blue_moderate = 4;
+Q.sommerset_seats_liberal = 1;
+Q.sommerset_seats_progressive = 2;
+
+Q.sommerset_burnley_seats_reactionary = 0;
+Q.sommerset_burnley_seats_conservative = 1;
+Q.sommerset_burnley_seats_red_moderate = 0;
+Q.sommerset_burnley_seats_blue_moderate = 1;
+Q.sommerset_burnley_seat_liberal = 0;
+Q.sommerset_burnley_seats_progressive = 0;
+
+Q.burnley_seats_reactionary = 3;
+Q.burnley_seats_conservative = 3;
+Q.burnley_seats_red_moderate = 1;
+Q.burnley_seats_blue_moderate = 3;
+Q.burnley_seats_liberal = 4;
+Q.burnley_seats_progressive = 2;
+
+// this sets the final seats based on the districts, it doesn't matters rn tho because I manually set it right after 
+
+for (var electoral of Q.electorald) {
+  for (var party of Q.parties) {
+    Q[party + '_s'] =+ Q[electoral + '_seats' + '_' + party];
+  }
+}
+
+
+
+// Bristol Seats
+
+// Bristol-Burnley
+
+// New Gotham:
+
+
+// New Gotham - Burnley - Sommerset
+
+// Old Gotham:
+
+
+// Old Gotham - Burnside:
+
+// Burnside:
+
+// Sommerset:
+
+// Sommerset - burnley:
+
+// Burnley:
+
+
+// Current City Council composition
 Q.reactionary_s = 9;
 Q.conservative_s = 12;
 Q.red_moderate_s = 10;
@@ -307,7 +622,9 @@ Q.council_s = (Q.reactionary_s + Q.conservative_s + Q.red_moderate_s + Q.blue_mo
 Q.democrat_s = (Q.blue_moderate_s + Q.liberal_s + Q.progressive_s);
 Q.republican_s = (Q.reactionary_s + Q.conservative_s + Q.red_moderate_s);
 
-// for changing the DDP's name to the DStP
+for (var party of Q.parties) {
+    Q[party + '_percent'] = ((Q[party + '_s']/Q.council_s)*100).toFixed(1); 
+}
 
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
 Q.election_records = [];
@@ -318,91 +635,13 @@ Q.economic_records = [];
 
 Q.electoral_threshold = 0;
 
-// our conduct in the government, and the conduct of our coalition opponents.
-// did the SPD vote against the previous government in a vote of no confidence?
-Q.spd_no_confidence = 0;
-// was the last SPD government taken down in a vote of no confidence by right-wing coalition partners?
-Q.no_confidence_against_spd = 0;
-
 // Advisors/Leaders
 Q.n_advisors = 3;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
-Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
-            'fundraising', 'ideology',
-            'inter_party_relationships', 'international_relations',
-            'iron_front', 'media', 'enemies',
-            'party_organizations', 'rally', 'reichsbanner',
-            'shuffle_leadership', 'streetfighting', 'peoples_party',
-            'party_disunity',
-            // govt
-            'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
-            'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
-            'police', 'prussian_affairs', 'shuffle_cabinet', 'social_welfare',
-            'homosexual_rights', 'economic_policy', 'coalition_affairs',
-            'war_guilt', 'womens_rights', 'economic_democracy',
-            'dealing_with_toleration',
-            'constitutional_reform', 'labor_rights',
-            'education_science', 'curriculum',
-            // events
-            'emergency_cuts', 'unemployment_insurance',
-            'sa_ban', 'sh_ban', 'papen_chancellor',
-            'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
-            'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes'];
+Q.timers = ['advisor_action'];
 Q.advisor_action_timer = 0;
-// party affairs timers
-Q.confronting_nazis_timer = 0;
-Q.crisis_program_timer = 0;
-Q.fundraising_timer = 0;
-Q.ideology_timer = 0;
-Q.inter_party_relationships_timer = 0;
-Q.international_relations_timer = 0;
-Q.iron_front_timer = 0;
-Q.media_timer = 0;
-Q.enemies_timer = 0;
-Q.party_organizations_timer =  0;
-Q.rally_timer = 0;
-Q.reichsbanner_timer = 0;
-Q.shuffle_leadership_timer = 0;
-Q.streetfighting_timer = 0;
-Q.peoples_party_timer = 0;
-// n_elections is the number of elections that have happened since the start of the game.
-Q.n_elections = 0;
-// number of elections without a clear majority.
-Q.no_majority_elections = 0;
-// elections are not on a timer, but rather there is an indicator for whether you're in an electoral cycle.
-Q.in_election = 1;
-Q.next_election_year = 1928;
-Q.next_election_month = 5;
-Q.next_election_time = 5;
-// government affairs timers
-Q.agricultural_policy_timer = 0;
-Q.domestic_enemies_timer = 0;
-Q.economic_policy_timer = 0;
-Q.fiscal_policy_timer = 0;
-Q.foreign_policy_timer = 0;
-Q.judiciary_timer = 0;
-Q.labor_affairs_timer = 0;
-Q.military_policy_timer = 0;
-Q.police_timer = 0;
-Q.prussian_affairs_timer = 0;
-Q.shuffle_cabinet_timer = 0;
-Q.social_welfare_timer = 0;
-Q.war_guilt_timer = 0;
-Q.womens_rights_timer = 0;
-Q.homosexual_rights_timer = 0;
-Q.economic_democracy_timer = 0;
-Q.coalition_affairs_timer = 0;
-// event timers
-Q.emergency_cuts_timer = 0;
-Q.unemployment_insurance_timer = 0;
-Q.sa_ban_timer = 0;
-Q.sh_ban_timer = 0;
-Q.kpd_ultimatum_timer = 0;
-Q.march_on_berlin_timer = 0;
-
 
 // initial advisors.
 Q.gordon_advisor = 1; // James Gordon
@@ -414,7 +653,6 @@ Q.lucius_advisor = 1; // Lucius Fox
 Q.harvey_advisor = 0; //Harvey Bullock
 Q.gil_advisor = 0; // Gil Mason
 Q.montoya_advisor = 0; // Renée Montoya
-
 
 // Speakers
 
@@ -438,6 +676,7 @@ This is a game of alternate history. While historical accuracy is a major concer
 
 For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
 
+- @1928_main: Debug Enter
 - @1928_easy: Begin (easy difficulty)
 - @1928_normal: Begin (normal difficulty)
 - @1928_hard: Begin (hard difficulty)
@@ -456,17 +695,6 @@ subtitle: Saving, loading, and polls will be disabled. [? if not achievement_gam
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
-Q.resources = 2;
-Q.dues = 1;
-Q.rb_strength = 2000;
-Q.reformist_dissent = 25;
-Q.left_dissent = 30;
-Q.labor_dissent = 25;
-Q.center_dissent = 25;
-Q.z_relation = 41;
-Q.kpd_relation = 16;
-Q.dvp_relation = 31;
-Q.budget = 2;
 this.state.disableSaves = true;
 !}
 go-to: welcome

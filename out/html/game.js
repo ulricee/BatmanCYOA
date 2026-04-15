@@ -161,10 +161,42 @@
   
   // This function allows you to modify the text before it's displayed.
   // E.g. wrapping chat-like messages in spans.
-  window.displayText = function(text) {
-      return text;
-  };
+window.displayText = function (text) {
+    return applyWholesome(text);
+};
 
+function applyWholesome(str) {
+    const allWords = new Set([
+        ...tooltipList.map(t => t.searchString),
+        ...colourList.map(c => c.word)
+    ]);
+
+    const regex = new RegExp(`\\b(${[...allWords].join('|')})\\b`, 'g');
+
+    return str.replace(/(<(?:span|strong)[^>]*>.*?<\/(?:span|strong)>|<[^>]+>|[^<]+)/g, (segment) => {
+        if (segment.startsWith('<')) return segment;
+
+        return segment.replace(regex, (match) => {
+            const tooltip = tooltipList.find(t => t.searchString === match);
+            const colour = colourList.find(c => c.word === match);
+
+            let style = colour ? colour.style : '';
+            let innerText = match;
+
+            if (colour && colour.img) {
+                innerText = `<img src="${colour.img}" class="p_icon" alt="">${innerText}`;
+            }
+
+            if (tooltip) {
+                return `<span class='mytooltip' style='${style}'>${innerText}<span  class='mytooltiptext'>${tooltip.explanationText}</span></span>`;
+            } else if (colour) {
+                return `<span style='${style}'>${innerText}</span>`;
+            }
+
+            return match;
+        });
+    });
+}
   // This function allows you to do something in response to signals.
   window.handleSignal = function(signal, event, scene_id) {
   };
@@ -229,6 +261,7 @@
 
   window.onDisplayContent = function() {
       window.updateSidebar();   
+      window.updateSidebarRight();
       window.advice();
     };
 
@@ -275,6 +308,7 @@
 
   window.justLoaded = true;
   window.statusTab = "status";
+  window.statusTabRight = "status_right";
   window.adviceBoard = "turn_advice";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
@@ -287,4 +321,21 @@
     window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
   };
 
-}());
+// Progress bar test
+
+document.addEventListener('mousemove', e => {
+    document.querySelectorAll('.mytooltiptext').forEach(el => {
+        el.style.setProperty('--mouse-x', e.clientX + 'px');
+        el.style.setProperty('--mouse-y', e.clientY + 'px');
+    });
+});
+
+
+
+
+
+}
+
+
+
+());
