@@ -1,0 +1,34 @@
+title: Business Board Reform
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/placeholder.jpg
+
+Welcome to your nightmare. Every expansion, every new building, every new practice must be approved by the board before application. As with much of the legislative organ of the city, the business board is a den of corruption, currently in a fair equilibrium that lets all abuse it. You are not usually one of its adversaries, but if this town is to prosper, it must be reformed. The board starts Corrupt. When you pick this card, you may pursue one of two paths: clean it up, or subdue it to your interests.
+
+- @clean_up_board: They have done enough damage. This city deserves better than this rot. Clean up the board.
+- @subdue_board: We've all seen the damage that they've done. It is now time that they enter new management.
+- @go_through_thorne:We will go through Rupert Thorne. He is a bastard, but he's our bastard. I prefer to contain the proclivities of one corrupt SOB than those of a thousand of them.
+- @convince_council: I have to convince them this is the only way out of this place. I know they fear giving any power to others, yet as the situation stands, we cannot let that den of corruption remain.
+- @hostile_takeover: I know the irony of ending Corruption through the use of corruption, but the situation calls for it. They're many that will sell their souls for imediate gain and eternal damnation. We will contact them, give them a price. Once it is done, the rest will follow.
+
+@clean_up_board
+
+WIP
+
+@subdue_board
+
+WIP
+
+@go_through_thorne
+
+WIP
+
+@convince_council
+
+WIP
+
+@hostile_takeover
+
+WIP

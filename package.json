@@ -5,7 +5,8 @@
   "main": "out/html/index.html",
   "scripts": {
     "dendrynexus": "dendrynexus",
-    "dendry": "dendry"
+    "dendry": "dendry",
+    "build" : "dendrynexus make-html"
   },
   "repository": {
     "type": "git",
