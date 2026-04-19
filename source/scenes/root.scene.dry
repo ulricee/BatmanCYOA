@@ -663,7 +663,10 @@ Q.doug_advisor = 0; // Doug Thomas (Independant)
 Q.selina_advisor = 0; // Selina Kyle
 Q.alfred_advisor = 0; // Alfred Pennyworth
 
-
+//business board corruption (0: controlled, 1: subdued, 2: clean, 3: corrupt)
+Q.business_board_corruption = 3;
+//batman's moral compass
+Q.moral_compass = 20; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
 !}
 set-bg: img/map_2.jpg
 new-page: true
