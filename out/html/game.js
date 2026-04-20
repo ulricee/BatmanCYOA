@@ -33,6 +33,16 @@
     }
   };
 
+  //batphone test function
+    window.showBatPhone = function() {
+    if (window.dendryUI.dendryEngine.state.sceneId.startsWith('batphone2')) {
+        window.dendryUI.dendryEngine.goToScene('backSpecialScene');
+    } else {
+        window.dendryUI.dendryEngine.goToScene('batphone2');
+    }
+  };
+  //
+
   window.showMods = function() {
     window.hideOptions();
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('mod_loader')) {
@@ -274,6 +284,23 @@ function applyWholesome(str) {
       $('#turn_advice').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
+
+  window.batphone = function() {
+      $('#batphone').empty();
+      var scene = dendryUI.game.scenes[window.batPhone];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#batphone').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+
+  window.batphoneremove = function() {
+      $('#batphone').empty();
+      var scene = dendryUI.game.scenes[window.nothing];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#batphone').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+
   /*
    * This function copied from the code for Infinite Space Battle Simulator
    *
@@ -310,6 +337,7 @@ function applyWholesome(str) {
   window.statusTab = "status";
   window.statusTabRight = "status_right";
   window.adviceBoard = "turn_advice";
+  window.batPhone = "batphone";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 

@@ -1,0 +1,10 @@
+title: Status
+new-page: true
+is-special: true
+
+{!<hr>!}
+{!<h1><img src="img/arrow_left.png" style="width: 10px; height: 10px;">!}Batphone{!</h1>!}
+
+Testeddd
+
+{!<button onclick="window.showBatPhone()">!}batphone test{!</button>!}
