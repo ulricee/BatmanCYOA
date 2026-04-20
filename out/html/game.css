@@ -31,7 +31,7 @@ body.dark-mode {
   --card-border-color: #4c4c4c;
   --card-bg-color: #3f3f3f;
 }
-body.dark-mode #content {
+body.dark-mode #mainwrapper {
   border-style: double;
   border-width: 4px;
   border-color: #888;
@@ -41,13 +41,13 @@ body.dark-mode .tools {
   border-width: 4px;
   border-color: #888;
 }
-header, #content, footer {
+header, #mainwrapper, footer {
   color: var(--text-color);
   max-width: 540px;
   margin: 0 auto;
   overflow: auto;
 }
-#content {
+#mainwrapper {
   position: relative;
   background-color: var(--content-bg-color);
   font-size: 1.1em;
@@ -92,17 +92,17 @@ header h2:before {
   padding: 0 0.3em 0 0;
 }
 
-#content #read-marker {
+#mainwrapper #read-marker {
   border: none;
   border-top: 1px solid var(--border-color);
   height: 1px;
   width: 20%;
   clear: left;
 }
-#content h1:first-child {
+#mainwrapper h1:first-child {
   margin-top: 0.5em;
 }
-#content h1 {
+#mainwrapper h1 {
   margin: 2em 0 1em 0;
   font-size: 1.35em;
   font-weight: normal;
@@ -481,7 +481,7 @@ img {
   #page {
       position: static;
   }
-  #content {
+  #mainwrapper {
       position: static;
       font-size: 1em;
       line-height: 160%;
@@ -750,10 +750,70 @@ table {
   border: 0px;
   background-color: var(--content-bg-color);
   font-weight: 1px;
+  color:#ff3a3a;
 }
 
 #democratshow {
   border: 0px;
   background-color: var(--content-bg-color);
   font-weight: 1px;
+  color:#74c8ff;
+}
+
+#republicanshow:hover {
+  color: black;
+  cursor: pointer;
+}
+
+#democratshow:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.hiddenbutton {
+  border: 0px;
+  color: var(--text-color);
+  background-color: var(--content-bg-color);
+  cursor: pointer;
+  font-weight: 1000;
+}
+
+.hiddenbutton:hover {
+  color: black;
+}
+
+
+.showclass:hover {
+  cursor: pointer;
+}
+
+#showunemployedbox {
+  display: none;
+}
+
+#showwhitecollarbox {
+  display: none;
+}
+
+#showbluecollarbox {
+  display: none;
+}
+
+#showbusinessbox {
+  display: none;
+}
+
+#showblackbox {
+  display: none;
+}
+
+#showlatinobox {
+  display: none;
+}
+
+#mainwrapper {
+  color: var(--text-color);
+  background-color: var(--content-bg-color);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }

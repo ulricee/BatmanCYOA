@@ -8,19 +8,25 @@ is-special: true
 
 Approval Rate: [+ approval_rating : approval_display +]%
 
-Credibility: 5.0% ↓
+Credibility: [? if credibility == 5 : {!<span style="color: green;">!}?][? if credibility < 5 : {!<span style = "color: red;">!}?][+ credibility +]{!</span>!}% ↓
 
-Personal Funds: 5.0 ↑
+Personal Funds: {!<span>!}[+ pf +]{!</span>!} ↑
 
-Mayoral Budget: 10.0 ↑
+Mayoral Budget: {!<span>!}[+ budget +]{!</span>!} ↑
 
-Poverty Rate: Growing Dangerously ↑
+Poverty Rate: [+ poverty : poverty +] ↑
 
 Economic Situation: Fragile Balance ↑
 
 Order: [+ order +]
 
 Freedom: [+ freedom +]
+
+{!<hr>!}
+
+Identity: 
+
+Moral Compass:
 
 @city
 
@@ -49,6 +55,8 @@ Liberal: [+ liberal_relation : relationships +]
 Progressive [+ progressive_relation : relationships +]
 
 = Fringe
+
+[? if lgbtq == 1: <b><span style="color: #ff0000">L</span><span style="color: #ff7b00">G</span><span style="color: #ffae00">B</span><span style="color: #2ec500">T</span><span style="color: #00b6adb6">Q</span> <span style="color: #0011ff">C</span><span style="color: #8c00ff">o</span><span style="color: #ff00dd">m</span><span style="color: #ff5bf1">m</span><span style="color: #00c9c9">u</span><span style="color: #ff0000">n</span><span style="color: #ff7b00">i</span><span style="color: #ffd000">t</span><span style="color: #2ec500">y</span></b>: [+ lgbtq_relation : relationships +] ?]
 
 Reform Party: [+ reform_relation : relationships +]
 

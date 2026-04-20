@@ -1,0 +1,10 @@
+
+(..1) <span style="color: #7cca15;"><b>GONE</b></span>
+(2..3) <span style="color: #9fb92a;"><b###</b></span>
+(3..4) <span style="color: #bd9364;"><b>###</b></span>
+(5..6) <span style="color: #dda131;"><b>Growing dangerously</b></span>
+(7..8) <span style="color: #faa200;"><b>###</b></span>
+(9..10) <span style="color: #ff8800;"><b>###</b></span>
+(10..11) <span style="color: rgb(201, 106, 106);"><b>###</b></span>
+(11..) <span style="color: #d42f2f;"><b>###</b></span>
+

@@ -5,35 +5,224 @@ tags: business
 on-arrival: month_actions += 1;
 card-image: img/sangerbund.jpg
 
-While not exactly the thing you prefer , as election are closing in, you are expected to campaign to the population. As an non ideological candidate, your objective was always the broadest appeal, who would you target?
+While not exactly the thing you prefer, as election are closing in, you are expected to campaign to the population. As an non ideological candidate, your objective was always the broadest appeal, who would you target?
 
-- @bluecollar: Blue collar workers, they are the largest base of swing voters.
-- @whitecollar: White collar workers, they are the largest individual group of voters.
-- @businessowner: Business Owners, they are the base of our usual adversaries.
-- @black: The Black Community, they are the most loyal voters.
-- @latino: The Latino Community, they are the fastest growing voting segment.
-- @unemployed: The Unemployed, they need our help more than anyone else.
+- @campaigning_bluecollar: Blue collar workers, they are the largest base of swing voters.
+- @campaigning_whitecollar: White collar workers, they are the largest individual group of voters.
+- @campaigning_businessowner: Business Owners, they are the base of our usual adversaries.
+- @campaigning_black: The Black Community, they are the most loyal voters.
+- @campaigning_latino: The Latino Community, they are the fastest growing voting segment.
+- @campaigning_unemployed: The Unemployed, they need our help more than anyone else.
+- @campaigning_bluecollar_district: Blue collar workers, they are the largest base of swing voters. District ver
+- @campaigning_whitecollar_district: White collar workers, they are the largest individual group of voters. District ver
+- @campaigning_businessowner_district: Business Owners, they are the base of our usual adversaries. District ver
+- @campaigning_black_district: The Black Community, they are the most loyal voters. District ver
+- @campaigning_latino_district: The Latino Community, they are the fastest growing voting segment. District ver
+- @campaigning_unemployed_district: The Unemployed, they need our help more than anyone else. District ver
 
-@bluecollar
 
---
+@campaigning_bluecollar
+on-arrival: blue_collar_support += 3
 
-@whitecollar
+WIP
 
---
+@campaigning_whitecollar
+on-arrival: white_collar_support += 3
 
-@businessowner
+WIP
 
---
+@campaigning_businessowner
+on-arrival: business_support += 3
 
-@black
+WIP
 
---
+@campaigning_black
+on-arrival: black_support += 3
 
-@latino
+WIP
 
---
+@campaigning_latino
+on-arrival: latino_support += 3
 
-@unemployed
+WIP
 
---
+@campaigning_unemployed
+on-arrival: unemployed_support += 3
+
+WIP
+
+@campaigning_bluecollar_district
+
+WIP
+
+- @burnley_bluecollar_district: Burnley
+- @somerset_bluecollar_district: Somerset
+- @new_gotham_bluecollar_district: New Gotham
+- @old_gotham_bluecollar_district: Old Gotham
+- @burnside_bluecollar_district: Burnside
+- @bristol_bluecollar_district: Bristol
+
+@campaigning_whitecollar_district
+
+WIP
+
+- @burnley_whitecollar_district: Burnley
+- @somerset_whitecollar_district: Somerset
+- @new_gotham_whitecollar_district: New Gotham
+- @old_gotham_whitecollar_district: Old Gotham
+- @burnside_whitecollar_district: Burnside
+- @bristol_whitecollar_district: Bristol
+
+@campaigning_businessowner_district
+
+WIP
+
+- @burnley_business_district: Burnley
+- @somerset_business_district: Somerset
+- @new_gotham_business_district: New Gotham
+- @old_gotham_business_district: Old Gotham
+- @burnside_business_district: Burnside
+- @bristol_business_district: Bristol
+
+@campaigning_black_district
+
+WIP
+
+- @burnley_black_district: Burnley
+- @somerset_black_district: Somerset
+- @new_gotham_black_district: New Gotham
+- @old_gotham_black_district: Old Gotham
+- @burnside_black_district: Burnside
+- @bristol_black_district: Bristol
+
+@campaigning_latino_district
+
+WIP
+
+- @burnley_latino_district: Burnley
+- @somerset_latino_district: Somerset
+- @new_gotham_latino_district: New Gotham
+- @old_gotham_latino_district: Old Gotham
+- @burnside_latino_district: Burnside
+- @bristol_latino_district: Bristol
+
+@campaigning_unemployed_district
+
+WIP
+
+- @burnley_unemployed_district: Burnley
+- @somerset_unemployed_district: Somerset
+- @new_gotham_unemployed_district: New Gotham
+- @old_gotham_unemployed_district: Old Gotham
+- @burnside_unemployed_district: Burnside
+- @bristol_unemployed_district: Bristol
+
+@burnley_bluecollar_district
+on-arrival: blue_collar_burnley_support += 1
+
+@somerset_bluecollar_district
+on-arrival: blue_collar_somerset_support += 1
+
+@new_gotham_bluecollar_district
+on-arrival: blue_collar_new_gotham_support += 1
+
+@old_gotham_bluecollar_district
+on-arrival: blue_collar_old_gotham_support += 1
+
+@burnside_bluecollar_district
+on-arrival: blue_collar_burnside_support += 1
+
+@bristol_bluecollar_district
+on-arrival: blue_collar_bristol_support += 1
+
+@burnley_whitecollar_district
+on-arrival: white_collar_burnley_support += 1
+
+@somerset_whitecollar_district
+on-arrival: white_collar_somerset_support += 1
+
+@new_gotham_whitecollar_district
+on-arrival: white_collar_new_gotham_support += 1
+
+@old_gotham_whitecollar_district
+on-arrival: white_collar_old_gotham_support += 1
+
+@burnside_whitecollar_district
+on-arrival: white_collar_burnside_support += 1
+
+@bristol_whitecollar_district
+on-arrival: white_collar_bristol_support += 1
+
+
+@burnley_business_district
+on-arrival: business_burnley_support += 1
+
+@somerset_business_district
+on-arrival: business_somerset_support += 1
+
+@new_gotham_business_district
+on-arrival: business_new_gotham_support += 1
+
+@old_gotham_business_district
+on-arrival: business_old_gotham_support += 1
+
+@burnside_business_district
+on-arrival: business_burnside_support += 1
+
+@bristol_business_district
+on-arrival: business_bristol_support += 1
+
+
+@burnley_black_district
+on-arrival: black_burnley_support += 1
+
+@somerset_black_district
+on-arrival: black_somerset_support += 1
+
+@new_gotham_black_district
+on-arrival: black_new_gotham_support += 1
+
+@old_gotham_black_district
+on-arrival: black_old_gotham_support += 1
+
+@burnside_black_district
+on-arrival: black_burnside_support += 1
+
+@bristol_black_district
+on-arrival: black_bristol_support += 1
+
+@burnley_latino_district
+on-arrival: latino_burnley_support += 1
+
+@somerset_latino_district
+on-arrival: latino_somerset_support += 1
+
+@new_gotham_latino_district
+on-arrival: latino_new_gotham_support += 1
+
+@old_gotham_latino_district
+on-arrival: latino_old_gotham_support += 1
+
+@burnside_latino_district
+on-arrival: latino_burnside_support += 1
+
+@bristol_latino_district
+on-arrival: latino_bristol_support += 1
+
+@burnley_unemployed_district
+on-arrival: unemployed_burnley_support += 1
+
+@somerset_unemployed_district
+on-arrival: unemployed_somerset_support += 1
+
+@new_gotham_unemployed_district
+on-arrival: unemployed_new_gotham_support += 1
+
+@old_gotham_unemployed_district
+on-arrival: unemployed_old_gotham_support += 1
+
+@burnside_unemployed_district
+on-arrival: unemployed_burnside_support += 1
+
+@bristol_unemployed_district
+on-arrival: unemployed_bristol_support += 1
