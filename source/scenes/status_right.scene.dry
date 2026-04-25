@@ -425,6 +425,15 @@ Click on seat to show category.
 
 = City Wide Support [+ city_wide_support_display +]%
 
+[+ approval_change +]
+
+[+ unemployed_approval_change +]
+[+ blue_collar_approval_change +]
+[+ white_collar_approval_change +]
+[+ business_approval_change +]
+[+ black_approval_change +]
+[+ latino_approval_change +]
+
 {!<div class="small-text">!}
 
 {!<button class="hiddenbutton" onclick="displayUnemployedSupport();"><span class="showclass">!} Unemployed Support: [+ unemployed_support_display +]%{!</span></button>!}

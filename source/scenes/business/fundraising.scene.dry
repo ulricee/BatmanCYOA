@@ -17,6 +17,8 @@ Businesses sure are expensive. While Our campaign expenses are not tied to our p
 - @fundraising_nashton: Let's Call the boy wonder, Edward Nashton. He seem to have a bit of a complex about me, but I think we can come to an agreement. We don't have to be Rivals.
 - @fundraising_lex: Let's call on the devil. Lex is not stupid, he knows what I can bring to him. I've helped him before, I'm certain he can give some in return.
 - @fundraising_selina: Let's call Selina. I've given her a chance many think she doesn't deserve. She shouldn't have issues paying back on it.
+- @return
+- @easy_discard
 
 @fundraising_wayneinc
 on-arrival: pf += fundraising_wayne

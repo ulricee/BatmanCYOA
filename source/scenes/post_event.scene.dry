@@ -586,6 +586,22 @@ for (var district of Q.districts) {
 
  // testing out if I can change colors really
 
+
+// Trying to convert support changes into approval change.
+
+Q.approval_change = 0;
+
+for (var c of Q.classes) {
+    Q[c + '_approval_change'] = ((Q[c + '_support'])-(Q[c + '_support_old']))/6;
+    Q.approval_change += Q[c + '_approval_change'];
+}
+
+Q.approval_rating += (Q.approval_change);
+
+for (var c of Q.classes) {
+    Q[c + '_support_old'] = Q[c + '_support'];
+}
+
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 

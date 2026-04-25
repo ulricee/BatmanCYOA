@@ -20,34 +20,33 @@ While not exactly the thing you prefer, as election are closing in, you are expe
 - @campaigning_latino_district: The Latino Community, they are the fastest growing voting segment. District ver
 - @campaigning_unemployed_district: The Unemployed, they need our help more than anyone else. District ver
 
-
 @campaigning_bluecollar
-on-arrival: blue_collar_support += 3
+on-arrival: blue_collar_support += 1
 
 WIP
 
 @campaigning_whitecollar
-on-arrival: white_collar_support += 3
+on-arrival: white_collar_support += 1
 
 WIP
 
 @campaigning_businessowner
-on-arrival: business_support += 3
+on-arrival: business_support += 1
 
 WIP
 
 @campaigning_black
-on-arrival: black_support += 3
+on-arrival: black_support += 1
 
 WIP
 
 @campaigning_latino
-on-arrival: latino_support += 3
+on-arrival: latino_support += 1
 
 WIP
 
 @campaigning_unemployed
-on-arrival: unemployed_support += 3
+on-arrival: unemployed_support += 1
 
 WIP
 
@@ -118,111 +117,111 @@ WIP
 - @bristol_unemployed_district: Bristol
 
 @burnley_bluecollar_district
-on-arrival: blue_collar_burnley_support += 1
+on-arrival: blue_collar_burnley_support += 2
 
 @somerset_bluecollar_district
-on-arrival: blue_collar_somerset_support += 1
+on-arrival: blue_collar_somerset_support += 2
 
 @new_gotham_bluecollar_district
-on-arrival: blue_collar_new_gotham_support += 1
+on-arrival: blue_collar_new_gotham_support += 2
 
 @old_gotham_bluecollar_district
-on-arrival: blue_collar_old_gotham_support += 1
+on-arrival: blue_collar_old_gotham_support += 2
 
 @burnside_bluecollar_district
-on-arrival: blue_collar_burnside_support += 1
+on-arrival: blue_collar_burnside_support += 2
 
 @bristol_bluecollar_district
-on-arrival: blue_collar_bristol_support += 1
+on-arrival: blue_collar_bristol_support += 2
 
 @burnley_whitecollar_district
-on-arrival: white_collar_burnley_support += 1
+on-arrival: white_collar_burnley_support += 2
 
 @somerset_whitecollar_district
-on-arrival: white_collar_somerset_support += 1
+on-arrival: white_collar_somerset_support += 2
 
 @new_gotham_whitecollar_district
-on-arrival: white_collar_new_gotham_support += 1
+on-arrival: white_collar_new_gotham_support += 2
 
 @old_gotham_whitecollar_district
-on-arrival: white_collar_old_gotham_support += 1
+on-arrival: white_collar_old_gotham_support += 2
 
 @burnside_whitecollar_district
-on-arrival: white_collar_burnside_support += 1
+on-arrival: white_collar_burnside_support += 2
 
 @bristol_whitecollar_district
-on-arrival: white_collar_bristol_support += 1
+on-arrival: white_collar_bristol_support += 2
 
 
 @burnley_business_district
-on-arrival: business_burnley_support += 1
+on-arrival: business_burnley_support += 2
 
 @somerset_business_district
-on-arrival: business_somerset_support += 1
+on-arrival: business_somerset_support += 2
 
 @new_gotham_business_district
-on-arrival: business_new_gotham_support += 1
+on-arrival: business_new_gotham_support += 2
 
 @old_gotham_business_district
-on-arrival: business_old_gotham_support += 1
+on-arrival: business_old_gotham_support += 2
 
 @burnside_business_district
-on-arrival: business_burnside_support += 1
+on-arrival: business_burnside_support += 2
 
 @bristol_business_district
-on-arrival: business_bristol_support += 1
+on-arrival: business_bristol_support += 2
 
 
 @burnley_black_district
-on-arrival: black_burnley_support += 1
+on-arrival: black_burnley_support += 2
 
 @somerset_black_district
-on-arrival: black_somerset_support += 1
+on-arrival: black_somerset_support += 2
 
 @new_gotham_black_district
-on-arrival: black_new_gotham_support += 1
+on-arrival: black_new_gotham_support += 2
 
 @old_gotham_black_district
-on-arrival: black_old_gotham_support += 1
+on-arrival: black_old_gotham_support += 2
 
 @burnside_black_district
-on-arrival: black_burnside_support += 1
+on-arrival: black_burnside_support += 2
 
 @bristol_black_district
-on-arrival: black_bristol_support += 1
+on-arrival: black_bristol_support += 2
 
 @burnley_latino_district
-on-arrival: latino_burnley_support += 1
+on-arrival: latino_burnley_support += 2
 
 @somerset_latino_district
-on-arrival: latino_somerset_support += 1
+on-arrival: latino_somerset_support += 2
 
 @new_gotham_latino_district
-on-arrival: latino_new_gotham_support += 1
+on-arrival: latino_new_gotham_support += 2
 
 @old_gotham_latino_district
-on-arrival: latino_old_gotham_support += 1
+on-arrival: latino_old_gotham_support += 2
 
 @burnside_latino_district
-on-arrival: latino_burnside_support += 1
+on-arrival: latino_burnside_support += 2
 
 @bristol_latino_district
-on-arrival: latino_bristol_support += 1
+on-arrival: latino_bristol_support += 2
 
 @burnley_unemployed_district
-on-arrival: unemployed_burnley_support += 1
+on-arrival: unemployed_burnley_support += 2
 
 @somerset_unemployed_district
-on-arrival: unemployed_somerset_support += 1
+on-arrival: unemployed_somerset_support += 2
 
 @new_gotham_unemployed_district
-on-arrival: unemployed_new_gotham_support += 1
+on-arrival: unemployed_new_gotham_support += 2
 
 @old_gotham_unemployed_district
-on-arrival: unemployed_old_gotham_support += 1
+on-arrival: unemployed_old_gotham_support += 2
 
 @burnside_unemployed_district
-on-arrival: unemployed_burnside_support += 1
+on-arrival: unemployed_burnside_support += 2
 
 @bristol_unemployed_district
-on-arrival: unemployed_bristol_support += 1
+on-arrival: unemployed_bristol_support += 2

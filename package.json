@@ -21,6 +21,8 @@
   "dependencies": {
     "dendry": "github:aucchen/dendry",
     "dendrynexus": "github:aucchen/dendrynexus",
-    "parliament-svg": "^3.0.0"
+    "jquery": "^4.0.0",
+    "parliament-svg": "^3.0.0",
+    "soundmanager2": "^2.97.20170602"
   }
 }
