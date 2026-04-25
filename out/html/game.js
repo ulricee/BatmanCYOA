@@ -135,6 +135,21 @@
       window.dendryUI.saveSettings();
   };
 
+// batman mode!!
+
+  window.enableBatmanMode = function() {
+      window.dendryUI.dark_mode = true;
+      document.body.classList.add('batman-mode');
+      window.dendryUI.saveSettings();
+  };
+  window.disableBatmanMode = function() {
+      window.dendryUI.dark_mode = false;
+      document.body.classList.remove('batman-mode');
+      document.body.classList.remove('dark-mode');
+      window.dendryUI.saveSettings();
+  };
+
+
   // populates the checkboxes in the options view
   window.populateOptions = function() {
     var disable_bg = window.dendryUI.disable_bg;
@@ -269,12 +284,14 @@ function applyWholesome(str) {
     };
 
 
+
+
   window.onDisplayContent = function() {
       window.updateSidebar();   
       window.updateSidebarRight();
       window.advice();
+      window.music();
     };
-
 
   window.advice = function() {
       $('#turn_advice').empty();
@@ -283,7 +300,6 @@ function applyWholesome(str) {
       var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
       $('#turn_advice').append(dendryUI.contentToHTML.convert(displayContent));
   };
-
 
   window.batphone = function() {
       $('#batphone').empty();
@@ -299,6 +315,15 @@ function applyWholesome(str) {
       dendryUI.dendryEngine._runActions(scene.onArrival);
       var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
       $('#batphone').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+
+
+  window.music = function() {
+      $('#mixtape').empty();
+      var scene = dendryUI.game.scenes[window.mixtape];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#mixtape').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
   /*
@@ -337,6 +362,7 @@ function applyWholesome(str) {
   window.statusTab = "status";
   window.statusTabRight = "status_right";
   window.adviceBoard = "turn_advice";
+  window.mixtape = "music_player";
   window.batPhone = "batphone";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");

@@ -3,8 +3,14 @@ new-page: true
 is-special: true
 
 {!<hr>!}
-{!<h1><img src="img/arrow_left.png" style="width: 10px; height: 10px;">!}Batphone{!</h1>!}
+{!<h1>!}Batphone{!</h1>!}
+Placeholder text about the mechanic.
 
-Testeddd
-
-{!<button onclick="window.showBatPhone()">!}batphone test{!</button>!}
+{!<div class="batphonecontainer">!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Batfamily</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Vigilantes</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>League of Assassins</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Police</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Business</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Politics</figcaption></figure></div>!}
+{!</div>!}

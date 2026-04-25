@@ -1,0 +1,11 @@
+title: Mixtape
+new-page: true
+is-special: true
+
+= mixtape
+
+testing
+
+<audio controls class="audio" loop eager autoplay>
+  <source src="audio/batmanbackground.mp3" type="audio/mp3">
+</audio>

@@ -14,6 +14,14 @@ is-special: true
                tougher on crime pls</p>
         </div>
     </div>
+    <div class="fleximg">
+        <img src="img/portraits/james_gordon.png" class="advice_img">
+        <div class="fleximg2">
+            <p class="advice_text"><b>James Gordon:</b></p>
+            <p>Hi Batman
+               tougher on crime pls</p>
+        </div>
+    </div>
     </div>
 
 !}

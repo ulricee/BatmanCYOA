@@ -3,7 +3,7 @@ body {
   --border-color: #000;
   --content-bg-color: #f3f3f3;
   --text-color: #431;
-  --link-color: #900;
+  --link-color: rgb(0, 0, 0);
   --link-hover-color: rgba(0, 0, 0, 0.05);
   --unavailable-bg-color: rgba(0, 0, 0, 0.1);
   --unavailable-color: #999;
@@ -31,7 +31,7 @@ body.dark-mode {
   --card-border-color: #4c4c4c;
   --card-bg-color: #3f3f3f;
 }
-body.dark-mode #mainwrapper {
+body.dark-mode #mainwrapper { 
   border-style: double;
   border-width: 4px;
   border-color: #888;
@@ -41,6 +41,33 @@ body.dark-mode .tools {
   border-width: 4px;
   border-color: #888;
 }
+
+body.batman-mode {
+  --bg-color: #000;
+  --border-color: #fff;
+  --content-bg-color: #000000;
+  --text-color: #efefef;
+  --link-color: #f8f8f8;
+  --link-hover-color: rgba(255, 255, 255, 0.06);
+  --tab-bg-color: #555555;
+  --tab-color: #505050;
+  --tab-hover-color: #242424;
+  --card-border-color: #4c4c4c;
+  --card-bg-color: #3f3f3f;
+  text-align: center;
+}
+body.batman-mode #mainwrapper { 
+  border-style: double;
+  border-width: 4px;
+  border-color: #888;
+}
+body.batman-mode .tools {
+  border-style: double;
+  border-width: 4px;
+  border-color: #888;
+}
+
+
 header, #mainwrapper, footer {
   color: var(--text-color);
   max-width: 540px;
@@ -129,7 +156,7 @@ p.game-over {
   color: #999;
 }
 ul.choices {
-  border: 2px solid #876;
+  border: 2px solid rgb(0, 0, 0);
   padding: 0;
   margin: 0.25em 0 0 0;
   list-style-type: none;
@@ -137,7 +164,7 @@ ul.choices {
   clear: left;
 }
 ul.choices li {
-  border-bottom: 1px solid #876;
+  border-bottom: 1px solid rgb(0, 0, 0);
   padding: 0.5em;
 }
 ul.choices li div.subtitle {
@@ -709,24 +736,25 @@ table {
   .mytooltip {
   position: relative;
   cursor: pointer;
-  background-color: rgb(100, 140, 220, 0.5);
   padding: 2px 5px;
 }
 
-.mytooltip:hover { background-color: rgb(100, 140, 220); }
+.mytooltip:hover { 
+  background-color: rgb(0, 0, 0);
+}
 
 .mytooltip .mytooltiptext {
   position: fixed;
   z-index: 999999;
   width: 260px;
-  background: #fff4e6;
-  color: #3b1f0a;
+  background: #000000;
+  color: #ffffff;
   text-align: left;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 12px 14px;
   opacity: 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
-  border: 1px solid #b22222;
+  border: 2px solid #fffdfd;
   pointer-events: none;
   font-size: 14px !important;
   line-height: 1.5em !important;
@@ -816,4 +844,66 @@ table {
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+}
+
+#batfamilybutton {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+}
+
+#batfamilybutton:hover {
+  position: relative;
+  z-index: 999;
+  transform: scale(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  filter: brightness(150%);
+  background-color:  var(--content-bg-color);
+  cursor: pointer;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+.inlineblock {
+   display: inline-block;
+   margin: 0px -45px -10px -45px;
+   padding: 0px -45px -10px -45px;
+   font-size: 10px;
+   text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.video-wrapper {
+  /* Telling our absolute positioned video to 
+  be relative to this element */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Will not allow the video to overflow the 
+  container */
+  overflow: hidden;
+  /* Centering the container's content vertically 
+  and horizontally */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 10s ease-in;
 }
