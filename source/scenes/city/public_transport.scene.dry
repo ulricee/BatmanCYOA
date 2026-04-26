@@ -7,28 +7,34 @@ card-image: img/sangerbund.jpg
 
 Public transportation inside of Gotham is a lifeblood that is keeping the entire city from breaking upon it's own car dependency. They have since become universal in support and universal in the requirement for them not to cost any money and not to disrupt them in any way. Which of the great pillars of Gothamite transportation would you wish to invest upon?
 
-- @subway: The current system is in clear need of expansion.
-- @buses: They need to be more than just a band-aid solution.
-- @taxis: The mess they have found themselves in is simply unacceptable.
+- @subway: Subway.
+- @buses: Buses.
+- @taxis: Taxis.
+- @return
+- @easy_discard
 
 @subway
+subtitle: The current system is in clear need of expansion.
 
 Oh wow! Trains! Trains are so cool!
 
 @buses
+subtitle: They need to be more than just a band-aid solution.
 
 Bus are in the shitter yaddi yaddi yadda, will be more personable later :>|
 
 
 @taxis
+subtitle: The mess they have found themselves in is simply unacceptable.
 
 The taxi system of Gotham city is filled corruption bound into rot settled inside of putrefaction. Their is so much wrong with the current system that entangling it all will require a guillotine to the gordian knot. Where would you begin?
 
-- @medallion: We need to reform the medallion system. Their's simply not enough medallion to serve the current city and too many "Gypsie Cabs" pushed on to compensate the demand.
-- @lease: We need to reform the leasing System. Cabs should not be exploited and this current exploitation needs to end now!
-- @tech: The drivers are driving with decade old technology that limit both their efficiency and put them into unnecessary risk.
+- @medallion: We need to reform the medallion system. 
+- @lease: We need to reform the leasing System.
+- @tech: We need better equipment.
 
 @medallion
+subtitle: There are simply not enough medallions to serve the current city, and too many "Gypsie Cabs" are pushed on to compensate the demand.
 
 - @medallion_cap: Remove the cap on Medallion.
 - @medallion_number: Progressively increase Medallion numbers.
@@ -47,6 +53,7 @@ The taxi system of Gotham city is filled corruption bound into rot settled insid
 @medallion_cap_buy
 
 @lease
+subtitle: Cabs should not be exploited and this current exploitation needs to end now!
 
 - @lease_reform: Reform the Leasing System.
 - @lease_buy: Buy the Leasing company.
@@ -56,6 +63,7 @@ The taxi system of Gotham city is filled corruption bound into rot settled insid
 @lease_buy
 
 @tech
+subtitle: The drivers are driving with decade old technology that limit both their efficiency and put them into unnecessary risk.
 
 - @tech_camera: Camera's in every cars
 - @tech_gps: GPS in every cars.

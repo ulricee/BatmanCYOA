@@ -1,0 +1,16 @@
+title: Status
+new-page: true
+is-special: true
+
+{!<hr>!}
+{!<h1>!}Batphone{!</h1>!}
+Placeholder text about the mechanic.
+
+{!<div class="batphonecontainer">!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Batfamily</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Vigilantes</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>League of Assassins</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Police</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Business</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Politics</figcaption></figure></div>!}
+{!</div>!}

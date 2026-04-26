@@ -17,9 +17,15 @@
   </head>
   <body>
     <div class="background" id="bg2">
+
     </div>
 
     <div class="background" id="bg1">
+        <div class="video-wrapper" id="video-wrapper">
+            <video playsinline autoplay muted loop>
+                <source src="video/batmanbackground.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 
     <div id="options" class="overlay options" style="display: none;">
@@ -297,7 +303,7 @@
     <div id='page'>
         <div id="mid_panel">
             <header>
-                <h1 id="game-title">Social Democracy: An Alternate History</h1>
+                <h1 id="game-title">Gotham - A place you never leave</h1>
                 <h2 id="game-author">Autumn Chen</h2>
 
                 <div id="header-links">
@@ -324,6 +330,7 @@
                     <div class="tab_container">
                         <button class="tab_button active" id="city_council_tab" onclick="window.changeTab('status_right', 'city_council_tab', 'isRight');">City Council</button>
                         <button class="tab_button" id="poll_tab" onclick="window.changeTab('status_right.polls', 'poll_tab', 'isRight');">Polls</button>
+                        <button class="tab_button" id="debug_tab" onclick="window.changeTab('status_right.debug', 'debug_tab', 'isRight');">Debug</button>
                     </div>
                     <div id="qualities_right">
                     </div>
@@ -331,8 +338,11 @@
 
             </div>
 
-            <div id='content'>
-
+            <div id="mainwrapper">
+                <div id='content'>
+                </div>
+                <div id="batphone">
+                </div>
             </div>
 
             <footer>

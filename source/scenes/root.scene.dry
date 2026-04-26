@@ -12,8 +12,16 @@ on-arrival: {!
   }
   Q.toolsonce = 1;
 
-}    
+  const video = document.getElementById('video-wrapper');
+  if (video) {
+    video.style.display = 'none';
+  }
+} 
 !}
+on-display: {!
+      window.enableBatmanMode();
+!}
+
 
 @start_menu
 new-page: true
@@ -22,15 +30,23 @@ go-to: start_menu_2
 = Gotham: A place you never leave.
 
 @start_menu_2
+on-arrival: {!
+  dendryUI.audioPlaylist = []
+!}
+audio: audio/vinyl.mp3
 
 - @start: Start game
-- @election_simulation: Election simulation
+- @library: Library
 - @credits: Credits
 - @game_over.achievements
 
 
 @start
 on-arrival: {!
+  const video = document.getElementById('video-wrapper');
+  video.style.display = 'block';
+
+
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
@@ -58,6 +74,9 @@ Q.red_moderate_relation = 60;
 Q.blue_moderate_relation = 60;
 Q.liberal_relation = 70;
 Q.progressive_relation = 60;
+Q.lgbtq_relation = 50;
+Q.lgbtq = 0;
+
 // non mainstream parties
 
 Q.reform_relation = 60;
@@ -79,7 +98,11 @@ Q.governor = "Milton Finger";
 
 Q.budget = 4;
 
-Q.factions = ['left']
+// is lgbtq attached?
+
+Q.lgbtq_progressive = 1;
+Q.lgbtq_liberal = 0;
+Q.lgbtq_moderate = 0;
 
 
 Q.classes = ['unemployed', 'blue_collar', 'white_collar', 'business', 'black', 'latino'];
@@ -92,42 +115,72 @@ Q.unemployed_conservative = 0;
 Q.unemployed_red_moderate = 0;
 Q.unemployed_blue_moderate = 0;
 Q.unemployed_liberal = 0;
-Q.unemployed_progressive = 50;
+Q.unemployed_progressive = 45;
+Q.unemployed_lgbtq = 5;
 
 Q.blue_collar_reactionary = 25;
 Q.blue_collar_conservative = 12.5;
 Q.blue_collar_red_moderate = 12.5;
 Q.blue_collar_blue_moderate = 12.5;
 Q.blue_collar_liberal = 12.5;
-Q.blue_collar_progressive = 25;
+Q.blue_collar_progressive = 20;
+Q.blue_collar_lgbtq = 5;
 
 Q.white_collar_reactionary = 25;
 Q.white_collar_conservative = 15;
 Q.white_collar_red_moderate = 10;
 Q.white_collar_blue_moderate = 20;
 Q.white_collar_liberal = 20;
-Q.white_collar_progressive = 10;
+Q.white_collar_progressive = 5;
+Q.white_collar_lgbtq = 5;
+
 
 Q.business_reactionary = 25;
 Q.business_conservative = 15;
 Q.business_red_moderate = 10;
 Q.business_blue_moderate = 30;
 Q.business_liberal = 12.5;
-Q.business_progressive = 7.5;
+Q.business_progressive = 2.5;
+Q.business_lgbtq = 5;
 
 Q.black_reactionary = 5;
 Q.black_conservative = 15;
 Q.black_red_moderate = 30;
 Q.black_blue_moderate = 5;
 Q.black_liberal = 20;
-Q.black_progressive = 25;
+Q.black_progressive = 20;
+Q.black_lgbtq = 5;
 
 Q.latino_reactionary = 20;
 Q.latino_conservative = 10;
 Q.latino_red_moderate = 20;
 Q.latino_blue_moderate = 10;
 Q.latino_liberal = 10;
-Q.latino_progressive = 30;
+Q.latino_progressive = 25;
+Q.latino_lgbtq = 5;
+
+// lgbtq system
+
+Q.lgbtq_total = (Q.lgbtq_liberal + Q.lgbtq_progressive + Q.lgbtq_moderate);
+
+for (var c of Q.classes) {
+
+  if (Q.lgbtq_progressive == 1) {
+    Q[c + '_progressive'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
+    Q[c + '_lgbtq'] = 0;
+  }
+
+  if (Q.lgbtq_liberal == 1) {
+    Q[c + '_liberal'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
+    Q[c + '_lgbtq'] = 0;
+  }
+
+  if (Q.lgbtq_moderate == 1) {
+    Q[c + '_blue_moderate'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
+    Q[c + '_lgbtq'] = 0;
+  }
+  }
+
 
 
 // District sizes
@@ -193,12 +246,39 @@ Q.bristol_size = 5;
 
 // Main Tab values
 
-Q.approval_rating = 68;
-Q.credibility = 5.0;
-Q.pf = 5.0;
-Q.budget = 10.0;
-Q.order = 1;
+Q.approval_rating = 50;
+Q.credibility = 4;
+Q.pf = 5;
+Q.budget = 10;
+Q.order = -1;
 Q.freedom = ((Q.order)*(-1));
+
+// Old values 
+Q.approval_rating_old = 50;
+Q.credibility_old = 5.0;
+Q.pf_old = 5.0;
+Q.budget_old = 10.0;
+
+// economic value
+Q.poverty = 5;
+Q.economy = 5;
+
+// Fundraising values.
+
+Q.fundraising_wayne = 1; 
+Q.fundraising_oliver = (Q.freedom);
+Q.fundraising_sionis = 5;
+Q.fundraising_march = 10;
+Q.fundraising_boyle = 5;
+Q.fundraising_edward = 1;
+Q.fundraising_lex = 5;
+Q.fundraising_selina = 3;
+
+// business collaboration
+Q.collaboration_oliver_queen = 0;
+Q.collaboration_doug_thomas = 0;
+Q.collaboration_ferris_boyle = 1;
+Q.collaboration_ferris_boyle_previous = 0;
 
 // Crime tab values
 Q.crime_rate = "bad"
@@ -220,7 +300,7 @@ Q.suicide_squad = 1;
 Q.county_prosecutor = "Harvey Dent";
 Q.judges = "BLANK";
 Q.jury = "BLANK";
-Q.glut = "10";
+Q.glut = 10;
 
 // Suicide Squad Personnel
 
@@ -232,7 +312,6 @@ Q.suicide_catman = 1;
 Q.suicide_clue = 1;
 Q.suicide_boomerang = 1;
 Q.suicide_catwoman = 1;
-
 
 Q.suicide_bane_status = "Active";
 Q.suicide_killer_croc_status = "Active";
@@ -246,67 +325,62 @@ Q.suicide_catwoman_status = "Active";
 // Bat Family
 
 Q.dick_grayson = 1;
-Q.dick_grayson_status = "Active"
-Q.dick_grayson_gear = "Equipment Placeholder"
-Q.dick_grayson_training = "Trained"
+Q.dick_grayson_status = "Active";
+Q.dick_grayson_gear = "Equipment Placeholder";
+Q.dick_grayson_training = "Trained";
 
 Q.jason_todd = 0;
-Q.jason_todd_status = "Active"
-Q.jason_todd_gear = "Equipment Placeholder"
-Q.jason_todd_training = "Trained"
+Q.jason_todd_status = "Active";
+Q.jason_todd_gear = "Equipment Placeholder";
+Q.jason_todd_training = "Trained";
 
 Q.tim_drake = 1;
-Q.tim_drake_status = "Active"
-Q.tim_drake_gear = "Equipment Placeholder"
-Q.tim_drake_training = "Trained"
+Q.tim_drake_status = "Active";
+Q.tim_drake_gear = "Equipment Placeholder";
+Q.tim_drake_training = "Trained";
 
 Q.damian_wayne = 0;
-Q.damian_wayne_status = "Active"
-Q.damian_wayne_gear = "Equipment Placeholder"
-Q.damian_wayne_training = "Trained"
+Q.damian_wayne_status = "Active";
+Q.damian_wayne_gear = "Equipment Placeholder";
+Q.damian_wayne_training = "Trained";
 
 Q.barbara_gordon = 1;
-Q.barbara_gordon_status = "Active"
-Q.barbara_gordon_gear = "Equipment Placeholder"
-Q.barbara_gordon_training = "Trained"
+Q.barbara_gordon_status = "Active";
+Q.barbara_gordon_gear = "Equipment Placeholder";
+Q.barbara_gordon_training = "Trained";
 
 Q.cassandra_cain = 0;
-Q.cassandra_cain_status = "Active"
-Q.cassandra_cain_gear = "Equipment Placeholder"
-Q.cassandra_cain_training = "Trained"
+Q.cassandra_cain_status = "Active";
+Q.cassandra_cain_gear = "Equipment Placeholder";
+Q.cassandra_cain_training = "Trained";
 
 Q.duke_thomas = 0;
-Q.duke_thomas_status = "Active"
-Q.duke_thomas_gear = "Equipment Placeholder"
-Q.duke_thomas_training = "Trained"
+Q.duke_thomas_status = "Active";
+Q.duke_thomas_gear = "Equipment Placeholder";
+Q.duke_thomas_training = "Trained";
 
 Q.polka_batfamily = 0;
-Q.polka_batfamily_status = "Active"
-Q.polka_batfamily_gear = "Equipment Placeholder"
-Q.polka_batfamily_training = "Trained"
+Q.polka_batfamily_status = "Active";
+Q.polka_batfamily_gear = "Equipment Placeholder";
+Q.polka_batfamily_training = "Trained";
 
 Q.selina_kyle = 0;
-Q.selina_kyle_status = "Active"
-Q.selina_kyle_gear = "Equipment Placeholder"
-Q.selina_kyle_training = "Trained"
+Q.selina_kyle_status = "Active";
+Q.selina_kyle_gear = "Equipment Placeholder";
+Q.selina_kyle_training = "Trained";
 
 Q.dinah_lance = 0;
-Q.dinah_lance_status = "Active"
-Q.dinah_lance_gear = "Equipment Placeholder"
-Q.dinah_lance_training = "Trained"
-
-
-
-
-
+Q.dinah_lance_status = "Active";
+Q.dinah_lance_gear = "Equipment Placeholder";
+Q.dinah_lance_training = "Trained";
 
 // This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
 // I will move it to election algorithm once I set up an elections event
+// We convert party alignment into support based on relationship with a given party.
 
-// convert party alignment into support based on relationship
 for (var c of Q.classes) {
   for (var party of Q.parties) {
-    Q[c+'_support'] = 0;
+    Q[c +'_support'] = 0;
   }
 
 }
@@ -319,25 +393,30 @@ for (var c of Q.classes) {
 
 }
 
+// for future self: below it a lie
 
 // We'll now scale it by order and liberty below.
-//
+// First, we determine how impacted a given demographic is by an ideology.
 
-Q.unemployed_ideology = (Q.order)/4;
-Q.blue_collar_ideology = (Q.order)/2;
-Q.white_collar_ideology = (Q.freedom);
-Q.black_ideology = (Q.freedom)/2;
-Q.latino_ideology = (Q.freedom)/4;
-Q.business_ideology = (Q.order);
+Q.unemployed_ideology_base = (Q.order)/4;
+Q.blue_collar_ideology_base = (Q.order)/2;
+Q.white_collar_ideology_base = (Q.freedom);
+Q.black_ideology_base = (Q.freedom)/2;
+Q.latino_ideology_base = (Q.freedom)/4;
+Q.business_ideology_base = (Q.order);
+
+// Calculate the total pool for distribution in the approval rating.
 
 Q.ideology_support = 0;
 
-
   for (var c of Q.classes) {
-      if ([Q[c + '_ideology']] > 0) {
-        Q.ideology_support += (Q[c + '_ideology']);
-      } else if ([Q[c + '_ideology']] < 0) {
-        Q.ideology_support += (Q[c + '_ideology'])*(-1);
+      if ([Q[c + '_ideology_base']] == 0) {
+        Q[c + '_ideology_base'] = 0;
+      }      
+      if (Q[c + '_ideology_base'] > 0) {
+        Q.ideology_support += (Q[c + '_ideology_base']);
+      } else if ([Q[c + '_ideology_base']] < 0) {
+        Q.ideology_support += (Q[c + '_ideology_base'])*(-1);
       }
 }
 
@@ -345,36 +424,50 @@ if (Q.ideology_support == 0) {
   Q.ideology_support = 1;
 } 
 
+// Now we'll divide the ideology share to find the "pull".
+
+Q.unemployed_ideology = (Q.unemployed_ideology_base/Q.ideology_support);
+Q.blue_collar_ideology = (Q.blue_collar_ideology_base/Q.ideology_support);
+Q.white_collar_ideology = (Q.white_collar_ideology_base/Q.ideology_support);
+Q.black_ideology = (Q.black_ideology_base/Q.ideology_support);
+Q.latino_ideology = (Q.latino_ideology_base/Q.ideology_support);
+Q.business_ideology = (Q.business_ideology_base/Q.ideology_support);
+
 // this also gives us a weight of how much "for bruce" each person is.
+
+// We will now scale support by the ideology.
+
+ for (var c of Q.classes) {
+        Q[c + '_support'] = Q[c + '_support']*(1+(Q[c + '_ideology']));
+  }
 
 // We now will scale the support by the approval rating.
 // We do so first by checking every demographic support and seeing if it's under the approval rating.
 // If it's under the approval rating, it adds to an approval gap.
+// First, we need to determine the ideoloogical weights for this. Some of the values are negative, so we have to turn them positive.
+
+  for (var c of Q.classes) {
+    if (Q[c + '_ideology'] > 0) {
+        Q[c + '_approval_weight'] = Q[c + '_ideology'];
+    } else {
+        Q[c + '_approval_weight'] = (Q[c + '_ideology'])*(-1);
+    }
+  }
 
 
-Q.approval_gap = 0;
+ Q.approval_gap = 0;
 
   for (var c of Q.classes) { 
         Q[c + '_approval_gap'] = ((Q.approval_rating)-(Q[c + '_support']));
         Q.approval_gap += (Q[c + '_approval_gap']);
-  }
+ }
 
-// Now, we distribute them with percentages going to .
 
  for (var c of Q.classes) {
-      if (Q[c + '_ideology'] > 0) {
-        Q[c + '_weight_election'] = (Q[c + '_ideology']/Q.ideology_support);
-      }
-      if (Q[c + '_ideology'] < 0) {
-        Q[c + '_weight_election'] = (((Q[c + '_ideology'])*(-1))/Q.ideology_support);
-      }
+      Q[c + '_support'] += ((Q.approval_gap)*(Q[c + '_approval_weight']));
   }
 
- for (var c of Q.classes) {
-      Q[c + '_support'] += ((Q.approval_gap)*(Q[c + '_weight_election']));
-  }
-
-
+// for future self: above it a lie
 
 // second last, we need to find districts. Since they are based off preexisting support, we affect it here.
 
@@ -402,7 +495,7 @@ for (var district of Q.districts) {
 
 for (var district of Q.districts) {
   for (var c of Q.classes) {
-      Q[c + '_' + 'district' + '_total'] += ((Q[c + '_' + district + '_support'])/(Q[district + '_total']))*100;
+      Q[c + '_' + district + '_total'] += ((Q[c + '_' + district + '_support'])/(Q[district + '_total']))*100;
   }
 }
 
@@ -436,13 +529,37 @@ for (var district of Q.districts) {
 
 for (var district of Q.districts) {
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city'] = Q[c + '_' + district + '_approval']/Q[district + '_size']
+      Q[c + '_' + district + '_city' + '_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
   }
-}
+} 
 
 for (var district of Q.districts) {
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total'] = Q[c + '_' + district + '_support']*(Q[district + '_size']/100)
+      Q[c + '_' + district + '_city'] = ((Q[c + '_' + district + '_city' + '_total']))*(Q[c + '_' + district + '_approval']/100)
+  }
+}
+
+// real support city wide
+
+Q.truesupport = 0;
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q.truesupport += (Q[c + '_' + district + '_support']);
+  }
+} 
+
+Q.truesupport = Q.truesupport/6
+
+// Getting old values.
+
+for (var c of Q.classes) {
+    Q[c +'_support_old'] = Q[c + '_support'];
+}
+
+for (var c of Q.classes) {
+  for (var party of Q.parties) {
+    Q[c + '_' + party + '_support_old'] = Q[c + '_' + party + '_support'];
   }
 }
 
@@ -473,7 +590,7 @@ for (var district of Q.districts) {
 
 for (var district of Q.districts) {
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city'] = Q[c + '_' + district + '_approval']/Q[district + '_size']).toFixed(1)
+      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city']).toFixed(1)
   }
 }
 
@@ -483,6 +600,7 @@ for (var district of Q.districts) {
   }
 }
   Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
+  
 
 
 
@@ -492,13 +610,13 @@ for (var district of Q.districts) {
 
 // now we check out gerrymandering.
 
-Q.seats = ['seat1', 'seat2', 'seat3', 'seat4', 'seat5', 'seat6', 'seat7', 'seat8', 'seat9', 'seat10', 'seat11', 'seat12', 'seat13', 'seat14', 'seat15', 'seat16', 'seat18', 'seat19', 'seat20', 'seat21', 'seat22', 'seat23', 'seat24', 'seat25', 'seat26', 'seat27', 'seat28', 'seat29', 'seat30', 'seat31', 'seat32', 'seat33', 'seat34', 'seat35', 'seat36', 'seat37', 'seat38', 'seat39', 'seat40', 'seat41', 'seat42', 'seat43', 'seat44', 'seat45', 'seat46', 'seat47', 'seat48', 'seat49', 'seat50', 'seat51', 'seat52', 'seat53', 'seat54', 'seat55', 'seat56', 'seat57', 'seat58', 'seat59', 'seat60', 'seat61', 'seat62', 'seat63', 'seat64', 'seat65'];
+Q.seats = ['seat1', 'seat2', 'seat3', 'seat4', 'seat5', 'seat6', 'seat7', 'seat8', 'seat9', 'seat10', 'seat11', 'seat12', 'seat13', 'seat14', 'seat15', 'seat16', 'seat17', 'seat18', 'seat19', 'seat20', 'seat21', 'seat22', 'seat23', 'seat24', 'seat25', 'seat26', 'seat27', 'seat28', 'seat29', 'seat30', 'seat31', 'seat32', 'seat33', 'seat34', 'seat35', 'seat36', 'seat37', 'seat38', 'seat39', 'seat40', 'seat41', 'seat42', 'seat43', 'seat44', 'seat45', 'seat46', 'seat47', 'seat48', 'seat49', 'seat50', 'seat51', 'seat52', 'seat53', 'seat54', 'seat55', 'seat56', 'seat57', 'seat58', 'seat59', 'seat60', 'seat61', 'seat62', 'seat63', 'seat64', 'seat65'];
 
-Q.electorald = ['bristol', 'bristol_burnley', 'new_gotham', 'mr_gerrymander', 'old_gotham', 'old_gotham_burnside', 'burnside', 'sommerset', 'sommerset_burnley', 'burnley'];
+Q.electoral_district = ['bristol', 'bristol_burnley', 'new_gotham', 'mr_gerrymander', 'old_gotham', 'old_gotham_burnside', 'burnside', 'sommerset', 'sommerset_burnley', 'burnley'];
 
 Q.bristol_seats = 3;
 Q.bristol_burnley_seats = 1;
-Q.new_gotham_seats = 10
+Q.new_gotham_seats = 10;
 Q.mr_gerrymander_seats = 1;
 Q.old_gotham_seats = 12;
 Q.old_gotham_burnside_seats = 1;
@@ -524,8 +642,8 @@ Q.bristol_burnley_seats_progressive = 0;
 
 Q.new_gotham_seats_reactionary = 0;
 Q.new_gotham_seats_conservative = 3;
-Q.new_gotham_seats_red_moderate = 1;
-Q.new_gotham_seats_blue_moderate = 1;
+Q.new_gotham_seats_red_moderate = 2;
+Q.new_gotham_seats_blue_moderate = 0;
 Q.new_gotham_seats_liberal = 3;
 Q.new_gotham_seats_progressive = 2;
 
@@ -568,7 +686,7 @@ Q.sommerset_burnley_seats_reactionary = 0;
 Q.sommerset_burnley_seats_conservative = 1;
 Q.sommerset_burnley_seats_red_moderate = 0;
 Q.sommerset_burnley_seats_blue_moderate = 1;
-Q.sommerset_burnley_seat_liberal = 0;
+Q.sommerset_burnley_seats_liberal = 0;
 Q.sommerset_burnley_seats_progressive = 0;
 
 Q.burnley_seats_reactionary = 3;
@@ -580,51 +698,64 @@ Q.burnley_seats_progressive = 2;
 
 // this sets the final seats based on the districts, it doesn't matters rn tho because I manually set it right after 
 
-for (var electoral of Q.electorald) {
-  for (var party of Q.parties) {
-    Q[party + '_s'] =+ Q[electoral + '_seats' + '_' + party];
+
+for (var party of Q.parties) {
+    Q[party + '_s'] = 0;
+};
+
+
+for (var party of Q.parties) {
+  for (var electoral_district of Q.electoral_district) {
+    Q[party + '_s'] += (Q[electoral_district + '_seats_' + party]);
   }
-}
+};
+
+// schizo algorithm to assign a district to each seat
+
+for (var electoral_district of Q.electoral_district) {
+  for (var party of Q.parties) {
+    Q[electoral_district + '_seats_' + party + '_tobeassigned'] = (Q[electoral_district + '_seats_' + party]);
+  }
+};
 
 
 
-// Bristol Seats
+  for (var electoral_district of Q.electoral_district) {
+    Q[electoral_district + '_seats_tobeassigned'] = (Q[electoral_district + '_seats']);
+  }
 
-// Bristol-Burnley
+for (var seat of Q.seats) {    
+    for (var electoral_district of Q.electoral_district) {
+      if (Q[electoral_district + '_seats_tobeassigned'] > 0) {
+        if (!Q[seat + '_district']) {
+          Q[seat + '_district'] = electoral_district;
+          Q[electoral_district + '_seats_tobeassigned'] -= 1
+        };    
+      };
+        for (var party of Q.parties) {
+          if (!Q[seat + '_district_alignment']) {
+            if (Q[electoral_district + '_seats_' + party +  '_tobeassigned'] > 0) {
+              Q[seat + '_district_alignment'] = party;
+              Q[electoral_district + '_seats_' + party + '_tobeassigned'] -= 1;
+            };
+          };
+        };
+      };
+    };
 
-// New Gotham:
 
 
-// New Gotham - Burnley - Sommerset
-
-// Old Gotham:
 
 
-// Old Gotham - Burnside:
+// other stuff
 
-// Burnside:
-
-// Sommerset:
-
-// Sommerset - burnley:
-
-// Burnley:
-
-
-// Current City Council composition
-Q.reactionary_s = 9;
-Q.conservative_s = 12;
-Q.red_moderate_s = 10;
-Q.blue_moderate_s = 14;
-Q.liberal_s = 13;
-Q.progressive_s = 7;
 Q.council_s = (Q.reactionary_s + Q.conservative_s + Q.red_moderate_s + Q.blue_moderate_s + Q.liberal_s + Q.progressive_s);
 Q.democrat_s = (Q.blue_moderate_s + Q.liberal_s + Q.progressive_s);
 Q.republican_s = (Q.reactionary_s + Q.conservative_s + Q.red_moderate_s);
 
 for (var party of Q.parties) {
     Q[party + '_percent'] = ((Q[party + '_s']/Q.council_s)*100).toFixed(1); 
-}
+};
 
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
 Q.election_records = [];
@@ -663,38 +794,55 @@ Q.doug_advisor = 0; // Doug Thomas (Independant)
 Q.selina_advisor = 0; // Selina Kyle
 Q.alfred_advisor = 0; // Alfred Pennyworth
 
+// Initial state of charities
+Q.charity_burnley = 0;
+Q.charity_somerset = 1;
+Q.charity_bristol = 0;
+Q.charity_new_gotham = 0;
+Q.charity_old_gotham = 1;
+Q.charity_burnside = 1;
+
+Q.charity_total = 3;
+
+Q.charity_canary = 0;
+
+// contacts
+Q.clark = 0;
+Q.busy_canary = 1;
+
+dendryUI.audioPlaylist = []
 //business board corruption (0: controlled, 1: subdued, 2: clean, 3: corrupt)
 Q.business_board_corruption = 3;
 //batman's moral compass
 Q.moral_compass = 20; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
 !}
+audio: audio/batmanbackground.mp3
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
-
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
-
-This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
-
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
-
-- @1928_main: Debug Enter
-- @1928_easy: Begin (easy difficulty)
+- @1928_debug: Debug Enter
 - @1928_normal: Begin (normal difficulty)
 - @1928_hard: Begin (hard difficulty)
 - @1928_historical: Begin (historical mode)
 
+@1928_debug
+on-arrival:  {!
+  Q.difficulty = -2
+!}
+
 @1928_easy
-on-arrival: difficulty = -1;
+on-arrival: {!
+  Q.difficulty = -1
+!}
 go-to: welcome
 
 @1928_hard
-on-arrival: difficulty = 1; 
+on-arrival: {!
+  Q.difficulty = 1
+!}
 go-to: welcome
 
 @1928_historical
-subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
@@ -703,11 +851,12 @@ this.state.disableSaves = true;
 go-to: welcome
 
 @1928_normal
-on-arrival: difficulty = 0;
+on-arrival: {!
+  Q.difficulty = 0
+!}
 go-to: welcome
 
 @1928_main
-audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 

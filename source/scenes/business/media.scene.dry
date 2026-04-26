@@ -13,20 +13,22 @@ Unlike most of the country, Gotham still possesses a vibrant Newspaper industry 
 - @dailyplanet: Let us strengthen our contact with the Daily Planet. It's been the paper most positive about super heroes after all.
 - @gothamstar: Our best bet would most likely be the Gotham Star. It's been the paper of choice for most of the population.
 - @gothamgazette: Maybe we should try and reach for the Gotham Gazette. It would do good to broaden the appeal of my administration.
-- @mediaempire: It may sound Cavalier but... Wouldn't it be good for us to form our own media empire? Bloomberg and Forbes did it, Why not us? (Cost 2PF)
+- @mediaempire: It may sound Cavalier but... Wouldn't it be good for us to form our own media empire? Bloomberg and Forbes did it, Why not us?
+- @return
+- @easy_discard
 
 @dailyplanet
-
-As the Daily planet isn't based in Gotham, it's reach is smaller than other newspaper. It's Liberal leaning appeal generally rest in the middle class of the city. However, it could open us to it's great investigative journalist.
+on-arrival: white_collar_support += 2*(freedom); clark = 1
+subtitle: As the Daily planet isn't based in Gotham, it's reach is smaller than other newspaper. It's Liberal leaning appeal generally rest in the middle class of the city. However, it could open us to it's great investigative journalist.
 
 @gothamstar
-
-The Gotham Star tries to appeal both to the largest amount of people while brandishing impartiality. It cast the broadest net of all papers.
+on-arrival: unemployed_support += 0.5*(credibility); blue_collar_support += 0.5*(credibility); white_collar_support += 0.5*(credibility); business_support += 0.5*(credibility); black_support += 0.5*(credibility); latino_support += 0.5*(credibility)
+subtitle: The Gotham Star tries to appeal to the largest amount of people while brandishing impartiality. It cast the broadest net of all papers.
 
 @gothamgazette
-
-The Gotham Gazette conservative bias made it the most popular among business owners and some blue collar workers. Persons that read it tended not to vote for you.
+on-arrival: business_support += 0.5*(order); blue_collar_support += 0.2*(order/2)
+subtitle: The Gotham Gazette conservative bias made it the most popular among business owners and some blue collar workers. Persons that read it tended not to vote for you.
 
 @mediaempire
-
-Creating your media empire is a risky investment as it's likely to work at a loss for it's first years of operation. It's also your best shot toward achieving the best messaging you could hope for.
+on-arrival: pf -= 2
+subtitle: -2 Personal Funds. Creating your media empire is a risky investment as it's likely to work at a loss for it's first years of operation. It's also your best shot toward achieving the best messaging you could hope for.

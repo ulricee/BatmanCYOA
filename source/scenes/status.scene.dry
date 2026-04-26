@@ -2,25 +2,54 @@ title: Status
 new-page: true
 is-special: true
 
-= Gotham Report:
+= [+ month : month +] [+ year +]
 
-[+ month : month +] [+ year +]
+Approval Rate: {!<b>!}
+[? if approval_rating >= 0 and approval_rating < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 5 and approval_rating < 10 : {!<span style="color: #ad0000; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 10 and approval_rating < 15 : {!<span style="color: #bd0000; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 15 and approval_rating < 20 : {!<span style="color: #ca2525; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 20 and approval_rating < 25 : {!<span style="color: #cc3f3f; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 25 and approval_rating < 30 : {!<span style="color: #db6454; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 30 and approval_rating < 35 : {!<span style="color: #ff7c54; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 35 and approval_rating < 40 : {!<span style="color: #ee8345; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 40 and approval_rating < 45 : {!<span style="color: #f1862e; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 45 and approval_rating < 50 : {!<span style="color: #df8919; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 50 and approval_rating < 55 : {!<span style="color: #c58700; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 55 and approval_rating < 60 : {!<span style="color: #c5a100; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 60 and approval_rating < 65 : {!<span style="color: #9ba823; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 65 and approval_rating < 70 : {!<span style="color: #7fb64c; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 70 and approval_rating < 75 : {!<span style="color: #5dc534; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 75 and approval_rating < 80 : {!<span style="color: #34c558; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 80 and approval_rating < 85 : {!<span style="color: #26be77; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 85 and approval_rating < 90 : {!<span style="color: #34c5a1; text-decoration-line: underline;">!}?]
+[? if approval_rating >= 90 and approval_rating <= 100 : {!<span style="color: #11ecaa; text-decoration-line: underline;">!}?]
+[+ approval_rating +]%
+{!</span></b>!}
 
-Approval Rate: [+ approval_rating : approval_display +]%
+Credibility: 
+[? if credibility == 5 : {!<span style="color: #000; text-decoration-line: underline;">!}?]
+[? if credibility < 5 : {!<span style = "color: #000; text-decoration-line: underline;">!}?]
+[+ credibility +]
+{!</span>!}% ↓
 
-Credibility: 5.0% ↓
+Personal Funds: {!<span>!}[+ pf +]{!</span>!} ↑
 
-Personal Funds: 5.0 ↑
+Mayoral Budget: {!<span>!}[+ budget +]{!</span>!} ↑
 
-Mayoral Budget: 10.0 ↑
-
-Poverty Rate: Growing Dangerously ↑
+Poverty Rate: [+ poverty : poverty +] ↑
 
 Economic Situation: Fragile Balance ↑
 
 Order: [+ order +]
 
 Freedom: [+ freedom +]
+
+{!<hr>!}
+
+Identity: 
+
+Moral Compass:
 
 @city
 
@@ -49,6 +78,8 @@ Liberal: [+ liberal_relation : relationships +]
 Progressive [+ progressive_relation : relationships +]
 
 = Fringe
+
+[? if lgbtq == 1: <b><span style="color: #ff0000">L</span><span style="color: #ff7b00">G</span><span style="color: #ffae00">B</span><span style="color: #2ec500">T</span><span style="color: #00b6adb6">Q</span> <span style="color: #0011ff">C</span><span style="color: #8c00ff">o</span><span style="color: #ff00dd">m</span><span style="color: #ff5bf1">m</span><span style="color: #00c9c9">u</span><span style="color: #ff0000">n</span><span style="color: #ff7b00">i</span><span style="color: #ffd000">t</span><span style="color: #2ec500">y</span></b>: [+ lgbtq_relation : relationships +] ?]
 
 Reform Party: [+ reform_relation : relationships +]
 

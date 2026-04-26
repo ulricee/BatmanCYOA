@@ -9,45 +9,141 @@ card-image: img/sangerbund.jpg
 
 Before entering politics, your main avenue to limit the poverty of the city where through the vast charities that you've developed. However, even today, they have prooved most effective to fill the gaps welfare cannot reach as well as improving both your credibility and your popularity in a pularity from a purely Amoral Standpoint. How would you like to develop it further?
 
-- @humanitarian: Let's Grant the Gotham Humanitarian of the Year Award.
-- @wayne: We need to open a new Chapter of the Wayne Charity.
-- @canaries: We need to help the funding of the Canaries Charity.
-- @robin: We need to help the Funding of "We Are Robin's"
+- @charity_humanitarian: Let's Grant the Gotham Humanitarian of the Year Award.
+- @charity_wayne: We need to open a new Chapter of the Wayne Charity.
+- @charity_canaries_1: We need to help the funding of the Canaries Charity.
+- @charity_canaries_2: We need to help the funding of the Canaries Charity.
+- @charity_canaries_3: We need to help the funding of the Canaries Charity.
+- @charity_robin: We need to help the Funding of "We Are Robin's"
+- @return
+- @easy_discard
 
-@humanitarian
+@charity_humanitarian
 subtitle: It would serve to validate the charity to the eyes of the public, give you a boost with business owners as well as improve my relationship with whichever wins it
 
+- @charity_ferris_humanitarian: Ferris Boyle
+- @charity_roman_humanitarian: Roman Sionis
+- @charity_duke_humanitarian: Duke Thomas
+- @charity_oliver_humanitarian: Oliver Queen
 
-- @ferris_humanitarian: Ferris Boyle
-- @roman_humanitarian: Roman Sionis
-- @duke_humanitarian: Duke Thomas
-- @oliver_humanitarian: Oliver Queen
-
-@ferris_humanitarian
-
-a
-
-@roman_humanitarian
+@charity_ferris_humanitarian
 
 a
 
-@duke_humanitarian
+@charity_roman_humanitarian
 
 a
 
-@oliver_humanitarian
+@charity_duke_humanitarian
 
 a
 
-@wayne
+@charity_oliver_humanitarian
+
+a
+
+@charity_wayne
 subtitle: You can open a new one wherever you want. Some would rather be for collecting funds, other to spend it.
 
-a
+- @charity_open: Let's open some chapters.
+- @charity_close: Let's close some chapters.
+- @charities: What else can we do?
 
-@canaries
+@charity_open
+
+- @charity_wayne_burnley_open: Let's build one in Burnley, Gotham's most populated district.
+- @charity_wayne_somerset_open: Let's reopen our chapter in Somerset.
+- @charity_wayne_bristol_open: Let's expand to Bristol.
+- @charity_wayne_old_gotham_open: Let's reopen the Old Gotham chapter.
+- @charity_wayne_new_gotham_open: Let's expand out into New Gotham.
+- @charity_wayne_burnside_open: Let's reopen our chapter in burnside.
+- @charity_close: Can we close some charities instead?
+- @charities: Let's go back to the start.
+
+@charity_close
+
+- @charity_wayne_burnley_close: We need to close our Burnely chapter.
+- @charity_wayne_somerset_close: We need to close our Somerset chapter.
+- @charity_wayne_bristol_close: We need to close our Bristol chapter.
+- @charity_wayne_old_gotham_close: We need to close our Old Gotham chapter.
+- @charity_wayne_new_gotham_close: We need to close our New Gotham chapter.
+- @charity_wayne_burnside_close: We need to close our Burnside chapter.
+- @charity_wayne_old_gotham_new: The situation in Old Gotham is getting bad, let's build a new chapter in there.
+- @charity_open: Can we open some charities instead?
+- @charities: Let's go back to the start.
+
+
+@charity_wayne_burnley_open
+on-arrival: charity_burnley += 1;
+view-if: charity_burnley = 0
+
+@charity_wayne_somerset_open
+on-arrival: charity_somerset += 1;
+view-if: charity_somerset = 0
+
+@charity_wayne_bristol_open
+on-arrival: charity_bristol += 1;
+view-if: charity_bristol = 0
+
+@charity_wayne_old_gotham_open
+on-arrival: charity_old_gotham += 1;
+view-if: charity_old_gotham = 0
+
+@charity_wayne_new_gotham_open
+on-arrival: charity_new_gotham += 1;
+view-if: charity_new_gotham = 0
+
+@charity_wayne_burnside_open
+on-arrival: charity_burnside += 1;
+view-if: charity_burnside = 0
+
+@charity_wayne_burnley_close
+on-arrival: charity_burnley -= 1;
+view-if: charity_burnley = 1
+
+@charity_wayne_somerset_close
+on-arrival: charity_somerset -= 1;
+view-if: charity_somerset = 1
+
+@charity_wayne_bristol_close
+on-arrival: charity_bristol -= 1;
+view-if: charity_bristol = 1
+
+@charity_wayne_old_gotham_close
+on-arrival: charity_old_gotham -= 1;
+view-if: charity_old_gotham = 1
+
+@charity_wayne_new_gotham_close
+on-arrival: charity_new_gotham -= 1;
+view-if: charity_new_gotham > 0
+
+@charity_wayne_burnside_close
+on-arrival: charity_burnside -= 1;
+view-if: charity_burnside = 1
+
+@charity_wayne_old_gotham_new
+on-arrival: charity_new_gotham += 1;
+view-if: charity_new_gotham = 1
+
+
+@charity_canaries_1
+view-if: charity_canary <=2
+on-arrival: credibility += 0.2; pf -= 1; charity_canary += 1
 subtitle: Dinah Drake Always need more funds when it come to helping people.
 
 a
 
-@robin
+@charity_canaries_2
+view-if: charity_canary = 3
+on-arrival: credibility += 0.2; pf -= 1; charity_canary += 1; busy_canary = 0
+subtitle: Dinah Drake Always need more funds when it come to helping people.
+
+Dinah Drake is no longer busy
+
+@charity_canaries_3
+view-if: charity_canary > 3
+on-arrival: credibility += 0.2; pf -= 1; charity_canary += 1
+subtitle: Dinah Drake Always need more funds when it come to helping people.
+
+@charity_robin
 subtitle: Their's a part of you that's left there. A part that won't ever disapear.

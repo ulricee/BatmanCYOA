@@ -10,11 +10,13 @@ if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
 
+// changing to normal from dark knight version
+
     const toolsWrapper = document.getElementById('tools_wrapper');
 if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
-
+  dendryUI.audioPlaylist = []
 !}
 max-cards: 3
 
@@ -53,8 +55,20 @@ if (Q.advisor_action_timer <= 0) {
 if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
+    Q.onmain = 1;
+    window.batphone();
+    dendryUI.audioPlaylist = []
+
 !}
-max-cards: 4
+on-departure: {!
+    Q.onmain = 0;
+    window.batphoneremove();
+
+!}
+on-display: {!
+    window.disableBatmanMode();
+!}
+max-cards: 9
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
@@ -63,14 +77,16 @@ max-cards: 4
 {!<p class="both">!}[? if year = 1994 and month = 1: After an easier than expected electoral triumph against Quincy Sharp, you now have powers greater than you've ever seen before to change everything inside of Gotham.<br><br>However, power is never without its cost. For every power gained, a reflection imparts its influence on something else. If power doesn't corrupts you, it will corrupt someone else.<br><br>Yet, as the stakes have never been higher, it is on you to finally break the cycle. Gotham's fate was never a fatality.?]{!</p>!}
 
 {!</div>!}
-
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+{!
+    <audio controls class="audio" loop eager autoplay>
+        <source src="audio/horse.mp3" type="audio/mp3">
+    </audio>
+!}
 
 - @business
 - @city
 - @streets
 - #advisor
-
 
 @business
 title: The Business

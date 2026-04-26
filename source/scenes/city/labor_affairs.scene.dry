@@ -9,50 +9,52 @@ Union busting as been the unsaid policy of the Quincy Sharp Year's, however, the
 
 You may push the following reforms to the City council:
 
-- @safety: We need to reform the city safety and work standards:
-- @contract: We need to reinforce their Job and contract security.
-- @overtime: We need to support their right to overtime pay.
-- @salary: We need to support a salary increase for workers.
-- @pension: We need to support workers pension.
-- @healthcare: We need to support Worker's Healthcare Benefit.
-- @hours: We need to renegotiate the workers Working Hours.
-- @lonnie: We need to do something about Lonnie Machin...
+- @labor_safety: We need to reform the city safety and work standards:
+- @labor_contract: We need to reinforce their Job and contract security.
+- @labor_overtime: We need to support their right to overtime pay.
+- @labor_salary: We need to support a salary increase for workers.
+- @labor_pension: We need to support workers pension.
+- @labor_healthcare: We need to support Worker's Healthcare Benefit.
+- @labor_hours: We need to renegotiate the workers Working Hours.
+- @labor_lonnie: We need to do something about Lonnie Machin...
+- @return
+- @easy_discard
 
-@safety
+@labor_safety
 subtitle: This subject isn't seen as too toxic by the council.
 
-A
+WIP
 
-@contract
+@labor_contract
 subtitle: This subject isn't seen as too toxic by the council.
 
-a
+WIP
 
-@overtime
+@labor_overtime
 subtitle: This subject isn't seen as too toxic by the council.
 
-a
+WIP
 
-@salary
+@labor_salary
 subtitle: This subject is seen as toxic by the council.
 
-A
+WIP
 
-@pension
+@labor_pension
 subtitle: This subject is seen as toxic by the council.
 
-a
+WIP
 
-@healthcare
+@labor_healthcare
 subtitle: This Subject is seen as toxic by the council.
 
-a
+WIP
 
-@hours
+@labor_hours
 subtitle: This Subject is seen as Toxic by the council.
 
-A
+WIP
 
-@lonnie
+@labor_lonnie
 
-A
+WIP

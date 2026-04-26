@@ -9,43 +9,53 @@ card-image: img/sangerbund.jpg
 
 Businesses sure are expensive. While Our campaign expenses are not tied to our personal fund anymore as an elected official, we must continue to woo in investors and good relations if we are to have the necessary funds to fuffill each objectives that cannot be done through municipal actions. Where would we find our Funds?
 
-- @wayneinc: Let's call on our usual backers. Wayne Inc. as been on the up for a dozen year, I'm certain they can put a bit more money into it.
-- @oliver: Let's call on our friend Oliver Queen. I've been a buyer of the equipment from his company for years, it's only right he gives some back in return.
-- @roman: Let's call on this new rising star, Roman Sionis. I'm certain he has an eye for the development we are bringing to the community.
-- @march: Let's call on the greatest business man of the city. Lincoln March has reached his place for a reason. I'm certain we can come to an agreement.
-- @boyle: Let's call on the people's CEO. Ferris Boyle really did the impossible in turning around Dagget's dying branches, I'm certain he'd be interested in Wayne industries.
-- @nashton: Let's Call the boy wonder, Edward Nashton. He seem to have a bit of a complex about me, but I think we can come to an agreement. We don't have to be Rivals.
-- @lex: Let's call on the devil. Lex is not stupid, he knows what I can bring to him. I've helped him before, I'm certain he can give some in return.
-- @selena: Let's call Selena. I've given her a chance many think she doesn't deserve. She shouldn't have issues paying back on it.
+- @fundraising_wayneinc: Let's call on our usual backers. Wayne Inc. has been on the up for a dozen year, I'm certain they can put a bit more money into it.
+- @fundraising_oliver: Let's call on our friend Oliver Queen. I've been a buyer of the equipment from his company for years, it's only right he gives some back in return.
+- @fundraising_sionis: Let's call on this new rising star, Roman Sionis. I'm certain he has an eye for the development we are bringing to the community.
+- @fundraising_march: Let's call on the greatest business man of the city. Lincoln March has reached his place for a reason. I'm certain we can come to an agreement.
+- @fundraising_boyle: Let's call on the people's CEO. Ferris Boyle really did the impossible in turning around Dagget's dying branches, I'm certain he'd be interested in Wayne industries.
+- @fundraising_nashton: Let's Call the boy wonder, Edward Nashton. He seem to have a bit of a complex about me, but I think we can come to an agreement. We don't have to be Rivals.
+- @fundraising_lex: Let's call on the devil. Lex is not stupid, he knows what I can bring to him. I've helped him before, I'm certain he can give some in return.
+- @fundraising_selina: Let's call Selina. I've given her a chance many think she doesn't deserve. She shouldn't have issues paying back on it.
+- @return
+- @easy_discard
 
-@wayneinc
+@fundraising_wayneinc
+on-arrival: pf += fundraising_wayne
 
 wip 
 
-@oliver 
+@fundraising_oliver 
+on-arrival: pf += fundraising_oliver
 
 wip 
 
-@roman
+@fundraising_sionis
+on-arrival: pf += fundraising_sionis
 
 a
 
-@march 
+@fundraising_march 
+on-arrival: pf += fundraising_march
 
 a
 
-@boyle
+@fundraising_boyle
+on-arrival: pf += fundraising_boyle
 
 a
 
-@nashton
+@fundraising_nashton
+on-arrival: pf += fundraising_nashton
 
 a
 
-@lex
+@fundraising_lex
+on-arrival: pf += fundraising_lex
 
 a
 
-@selena
+@fundraising_selina
+on-arrival: pf += fundraising_selina
 
 a

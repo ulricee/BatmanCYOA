@@ -1,0 +1,9 @@
+
+(..0) <span style="color: #d42f2f;"><b>offer no support to</b></span>
+(0..9.9) <span style="color: #bd9364;"><b>offer little support to</b></span>
+(9.9..19.9) <span style="color: #dda131;"><b>offer some support to</b></span>
+(19.9..29.9) <span style="color: #9fb92a;"><b>somewhat supports</b></span>
+(29.9..39.9) <span style="color: #a8ce00;"><b>supports</b></span>
+(39.9..49.9) <span style="color: #76cc06;"><b>heavily supports</b></span>
+(49.9..59.9) <span style="color: #2fd479;"><b>are a main support base of</b></span>
+(59.9..) <span style="color: #06ccb2;"><b>are loyal to</b></span>

@@ -6,7 +6,10 @@ on-arrival: month_actions += 1;
 card-image: img/sangerbund.jpg
 
 - @commissioner: Commissioner Appointment
-
+- @police_spending: How much we spend and where.
+- @police_equipment: Police Equipment
+- @return
+- @easy_discard
 
 @commissioner
 
@@ -25,4 +28,41 @@ WIP
 @reneemontoya
 
 WIP
+
+@police_spending
+
+Officer count: High (4/5)
+42 000 officers walk the street of Gotham city.
+
+Militarization level: High (4/5)
+The police force is as armed as the State National Guard.
+
+Unit distribution:
+Most surplus unit that are not servicing units are sent to the patrol sector.
+
+Patrol Sector: Overstaffed (5/5)
+Swat team: Fully staffed (3/3)
+Detective division: Sufficiently staffed (2/3)
+Community policing: Minimal (1/3)
+Outreach and prevention programs: Minimal (1/3)
+
+- @police_spending_officer_count: a
+- @police_spending_militarization: a
+- @police_spending_unit_distribution: a
+
+
+@police_spending_officer_count
+
+WIP
+
+@police_spending_militarization
+
+WIP
+
+@police_spending_unit_distribution
+
+WIP
+
+@police_equipment
+subtitle: Since the Hamilton Hill years, armed robbers have been answered by bullet proof vest, assault riffles by armored cars. Today, the constant arm race continues.
 
