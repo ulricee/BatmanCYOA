@@ -2,7 +2,8 @@ title: Business Board Reform
 new-page: true
 is-card: true
 tags: city
-on-arrival: month_actions += 1;
+view-if: business_board_corruption == 3;
+on-arrival: month_actions += 1; business_board_reform_implementing_timer = 3;
 card-image: img/placeholder.jpg
 
 Welcome to your nightmare. Every expansion, every new building, every new practice must be approved by the board before application. As with much of the legislative organ of the city, the business board is a den of corruption, currently in a fair equilibrium that lets all abuse it. You are not usually one of its adversaries, but if this town is to prosper, it must be reformed. The board starts Corrupt. When you pick this card, you may pursue one of two paths: clean it up, or subdue it to your interests.
@@ -14,6 +15,7 @@ Welcome to your nightmare. Every expansion, every new building, every new practi
 
 @clean_up_board
 view-if: rupert_advisor == 1
+on-arrival: business_board_corruption = 2;
 
 Rupert Thorne will use every trick in the book to delay it's passing even if a majority for it is reached.
 
@@ -21,7 +23,7 @@ Rupert Thorne will use every trick in the book to delay it's passing even if a m
 view-if: rupert_advisor == 1
 choose-if: moral_compass < 25
 unavailable-subtitle: You are not corrupt enough for this.
-on-arrival: moral_compass -= 5
+on-arrival: moral_compass -= 5; business_board_corruption = 1;
 
 As you open the possibility of greater than ever executive control over the board of businesses of the city, one great adversary stands in your path. A devil that grins ears to ears. Thorne wishes for his piece of the pie and in exchange, he will give you all the control you would wish. Would you sign the dotted line?
 
@@ -37,10 +39,11 @@ This would throw your moral compass out the window. However, if you combine your
 @not_going_through_thorne
 title: You will not be able to work with Thorne. You will have to find another way to take control of the board.
 go-to: business_board_reform
-on-arrival: moral_compass += 5
+on-arrival: moral_compass += 5; business_board_corruption = 3;
 
 @convince_council
 view-if: rupert_advisor == 0
+on-arrival: business_board_corruption = 2;
 
 You are trying to convince the council to act against their own self interest. You better have their absolute adulation.
 
@@ -48,5 +51,6 @@ You are trying to convince the council to act against their own self interest. Y
 view-if: rupert_advisor == 0
 choose-if: moral_compass < 25
 unavailable-subtitle: You are not corrupt enough for this.
+on-arrival: business_board_corruption = 0;
 
 This is an hostile takeover plain and simple. They will ask for a lot. Still, if ends justify the means...
