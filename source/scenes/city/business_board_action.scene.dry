@@ -5,7 +5,8 @@ tags: city
 view-if: business_board_corruption != 3 and business_board_reform_implementing_timer == 0
 on-arrival: month_actions += 1; business_board_reform_implementing_timer = 3;
 card-image: img/placeholder.jpg
-frequency: 600
+
+// frequency: 600
 
 [? if business_board_corruption == 2: For the first time in decades, the business board is once more acting as an impartial judge of the current affairs of businesses. Still, as Mayor, you can softly push things toward the way you think are the best, the choice is yours.  ?]
 [? if business_board_corruption == 1: Now under your's and Thorne's control, the board ias become not the plaything of thousand but only two individuals. There's tension in every couple, make sure it develops smoothly through to it's natural end. ?]
