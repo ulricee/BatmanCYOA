@@ -31,7 +31,12 @@ go-to: start_menu_2
 
 @start_menu_2
 on-arrival: {!
+
+//Load the sounds
+
+
 !}
+
 
 - @start: Start game
 - @library: Library
@@ -44,8 +49,9 @@ on-arrival: {!
   const video = document.getElementById('video-wrapper');
   video.style.display = 'block';
 
-  var audio = new Audio('audio/batmanbackground.mp3');
-  audio.play();
+  horse.play();
+
+
 
 
 Q.started = 1;
@@ -135,7 +141,6 @@ Q.white_collar_liberal = 20;
 Q.white_collar_progressive = 5;
 Q.white_collar_lgbtq = 5;
 
-
 Q.business_reactionary = 25;
 Q.business_conservative = 15;
 Q.business_red_moderate = 10;
@@ -181,8 +186,6 @@ for (var c of Q.classes) {
     Q[c + '_lgbtq'] = 0;
   }
   }
-
-
 
 // District sizes
 
