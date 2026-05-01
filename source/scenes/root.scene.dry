@@ -31,9 +31,7 @@ go-to: start_menu_2
 
 @start_menu_2
 on-arrival: {!
-  dendryUI.audioPlaylist = []
 !}
-audio: audio/vinyl.mp3
 
 - @start: Start game
 - @library: Library
@@ -45,6 +43,9 @@ audio: audio/vinyl.mp3
 on-arrival: {!
   const video = document.getElementById('video-wrapper');
   video.style.display = 'block';
+
+  var audio = new Audio('audio/batmanbackground.mp3');
+  audio.play();
 
 
 Q.started = 1;
@@ -810,10 +811,7 @@ Q.charity_canary = 0;
 Q.clark = 0;
 Q.busy_canary = 1;
 
-dendryUI.audioPlaylist = []
-
 !}
-audio: audio/batmanbackground.mp3
 set-bg: img/map_2.jpg
 new-page: true
 

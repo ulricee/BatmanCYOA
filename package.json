@@ -22,6 +22,7 @@
     "dendry": "github:aucchen/dendry",
     "dendrynexus": "github:aucchen/dendrynexus",
     "jquery": "^4.0.0",
+    "node-web-audio-api": "^1.0.9",
     "parliament-svg": "^3.0.0",
     "soundmanager2": "^2.97.20170602"
   }
