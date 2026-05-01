@@ -1,0 +1,57 @@
+title: Business Board Reform
+new-page: true
+is-card: true
+tags: city
+view-if: business_board_corruption == 3
+on-arrival: month_actions += 1; business_board_reform_implementing_timer = 3
+card-image: img/placeholder.jpg
+frequency: 300
+
+Welcome to your nightmare. Every expansion, every new building, every new practice must be approved by the board before application. As with much of the legislative organ of the city, the business board is a den of corruption, currently in a fair equilibrium that lets all abuse it. You are not usually one of its adversaries, but if this town is to prosper, it must be reformed. The board starts Corrupt. When you pick this card, you may pursue one of two paths: clean it up, or subdue it to your interests.
+
+- @clean_up_board: They have done enough damage. This city deserves better than this rot. Clean up the board.
+- @subdue_board: We've all seen the damage that they've done. It is now time that they enter new management
+- @convince_council: I have to convince them this is the only way out of this place. I know they fear giving any power to others, yet as the situation stands, we cannot let that den of corruption remain.
+- @hostile_takeover: I know the irony of ending Corruption through the use of corruption, but the situation calls for it. They're many that will sell their souls for imediate gain and eternal damnation. We will contact them, give them a price. Once it is done, the rest will follow.
+
+@clean_up_board
+view-if: rupert_advisor == 1
+on-arrival: business_board_corruption = 2;
+
+Rupert Thorne will use every trick in the book to delay it's passing even if a majority for it is reached.
+
+@subdue_board
+view-if: rupert_advisor == 1
+choose-if: moral_compass < 25
+unavailable-subtitle: You are not corrupt enough for this.
+on-arrival: moral_compass -= 5; business_board_corruption = 1;
+
+As you open the possibility of greater than ever executive control over the board of businesses of the city, one great adversary stands in your path. A devil that grins ears to ears. Thorne wishes for his piece of the pie and in exchange, he will give you all the control you would wish. Would you sign the dotted line?
+
+- @go_through_thorne
+- @not_going_through_thorne
+
+@go_through_thorne
+title: We will go through Rupert Thorne. He is a bastard, but he's our bastard. I prefer to contain the proclivities of one corrupt SOB than those of a thousand of them.
+
+This would throw your moral compass out the window. However, if you combine your influence with Thorne's to push removals through and seize control of the board together, your chances of taking over are vastly increased.
+
+
+@not_going_through_thorne
+title: You will not be able to work with Thorne. You will have to find another way to take control of the board.
+go-to: business_board_reform
+on-arrival: moral_compass += 5; business_board_corruption = 3;
+
+@convince_council
+view-if: rupert_advisor == 0
+on-arrival: business_board_corruption = 2;
+
+You are trying to convince the council to act against their own self interest. You better have their absolute adulation.
+
+@hostile_takeover
+view-if: rupert_advisor == 0
+choose-if: moral_compass < 25
+unavailable-subtitle: You are not corrupt enough for this.
+on-arrival: business_board_corruption = 0;
+
+This is an hostile takeover plain and simple. They will ask for a lot. Still, if ends justify the means...

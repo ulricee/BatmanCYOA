@@ -1,0 +1,55 @@
+title: Business Board Action
+new-page: true
+is-card: true
+tags: city
+view-if: business_board_corruption != 3 and business_board_reform_implementing_timer == 0
+on-arrival: month_actions += 1; business_board_reform_implementing_timer = 3;
+card-image: img/placeholder.jpg
+frequency: 600
+
+[? if business_board_corruption == 2: For the first time in decades, the business board is once more acting as an impartial judge of the current affairs of businesses. Still, as Mayor, you can softly push things toward the way you think are the best, the choice is yours.  ?]
+[? if business_board_corruption == 1: Now under your's and Thorne's control, the board ias become not the plaything of thousand but only two individuals. There's tension in every couple, make sure it develops smoothly through to it's natural end. ?]
+[? if business_board_corruption == 0: The board is now under your direct command. Whoever you appoint, whoever you call to act will have to obey your words. Anything in the future is but a few ink drops away from reality. ?]
+
+- @favor_big_businesses: Favor big companies.
+- @favor_small_businesses: Favor small businesses.
+- @favor_cooperatives: Favor cooperatives.
+- @favor_yourself: Favor yourself.
+- @favor_friendly_businesses: Favor friendly businesses.
+- @put_technocrats: Put technocrats in charge.
+
+@favor_big_businesses
+subtitle: Gives you a bonus +1PF each turn. If you keep it after removing the corruption, other big businesses in the city will thank you for it.
+on-arrival: pf += 1;
+
+WIP
+
+@favor_small_businesses
+subtitle: The one everyone claims to use. It will certainly engross yourself with the growing middle class and allow the city a stronger dynamism.
+
+WIP
+
+@favor_cooperatives
+subtitle: A controversial one. You would be pitting the workers against the wider system.
+
+WIP
+
+@favor_yourself
+subtitle: I do not have to explain why this is the most corrupt of actions. You drive your competition into the ground through the board itself.
+view-if: business_board_corruption == 1 or business_board_corruption == 0
+on-arrival: pf += 2 if business_board_corruption == 1; pf += 4 if business_board_corruption == 0
+
+WIP
+
+@favor_friendly_businesses
+subtitle: You are giving them a deal they cannot refuse. Exchanging your protection for loyalty.
+view-if: business_board_corruption == 0 or business_board_corruption == 1
+
+WIP
+
+@put_technocrats
+subtitle: Economics doesn't need ideology or favoritism. It's time to hand the board over to people who simply know what they are doing.
+view-if: business_board_corruption == 0 or business_board_corruption == 2
+
+WIP
+

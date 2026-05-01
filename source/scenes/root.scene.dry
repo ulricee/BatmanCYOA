@@ -772,8 +772,9 @@ Q.n_advisors = 3;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
-Q.timers = ['advisor_action'];
+Q.timers = ['advisor_action', 'business_board_reform_implementing'];
 Q.advisor_action_timer = 0;
+Q.business_board_reform_implementing_timer = 0;
 
 // initial advisors.
 Q.gordon_advisor = 1; // James Gordon
@@ -811,6 +812,11 @@ Q.charity_canary = 0;
 Q.clark = 0;
 Q.busy_canary = 1;
 
+dendryUI.audioPlaylist = []
+//business board corruption (0: controlled, 1: subdued, 2: clean, 3: corrupt)
+Q.business_board_corruption = 3;
+//batman's moral compass
+Q.moral_compass = 20; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
 !}
 set-bg: img/map_2.jpg
 new-page: true
