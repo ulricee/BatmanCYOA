@@ -386,26 +386,6 @@ document.addEventListener('mousemove', e => {
 
 // music?
 
-sounds.load([
-  "audio/horse.mp3", 
-]);
-
-//Assign the callback function that should run
-//each time a file loaded, just like PIXI.js
-sounds.onProgress = function (progress, res) {
-  console.log('Total ' + progress + ' file(s) loaded.');
-  console.log('File ' + res.url + ' just finished loading.');
-};
-
-//Assign the callback function that should run
-//when the sounds have loaded
-sounds.whenLoaded = setup;
-
-function setup() {
-  //Initialize sounds here
-var horse = sounds["sounds/horse.mp3"]
-}
-
 
 
 }
