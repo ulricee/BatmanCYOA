@@ -16,7 +16,9 @@ if (Q.advisor_action_timer <= 0) {
 if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
-  dendryUI.audioPlaylist = []
+
+
+
 !}
 max-cards: 3
 
@@ -57,7 +59,7 @@ if (toolsWrapper) {
 }
     Q.onmain = 1;
     window.batphone();
-    dendryUI.audioPlaylist = []
+
 
 !}
 on-departure: {!
@@ -67,6 +69,7 @@ on-departure: {!
 !}
 on-display: {!
     window.disableBatmanMode();
+
 !}
 max-cards: 9
 
