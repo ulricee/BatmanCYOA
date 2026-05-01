@@ -60,7 +60,6 @@ if (toolsWrapper) {
     Q.onmain = 1;
     window.batphone();
 
-
 !}
 on-departure: {!
     Q.onmain = 0;

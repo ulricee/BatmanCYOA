@@ -6,7 +6,7 @@
   "scripts": {
     "dendrynexus": "dendrynexus",
     "dendry": "dendry",
-    "build" : "dendrynexus make-html"
+    "build": "dendrynexus make-html"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "dependencies": {
     "dendry": "github:aucchen/dendry",
     "dendrynexus": "github:aucchen/dendrynexus",
+    "howler": "^2.2.4",
     "jquery": "^4.0.0",
     "node-web-audio-api": "^1.0.9",
     "parliament-svg": "^3.0.0",
