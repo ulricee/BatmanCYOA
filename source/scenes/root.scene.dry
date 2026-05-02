@@ -29,14 +29,9 @@ go-to: start_menu_2
 
 = Gotham: A place you never leave.
 
+
+
 @start_menu_2
-on-arrival: {!
-
-//Load the sounds
-
-
-!}
-
 
 - @start: Start game
 - @library: Library
@@ -49,10 +44,7 @@ on-arrival: {!
   const video = document.getElementById('video-wrapper');
   video.style.display = 'block';
 
-  horse.play();
-
-
-
+document.getElementById("idAudio").play();
 
 Q.started = 1;
 // time elapsed (in months)
@@ -251,17 +243,18 @@ Q.bristol_size = 5;
 // Main Tab values
 
 Q.approval_rating = 50;
-Q.credibility = 4;
+Q.credibility = (40)/10;
 Q.pf = 5;
 Q.budget = 10;
-Q.order = -1;
+Q.order = 0;
 Q.freedom = ((Q.order)*(-1));
 
 // Old values 
 Q.approval_rating_old = 50;
-Q.credibility_old = 5.0;
+Q.credibility_old = (50)/10;
 Q.pf_old = 5.0;
 Q.budget_old = 10.0;
+Q.poverty_old = 5;
 
 // economic value
 Q.poverty = 5;
@@ -287,11 +280,12 @@ Q.collaboration_ferris_boyle_previous = 0;
 // Crime tab values
 Q.crime_rate = "bad"
 Q.falcone_status = "ok";
-Q.penguin_status = "ok";
+Q.falcone_leader = "Carmine";
+Q.penguin_status = "Active";
 Q.black_mask_active = "no";
 Q.black_mask_status = "ok";
 Q.joker_status = "ok";
-Q.police_size = 42000;
+Q.police_size = 4;
 Q.police_equipment = 4;
 Q.police_curative = "Curative";
 Q.police_attitude = "Punitive";
@@ -378,232 +372,6 @@ Q.dinah_lance_status = "Active";
 Q.dinah_lance_gear = "Equipment Placeholder";
 Q.dinah_lance_training = "Trained";
 
-// This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
-// I will move it to election algorithm once I set up an elections event
-// We convert party alignment into support based on relationship with a given party.
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c +'_support'] = 0;
-  }
-
-}
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c + '_' + party + '_support'] = (Q[c+'_'+party])*((Q[party+'_relation'])/100);
-    Q[c + '_support'] += (Q[c+'_'+party+'_support']);
-  }
-
-}
-
-// for future self: below it a lie
-
-// We'll now scale it by order and liberty below.
-// First, we determine how impacted a given demographic is by an ideology.
-
-Q.unemployed_ideology_base = (Q.order)/4;
-Q.blue_collar_ideology_base = (Q.order)/2;
-Q.white_collar_ideology_base = (Q.freedom);
-Q.black_ideology_base = (Q.freedom)/2;
-Q.latino_ideology_base = (Q.freedom)/4;
-Q.business_ideology_base = (Q.order);
-
-// Calculate the total pool for distribution in the approval rating.
-
-Q.ideology_support = 0;
-
-  for (var c of Q.classes) {
-      if ([Q[c + '_ideology_base']] == 0) {
-        Q[c + '_ideology_base'] = 0;
-      }      
-      if (Q[c + '_ideology_base'] > 0) {
-        Q.ideology_support += (Q[c + '_ideology_base']);
-      } else if ([Q[c + '_ideology_base']] < 0) {
-        Q.ideology_support += (Q[c + '_ideology_base'])*(-1);
-      }
-}
-
-if (Q.ideology_support == 0) {
-  Q.ideology_support = 1;
-} 
-
-// Now we'll divide the ideology share to find the "pull".
-
-Q.unemployed_ideology = (Q.unemployed_ideology_base/Q.ideology_support);
-Q.blue_collar_ideology = (Q.blue_collar_ideology_base/Q.ideology_support);
-Q.white_collar_ideology = (Q.white_collar_ideology_base/Q.ideology_support);
-Q.black_ideology = (Q.black_ideology_base/Q.ideology_support);
-Q.latino_ideology = (Q.latino_ideology_base/Q.ideology_support);
-Q.business_ideology = (Q.business_ideology_base/Q.ideology_support);
-
-// this also gives us a weight of how much "for bruce" each person is.
-
-// We will now scale support by the ideology.
-
- for (var c of Q.classes) {
-        Q[c + '_support'] = Q[c + '_support']*(1+(Q[c + '_ideology']));
-  }
-
-// We now will scale the support by the approval rating.
-// We do so first by checking every demographic support and seeing if it's under the approval rating.
-// If it's under the approval rating, it adds to an approval gap.
-// First, we need to determine the ideoloogical weights for this. Some of the values are negative, so we have to turn them positive.
-
-  for (var c of Q.classes) {
-    if (Q[c + '_ideology'] > 0) {
-        Q[c + '_approval_weight'] = Q[c + '_ideology'];
-    } else {
-        Q[c + '_approval_weight'] = (Q[c + '_ideology'])*(-1);
-    }
-  }
-
-
- Q.approval_gap = 0;
-
-  for (var c of Q.classes) { 
-        Q[c + '_approval_gap'] = ((Q.approval_rating)-(Q[c + '_support']));
-        Q.approval_gap += (Q[c + '_approval_gap']);
- }
-
-
- for (var c of Q.classes) {
-      Q[c + '_support'] += ((Q.approval_gap)*(Q[c + '_approval_weight']));
-  }
-
-// for future self: above it a lie
-
-// second last, we need to find districts. Since they are based off preexisting support, we affect it here.
-
-
-// Now we get the per district support values by taking the support and scaling it by size within a district.
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_support'] = Q[c + '_support']*(Q[c + '_' + district]/100);
-  }
-}
-
-// We have the sizes now. E.c 8% unemployed in Burnley, with 55% city unemployed support, you get 4.4% of the unemployed supporting you.
-// now we have to convert it back to percentage.
-// First we define each district total, then take the district support and add them all together to form total support
-
-
-for (var district of Q.districts) {
-  Q[district + '_total'] = 0;
-  for (var c of Q.classes) {
-      Q[district + '_total'] += (Q[c + '_' + district + '_support']);
-  }
-}
-
-// This gives us the support combined, but not the individual contributions. Luckily we can now simply scale the support by the district's total.
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_total'] += ((Q[c + '_' + district + '_support'])/(Q[district + '_total']))*100;
-  }
-}
-
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval'] = (Q[c + '_' + district + '_support']/Q[c + '_' + district])*100;
-  }
-}
-
-// For short. With c as class and district as the district.
-// Using the values of 8% unemployed in burnley and 55% unemployed support as examples.
-// c_district_support gives us the population's exact contribution. E.c if there are 8% unemployed in Burnley, and we have 55% support, we get 4.4%. This can then be affected by individual factors.
-// c_district_total gives us the individual contribution to the support. E.c if we have 55% support in burnley and the aforementioned values, unemployed/district gives us a 8% contribution. This lets us see our biggest demographics and such.
-// c_support is citywide support from a given demographic.
-// Lastly, c_district_approval is simply the percentage.
-
-// All things that affect districts should affect c_district_support.
-
-
-
-// must be calculated at ending:
-// getting city wide support
-  Q.city_wide_support = 0;
-
-  for (var c of Q.classes) {
-      Q.city_wide_support += (Q[c + '_support'])/6;
-  }
-
-// District to city wide support.
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
-  }
-} 
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city'] = ((Q[c + '_' + district + '_city' + '_total']))*(Q[c + '_' + district + '_approval']/100)
-  }
-}
-
-// real support city wide
-
-Q.truesupport = 0;
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q.truesupport += (Q[c + '_' + district + '_support']);
-  }
-} 
-
-Q.truesupport = Q.truesupport/6
-
-// Getting old values.
-
-for (var c of Q.classes) {
-    Q[c +'_support_old'] = Q[c + '_support'];
-}
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c + '_' + party + '_support_old'] = Q[c + '_' + party + '_support'];
-  }
-}
-
-// display wip
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_support' + '_display'] = (Q[c + '_' + district + '_support']).toFixed(1);
-  }
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval' + '_display'] = (Q[c + '_' + district + '_approval']).toFixed(1);
-  }
-}
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c+'_'+party+'_support'+'_display'] = (Q[c+'_'+party+'_support']).toFixed(1);
- } 
-  Q[c+'_support'+'_display'] = (Q[c+'_support']).toFixed(1);
-}
-
-for (var district of Q.districts) {
-      Q[district + '_total' + '_display'] = Q[district + '_total'].toFixed(1);
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city']).toFixed(1)
-  }
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total' + '_display'] = (Q[c + '_' + district + '_city' + '_total']).toFixed(1)
-  }
-}
-  Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
   
 
 
@@ -814,39 +582,135 @@ Q.charity_canary = 0;
 // contacts
 Q.clark = 0;
 Q.busy_canary = 1;
+Q.ferris_boyle_active = 1;
+Q.harvey_helping_city_reform = 0;
 
-dendryUI.audioPlaylist = []
+// Personal Relationships
+Q.talia_relationship = 50;
+Q.cassandra_relationship = 50;
+Q.shiva_relationship = 50;
+Q.ra_relationship = 50;
+Q.roman_sionis_relationship = 50;
+
+// Flags
+Q.daoist = 0;
+Q.confucius = 0;
+Q.legalist = 0;
+Q.mohism = 0;
+Q.freethinker = 0;
+Q.nonphilosopher = 0;
+
+Q.david_train = 1;
+Q.talia_train = 1;
+Q.shiva_train = 1;
+
+Q.david_talk = 0;
+Q.david_stop = 0;
+Q.david_letgo = 0;
+Q.david_confront = 0;
+
+// media relation
+Q.gotham_gazette_support = 0;
+Q.daily_planet_support = 0;
+Q.gotham_star_support = 0;
+Q.media_empire_active = 0;
+
+// events that have been seen
+Q.election_1994_seen = 0
+
+// Equipment
+
+Q.stealth_suit = 0;
+
 //business board corruption (0: controlled, 1: subdued, 2: clean, 3: corrupt)
 Q.business_board_corruption = 3;
 //batman's moral compass
-Q.moral_compass = 20; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
+Q.moral_compass = 50; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
+
+
+// music
+
+Q.horse_music = 0;
+
+
 !}
 set-bg: img/map_2.jpg
 new-page: true
 
-- @1928_debug: Debug Enter
-- @1928_normal: Begin (normal difficulty)
-- @1928_hard: Begin (hard difficulty)
-- @1928_historical: Begin (historical mode)
+- @1994_debug: Debug Enter
+- @1994_normal: Begin (normal difficulty)
+- @1994_hard: Begin (hard difficulty)
+- @1994_historical: Begin (historical mode)
 
-@1928_debug
+@1994_debug
 on-arrival:  {!
   Q.difficulty = -2
-!}
 
-@1928_easy
+
+if (Q.approval_rating > Q.approval_rating_old)   {
+    Q.approval_rating_up = 2;
+} else if (Q.approval_rating_old == Q.approval_rating) {
+    Q.approval_rating_up = 1;
+} else { 
+    Q.approval_rating_up = 0;
+}
+
+if (Q.credibility > Q.credibility_old) {
+    Q.credibility_up = 2;
+} else if (Q.credibility_old == Q.credibility) {
+    Q.credibility_up = 1;
+} else { 
+    Q.credibility_up = 0;
+}
+
+if (Q.pf > Q.pf_old) {
+    Q.pf_up = 2;
+} else if (Q.approval_rating_old == Q.approval_rating) {
+    Q.pf_up = 1;
+} else { 
+    Q.pf_up = 0;
+}
+
+if (Q.budget > Q.budget_old) {
+    Q.budget_up = 2;
+} else if (Q.budget_old == Q.budget) {
+    Q.budget_up = 1;
+} else { 
+    Q.budget_up = 0;
+}
+
+
+if (Q.poverty > Q.poverty_old) {
+    Q.poverty_up = 2;
+} else if (Q.poverty_old == Q.poverty) {
+    Q.poverty_up = 1;
+} else { 
+    Q.poverty_up = 0;
+}
+
+Q.approval_rating_old = Q.approval_rating;
+Q.credibility_old = Q.credibility;
+Q.pf_old = Q.pf;
+Q.budget_old = Q.budget;
+Q.poverty_old = Q.poverty;
+
+
+!}
+go-to: election_1994
+
+@1994_easy
 on-arrival: {!
   Q.difficulty = -1
 !}
 go-to: welcome
 
-@1928_hard
+@1994_hard
 on-arrival: {!
   Q.difficulty = 1
 !}
 go-to: welcome
 
-@1928_historical
+@1994_historical
 on-arrival: {!
 Q.difficulty = 2;
 Q.historical_mode = 1;
@@ -854,15 +718,15 @@ this.state.disableSaves = true;
 !}
 go-to: welcome
 
-@1928_normal
+@1994_normal
 on-arrival: {!
   Q.difficulty = 0
 !}
 go-to: welcome
 
-@1928_main
+@1994_main
 new-page: true
-go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
+go-to: main if difficulty >= 0; main.main_easy if difficulty < 0; election_1994 if election_1994_seen == 0
 
 = January 1994
 

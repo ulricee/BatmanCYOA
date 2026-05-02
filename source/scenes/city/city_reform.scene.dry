@@ -1,0 +1,142 @@
+title: City Reform
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+- @gerrymandering: We need to reform the electoral system.
+- @city_reform_doi: We need to reform the department of investigation.
+
+@gerrymandering
+
+While the american system naturally trends towards a certain impossible to limit level of corruption and inequality, the deck of Gotham city is so crooked the top card is getting dusty. While profound reform of the city will be the hardest to implement, they are also the most important.
+
+The map of council districts inside of the city is profoundly gerrymandered. This ought to change.
+
+The current map heavily favors white voters over minorities, packing and cracking communities allowing the republican party to maintain majorities even when the city wide election doesn't go their way. Yet, by that matter, it became a deeply partisan issue.
+
+(Show breakdown of seats per population of the current map)
+
+To change the map, you will require an absolute majority vote of the very same councilor that stand to run for them every 2 years. Here are the following potential plans:
+
+- @fair_map: We need a fair map, nothing more, nothing less.
+- @democrat_gerrymandering: For decades, this city as favored unjustly one party over the other. One party that has brought this city to the brink multiple time. It's now time for the council to do away with those reactionaries.
+- @bruce_gerrymandering: I think there is a part of the city that is willing to bring change, but the other simply is not ready for it. We need to bring about drastic changes. The city seats should reflect those that trully want to bring out change more than those that won't.
+
+@fair_map
+subtitle: While difficult, you possess two avenues to reach it, either through the court or through the city. If passed, it will see the council finally be represent it's actual population.
+
+(Show breakdown of seats per population of the fair map)
+
+- @city_reform_court: We will go through the court. We will make clear that the current map as a Racially based gerrymandering. The excuse of it being done by wealth can only go so far when a city with a third of it's population being from minority groups only has 13% of it's councilors from such communities.
+- @city_reform_city_council: We will go through the hardest point, through the city council. It will require all strength to achieve it, but it's our ticket for change in this city.
+
+@city_reform_court
+on-arrival: {!
+    Q.courttime = 30
+
+    if (rupert_advisor == 1) {
+        Q.courttime += 12
+    }
+
+    if (governor_relation < 40) {
+        Q.courttime += 6
+    }
+
+    if (gotham_gazette_support == 0) {
+        Q.courttime += 3
+    }
+
+    if (penguin_status == "Active") {
+        Q.courttime += 3
+    }
+
+    if (falcone_leader == "Carmine") {
+        Q.courttime += 3
+    }
+
+    if (Q.ferris_boyle_active == "1") {
+        Q.courttime += 3
+    }
+
+    if (Q.governor_relation > 60) {
+        Q.courttime -= 6
+    }
+
+    // media support start
+
+    if (Q.gotham_star_support == 1) {
+        Q.courttime -= 3
+    }
+
+    if (Q.gotham_gazette_support == 1) {
+        Q.courttime -= 3
+    }
+
+    if (Q.media_empire_active == 1) {
+        Q.courttime -= 3
+    }
+
+    // media support end
+
+
+    if (Q.media_empire_active == 1) {
+        Q.courttime -= 3
+    }
+
+    if (Q.harvey_helping_city_reform == 1) {
+        Q.courttime -= 6
+    }
+
+    if (Q.county_prosecutor == "Janet Van Dorn") {
+        Q.courttime -= 6
+    }
+
+    if (Q.lonnie_support_gerrymandering == "1") {
+        Q.courttime -= 3
+    } 
+
+    if (Q.doug_advisor == 1) {
+        Q.courttime -= 6
+    }
+
+    if (Q.roman_sionis_relationship == 1) {
+        Q.courttime -= 6
+    }
+!}
+subtitle: Going through the court may take years. However, it is nearly guaranteed that the case will eventually be passed thanks to overwhelming evidence. Still, you will need to stack the deck in your favor to see it come sooner rather than later. Furthermore, for as long as it last, your polling and credibility will be put to the test. 
+
+@city_reform_city_council
+subtitle: To achieve it you will need the support of 43 out of 65 councilors. achieving it will require incredibly strong support or very deep pockets. 
+
+
+@democrat_gerrymandering
+choose-if: moral_compass < 25
+subtitle: Gerrymandering the map the other way is certain to guarantee democratic control for decades to come. However, are we really going to cook the book to defeat those that cooked it in the past? In any case, it would require 43 out of 65 councilor to manage it. Furthermore, we may be spending a year against litigation to have it finally succeed.
+
+@bruce_gerrymandering
+subtitle: Gerrymandering the council map to support groups that support you is seen as the most corrupt breach of conduct and attempt of taking power anyone could describe. You will need an incredible amount of support to make it past the 43 seat required as both establishment democrats and republicans will act against it. We won't be able to pass it until a year after it is done.
+
+@city_reform_doi
+
+The current head of the department of investigation, Arnold Flass, is known to be corrupt and to help his crooks inside the council. However, Rupert Thorne and his crooks would lock up the council if you dare to strike their man without reason. If you do have them, it opens the door both to judicial investigation and further reform eliminating corruption from future candidate.
+
+- @doi_vote: Let's undergo a substantial reform of the department. There is so much things wrong only a full and complete change of the guard can be enough to bring back a sense of normality.
+- @arnold_flass: Let's try to remove the main culprit. Arnold Flass represent everything that is wrong in the governmental structure of Gotham, perhaps even more than Thorne. He needs to go.
+
+
+@doi_vote
+choose-if: rupert_advisor == 0
+subtitle: Needs a simple majority vote. Corrupt councilors will always vote no no matter how much you pay them.
+
+@arnold_flass
+subtitle: Thorne is ready to give you those token reforms. In would however ask you to give him something in exchange.
+
+- @bribe_thorne: Thorne can be bought by anyone with enough money, let him say his price, i'll pay it.
+- @thorne_support: We've worked together previously, I'm certain he can let it go for this one that is just bringing heat onto us.
+
+@bribe_thorne
+subtitle: At the cost of a substantial amount of PF's, he will abandon his stooge.
+
+@thorne_support

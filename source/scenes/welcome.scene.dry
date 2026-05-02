@@ -3,15 +3,342 @@ new-page: true
 is-special: true
 on-arrival: {!
 
-     var sound = new Howl({
-      src: ['https://youtu.be/JMbEpzMR0fs?si=AgOYYwH7IOlEAoRw'],
-      volume: 1.0,
-
-    });
-    
-    sound.play();
+    audio.pause();
 
 !}
+on-display: {!
+
+   
+    const element = document.querySelector('.typewriter');
+    speak(element, .7);
+
+
+!}
+
+
+= 1967, alone.
+
+
+<div class="typewriter">
+
+Life ended this day, the life that you knew, everything that you had known was shattered by six bullets, two and four in your two parents.
+
+Blood spilled on the pavement, the wind ripping away the last warmth you felt, you felt nothing else in this place to move forward.
+
+As you moved home, your life had been irrevocably derailed, you needed to find one way out.
+
+</div>
+
+
+- @promises: Debug skip to promises.
+- @1967_justice: You needed to bring those that would do such a thing to justice.
+- @1967_vengeance: You swore that you will have vengeance for what happened.
+- @1967_never: You saw that nothing like this should ever happen to anyone.
+
+
+@1967_justice
+on-arrival: order += 1
+go-to: 1979
+
+@1967_vengeance
+on-arrival: liberty += 1; moral_compass -= 5
+go-to: 1979
+
+@1967_never
+on-arrival: moral_compass += 10
+go-to: 1979
+
+
+@1979
+new-page: true
+on-display: {!
+    const element = document.querySelector('.typewriter');
+    speak(element, .7);
+
+!}
+
+<div class="typewriter">
+
+As the years sharpened you, Alfred was always by your side to guide you into a much better man than you would have been without him, you eventually found that if anything ought to change, you had to emancipate from him to fight for justice.
+
+As training continued, words reached you from a strange group fighting corruption in the Himalayas. 
+
+They had seen much potential in you and gave you the opportunity to finally have the tools necessary to push the change you wanted to see.
+
+You only had to prove yourself against one of them.
+
+</div>
+
+- @intro_david: You trained with the arm of the demon, David Cain
+- @intro_talia: You trained with daughter of the demon, Talia Al Ghul
+- @intro_shiva: You trained with the voice of the demon, Shiva
+
+
+@intro_david
+on-arrival: cassandra_relationship += 5; david_train = 1
+go-to: 1980
+
+@intro_talia
+on-arrival: talia_relationship += 10; talia_train = 1
+go-to: 1980
+
+@intro_shiva
+on-arrival: shiva_relationship += 10; shiva_train = 1
+go-to: 1980
+
+@1980
+new-page: true
+
+In the year of grueling training under the guidance of the demon's head, Ra's al Ghul, you've found yourself to be his most apt student.
+
+The immortal ideals were quite foreign to you as his sensibilities seem to have deep roots in oriental philosophies.
+
+Confucianism, 
+
+Daoism, 
+         
+Legalism, 
+         
+Mohism.
+
+The gap between the training of the body and that of the mind certainly was disorienting,
+
+yet,
+ 
+with time, with recollection… You found something good to be taken from the schools of Chinese thought.
+
+- @dao: I found Echo in the Dao. Life is an eternal flow that can never be severed, only guided one way or another toward a great whole in an eternal metamorphosis.
+- @kung_fu: I found Duty in Kung Fu's teachings. Each person has a duty to serve the other and harmony may be reached once each achieves virtue.
+- @legalist: I found clarity in the Legalist writing. Law must be instilled into each individual until their will becomes true and their act correct.
+- @mohism: I found Truth in Mozi's ideals. No one dogma is self sufficient, only the acts that help the widest amount of people, never to break their will.
+- @no_interest: I found very little of interest among any of those teachings.
+- @independence: I found that I despised this idea of teaching what the truth is to others and set on my own path.
+
+@dao
+on-arrival: moral_compass += 5; ra_relationship += 1; daoist = 1
+go-to: 1980_end
+
+@kung_fu
+on-arrival: moral_compass += 5; order += 1; ra_relationship += 1; talia_relationship += 1; confucius = 1
+go-to: 1980_end
+
+@legalist
+on-arrival: moral_compass += 5; order += 2; ra_relationship += 1; talia_relationship += 1; legalist = 1
+go-to: 1980_end
+
+@mohism
+on-arrival: moral_compass += 5; order -= 1; mohism = 1
+go-to: 1980_end
+
+@no_interest
+on-arrival: nonphilosopher = 1
+go-to: 1980_end
+
+@independence
+on-arrival: freethinker = 1
+go-to: 1980_end
+
+@1980_end
+go-to: 1981 if david_train; 1982_start if shiva_train; 1982_end if talia_train
+
+@1981
+new-page: true
+
+As you became David's trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other. 
+
+One night, he would come to you to inform you of his immediate leaving of the League with his daughter Cassandra following an experiment done on her mind turning her into a killing machine at age 5. 
+
+While he trusted the goals of Ra's, he could no longer stand by its methods and is advising you to do the same.
+
+- @stop_david: You tried to stop Him, Physically.
+- @talk_david: You tried to talk him out of his plan.
+- @let_david_go: You decided to let him go and stay silent on the issue.
+- @david_confront: You decided to let him go and confronted Shiva and Ra’s about the issue he raised
+
+@stop_david
+on-arrival: stop_david = 1; order += 1;  moral_compass -= 5; cassandra_relationship -= 1; stealth_suit = 1; ra_relationship += 10; shiva_relationship += 10;
+go-to: 1982_end
+
+@talk_david
+on-arrival: david_talk = 1
+go-to: 1982_end
+
+@let_david_go
+on-arrival: david_letgo = 1; cassandra_relationship += 5; ra_relationship -= 5; shiva_relationship -= 5; order -= 1
+go-to: 1982_end
+
+@david_confront
+on-arrival: david_talk = 1; cassandra_relationship += 25; ra_relationship -= 25; shiva_relationship -= 25; order -= 2; moral_compass += 10
+go-to: 1982_end
+
+
+@1982_start
+new-page: true
+
+You entered a tight circle around Ra's. While your position with him never fully matched one to one, there is trust between the two of you that was built. 
+
+Shiva would bring you into the deepest lair's of the Demon's head under the mountain, a place nearly no person had ever seen, something sickly, something ancient brewing in a vast pool of what looked closer to an acid than a normal liquid.
+
+In the distance, a body was set inside, disheveled and… In barely a few instant, recovered to the form you knew of Ra's. In that display however, a few words were told by the trusted voice.
+
+“The Emperor is fading. His body may not look like it just yet, but I've seen it. Unless we fall by the sword, he won't survive us.”
+
+“If we want to survive him, someone needs to take his place.” 
+
+Silence returned to the room, as he marched toward you, you spoke to him, but in a way, he was now already faded where he stood.
+
+- @ra_talia: Ra's as already prepared for it, Talia will be ready to succeed her father.
+- @ra_shiva: Shiva is right. Someone needs to take his place. Maybe she could be it?
+- @ra_volunteer: As it stands, no one can succeed him. However, if the situation calls for it, I'll volunteer.
+- @ra_cure: I do not think the immortal will die just yet. I'm certain there is a way to cure his condition.
+- @ra_relief: It's somewhat of a relief. I found people centuries younger than him that already lived too long.
+- @ra_man: Ra's is a man like any other under the weight of age. If he is to fade away, that is not for me to decide what comes next.
+
+@ra_talia
+go-to: 1982_end
+
+@ra_shiva
+go-to: 1982_end
+
+@ra_volunteer
+go-to: 1982_end
+
+@ra_cure
+go-to: 1982_end
+
+@ra_relief
+go-to: 1982_end
+
+@ra_man
+go-to: 1982_end
+
+@1982_end
+new-page: true
+
+- @liberty: Saying Yes to anyone in Authority, anyone with a badge. My parents taught me something else, lying cold on the pavement. They taught me that the world only makes sense when you force it to.
+- @order: Nothing helps one put problems in perspective like allegiance to a higher cause. The Law provides that a man is innocent until proven guilty, and we must abide by it.
+- @morality: Vengeance blackens the soul. I've always feared that I would become that which I fought against. I walk the edge of that abyss every night, but I haven't fallen in and I thank heaven for that.
+
+@liberty
+on-arrival: order -= 1
+go-to: 1983
+
+@order
+on-arrival: order += 1
+go-to: 1983
+
+@morality
+on-arrival: moral_compass += 10
+go-to: 1983
+
+@1983
+new-page: true
+
+= The Phantasm
+
+- @1984_start: Next Year
+
+@1984_start
+new-page: true
+
+= The Grayson's 
+
+- @1984_end: Next Year
+
+@1984_end
+new-page: true
+
+= Harvey Dent
+
+- @1985_choice: Next Year
+
+@1985_choice
+go-to: 1985_start if talia_train = 1; 1985_middle if talia_train = 0
+
+@1985_start
+new-page: true
+
+= The Demon's Heir
+
+- @1985_middle: Next Year
+
+@1985_middle
+new-page: true
+
+= Killing a Mockingbird
+
+- @1985_end: Next Year
+
+@1985_end
+new-page: true
+
+= Electoralism 
+
+- @1987: Next Year
+
+@1987
+new-page: true
+
+= The Catwoman Rips your Cowl
+
+- @1989_start: Next Year
+
+@1989_start
+new-page: true
+
+= Independence
+
+- @1989_middle: Next Year
+
+@1989_middle
+new-page: true
+
+= Replacement
+
+- @1989_end: Next Year
+
+@1989_end 
+new-page: true
+
+= Reaction
+
+- @1991_start: I hate the guy.
+
+@1991_start
+new-page: true
+
+= The Dark Year 
+
+- @dark_year_safe: Focused on keeping the people safe.
+- @dark_year_criminal: Focused on Catching the escaped criminals.
+
+@dark_year_safe
+go-to: 1991_end
+
+@dark_year_criminal
+go-to: 1991_end
+
+@1991_end
+new-page: true
+
+= Jason's Capture and Death
+
+- @1993_start: That sucks
+
+@1993_start
+new-page: true
+
+= Tim the Menace
+
+- @1993_end: Next Year
+
+@1993_end
+new-page: true
+
+- @promises: Promises
+
+@promises
+new-page: true
 
 WIP
 
@@ -209,4 +536,53 @@ WIP
 - @campaign_end: We've promised enough.
 
 @campaign_end
-go-to: root.1928_main
+on-arrival: {!
+
+if (Q.approval_rating > Q.approval_rating_old)   {
+    Q.approval_rating_up = 2;
+} else if (Q.approval_rating_old == Q.approval_rating) {
+    Q.approval_rating_up = 1;
+} else { 
+    Q.approval_rating_up = 0;
+}
+
+if (Q.credibility > Q.credibility_old) {
+    Q.credibility_up = 2;
+} else if (Q.credibility_old == Q.credibility) {
+    Q.credibility_up = 1;
+} else { 
+    Q.credibility_up = 0;
+}
+
+if (Q.pf > Q.pf_old) {
+    Q.pf_up = 2;
+} else if (Q.approval_rating_old == Q.approval_rating) {
+    Q.pf_up = 1;
+} else { 
+    Q.pf_up = 0;
+}
+
+if (Q.budget > Q.budget_old) {
+    Q.budget_up = 2;
+} else if (Q.budget_old == Q.budget) {
+    Q.budget_up = 1;
+} else { 
+    Q.budget_up = 0;
+}
+
+
+if (Q.poverty > Q.poverty_old) {
+    Q.poverty_up = 2;
+} else if (Q.poverty_old == Q.poverty) {
+    Q.poverty_up = 1;
+} else { 
+    Q.poverty_up = 0;
+}
+
+Q.approval_rating_old = Q.approval_rating;
+Q.credibility_old = Q.credibility;
+Q.pf_old = Q.pf;
+Q.budget_old = Q.budget;
+Q.poverty_old = Q.poverty;
+!}
+go-to: root.1994_main

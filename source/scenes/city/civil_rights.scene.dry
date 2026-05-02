@@ -1,0 +1,64 @@
+title: Civil Rights
+new-page: true
+is-card: true
+tags: city
+on-arrival: month_actions += 1;
+card-image: img/sangerbund.jpg
+
+For every right a person claims, there's another man that will tell him to remember his duties. However, those that have not the right to exist as they should be, what would those duties even be? This is the delta in this world that cause persons to hunt one another. It's your duty, the one with all rights to finally write out this injustice.
+
+- @prostitution: Prostitution
+- @indecency: Public Indecency
+- @civil_rights_lgbtq: LGBT Rights
+- @easy_discard
+- @return
+
+
+@prostitution
+
+Full legalization or decriminalization of prostitution falls outside the mayor's authority and is not on the table. The question is not whether to solve the crisis entirely, it is whether to stop the city from actively making it worse.
+
+- @prostitution_action: An executive directive to the commissioner will reorients enforcement away from those most victimized by the trade and toward those who exploit or purchase it.
+- @civil_rights: Return
+
+@prostitution_action
+subtitle: You know it won't solve the underlying conditions that drive people into prostitution, and it does not address the organized criminal infrastructure around it. But it stops the city from imprisoning people for surviving in circumstances largely not of their choosing.
+
+WIP
+
+@indecency
+
+- @indecency_action: Redefine the legal threshold for public indecency to require demonstrated actual disturbance rather than simple officer discretion in a public space.
+- @civil_rights: Return.
+
+@indecency_action
+subtitle: The revised ordinance would require that a genuine disruption to public order be established before an indecency charge can be brought — eliminating the use of the law as a tool of selective harassment. In practice, this change functionally legalizes the Gay Pride parade and similar public gatherings, stripping away the legal pretext used to shut them down or justify arrests. The reform is administratively clean and legally defensible.
+
+@civil_rights_lgbtq
+
+
+- @bar_raids: End the bar raids. LGBT establishments have been subjected to police harassment under the cover of liquor licensing and public order law for decades. It ends now.
+- @equal_employment: We need to establish equal employment protections on the basis of sexual orientation across all city-regulated employment. The simple fact that some people are pulled out of a job because of the sex of the persons they wish to live their life with is disgrace.
+- @cross_dressing: We need to repeal the cross-dressing ordinance. The law was never about public safety, it's a tool of persecution, and it should be abolished entirely.
+- @lgbtq_governor: We need to talk to Milton Finger. To many person are being persecuted for nothing more than their sexual orientation. We need to pressure the Governor into passing state-level legislation criminalizing hate crimes targeting LGBT individuals.
+- @civil_rights: Return.
+
+@bar_raids
+subtitle: A direct executive directive to the police to cease raids on LGBT bars and establishments removes one of the most visible and brutalizing tools of suppression the city has used. While Gordon as never validated any, the simple fact they can still happen is intolerable. It costs no legislative capital and can be done immediately. Some Policemen and councilors may not understand just yet, but they soon will.
+
+WIP
+
+@equal_employment
+subtitle: A municipal ordinance barring employment discrimination based on sexual orientation covers city employees, city contractors, and any business subject to city licensing. It does not reach purely private employers beyond the city's regulatory reach, but it establishes a legal floor and a public standard. Expect council opposition from socially conservative members, though the ordinance is defensible on basic fairness grounds.
+
+WIP
+
+@cross_dressing
+subtitle: The ordinance criminalizing cross-dressing with "intent to deceive" has been used almost exclusively to arrest drag performers and transgender individuals. Its repeal requires a council vote but is achievable with the right coalition. The legal argument for repeal is strong, the ordinance is vague, selectively enforced, and constitutionally questionable. The political argument is harder in certain districts, but framing it as ending an enforcement absurdity rather than a cultural statement can help bring reluctant votes across. 
+
+WIP
+
+@lgbtq_governor
+subtitle: The Governor is broadly sympathetic to the cause but has avoided moving on it without political cover. Your endorsement and the expenditure of real capital can provide that cover and push the legislation through Albany. The impact extends far beyond Gotham, a statewide hate crime law protects LGBT residents in every city and county, and the credit for pushing it will follow you.
+
+WIP

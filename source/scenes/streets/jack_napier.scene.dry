@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: streets
 on-arrival: month_actions += 1;
-card-image: img/sangerbund.jpg
+card-image: img/cards/jacknapier.jpg
 
 It's a secret to nobody but the delusional that Jack, mad or sane is a threat to the city and possibly the country at large. He must be stopped, someway, somehow. Even as once more a civilian, it's clear their something set up with him that can be taken down.
 

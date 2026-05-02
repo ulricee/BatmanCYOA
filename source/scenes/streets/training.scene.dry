@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: streets
 on-arrival: month_actions += 1;
-card-image: img/sangerbund.jpg
+card-image: img/cards/trainingandgear.jpg
 
 As just a man, your edge over all your adversaries ready to use fire arms if not powers higher than humans is your intense training and your gear. However, while you have reached a certain plateau in your training, your gear can always be improved. Furthermore, the rest of the bat-familly can always gain much from being trained and equiped better. It's only a question on what to buy and who to train first.
 
@@ -15,7 +15,145 @@ As just a man, your edge over all your adversaries ready to use fire arms if not
 @gear
 subtitle: You can buy as many equipment as you want at once
 
-a
+- @gear_me: I have to improve my own gear.
+- @gear_tim: Tim could use some new gear.
+- @gear_dinah: Dinah could use some new gear.
+- @gear_duke: Duke could use some new gear.
+- @vehicles: Vehicles
+- @train: How about doing some training instead?
+
+@gear_me
+
+Proximity Mines (Simple Upgrade, Wayne industries)
+
+- @freeze_blast: Freeze Blast
+- @elec_gun: Elec Gun
+- @liquid_armor: Non-Newtonian Liquid Armor (Lex Luthor Contact, He's the only guy that developed stuff able to handle superheroes)
+- @deadshot: Deadshot Helmet/Suit (If you take down Deadshot. Count as Heat vision, Heat Signature Concealing, armor upgrade and hearing upgrade)
+- @batarang: Batarang (duh)
+- @batclaw: Batclaw
+- @explosive_gel: Explosive Gel
+- @smoke_bombs: Smoke bombs
+- @gliding_cape: Gliding Cape
+- @bola_launcher: Bola Launcher
+- @kevlar_suit: Kevlar Suit (get's replaced when you've got better protection)
+- @night_vision: Night Vision
+- @gear: Return.
+
+@freeze_blast
+
+- @gear_me: Return.
+
+@elec_gun
+
+- @gear_me: Return.
+
+@liquid_armor
+
+- @gear_me: Return.
+
+@deadshot 
+
+- @gear_me: Return.
+
+@batarang
+
+- @sonic_batarang: Upgrade eto Sonic Batarang
+- @gear_me: Return.
+
+
+@sonic_batarang
+
+- @gear_me: Return.
+
+@batclaw
+
+- @gear_me: Return.
+
+@explosive_gel
+
+- @gear_me: Return.
+
+@smoke_bombs
+
+- @gear_me: Return.
+
+@gliding_cape
+
+- @gear_me: Return.
+
+@bola_launcher
+
+- @gear_me: Return.
+
+@night_vision
+
+- @heat_vision: Upgrade to Heat Vision
+- @gear_me: Return.
+
+@heat_vision
+
+- @gear_me: Return.
+
+@kevlar_suit
+
+- @heat_signature: Add in heat concealing capacities.
+- @gear_me: Return.
+
+@heat_signature
+
+- @gear_me: Return.
+
+@gear_tim
+
+- @gear_tim_kitemen: Kitemen upgrade
+- @gear: Return.
+
+@gear_tim_kitemen
+
+- @gear: Return.
+
+@gear_dinah
+
+- @voice_amplifier: Voice Amplifier (Wayne Tech)
+- @gear: Return.
+
+@voice_amplifier
+
+- @gear_dinah: Return
+
+@gear_duke
+
+- @light_amp: Light Amplificators (Wayne Tech + Doug Thomas Contact)
+- @gear: Return.
+
+@light_amp
+
+- @gear_duke: Return
+
+@vehicles
+
+- @batmobile: Batmobile (Starter)
+- @batwing: Batwing (Wayne Industries)
+- @robin_mobile: Robin Mobile (Untouched at game start, can be given to your robin)
+- @todd_harley: Todd's Harley (Can be tuned out if Todd's back)
+- @gear: Return.
+
+@batmobile
+
+- @vehicles: Return.
+
+@batwing
+
+- @vehicles: Return.
+
+@robin_mobile
+
+- @vehicles: Return.
+
+@todd_harley
+
+- @vehicles: Return.
 
 @train
 subtitle: You can train no more than two persons at once

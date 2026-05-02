@@ -11,10 +11,10 @@
     <script src="d3.v7.min.js"></script>
     <script src="d3-parliament.js"></script>
     <script src="d3-linegraph.js"></script>
-    <script src="sound.js"></script>
     <script src="core.js"></script>
     <script src="game.js"></script>
     <script src="data.js"></script>
+    <script src="speak.js"></script>
   </head>
   <body>
     <div class="background" id="bg2">
@@ -312,6 +312,9 @@
                     <a onclick="dendryUI.showSaveSlots();" href="#">Save/Load</a>
                     <a onclick="window.showOptions();" href="#">Options</a>
                 </div>
+                    <audio controls id="idAudio">
+		                <source src="audio/batmanbackground.mp3" type="audio/mp3">
+	                </audio>
             </header>
             <div id="tools_wrapper">
                 <div id='stats_sidebar' class='tools left'>

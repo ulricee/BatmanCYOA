@@ -22,3 +22,4 @@ if (this.state.visits[card.id]) {
     this.state.visits[card.id] -= 1;
 }
 !}
+subtitle: This lets us go back to the main page, without the card vanishing from the hand.

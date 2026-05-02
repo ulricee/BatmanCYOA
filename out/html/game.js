@@ -326,6 +326,24 @@ function applyWholesome(str) {
       $('#mixtape').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
+        var idAudio = document.getElementById("idAudio");
+
+		function playaudio() {
+            var idAudio = document.getElementById("idAudio");
+			idAudio.play();
+		}
+
+        function pauseaudio() {
+            var idAudio = document.getElementById("idAudio");
+			idAudio.pause();
+		};
+
+        function stopaudio() {
+            var idAudio = document.getElementById("idAudio");
+			idAudio.pause();
+			idAudio.currentTime = 0;
+		};
+
   /*
    * This function copied from the code for Infinite Space Battle Simulator
    *
@@ -375,7 +393,6 @@ function applyWholesome(str) {
     window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
   };
 
-// Progress bar test
 
 document.addEventListener('mousemove', e => {
     document.querySelectorAll('.mytooltiptext').forEach(el => {
@@ -384,27 +401,7 @@ document.addEventListener('mousemove', e => {
     });
 });
 
-// music?
 
-sounds.load([
-  "audio/horse.mp3", 
-]);
-
-//Assign the callback function that should run
-//each time a file loaded, just like PIXI.js
-sounds.onProgress = function (progress, res) {
-  console.log('Total ' + progress + ' file(s) loaded.');
-  console.log('File ' + res.url + ' just finished loading.');
-};
-
-//Assign the callback function that should run
-//when the sounds have loaded
-sounds.whenLoaded = setup;
-
-function setup() {
-  //Initialize sounds here
-var horse = sounds["sounds/horse.mp3"]
-}
 
 
 

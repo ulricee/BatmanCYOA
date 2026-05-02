@@ -8,14 +8,19 @@ card-image: img/sangerbund.jpg
 - @commissioner: Commissioner Appointment
 - @police_spending: How much we spend and where.
 - @police_equipment: Police Equipment
+- @police_practice: Police Practice and Targeting
+- @prison_reform: Prisons
 - @return
 - @easy_discard
 
 @commissioner
+choose-if: gordon_advisor == 0
+unavailable-subtitle: Gordon is your ally, there's no reason to try to replace him.
 
 - @gilmason: Gil Mason
 - @harveybullock: Harvey Bullock
 - @reneemontoya: Renée Montoya
+- @police: Return.
 
 @gilmason
 
@@ -31,25 +36,32 @@ WIP
 
 @police_spending
 
-Officer count: High (4/5)
-42 000 officers walk the street of Gotham city.
+= Officer count: [+ police_size : police +] ([+ police_size +]/5)
 
-Militarization level: High (4/5)
-The police force is as armed as the State National Guard.
+[? if police_size = 4 : 42 000 officers walk the street of Gotham city. ?]
 
-Unit distribution:
+= Militarization level: [+ police_militarization : police +] ([+ police_militarization +]/5)
+
+[? if police_militarization = 4 : 42 000 officers walk the street of Gotham city. ?]
+
+= Unit distribution:
+
 Most surplus unit that are not servicing units are sent to the patrol sector.
 
 Patrol Sector: Overstaffed (5/5)
+
 Swat team: Fully staffed (3/3)
+
 Detective division: Sufficiently staffed (2/3)
+
 Community policing: Minimal (1/3)
+
 Outreach and prevention programs: Minimal (1/3)
 
-- @police_spending_officer_count: a
-- @police_spending_militarization: a
-- @police_spending_unit_distribution: a
-
+- @police_spending_officer_count: Let's deal with the officer count.
+- @police_spending_militarization: Let's alter the militarization
+- @police_spending_unit_distribution: Let's alter the distribution.
+- @police: Return.
 
 @police_spending_officer_count
 
@@ -65,4 +77,145 @@ WIP
 
 @police_equipment
 subtitle: Since the Hamilton Hill years, armed robbers have been answered by bullet proof vest, assault riffles by armored cars. Today, the constant arm race continues.
+
+- @police_equipment_unit_armament: Armament
+- @police_equipment_unit_tech: Tech
+- @police: Return.
+
+@police_equipment_unit_armament
+
+- @police_equipment_unit_armament_firearms: Let's analyse our policy on firearms.
+- @police_equipment_unit_armament_vest: We need to consult the situation with our officer armor: The ballistic vests.
+- @police_equipment_unit_armament_apc: Gotham City's small fleet of APCs.
+- @police_equipment_unit_armament_riot: Riot Gear
+- @police_equipment_unit_armament_nonlethal: Non Lethal weaponry, such as tasers.
+- @police_equipment: Return.
+
+@police_equipment_unit_armament_firearms
+subtitle: While a gun isn't the answer to all altercation, trying to pull it away from cops while the crime rate stays high is a recipe for disaster.
+
+@police_equipment_unit_armament_vest
+subtitle: A particular pain point for Gordon, while their is a vest for everyone, it's not one as safe as it used to be. Cop Killer bullet have become ubiquitous as the town continue to evolve and arm traffickers continue to prosper. For every new bullet, their need to be a new vest.
+
+@police_equipment_unit_armament_apc
+subtitle: Quincy Sharp's APC's have been rather controversial considering their lack of subtilty and the general disturbance they tend to cause. As they are in inventory, the police is constantly in want of using them.
+
+@police_equipment_unit_armament_riot
+subtitle: Quincy Sharp as vastly increased the funding for them. Some see it as a life line for the city, other as keeping the rabble of the street.
+
+@police_equipment_unit_armament_nonlethal
+subtitle: While "technically" part of the Gotham police arsenal, those kind of weapons have been gathering dust lately
+
+@police_equipment_unit_tech
+
+- @police_equipment_unit_tech_gps: GPS
+- @police_equipment_unit_tech_cctv: CCTV
+- @police_equipment_unit_tech_license: License Readers
+- @police_equipment_unit_tech_facial: Faicla Recognition
+- @police_equipment_unit_tech_bodycam: Bodycams
+- @police_equipment_unit_tech_forensic: Forensic Labs
+- @police_equipment_unit_tech_drones: Drones
+- @police_equipment_unit_tech_helicopter: Helicopters
+- @police_equipment: Return.
+
+@police_equipment_unit_tech_gps
+subtitle: So useful people wonder how they ever did anything without them.
+
+WIP.
+
+@police_equipment_unit_tech_cctv
+subtitle: Keep an eye out for crime, help prevent it and also make the general public very paranoid.
+
+WIP.
+
+@police_equipment_unit_tech_license
+subtitle: New technology, allows to rapidly identify any vehicles. Match especially well with CCTV's
+
+WIP.
+
+@police_equipment_unit_tech_facial
+subtitle: Considered by many to be a bridge too far. However, this may be your silver bullet against crime
+
+WIP.
+
+@police_equipment_unit_tech_bodycam
+subtitle: Police officers despise it, the general public love it. It may be the best way to prevent police abuse
+
+WIP.
+
+@police_equipment_unit_tech_forensic
+subtitle: As crime continue to become more sophisticated, the fight against crime need to become just as developed.
+
+WIP.
+
+@police_equipment_unit_tech_drones
+subtitle: Science fiction for most. However, a camera that moves and can track anyone in the city would change everything.
+
+WIP.
+
+@police_equipment_unit_tech_helicopter
+subtitle: The greatest love of Quincy Sharp. The police force as an unhealthy number of them, many of which are not as useful as they should be.
+
+WIP.
+
+@police_practice
+subtitle: Gotham has many type of criminals, however, no one is in agreement on who should be targeted in priority. It's for you to decide on it.
+
+GCPD currently concentrates on violent crime with a documented bias toward minority and blue-collar communities. Overpolicing remained the stated policy since before the Sharp Years.
+
+The police didn't always do everything in the way they did today, neither are they condemned to repeat the same mistake up until the end of history. It will be for you to adapt the force to a city that must change.
+
+- @police_practice_targets: Police Targets
+- @police_practice_practice_policing: Policing 
+- @police_practice_practice_racial: Racial Policy
+- @police_practice_supervillain: Anti Super-villain Policy
+- @police_practice_curative: Curative
+- @police: Return.
+
+@police_practice_targets
+subtitle: While Crime as many form, they tend to broadly be either crimes of the rich or crimes of the poor. Both are nefarious to the lives of those that it impact though one tend to be a much worse poison to society while the other is fingered pointed at all time. It's for you to make all crime be payed in full.
+
+- @police_practice_targets_blue_collar: Blue collar crimes (Violent Crime, Gang activity etc)
+- @police_practice_targets_white_collar: White Collar Crime (Fraud, Mob activity etc)
+
+@police_practice_targets_blue_collar
+subtitle: The type of crime that makes most headlines. Sensational coverage from the media in addition to the current crime rate makes it a constant struggle to maintain the town credibility. However, they are not the crimes with the largest harmful crime. They are always the symptoms, never the causes for the issues we see.
+
+@police_practice_targets_white_collar
+subtitle: The type of crime which cost the most money and ruins the most lives per capita. Those don't tend to have much in the way of coverage compared to the more visceral one as a spreadsheet will always be less exciting than a bullet ridden body. However, if you wish to stem the disease at it's source, it should be through there.
+
+@police_practice_practice_policing
+subtitle: Policing, in the meaning of active and aggressive search using all terms in the book as always been useful. However, it's performance to the extreme as became something closer to a numbers game made to impact public opinion. Policing will always remain, but you may change how harsh it's application is.
+
+
+@police_practice_practice_racial
+subtitle: Racial Profiling, in addition to it's controversy as yet to prove itself in any way effective against crime longterm. While it does help put more people behind bars and make it look like the police is doing something, it is also fracturing the gothamite society. Gordon has officially ended those practices but their enforcement have been more difficult.
+
+
+@police_practice_supervillain
+subtitle: The rise of threats that cannot be directly answered by the police force as lead to the deputizing of superheroes to answer it. While during Gordon's first tenure, it was mostly an Ad-hoc solution, it as since became the new normal, one that made the police force dependent on heroes. If the police force is to become fully independent, it needs to adapt to this change.
+
+@police_practice_curative
+subtitle: Some people say the police is a tool of justice, other a tool to maintain order. However, in either case, this tool as yet to achieve it's goal to stem the rise of criminality. A curative approach only go so far as it's an arm race which cannot end effectively. However, changing the position of the police on this front will require intense and constant work.
+
+@prison_reform
+subtitle: During Quincy Sharp's tenure, the prison system was struck down buy a sledgehammer that it yet to completely recover from. From his introduction of Private prison to the abuse of monetized labor and more, Prisons have grown both in side and in how much they are over-extended.  It will take a long time to fix what was broken.
+
+- @prison_reform_privatization: Private Prisons
+- @prison_reform_code: Reform the Prison code
+- @stone_gate: Stone Gate Penitentiary
+- @arkham_city: Arkham city Project
+- @police: Return.
+
+@prison_reform_privatization
+subtitle: During his tenure, Quincy sharp as given a Massive Lease to the largest prison of the city, Blackgate Penitentiary, to a Private equity firm. The lease as been given in 1991 and will last until March of 1996. Since, it has become nothing more than a penal colony with many of the restriction of public prisons having been erased to extract greater profit from their workforce. This system must be changed.
+
+@prison_reform_code
+subtitle: While it shouldn't be controversial, there is a coalition of groups that wish for prisoners to continue suffering and suffering hard. One part from the conservative establishment see that those practices are just the right way to deal with prisoners that have done so much damage to society, making them pay back. Others, less principled persons, have vested interest in the value they gain from parts of the operations of the penitentiary. Both will try to block reforms.
+
+@stone_gate
+subtitle: The personal project idea of Harvey Dent. Blackgate as grown clearly insufficient to house the amount of prisoners inside of the city. As such, a brand new penitentiary complexes as been proposed on the sister islands east of Paris Island. The project will see both a greater amount of security for prisoners and for enforcers in a three base complex including a female, male a juvenile prison center.
+
+@arkham_city
+subtitle: As proposed by Hugo strange, you may turn the island of Arkham into a massive open air rehabilitation center for both inmates and the insane. The proposal as some controversy, however, it may be your silver bullet against crime inside of Gotham.
 
