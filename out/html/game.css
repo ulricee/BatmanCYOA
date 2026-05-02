@@ -908,5 +908,11 @@ video {
   animation: fadeIn 10s ease-in;
 }
 
-// uhh  music??
+/*uhh  music?? */
 
+/* text appearing */
+
+.typewriter {
+  font-family: monospace;
+  text-align: left;
+}

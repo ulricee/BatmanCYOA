@@ -43,6 +43,7 @@ data = [
 
 
 
+
 if (window && d3) {
     var width = 200; 
     var height = 100;
@@ -129,12 +130,26 @@ if (window && d3) {
     displayRepSeat();
     displayConservativeSeat();
     displayReactionarySeat();
+    Q.republican_display = 1;
+    if (Q.democrat_display == 1) {
+        displayProgressiveSeat();
+        displayLiberalSeat();
+        displayDemSeat();
+        Q.democrat_display = 0;
+    }
 }
 
  displayDemocratSeats = function () {
     displayProgressiveSeat();
     displayLiberalSeat();
     displayDemSeat();
+    Q.democrat_display = 1;
+    if (Q.republican_display == 1) {
+        displayRepSeat();
+        displayConservativeSeat();
+        displayReactionarySeat();
+        Q.republican_display = 0;
+    }
 };
     var r = document.getElementsByClassName('seat reactionary');
 for (var i = 0; i < r.length; i++) {

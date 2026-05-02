@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: streets
 on-arrival: month_actions += 1;
-card-image: img/sangerbund.jpg
+card-image: img/cards/specialcases.jpg
 
 - @clayface: Matt Hagen as faded from view since he tried getting back on those responsible for transformation. I know he is still out there, somewhere. His condition requires constant upkeep after all.
 - @calendar_girl: The Calendar Girl remains an issue many have pushed me to act against, especially Sionis. I think it would be good to finally resolve it before she cause the death of someone else.

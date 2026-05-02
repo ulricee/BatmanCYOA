@@ -1,0 +1,7 @@
+
+(..1) Completely Defunded
+(1..2) Low
+(2..3) Decreasing
+(3..4) Moderate
+(4..5) High
+(5..) Extreme
