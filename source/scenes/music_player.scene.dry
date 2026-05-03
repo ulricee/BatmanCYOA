@@ -3,37 +3,14 @@ new-page: true
 is-special: true
 on-display: {!
 
-
-        var idAudio = document.getElementById("idAudio");
-
-		function playaudio() {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.play();
-		}
-
-        function pauseaudio() {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.pause();
-		};
-
-        function stopaudio() {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.pause();
-			idAudio.currentTime = 0;
-		};
-
-
-
-
 !}
 
 = mixtape
 
 
 
-{!
-<button id="pause" onclick="pauseaudio();">!}Pause{!</button>!}
+{!<button id="pausemusicbutton" onclick="pauseaudio();">!}Pause{!</button>!}
 
 {!
-<button id="play" onclick="playaudio();">Play</button>
+<button id="playmusicbutton" onclick="playaudio();">Play</button>
 !}

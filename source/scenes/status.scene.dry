@@ -1,6 +1,20 @@
 title: Status
 new-page: true
 is-special: true
+on-display: {!
+
+
+ displayMayorBudget = function () {
+    const resultsDiv = document.getElementById('hiddenbudget');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+!}
 
 = [+ month : month +] [+ year +]
 
@@ -44,10 +58,28 @@ Personal Funds: {!<span>!}[+ pf +]{!</span>!}
 [? if pf_up == 1 : → ?]
 [? if pf_up == 0 : ↓ ?]
 
-Mayoral Budget: {!<span>!}[+ budget +]{!</span>!}
+{!<button onclick="displayMayorBudget()" class="hiddenbutton">!}Mayoral Budget: {!<span>!}[+ budget +]{!</span></button>!}
 [? if budget_up == 2 : ↑ ?]
 [? if budget_up == 1 : → ?]
 [? if budget_up == 0 : ↓ ?]
+
+{!<div id="hiddenbudget">!}
+
+• +[+ property_taxes +] Property Tax
+
+• +[+ income_taxes +] Income Tax
+
+• +[+ sales_taxes +] Sales Tax
+
+• +[+ business_taxes +] Business Tax
+
+• +[+ state_aid +] State Aid
+
+• +[+ federal_aid +] Federal Aid
+
+• +[+ other_total +] Other fees and other (include commuter tax that represent 0.5B)
+
+{!</div>!}
 
 Poverty Rate: [+ poverty : poverty +]
 [? if poverty_up == 2 : ↑ ?]
@@ -108,6 +140,44 @@ Socialists: [+ socialist_relation : relationships +]
 
 
 @crime
+on-display: {!
+
+    var width = 500;
+    var height = 500;
+
+    var minCrime = d3.min(Q.crime_records, d => d.crime);
+    var maxPolice = d3.min(Q.crime_records, d => d.crime);
+    var lines_3 = d3.linegraph(true, true, ['crime', 'police'],
+            {'crime': '#ff0000', 'police': '#001aff'},
+            {'crime': 'Crime', 'police': 'Police Spending'},
+            maxPolice + 70, minCrime - 10, 21);
+    lines_3.width(width).height(300);
+    d3.select("#crime_history2").datum(Q.crime_records).call(lines_3);
+
+(function() {
+    function scrollHorizontally(e) {
+        e = window.event || e;
+        var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        this.scrollLeft -= (delta * 40); // Multiplied by 40
+        e.preventDefault();
+    }
+    if (document.getElementById('crime_history_box').addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementById('crime_history_box').addEventListener('mousewheel', scrollHorizontally, false);
+        // Firefox
+        document.getElementById('crime_history_box').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementById('crime_history_box').attachEvent('onmousewheel', scrollHorizontally);
+    }
+})();
+    !}
+
+= Crime Rate
+
+{!<div id="crime_history_box">!}
+{!<svg id="crime_history2" style="width: 500px; height: 300px;"> </svg>!}
+{!</div>!}
 
 Crime Rate: [+ crime_rate +]
 

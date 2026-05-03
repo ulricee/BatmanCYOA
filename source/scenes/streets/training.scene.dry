@@ -21,6 +21,8 @@ subtitle: You can buy as many equipment as you want at once
 - @gear_duke: Duke could use some new gear.
 - @vehicles: Vehicles
 - @train: How about doing some training instead?
+- @return
+- @easy_discard
 
 @gear_me
 
@@ -157,5 +159,19 @@ Proximity Mines (Simple Upgrade, Wayne industries)
 
 @train
 subtitle: You can train no more than two persons at once
+ 
+- @train_jason: Jason Todd
+- @train_dinah: Dinah Drake
+- @train_duke: Duke
+- @train_barbara: Barbara
+- @train_stephanie: Stephanie
+- @train_tim: Tim
+- @easy_discard
+- @return
 
-a
+@train_jason
+@train_dinah
+@train_duke
+@train_barbara
+@train_stephanie
+@train_tim
