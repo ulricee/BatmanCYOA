@@ -23,7 +23,7 @@ body.dark-mode {
   --border-color: #fff;
   --content-bg-color: #242424;
   --text-color: #efefef;
-  --link-color: #ff8080;
+  --link-color: #c2c2c2;
   --link-hover-color: rgba(255, 255, 255, 0.06);
   --tab-bg-color: #555555;
   --tab-color: #505050;
@@ -66,7 +66,6 @@ body.batman-mode .tools {
   border-width: 4px;
   border-color: #888;
 }
-
 
 header, #mainwrapper, footer {
   color: var(--text-color);
@@ -166,6 +165,9 @@ ul.choices {
 ul.choices li {
   border-bottom: 1px solid rgb(0, 0, 0);
   padding: 0.5em;
+  opacity: 0.3;
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 ul.choices li div.subtitle {
   margin-left: 2em;
@@ -179,6 +181,7 @@ ul.choices li.unavailable {
 ul.choices li:hover {
   background-color: var(--link-hover-color);
   cursor: pointer;
+  opacity: 1.0;
 }
 ul.choices li:last-child {
   border-bottom: none;
@@ -800,14 +803,17 @@ table {
 
 .hiddenbutton {
   border: 0px;
-  color: var(--text-color);
   background-color: var(--content-bg-color);
   cursor: pointer;
-  font-weight: 1000;
+  font-family: "Minion Pro", Georgia, serif;
 }
 
 .hiddenbutton:hover {
   color: black;
+}
+
+#hiddenbudget {
+  display: none;
 }
 
 
@@ -915,4 +921,13 @@ video {
 .typewriter {
   font-family: monospace;
   text-align: left;
+}
+
+#crime_history_box {
+  overflow: scroll;
+  width: 100%;
+}
+
+#crime_history2 {
+  overflow: scroll;
 }

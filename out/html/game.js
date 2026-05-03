@@ -328,17 +328,17 @@ function applyWholesome(str) {
 
         var idAudio = document.getElementById("idAudio");
 
-		function playaudio() {
+		playaudio = function () {
             var idAudio = document.getElementById("idAudio");
 			idAudio.play();
-		}
+		};
 
-        function pauseaudio() {
+        pauseaudio = function () {
             var idAudio = document.getElementById("idAudio");
 			idAudio.pause();
 		};
 
-        function stopaudio() {
+        stopaudio = function () {
             var idAudio = document.getElementById("idAudio");
 			idAudio.pause();
 			idAudio.currentTime = 0;

@@ -20,6 +20,8 @@ on-arrival: {!
 !}
 on-display: {!
       window.enableBatmanMode();
+      
+
 !}
 
 
@@ -94,8 +96,6 @@ Q.governor_favor = 0;
 
 Q.president = "Lex Luthor";
 Q.governor = "Milton Finger";
-
-Q.budget = 4;
 
 // is lgbtq attached?
 
@@ -241,11 +241,26 @@ Q.burnside_size = 15;
 Q.bristol_size = 5;
 
 // Main Tab values
+// Budget Breakdown
+
+Q.property_taxes = 3;
+Q.income_taxes = 1;
+Q.sales_taxes = 1;
+Q.business_taxes = 1;
+Q.state_aid = 2;
+Q.federal_aid = 1;
+Q.other = 0.5;
+Q.commuter_tax = 0.5;
+Q.other_total = (Q.commuter_tax) + (Q.other);
+Q.yearly_revenue = (Q.property_taxes) + (Q.income_taxes) + (Q.sales_taxes) + (Q.business_taxes) + (Q.state_aid) + (Q.federal_aid) + (Q.other_total)
+
+
+// Main Values
 
 Q.approval_rating = 50;
 Q.credibility = (40)/10;
 Q.pf = 5;
-Q.budget = 10;
+Q.budget = (Q.yearly_revenue);
 Q.order = 0;
 Q.freedom = ((Q.order)*(-1));
 
@@ -277,8 +292,16 @@ Q.collaboration_doug_thomas = 0;
 Q.collaboration_ferris_boyle = 1;
 Q.collaboration_ferris_boyle_previous = 0;
 
-// Crime tab values
-Q.crime_rate = "bad"
+// Crime rate values
+Q.property_crimes = 10000;
+Q.violent_crimes = 2500;
+Q.reported_crimes = (Q.property_crimes + Q.violent_crimes)
+Q.crime_rate = (Q.reported_crimes/(13000000))*100000;
+Q.safety_index = 20;
+Q.solve_rate = 28;
+
+
+// Criminal stuff
 Q.falcone_status = "ok";
 Q.falcone_leader = "Carmine";
 Q.penguin_status = "Active";
@@ -535,6 +558,215 @@ Q.election_records = [];
 Q.party_support_records = [];
 // inflation and unemployment records
 Q.economic_records = [];
+
+
+// Crime records
+Q.crime_records = [{date: 'Wed Jan 1 1990',
+  crime: 80,
+  police: 84,
+},
+{date: 'Wed Feb 1 1990',
+  crime: 81,
+  police: 85,
+},
+{date: 'Wed Mar 1 1990',
+  crime: 79,
+  police: 84,
+},
+{date: 'Wed Apr 1 1990',
+  crime: 75,
+  police: 86,
+},
+{date: 'Wed May 1 1990',
+  crime: 80,
+  police: 86,
+},
+{date: 'Wed Jun 1 1990',
+  crime: 79,
+  police: 87,
+},
+{date: 'Wed Jul 1 1990',
+  crime: 82,
+  police: 84,
+},
+{date: 'Wed Aug 1 1990',
+  crime: 85,
+  police: 84,
+},
+{date: 'Wed Sep 1 1990',
+  crime: 86,
+  police: 88,
+},
+{date: 'Wed Oct 1 1990',
+  crime: 88,
+  police: 88,
+},
+{date: 'Wed Nov 1 1990',
+  crime: 90,
+  police: 88,
+},
+{date: 'Wed Dec 1 1990',
+  crime: 91,
+  police: 88,
+},
+
+{date: 'Wed Jan 1 1991',
+  crime: 92,
+  police: 90,
+},
+{date: 'Wed Feb 1 1991',
+  crime: 100,
+  police: 91,
+},
+{date: 'Wed Mar 1 1991',
+  crime: 101,
+  police: 100,
+},
+{date: 'Wed Apr 1 1991',
+  crime: 300,
+  police: 100,
+},
+{date: 'Wed May 1 1991',
+  crime: 300,
+  police: 70,
+},
+{date: 'Wed Jun 1 1991',
+  crime: 300,
+  police: 50,
+},
+{date: 'Wed Jul 1 1991',
+  crime: 300,
+  police: 100,
+},
+{date: 'Wed Aug 1 1991',
+  crime: 300,
+  police: 110,
+},
+{date: 'Wed Sep 1 1991',
+  crime: 300,
+  police: 111,
+},
+{date: 'Wed Oct 1 1991',
+  crime: 300,
+  police: 115,
+},
+{date: 'Wed Nov 1 1991',
+  crime: 300,
+  police: 130,
+},
+{date: 'Wed Dec 1 1991',
+  crime: 200,
+  police: 130,
+},
+
+
+
+{date: 'Wed Jan 1 1992',
+  crime: 150,
+  police: 130,
+},
+{date: 'Wed Feb 1 1992',
+  crime: 140,
+  police: 140,
+},
+{date: 'Wed Mar 1 1992',
+  crime: 130,
+  police: 139,
+},
+{date: 'Wed Apr 1 1992',
+  crime: 120,
+  police: 135,
+},
+{date: 'Wed May 1 1992',
+  crime: 100,
+  police: 130,
+},
+{date: 'Wed Jun 1 1992',
+  crime: 99,
+  police: 120,
+},
+{date: 'Wed Jul 1 1992',
+  crime: 98,
+  police: 118,
+},
+{date: 'Wed Aug 1 1992',
+  crime: 99,
+  police: 119,
+},
+{date: 'Wed Sep 1 1992',
+  crime: 98,
+  police: 125,
+},
+{date: 'Wed Oct 1 1992',
+  crime: 99,
+  police: 130,
+},
+{date: 'Wed Nov 1 1992',
+  crime: 100,
+  police: 140,
+},
+{date: 'Wed Dec 1 1992',
+  crime: 99,
+  police: 139,
+},
+
+
+{date: 'Wed Jan 1 1993',
+  crime: 98,
+  police: 138,
+},
+{date: 'Wed Feb 1 1993',
+  crime: 97,
+  police: 137,
+},
+{date: 'Wed Mar 1 1993',
+  crime: 96,
+  police: 136,
+},
+{date: 'Wed Apr 1 1993',
+  crime: 95,
+  police: 135,
+},
+{date: 'Wed May 1 1993',
+  crime: 96,
+  police: 134,
+},
+{date: 'Wed Jun 1 1993',
+  crime: 95,
+  police: 133,
+},
+{date: 'Wed Jul 1 1993',
+  crime: 94,
+  police: 132,
+},
+{date: 'Wed Aug 1 1993',
+  crime: 95,
+  police: 131,
+},
+{date: 'Wed Sep 1 1993',
+  crime: 95,
+  police: 131,
+},
+{date: 'Wed Oct 1 1993',
+  crime: 97,
+  police: 130,
+},
+{date: 'Wed Nov 1 1993',
+  crime: 98,
+  police: 129,
+},
+{date: 'Wed Dec 1 1993',
+  crime: 99,
+  police: 128,
+},
+
+{date: 'Wed Jan 1 1994',
+  crime: 96,
+  police: 125,
+},
+];
+
+
 
 Q.electoral_threshold = 0;
 
