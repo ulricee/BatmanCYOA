@@ -29,6 +29,8 @@ document.getElementById("idAudio").src = "audio/horse.mp3";
 document.getElementById("idAudio").play();
 Q.horse_music = 1;
 
+
+
 }
 
 !}

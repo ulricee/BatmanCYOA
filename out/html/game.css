@@ -931,3 +931,67 @@ video {
 #crime_history2 {
   overflow: scroll;
 }
+
+/* elections */
+
+#electionapprovalbar {
+  width: 100%;
+  height: 20px;
+  display: flex;
+}
+
+
+#election1994whitecollar {
+  width: 30%;
+  height: 100%;
+  background-color: blue;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+#election1994bluecollar {
+  width: 20%;
+  height: 100%;
+  background-color: red;
+}
+#election1994business {
+  width: 20%;
+  height: 100%;
+  background-color: rgb(51, 255, 0);
+}
+#election1994black {
+  width: 10%;
+  height: 100%;
+  background-color: rgb(255, 174, 0);
+}
+#election1994latino {
+  width: 10%;
+  height: 100%;
+  background-color: rgb(255, 0, 255);
+
+}
+#election1994unemployed {
+  width: 10%;
+  height: 100%;
+  background-color: rgb(0, 204, 255);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#election1994whitecollar:hover {
+  transform: translate(-2px, -2px);
+}
+#election1994bluecollar:hover {
+  transform: translate(-2px, -2px);
+}
+#election1994business:hover {
+  transform: translate(-2px, -2px);
+}
+#election1994black:hover {
+  transform: translate(-2px, -2px);
+}
+#election1994latino:hover {
+  transform: translate(-2px, -2px);
+}
+#election1994unemployed:hover {
+  transform: translate(-2px, -2px);
+}

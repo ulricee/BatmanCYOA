@@ -108,7 +108,7 @@ yet,
 with time, with recollection… You found something good to be taken from the schools of Chinese thought.
 
 - @dao: I found Echo in the Dao. Life is an eternal flow that can never be severed, only guided one way or another toward a great whole in an eternal metamorphosis.
-- @kung_fu: I found Duty in Kung Fu's teachings. Each person has a duty to serve the other and harmony may be reached once each achieves virtue.
+- @confucius: I found Duty in Kong Fuzi's teachings. Each person has a duty to serve the other and harmony may be reached once each achieves virtue.
 - @legalist: I found clarity in the Legalist writing. Law must be instilled into each individual until their will becomes true and their act correct.
 - @mohism: I found Truth in Mozi's ideals. No one dogma is self sufficient, only the acts that help the widest amount of people, never to break their will.
 - @no_interest: I found very little of interest among any of those teachings.
@@ -118,7 +118,7 @@ with time, with recollection… You found something good to be taken from the sc
 on-arrival: moral_compass += 5; ra_relationship += 1; daoist = 1
 go-to: 1980_end
 
-@kung_fu
+@confucius
 on-arrival: moral_compass += 5; order += 1; ra_relationship += 1; talia_relationship += 1; confucius = 1
 go-to: 1980_end
 

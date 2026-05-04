@@ -145,7 +145,6 @@
   window.disableBatmanMode = function() {
       window.dendryUI.dark_mode = false;
       document.body.classList.remove('batman-mode');
-      document.body.classList.remove('dark-mode');
       window.dendryUI.saveSettings();
   };
 

@@ -227,11 +227,59 @@ for (var district of Q.districts) {
 }
   Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
 
+// Let's see how much implicitly support Bruce.
+
+// First we will calculate his pre-existing support from his approval rate by adding all districts together.
+
+Q.brucesupport = 0;
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q.brucesupport += (Q[c + '_' + district + '_city']);
+  }
+}
+
+// Let's check out his total demographic support.
+
+for (var c of Q.classes) {
+  for (var district of Q.districts) {
+      Q[c + '_total_support_bruce'] += (Q[c + '_' + district + '_city']);
+  }
+}
+
+
+// And now how many will implicitly support Quincy.
+
+
+// This leaves us now to figure out any remainder uncertain votes.
+
 !}
 
-The presidential election is here!...
+= wip
 
-Bruce Wayne - [+ approval_rating +]%
+The mayoral election is here!...
+
+{!
+  <img src="img/portraits/bruce.webp">
+!}
+
+
+
+Bruce Wayne - [+ brucesupport +]
+
+[+ approval_rating +]%
+
+{!<div id="electionapprovalbar">!}
+
+  <div id="election1994whitecollar"><button class="hiddenbutton"></button></div>
+  <div id="election1994bluecollar"><button class="hiddenbutton"></button></div>
+  <div id="election1994business"><button class="hiddenbutton"></button></div>
+  <div id="election1994black"><button class="hiddenbutton"></button></div>
+  <div id="election1994latino"><button class="hiddenbutton"></button></div>
+  <div id="election1994unemployed"><button class="hiddenbutton"></button></div>
+
+
+{!</div>!}
 
 Quincy Sharp - [+ 99.9-approval_rating +]%
 
