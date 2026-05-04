@@ -247,8 +247,9 @@ for (var c of Q.classes) {
   }
 }
 
-
 // And now how many will implicitly support Quincy.
+
+
 
 
 // This leaves us now to figure out any remainder uncertain votes.
