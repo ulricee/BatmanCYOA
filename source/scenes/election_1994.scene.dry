@@ -2,6 +2,7 @@ title: Election
 new-page: true
 on-arrival: {!
 
+Q.election_1994_seen = 1;
 
 // This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
 // I will move it to election algorithm once I set up an elections event
