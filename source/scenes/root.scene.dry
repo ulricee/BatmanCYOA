@@ -19,16 +19,16 @@ on-arrival: {!
 } 
 !}
 on-display: {!
-      window.enableBatmanMode();
-      window.enableDarkMode();
-
-
 !}
 
 
 @start_menu
 new-page: true
 go-to: start_menu_2
+on-display: {!
+      window.enableBatmanMode();
+      window.enableDarkMode();
+!}
 
 = Gotham: A place you never leave.
 
