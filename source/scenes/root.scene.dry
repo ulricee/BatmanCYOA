@@ -20,7 +20,8 @@ on-arrival: {!
 !}
 on-display: {!
       window.enableBatmanMode();
-      
+      window.enableDarkMode();
+
 
 !}
 
