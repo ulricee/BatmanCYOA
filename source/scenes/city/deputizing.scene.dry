@@ -20,6 +20,7 @@ As the city still need all the help from private individual it can get if it is 
 
 @deputizing_spoiler
 subtitle: Stephanie is rather young and relatively inexperienced as a true operative. However, she did show a lot of potential. She shouldn't be too controversial.
+choose-if: gordon_advisor == 0 and (county_prosecutor != "Janet Van Dorn" or year >= 1997 )
 
 @deputizing_selena
 subtitle: Considering the controversy that would follow an ex-Criminal like her being fully deputized, it would be greatly damaging to the trust of major part of the city. She isn't seen as reliable and this may be a long term issue.
