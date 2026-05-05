@@ -338,6 +338,10 @@ new-page: true
 - @promises: Promises
 
 @promises
+on-arrival: {!
+Q.campaignpromises = 0;
+
+!}
 new-page: true
 
 WIP
@@ -346,6 +350,7 @@ WIP
 - @admnistration: Admnistration policies.
 
 @law_and_order
+new-page: true
 
 - @law_crime: Reduce the Crime Rate
 - @law_police: Increase Number of Policemen
@@ -355,74 +360,157 @@ WIP
 - @law_system: Reform the prison system
 - @law_mob: Takedown the mob
 - @law_discrimination: Fight discrimination
-
+- @admnistration: Admnistration policies.
+- @campaign_end: We're good to go.
 
 @law_crime
-
-WIP
-
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
-
+view-if: promise_crime_rate == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_crime_rate = 1;
+    Q.order += 1;
+    Q.red_moderate_relation += 10;
+    Q.conservative_relation += 10;
+    Q.reactionary_relation += 5;
+    Q.approval_rating += 1;
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_police
-
-WIP
-
-
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+view-if: promise_raise_police == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_raise_police = 1;
+    Q.order += 1;
+    Q.red_moderate_relation += 10;
+    Q.conservative_relation += 10;
+    Q.reactionary_relation += 5;
+    Q.approval_rating += 1;
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_prison
+view-if: promise_glut == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_glut = 1;
 
-WIP
+    Q.approval_rating += 3;
 
+    Q.blue_moderate_relation += 5;
+    Q.liberal_relation += 5;
+    Q.progressive_relation += 5;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.red_moderate_relation += 5;
+    Q.conservative_relation += 5;
+    Q.reactionary_relation += 5;
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_reform
+view-if: promise_police_reform == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_police_reform = 1;
 
-WIP
+    Q.approval_rating += 1;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.blue_moderate_relation += 5;
+    Q.liberal_relation += 10;
+    Q.progressive_relation += 10;
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_demilitarize
+view-if: promise_demilitarize == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_demilitarize = 1;
 
-WIP
+    Q.approval_rating -= 3;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.blue_moderate_relation -= 5;
+    Q.liberal_relation -= 5;
+    Q.red_moderate_relation -= 5;
+    Q.conservative_relation -= 10;
+    Q.reactionary_relation -= 15;
+    
+    Q.latino_support += 3;
+    Q.black_support += 3;
+    Q.progressive_relation += 15;
+
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_system
+view-if: promise_prison_reform == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_prison_reform = 1;
 
-WIP
+    Q.approval_rating += 1;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.blue_moderate_relation += 5;
+    Q.liberal_relation += 10;
+    Q.progressive_relation += 10;
+
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_mob
+view-if: promise_mob == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_mob = 1;
 
-WIP
+    Q.approval_rating += 3;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.blue_moderate_relation += 5;
+    Q.liberal_relation += 5;
+    Q.progressive_relation += 5;
+
+    Q.red_moderate_relation += 5;
+    Q.conservative_relation += 5;
+    Q.reactionary_relation += 5;
+
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @law_discrimination
+view-if: promise_discrimination == 0
+subtitle: [? if campaignpromises == 0 : You should make promises. ?] [? if campaignpromises == 1 : You are a single issue candidate. You could still do more for Gotham. The people need hope. ?] [? if campaignpromises == 2 : A small package. It won't get you any favours for sure, but it's a start. ?] [? if campaignpromises == 3 or campaignpromises == 4 : The standard amount. You have a plan and big issues you want to tackle. ?]  [? if campaignpromises == 5 : Ambitious. But this is what the city needs. ?]
+choose-if: campaignpromises <= 5
+on-arrival: {!
+    Q.promise_discrimination = 1;
 
-WIP
+    Q.latino_support += 10;
+    Q.black_support += 10;
 
-- @law_and_order: More promises
-- @admnistration: Admnistration promises.
-- @campaign_end: We've promised enough.
+    Q.campaignpromises += 1;
+!}
+unavailable-subtitle: Too many. Too many. You can't bring yourself to make promises you can't keep.
+go-to: law_and_order
 
 @admnistration
 
@@ -440,6 +528,7 @@ WIP
 - @admnistration_corruption: Root out corruption
 
 @admnistration_transport
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -448,6 +537,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_taxes_lower
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -456,6 +546,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_taxes_same
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -464,6 +555,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_taxes_increase
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -472,6 +564,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_social_lower
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -480,6 +573,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_social_maintain
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -488,6 +582,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_social_increase
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -496,6 +591,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_poverty_decrease
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -504,6 +600,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_unemployment
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -512,6 +609,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_economy
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -520,6 +618,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_labor
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -528,6 +627,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @admnistration_corruption
+choose-if: campaignpromises <= 5
 
 WIP
 
@@ -536,6 +636,7 @@ WIP
 - @campaign_end: We've promised enough.
 
 @campaign_end
+choose-if: campaignpromises > 0
 on-arrival: {!
 
 if (Q.approval_rating > Q.approval_rating_old)   {
@@ -585,4 +686,4 @@ Q.pf_old = Q.pf;
 Q.budget_old = Q.budget;
 Q.poverty_old = Q.poverty;
 !}
-go-to: root.1994_main
+go-to: election_1994

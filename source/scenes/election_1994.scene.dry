@@ -2,135 +2,180 @@ title: Election
 new-page: true
 on-arrival: {!
 
+Q.election_1994_seen = 1;
+Q.order = 1;
+
+// set quincy's relationship with parties
+// Set his relationships with the parties. Right now I just have his red relations at the inverse of Bruce's, and his blue relations tanked.
+
+Q.reactionary_relation_quincy = 75;
+Q.conservative_relation_quincy = 50;
+Q.red_moderate_relation_quincy = 40;
+Q.blue_moderate_relation_quincy = 10;
+Q.liberal_relation_quincy = 10;
+Q.progressive_relation_quincy = 5;
+Q.approval_rating_quincy = 30;
 
 // This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
 // I will move it to election algorithm once I set up an elections event
-// We convert party alignment into support based on relationship with a given party.
 
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c +'_support'] = 0;
+// We start by defining class support
+
+electionCalculate = function (characterName, characterOrder) {
+
+  var character = characterName
+  var characterFreedom = characterOrder*(-1)
+  Q.freedomtest = characterOrder*(-1)
+
+function demographicParty() {
+
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_support_' + character] = 0;
+      }
+
+    }
+
+    // Then we convert party alignment into support based on relationship with a given party.
+
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_support_' + character] = (Q[c + '_' + party])*((Q[party + '_relation_' + character])/100);
+        Q[c + '_support_' + character] += (Q[c + '_' + party + '_support_' + character]);
+      }
+
+    }
+
   }
 
-}
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c + '_' + party + '_support'] = (Q[c+'_'+party])*((Q[party+'_relation'])/100);
-    Q[c + '_support'] += (Q[c+'_'+party+'_support']);
-  }
-
-}
-
-// for future self: below it a lie
+// At this point, a character's support with a given demographic is only determined by how high their relations are.
 
 // We'll now scale it by order and liberty below.
-// First, we determine how impacted a given demographic is by an ideology.
 
-Q.unemployed_ideology_base = (Q.order)/4;
-Q.blue_collar_ideology_base = (Q.order)/2;
-Q.white_collar_ideology_base = (Q.freedom);
-Q.black_ideology_base = (Q.freedom)/2;
-Q.latino_ideology_base = (Q.freedom)/4;
-Q.business_ideology_base = (Q.order);
+function demographicIdeology () {
 
-// Calculate the total pool for distribution in the approval rating.
+// First, we determine how impacted a given demographic is by the character's ideology.
 
-Q.ideology_support = 0;
+  Q['unemployed_ideology_base_' + character] = characterOrder/4;
+  Q['blue_collar_ideology_base' + character] = characterOrder/2;
+  Q['white_collar_ideology_base' + character] = characterFreedom;
+  Q['black_ideology_base' + character] = characterFreedom/2;
+  Q['latino_ideology_base' + character] = characterFreedom/4;
+  Q['business_ideology_base' + character] = characterOrder;
 
-  for (var c of Q.classes) {
-      if ([Q[c + '_ideology_base']] == 0) {
-        Q[c + '_ideology_base'] = 0;
-      }      
-      if (Q[c + '_ideology_base'] > 0) {
-        Q.ideology_support += (Q[c + '_ideology_base']);
-      } else if ([Q[c + '_ideology_base']] < 0) {
-        Q.ideology_support += (Q[c + '_ideology_base'])*(-1);
-      }
+  // remember to add in a cap to black and latino minorities later.
+
+  // Calculate the total pool for distribution in the approval rating.
+
+  Q['ideology_support_' + character] = 0;
+
+    for (var c of Q.classes) {
+        if ([Q[c + '_ideology_base_' + character]] == 0) {
+          Q[c + '_ideology_base_' + character] = 1;
+        }      
+        if (Q[c + '_ideology_base_' + character] > 0) {
+          Q['ideology_support_' + character] += (Q[c + '_ideology_base_' + character]);
+        } else if ([Q[c + '_ideology_base']] < 0) {
+          Q['ideology_support_' + character] += (Q[c + '_ideology_base_' + character])*(-1);
+        }
+  }
+
+  // Now we'll divide the ideology share to find the "pull".
+
+  Q['unemployed_ideology_' + character] = (Q['unemployed_ideology_base_' + character]/Q['ideology_support_' + character]);
+  Q['blue_collar_ideology_' + character] = (Q['blue_collar_ideology_base_' + character]/Q['ideology_support_' + character]);
+  Q['white_collar_ideology_' + character] = (Q['white_collar_ideology_base_' + character]/Q['ideology_support_' + character]);
+  Q['black_ideology_' + character] = (Q['black_ideology_base_' + character]/Q['ideology_support_' + character]);
+  Q['latino_ideology_' + character] = (Q['latino_ideology_base_' + character]/Q['ideology_support_' + character]);
+  Q['business_ideology_' + character] = (Q['business_ideology_base_' + character]/Q['ideology_support_' + character]);
+
+// We will now scale support by the ideology.
+
+
+// for (var c of Q.classes) {
+//        Q[c + '_support'] = Q[c + '_quincy_support']*(1+(Q['quincy_' + c + '_ideology']));
+//  }
+
+
 }
-
-if (Q.ideology_support == 0) {
-  Q.ideology_support = 1;
-} 
-
-// Now we'll divide the ideology share to find the "pull".
-
-Q.unemployed_ideology = (Q.unemployed_ideology_base/Q.ideology_support);
-Q.blue_collar_ideology = (Q.blue_collar_ideology_base/Q.ideology_support);
-Q.white_collar_ideology = (Q.white_collar_ideology_base/Q.ideology_support);
-Q.black_ideology = (Q.black_ideology_base/Q.ideology_support);
-Q.latino_ideology = (Q.latino_ideology_base/Q.ideology_support);
-Q.business_ideology = (Q.business_ideology_base/Q.ideology_support);
 
 // this also gives us a weight of how much "for bruce" each person is.
 
 // We will now scale support by the ideology.
 
- for (var c of Q.classes) {
-        Q[c + '_support'] = Q[c + '_support']*(1+(Q[c + '_ideology']));
+
+function demographicApprovalRating () {
+
+// We now will scale the support by the character's approval rating.
+// We do so first by checking every demographic support and seeing if it's under the approval rating.
+// If it's under the approval rating, it adds to an approval gap. If it's above, it will remove the approval gap. The approval gap later on gets spread across different demographics, scaled by order vs freedom weights, so that the support of the demographics will always be your approval rating.
+// First, we need to determine the ideological weights for this. Some of the values are negative, so we have to turn them positive.
+
+if(Q['approval_rating_' + character]) {
+    for (var c of Q.classes) {
+      if (Q[c + '_ideology_' + character] > 0) {
+          Q[c + '_approval_weight_' + character] = Q[c + '_ideology_' + character];
+      } else {
+          Q[c + '_approval_weight_' + character] = (Q[c + '_ideology_' + character])*(-1);
+      }
+    }
+
+
+  Q['approval_gap_' + character] = 0;
+
+    for (var c of Q.classes) { 
+          Q[c + '_approval_gap_' + character] = ((Q['approval_rating_' + character])-(Q[c + '_support_' + character]));
+          Q['approval_gap_' + character] += (Q[c + '_approval_gap_' + character]);
   }
 
-// We now will scale the support by the approval rating.
-// We do so first by checking every demographic support and seeing if it's under the approval rating.
-// If it's under the approval rating, it adds to an approval gap.
-// First, we need to determine the ideoloogical weights for this. Some of the values are negative, so we have to turn them positive.
 
   for (var c of Q.classes) {
-    if (Q[c + '_ideology'] > 0) {
-        Q[c + '_approval_weight'] = Q[c + '_ideology'];
-    } else {
-        Q[c + '_approval_weight'] = (Q[c + '_ideology'])*(-1);
+        Q[c + '_support_' + character] += ((Q['approval_gap_' + character])*(Q[c + '_approval_weight_' + character]));
+    }
+
+}
+
+}
+
+// Second last, we need to find districts. Since they are based off preexisting support, we need to put it after the global supports are found out.
+
+function demographicDistrictSupport() {
+
+// We get the per district support values by taking the support and scaling it by size within a district.
+
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_support_' + character] = Q[c + '_support_' + character]*(Q[c + '_' + district]/100);
+    }
+  }
+
+  // We have the sizes now. E.c 8% unemployed in Burnley, with 55% city unemployed support, you get 4.4% of the unemployed supporting you.
+  // now we have to convert it back to percentage.
+  // First we define each district total (e.c the sum of all support), then take the district support and add them all together to form total support
+
+
+  for (var district of Q.districts) {
+    Q[district + '_total_' + character] = 0;
+    for (var c of Q.classes) {
+        Q[district + '_total_' + character] += (Q[c + '_' + district + '_support_' + character]);
+    }
+  }
+
+  // This gives us the support combined (e.c 51% of burnley supports Bruce), but not the individual contributions. Luckily we can now simply scale the support by the district's total to figure how much each demographic contributes.
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_total_' + character] += ((Q[c + '_' + district + '_support_' + character])/(Q[district + '_total_' + character]))*100;
     }
   }
 
 
- Q.approval_gap = 0;
-
-  for (var c of Q.classes) { 
-        Q[c + '_approval_gap'] = ((Q.approval_rating)-(Q[c + '_support']));
-        Q.approval_gap += (Q[c + '_approval_gap']);
- }
-
-
- for (var c of Q.classes) {
-      Q[c + '_support'] += ((Q.approval_gap)*(Q[c + '_approval_weight']));
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_approval_' + character] = (Q[c + '_' + district + '_support_' + character]/Q[c + '_' + district])*100;
+    }
   }
-
-// second last, we need to find districts. Since they are based off preexisting support, we affect it here.
-
-// We get the per district support values by taking the support and scaling it by size within a district.
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_support'] = Q[c + '_support']*(Q[c + '_' + district]/100);
-  }
-}
-
-// We have the sizes now. E.c 8% unemployed in Burnley, with 55% city unemployed support, you get 4.4% of the unemployed supporting you.
-// now we have to convert it back to percentage.
-// First we define each district total, then take the district support and add them all together to form total support
-
-
-for (var district of Q.districts) {
-  Q[district + '_total'] = 0;
-  for (var c of Q.classes) {
-      Q[district + '_total'] += (Q[c + '_' + district + '_support']);
-  }
-}
-
-// This gives us the support combined, but not the individual contributions. Luckily we can now simply scale the support by the district's total.
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_total'] += ((Q[c + '_' + district + '_support'])/(Q[district + '_total']))*100;
-  }
-}
-
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval'] = (Q[c + '_' + district + '_support']/Q[c + '_' + district])*100;
-  }
-}
 
 // For short. With c as class and district as the district.
 // Using the values of 8% unemployed in burnley and 55% unemployed support as examples.
@@ -140,119 +185,209 @@ for (var district of Q.districts) {
 // Lastly, c_district_approval is simply the percentage.
 
 // All things that affect districts should affect c_district_support.
-
+}
 
 
 // must be calculated at ending:
 // getting city wide support
-  Q.city_wide_support = 0;
+// These are conversions into useful values.
 
-  for (var c of Q.classes) {
-      Q.city_wide_support += (Q[c + '_support'])/6;
+function demographicConversion() {
+
+    Q['city_wide_support_' + character] = 0;
+
+    for (var c of Q.classes) {
+        Q['city_wide_support_' + character] += (Q[c + '_support_' + character])/6;
+    }
+
+  // District to city wide support.
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
+    }
+  } 
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_' + character] = ((Q[c + '_' + district + '_city_total']))*(Q[c + '_' + district + '_approval_' + character]/100)
+    }
   }
 
-// District to city wide support.
+  // real support city wide. E.c not dividing the universals by six, but the sum of all district contributions.
 
-for (var district of Q.districts) {
+  Q['truesupport_' + character] = 0;
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q['truesupport_' + character] += (Q[c + '_' + district + '_support']);
+    }
+  } 
+
+// The following isn't a division by the classes, but by the number of districts.
+
+  Q['truesupport_' + character] = Q['truesupport_' + character]/6
+
+  // Getting old values.
+
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
+      Q[c +'_support_old_' + character] = Q[c + '_support_' + character];
   }
+
+  for (var c of Q.classes) {
+    for (var party of Q.parties) {
+      Q[c + '_' + party + '_support_old_' + character] = Q[c + '_' + party + '_support_' + character];
+    }
+  }
+
 } 
 
-for (var district of Q.districts) {
+// Converting into displayable values
+
+function demographicDisplay () {
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_support_' + character + '_display'] = (Q[c + '_' + district + '_support_' + character]).toFixed(2  );
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_approval_' + character + '_display'] = (Q[c + '_' + district + '_approval_' + character]).toFixed(2);
+    }
+  }
+
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city'] = ((Q[c + '_' + district + '_city' + '_total']))*(Q[c + '_' + district + '_approval']/100)
+    for (var party of Q.parties) {
+      Q[c + '_' + party + '_support' + '_display'] = (Q[c + '_' + party + '_support_' + character]).toFixed(2);
+  } 
+    Q[c + '_support_' + character + '_display'] = (Q[c + '_support_' + character]).toFixed(2);
   }
-}
 
-// real support city wide
-
-Q.truesupport = 0;
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q.truesupport += (Q[c + '_' + district + '_support']);
+  for (var district of Q.districts) {
+        Q[district + '_total_' + character + '_display'] = Q[district + '_total_' + character].toFixed(2);
   }
-} 
 
-Q.truesupport = Q.truesupport/6
-
-// Getting old values.
-
-for (var c of Q.classes) {
-    Q[c +'_support_old'] = Q[c + '_support'];
-}
-
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c + '_' + party + '_support_old'] = Q[c + '_' + party + '_support'];
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_' + character + '_display'] = (Q[c + '_' + district + '_city_' + character]).toFixed(2)
+    }
   }
-}
 
-// display wip
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_support' + '_display'] = (Q[c + '_' + district + '_support']).toFixed(1);
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_total_display'] = (Q[c + '_' + district + '_city_total']).toFixed(2)
+    }
   }
+    Q['city_wide_support_' + character + '_display'] = (Q['city_wide_support_' + character]).toFixed(2);
+
 }
 
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval' + '_display'] = (Q[c + '_' + district + '_approval']).toFixed(1);
-  }
+// Now we just call in the functions.
+
+demographicParty();
+demographicIdeology();
+demographicApprovalRating();
+demographicDistrictSupport();
+demographicConversion();
+demographicDisplay();
+
+// End of demographics algorithm. 
+
+
 }
 
-for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c+'_'+party+'_support'+'_display'] = (Q[c+'_'+party+'_support']).toFixed(1);
- } 
-  Q[c+'_support'+'_display'] = (Q[c+'_support']).toFixed(1);
-}
+electionCalculate('bruce', Q.order);
+electionCalculate('quincy', 20);
 
-for (var district of Q.districts) {
-      Q[district + '_total' + '_display'] = Q[district + '_total'].toFixed(1);
-}
+// Now let's see how the mayoral elections work.
+// Let's start by checking how many people implicitly support Bruce.
 
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city']).toFixed(1)
-  }
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total' + '_display'] = (Q[c + '_' + district + '_city' + '_total']).toFixed(1)
-  }
-}
-  Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
-
-// Let's see how much implicitly support Bruce.
-
-// First we will calculate his pre-existing support from his approval rate by adding all districts together.
+// We define brucesupport, and then we will calculate his pre-existing support from his approval rate by adding all districts together.
 
 Q.brucesupport = 0;
 
 for (var district of Q.districts) {
   for (var c of Q.classes) {
-      Q.brucesupport += (Q[c + '_' + district + '_city']);
+      Q.brucesupport += (Q[c + '_' + district + '_city_bruce']);
   }
 }
 
-// Let's check out his total demographic support.
+// Let's check out his total demographic support. This will be used to show how much each demographic contributed to his election
+// We'll try to define it.
 
 for (var c of Q.classes) {
+  Q[c + '_total_support_bruce'] = 0
   for (var district of Q.districts) {
-      Q[c + '_total_support_bruce'] += (Q[c + '_' + district + '_city']);
+      Q[c + '_total_support_bruce'] += (Q[c + '_' + district + '_city_bruce']);
   }
 }
 
-// And now how many will implicitly support Quincy.
+// And do the same but for quincy.
+
+Q.quincysupport = 0;
+
+for (var district of Q.districts) {
+  for (var c of Q.classes) {
+      Q.quincysupport += (Q[c + '_' + district + '_city_quincy']);
+  }
+}
+
+// We can find how many swing voters there are by taking in 100 and subtracting it by Quincy's and Bruce's support
+
+  Q.swingvoters1994 = (100 - (Q.brucesupport + Q.quincysupport))
+
+// 90% of them will vote for Bruce and the remainder vote for Quincy. This value will be the honeymoon approval.
+
+  Q.final_support_bruce = (Q.brucesupport + (Q.swingvoters1994*0.90)).toFixed(2);
+
+  Q.final_support_quincy = (Q.quincysupport + (Q.swingvoters1994*0.10)).toFixed(2);
+
+  Q.approval_rating_honeymoon = (Q.swingvoters1994)*0.90
+
+  Q.approval_rating_bruce += Q.approval_rating_honeymoon
+
+// End of elections algorithm.
+
+
+// turn into percentage pls
+
+Q.swing_percent_bruce = 100
+
+for (var c of Q.classes) {
+  Q[c + '_total_support_bruce_percent'] = (Q[c + '_total_support_bruce']/Q.final_support_bruce)*100
+  Q.swing_percent_bruce -= (Q[c + '_total_support_bruce']/Q.final_support_bruce)*100
+
+}
+
+
+!}
+on-display: {!
+  // We want the bars.
+
+// first turn them into percentages
 
 
 
+// Get the root element
+var r = document.querySelector(':root');
 
-// This leaves us now to figure out any remainder uncertain votes.
+
+// set the variables. go go go go go go.
+r.style.setProperty('--bruce-white-collar-bar-width', Q.white_collar_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-blue-collar-bar-width', Q.blue_collar_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-business-bar-width', Q.business_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-black-bar-width', Q.black_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-latino-bar-width', Q.latino_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-unemployed-bar-width', Q.unemployed_total_support_bruce_percent + '%')
+
+r.style.setProperty('--bruce-swing-bar-width', Q.swing_percent_bruce + '%')
 
 !}
 
@@ -265,10 +400,15 @@ The mayoral election is here!...
 !}
 
 
+[+ swingvoters1994 +]
 
-Bruce Wayne - [+ brucesupport +]
+Bruce Wayne - [+ final_support_bruce +]%
 
-[+ approval_rating +]%
+[+ white_collar_total_support_bruce +]
+
+[+ brucesupport +]
+
+[+ swing_percent_bruce +]
 
 {!<div id="electionapprovalbar">!}
 
@@ -278,13 +418,36 @@ Bruce Wayne - [+ brucesupport +]
   <div id="election1994black"><button class="hiddenbutton"></button></div>
   <div id="election1994latino"><button class="hiddenbutton"></button></div>
   <div id="election1994unemployed"><button class="hiddenbutton"></button></div>
-
+  <div id="election1994swing"><button class="hiddenbutton"></button></div>
 
 {!</div>!}
 
-Quincy Sharp - [+ 99.9-approval_rating +]%
+Quincy Sharp Total - [+ final_support_quincy +]%
+
+White Collar %: [+ white_collar_support_quincy +]%
+
+Blue Collar %: [+ blue_collar_support_quincy +]%
+
+Business %: [+ business_support_quincy +]%
+
+Black %: [+ black_support_quincy +]%
+
+Latino %: [+ latino_support_quincy +]% [+ latino_reactionary_support_quincy +]
+
+
+
+Unemployed %: [+ unemployed_support_quincy +]%
+
 
 - @victory: We did it!
 
 @victory
+on-arrival: {!
+  electionCalculate('bruce', Q.order);
+
+  for (var c of Q.classes) {
+      Q[c +'_support_old_bruce'] = Q[c + '_support_bruce'];
+  }
+
+!}
 go-to: root.1994_main

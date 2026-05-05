@@ -111,127 +111,171 @@ if (toolsWrapper) {
 }
 
 
-// election code paste
-
-for (var district of Q.districts) {
-  Q[district + '_total'] = 0;
-  for (var c of Q.classes) {
-      Q[district + '_total'] += (Q[c + '_' + district + '_support']);
-  }
-}
-
-// This gives us the support combined, but not the individual contributions. Luckily we can now simply scale the support by the district's total.
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval'] = 0;
-      Q[c + '_' + district + '_approval'] = (Q[c + '_' + district + '_support']/Q[c + '_' + district])*100;
-  }
-}
-
-// For short. With c as class and district as the district.
-// Using the values of 8% unemployed in burnley and 55% unemployed support as examples.
-// c_district_support gives us the population's exact contribution. E.c if there are 8% unemployed in Burnley, and we have 55% support, we get 4.4%. This can then be affected by individual factors.
-// c_district_total gives us the individual contribution to the support. E.c if we have 55% support in burnley and the aforementioned values, unemployed/district gives us a 8% contribution. This lets us see our biggest demographics and such.
-// c_support is citywide support from a given demographic.
-// Lastly, c_district_approval is simply the percentage.
-
-// All things that affect districts should affect c_district_support.
+  Q.unemployed_ideology_base_bruce = (Q.order)/4;
+  Q.blue_collar_ideology_base_bruce = (Q.order)/2;
+  Q.white_collar_ideology_base_bruce = (Q.order)*(-1);
+  Q.black_ideology_base_bruce = ((Q.order)*(-1))/2;
+  Q.latino_ideology_base_bruce = ((Q.order)*(-1))/4;
+  Q.business_ideology_base_bruce = (Q.order);
 
 
+  Q.ideology_support_bruce = 0;
 
-// must be calculated at ending:
-// getting city wide support
-  Q.city_wide_support = 0;
-
-  for (var c of Q.classes) {
-      Q.city_wide_support += (Q[c + '_support'])/6;
+    for (var c of Q.classes) {
+        if ([Q[c + '_ideology_base_bruce']] == 0) {
+          Q[c + '_ideology_base_bruce'] = 1;
+        }      
+        if (Q[c + '_ideology_base_bruce'] > 0) {
+          Q['ideology_support_bruce'] += (Q[c + '_ideology_base_bruce']);
+        } else if ([Q[c + '_ideology_base_bruce']] < 0) {
+          Q['ideology_support_bruce'] += (Q[c + '_ideology_base_bruce'])*(-1);
+        }
   }
 
-// District to city wide support.
+  Q.unemployed_ideology_bruce = (Q.unemployed_ideology_base_bruce/Q.ideology_support_bruce);
+  Q.blue_collar_ideology_bruce = (Q.blue_collar_ideology_base_bruce/Q.ideology_support_bruce);
+  Q.white_collar_ideology_bruce = (Q.white_collar_ideology_base_bruce/Q.ideology_support_bruce);
+  Q.black_ideology_bruce = (Q.black_ideology_base_bruce/Q.ideology_support_bruce);
+  Q.latino_ideology_bruce = (Q.latino_ideology_base_bruce/Q.ideology_support_bruce);
+  Q.business_ideology_bruce = (Q.business_ideology_base_bruce/Q.ideology_support_bruce);
 
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
-  }
-} 
+// We will now scale support by the ideology.
 
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city'] = ((Q[c + '_' + district + '_city' + '_total']))*(Q[c + '_' + district + '_approval']/100)
-  }
-}
 
-// display wip
+// for (var c of Q.classes) {
+//        Q[c + '_support'] = Q[c + '_quincy_support']*(1+(Q['quincy_' + c + '_ideology']));
+//  }
 
-// real support city wide
 
-Q.truesupport = 0;
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q.truesupport += (Q[c + '_' + district + '_support']);
-  }
-} 
-
-Q.truesupport = Q.truesupport/6
-
-// display wip
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_support' + '_display'] = (Q[c + '_' + district + '_support']).toFixed(1);
-  }
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_approval' + '_display'] = (Q[c + '_' + district + '_approval']).toFixed(1);
-  }
-}
+Q.approval_change_bruce = 0;
 
 for (var c of Q.classes) {
-  for (var party of Q.parties) {
-    Q[c+'_'+party+'_support'+'_display'] = (Q[c+'_'+party+'_support']).toFixed(1);
- } 
-  Q[c+'_support'+'_display'] = (Q[c+'_support']).toFixed(1);
+    Q[c + '_approval_change_bruce'] = ((Q[c + '_support_bruce'])-(Q[c + '_support_old_bruce']))/6;
+    Q.approval_change_bruce += Q[c + '_approval_change_bruce'];
 }
 
-for (var district of Q.districts) {
-      Q[district + '_total' + '_display'] = Q[district + '_total'].toFixed(1);
-}
+Q.approval_rating_bruce += (Q.approval_change_bruce);
 
-for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      if (Q[c + '_ideology_bruce'] > 0) {
+          Q[c + '_approval_weight_bruce'] = Q[c + '_ideology_bruce'];
+      } else {
+          Q[c + '_approval_weight_bruce'] = (Q[c + '_ideology_bruce'])*(-1);
+      }
+    }
+
+  Q.approval_gap_bruce = 0;
+
+    for (var c of Q.classes) { 
+          Q[c + '_approval_gap_bruce'] = ((Q.approval_rating_bruce)-(Q[c + '_support_bruce']));
+          Q.approval_gap_bruce += (Q[c + '_approval_gap_bruce']);
+    }
+
+
   for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_display'] = (Q[c + '_' + district + '_city']).toFixed(1)
-  }
-}
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q[c + '_' + district + '_city' + '_total' + '_display'] = (Q[c + '_' + district + '_city' + '_total']).toFixed(1)
-  }
-}
-  Q.city_wide_support_display = (Q.city_wide_support).toFixed(1);
+        Q[c + '_support_bruce'] += ((Q.approval_gap_bruce)*(Q[c + '_approval_weight_bruce']));
+    }
 
 
- // testing out if I can change colors really
+
 
 
 // Trying to convert support changes into approval change.
 
-Q.approval_change = 0;
 
-for (var c of Q.classes) {
-    Q[c + '_approval_change'] = ((Q[c + '_support'])-(Q[c + '_support_old']))/6;
-    Q.approval_change += Q[c + '_approval_change'];
-}
+var character = 'bruce'
 
-Q.approval_rating += (Q.approval_change);
 
-for (var c of Q.classes) {
-    Q[c + '_support_old'] = Q[c + '_support'];
-}
+    Q['city_wide_support_' + character] = 0;
+
+    for (var c of Q.classes) {
+        Q['city_wide_support_' + character] += (Q[c + '_support_' + character])/6;
+    }
+
+  // District to city wide support.
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
+    }
+  } 
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_' + character] = ((Q[c + '_' + district + '_city_total']))*(Q[c + '_' + district + '_approval_' + character]/100)
+    }
+  }
+
+  // real support city wide. E.c not dividing the universals by six, but the sum of all district contributions.
+
+  Q['truesupport_' + character] = 0;
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q['truesupport_' + character] += (Q[c + '_' + district + '_support']);
+    }
+  } 
+
+// The following isn't a division by the classes, but by the number of districts.
+
+  Q['truesupport_' + character] = Q['truesupport_' + character]/6
+
+  // Getting old values.
+
+  for (var c of Q.classes) {
+      Q[c +'_support_old_' + character] = Q[c + '_support_' + character];
+  }
+
+  for (var c of Q.classes) {
+    for (var party of Q.parties) {
+      Q[c + '_' + party + '_support_old_' + character] = Q[c + '_' + party + '_support_' + character];
+    }
+  }
+
+
+
+// Converting into displayable values
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_support_bruce' + '_display'] = (Q[c + '_' + district + '_support_bruce']).toFixed(2  );
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_approval_bruce' + '_display'] = (Q[c + '_' + district + '_approval_bruce']).toFixed(2);
+    }
+  }
+
+  for (var c of Q.classes) {
+    for (var party of Q.parties) {
+      Q[c + '_' + party + '_support' + '_display'] = (Q[c + '_' + party + '_support_bruce']).toFixed(2);
+  } 
+    Q[c + '_support_bruce' + '_display'] = (Q[c + '_support_bruce']).toFixed(2);
+  }
+
+  for (var district of Q.districts) {
+        Q[district + '_total_bruce' + '_display'] = Q[district + '_total_bruce'].toFixed(2);
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_bruce' + '_display'] = (Q[c + '_' + district + '_city_bruce']).toFixed(2)
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_city_total_display'] = (Q[c + '_' + district + '_city_total']).toFixed(2)
+    }
+  }
+    Q['city_wide_support_bruce' + '_display'] = (Q['city_wide_support_bruce']).toFixed(2);
+
+// 
+
+
+
 
 // Checking old values to give arrow displays
 
@@ -276,11 +320,31 @@ if (Q.poverty > Q.poverty_old) {
     Q.poverty_up = 0;
 }
 
-Q.approval_rating_old = Q.approval_rating;
+
+  // Getting old values for class support.
+
+  for (var c of Q.classes) {
+      Q[c +'_support_old_bruce'] = Q[c + '_support_bruce'];
+  }
+
+  for (var c of Q.classes) {
+    for (var party of Q.parties) {
+      Q[c + '_' + party + '_support_old_bruce'] = Q[c + '_' + party + '_support_bruce'];
+    }
+  }
+
+
+
+Q.approval_rating_bruce_old = Q.approval_rating;
 Q.credibility_old = Q.credibility;
 Q.pf_old = Q.pf;
 Q.budget_old = Q.budget;
 Q.poverty_old = Q.poverty;
+
+// Reducing approval rating honeymoon every moonth.
+if (Q.approval_rating_honeymoon > 0) {
+    Q.approval_rating_honeymoon -= 1;
+}
 
 
 

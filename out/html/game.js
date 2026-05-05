@@ -138,12 +138,10 @@
 // batman mode!!
 
   window.enableBatmanMode = function() {
-      window.dendryUI.dark_mode = true;
       document.body.classList.add('batman-mode');
       window.dendryUI.saveSettings();
   };
   window.disableBatmanMode = function() {
-      window.dendryUI.dark_mode = false;
       document.body.classList.remove('batman-mode');
       window.dendryUI.saveSettings();
   };

@@ -1,0 +1,16 @@
+title: Election Simulation
+new-page: true
+on-arrival: {!
+
+// 
+
+
+
+// Opponents
+
+electionCalculate('bruce', Q.order);
+electionCalculate('quincy', 20);
+
+!}
+
+a

@@ -79,6 +79,15 @@ Q.progressive_relation = 60;
 Q.lgbtq_relation = 50;
 Q.lgbtq = 0;
 
+// bruce
+Q.reactionary_relation_bruce = 25;
+Q.conservative_relation_bruce = 50;
+Q.red_moderate_relation_bruce = 60;
+Q.blue_moderate_relation_bruce = 60;
+Q.liberal_relation_bruce = 70;
+Q.progressive_relation_bruce = 60;
+Q.lgbtq_relation_bruce = 50;
+
 // non mainstream parties
 
 Q.reform_relation = 60;
@@ -258,12 +267,14 @@ Q.yearly_revenue = (Q.property_taxes) + (Q.income_taxes) + (Q.sales_taxes) + (Q.
 
 // Main Values
 
+Q.approval_rating_honeymoon = 0;
 Q.approval_rating = 50;
 Q.credibility = (40)/10;
 Q.pf = 5;
 Q.budget = (Q.yearly_revenue);
 Q.order = 0;
 Q.freedom = ((Q.order)*(-1));
+Q.approval_rating_bruce = Q.approval_rating;
 
 // Old values 
 Q.approval_rating_old = 50;
@@ -933,13 +944,13 @@ go-to: election_1994
 
 @1994_easy
 on-arrival: {!
-  Q.difficulty = -1
+  Q.difficulty = -1;
 !}
 go-to: welcome
 
 @1994_hard
 on-arrival: {!
-  Q.difficulty = 1
+  Q.difficulty = 1;
 !}
 go-to: welcome
 
@@ -953,13 +964,13 @@ go-to: welcome
 
 @1994_normal
 on-arrival: {!
-  Q.difficulty = 0
+  Q.difficulty = 0;
 !}
 go-to: welcome
 
 @1994_main
 new-page: true
-go-to: main if difficulty >= 0; main.main_easy if difficulty < 0; election_1994 if election_1994_seen == 0
+go-to: main if difficulty >= 0 and election_1994; main.main_easy if difficulty < 0; election_1994 if election_1994_seen == 0
 
 = January 1994
 
