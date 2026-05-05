@@ -407,7 +407,10 @@ Q.dinah_lance_status = "Active";
 Q.dinah_lance_gear = "Equipment Placeholder";
 Q.dinah_lance_training = "Trained";
 
-  
+Q.stephanie_brown = 0;
+Q.stephanie_brown_status = "Inactive";
+Q.stephanie_brown_gear = "no equipment";
+Q.stephanie_brown_training = "untrained";
 
 
 

@@ -322,3 +322,11 @@ Awesome butler as always
 [? if dinah_lance == 1 : Training: [+ dinah_lance_training +]?]
 
 [? if dinah_lance == 1 : Gear: [+ dinah_lance_gear +]?]
+
+= [? if stephanie_brown == 1 : Stephanie Brown ?]
+
+[? if stephanie_brown == 1 : Status: [+ stephanie_brown_status +]?]
+
+[? if stephanie_brown == 1 : Training: [+ stephanie_brown_training +]?]
+
+[? if stephanie_brown == 1 : Gear: [+ stephanie_brown_gear +]?]
