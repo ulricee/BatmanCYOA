@@ -18,6 +18,13 @@ on-display: {!
 
 = [+ month : month +] [+ year +]
 
+{!<img src="img/portraits/bruce.webp">!}
+
+
+{!<div class="StatusPortrait">!}
+{!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
+{!</div>!}
+
 Approval Rate: {!<b>!}
 [? if approval_rating_bruce >= 0 and approval_rating_bruce < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
 [? if approval_rating_bruce >= 5 and approval_rating_bruce < 10 : {!<span style="color: #ad0000; text-decoration-line: underline;">!}?]
@@ -104,7 +111,7 @@ Moral Compass: [+ moral_compass : moral_compass +]
 
 {!<img src="img/portraits/presidentluthorplaceholder.webp">!}
 
-{!<div id="lex">!}
+{!<div class="StatusPortrait">!}
 {!<span style="font-size: 20px">!}[+ president +]{!</span>!}
 
 Relations: [+ presidential_relation : relationships +]
