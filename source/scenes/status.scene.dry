@@ -18,10 +18,10 @@ on-display: {!
 
 = [+ month : month +] [+ year +]
 
-{!<img src="img/portraits/bruce.webp">!}
+{!<img src="img/portraits/bruce.webp" class="StatusPortrait">!}
 
 
-{!<div class="StatusPortrait">!}
+{!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
 {!</div>!}
 
@@ -105,13 +105,13 @@ Identity: Batman
 
 Moral Compass: [+ moral_compass : moral_compass +]
 
-@city
+@politics
 
 = The Presidency
 
-{!<img src="img/portraits/presidentluthorplaceholder.webp">!}
+{!<img src="img/portraits/presidentluthorplaceholder.webp" class="StatusPortrait">!}
 
-{!<div class="StatusPortrait">!}
+{!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}[+ president +]{!</span>!}
 
 Relations: [+ presidential_relation : relationships +]
