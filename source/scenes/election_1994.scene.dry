@@ -15,6 +15,8 @@ Q.blue_moderate_relation_quincy = 10;
 Q.liberal_relation_quincy = 10;
 Q.progressive_relation_quincy = 5;
 Q.approval_rating_quincy = 30;
+Q.quincyorder = 50;
+
 
 // This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
 // I will move it to election algorithm once I set up an elections event
@@ -25,7 +27,6 @@ electionCalculate = function (characterName, characterOrder) {
 
   var character = characterName
   var characterFreedom = characterOrder*(-1)
-  Q.freedomtest = characterOrder*(-1)
 
 function demographicParty() {
 
@@ -52,15 +53,95 @@ function demographicParty() {
 
 // We'll now scale it by order and liberty below.
 
+
+function demographicIdeologySupport () {
+
+  // bruhh switch is not working 
+
+  Q['ideology_support_status_' + character] = "Null";
+  
+  if (characterOrder <= -15) {
+      Q['ideology_support_status_' + character] = "Radical Liberty";
+
+      Q['white_collar_support_' + character] -= 5;
+      Q['blue_collar_support_' + character] -= 10;
+      Q['business_support_' + character] -= 10;
+      Q['black_support_' + character] += 15;
+      Q['latino_support_' + character] += 5;
+      Q['unemployed_support_' + character] += 10;
+  } else if (characterOrder <= -10 && characterOrder >= -14) {
+      Q['ideology_support_status_' + character] = "Liberty";
+
+      Q['white_collar_support_' + character] -= 0;
+      Q['blue_collar_support_' + character] -= 10;
+      Q['business_support_' + character] -= 10;
+      Q['black_support_' + character] += 10;
+      Q['latino_support_' + character] += 0;
+      Q['unemployed_support_' + character] += 5;
+} else if (characterOrder <= -5 && characterOrder >= -9) {
+      Q['ideology_support_status_' + character] = "Liberty Lean";
+
+      Q['white_collar_support_' + character] += 5;
+      Q['blue_collar_support_' + character] -= 5;
+      Q['business_support_' + character] -= 5;
+      Q['black_support_' + character] += 5;
+      Q['latino_support_' + character] -= 5;
+      Q['unemployed_support_' + character] += 0;
+} else if (characterOrder >= -4 && characterOrder <= 4) {
+      Q['ideology_support_status_' + character] = "Moderate"
+
+      Q['white_collar_support_' + character] += 10;
+      Q['blue_collar_support_' + character] -= 0;
+      Q['business_support_' + character] -= 0;
+      Q['black_support_' + character] += 0;
+      Q['latino_support_' + character] -= 10;
+      Q['unemployed_support_' + character] += 0;
+} else if (characterOrder >= 5 && characterOrder <= 9) {
+      Q['ideology_support_status_' + character] = "Order Lean";
+      
+      Q['white_collar_support_' + character] += 5;
+      Q['blue_collar_support_' + character] += 5;
+      Q['business_support_' + character] += 5;
+      Q['black_support_' + character] -= 5;
+      Q['latino_support_' + character] -= 5;
+      Q['unemployed_support_' + character] -= 5;
+} else if (characterOrder >= 10 && characterOrder <= 14) {
+      Q['ideology_support_status_' + character] = "Order";
+
+      Q['white_collar_support_' + character] -= 0;
+      Q['blue_collar_support_' + character] += 10;
+      Q['business_support_' + character] += 10;
+      Q['black_support_' + character] -= 10;
+      Q['latino_support_' + character] += 0;
+      Q['unemployed_support_' + character] -= 10;
+} else if (characterOrder >= 14) {
+      Q['ideology_support_status_' + character] = "Radical Order";
+
+      Q['white_collar_support_' + character] -= 5;
+      Q['blue_collar_support_' + character] += 10;
+      Q['business_support_' + character] += 15  ;
+      Q['black_support_' + character] -= 15;
+      Q['latino_support_' + character] += 5;
+      Q['unemployed_support_' + character] -= 15;
+}
+
+
+
+
+
+
+}
+
 function demographicIdeology () {
+
 
 // First, we determine how impacted a given demographic is by the character's ideology.
 
-  Q['unemployed_ideology_base_' + character] = characterOrder/4;
-  Q['blue_collar_ideology_base' + character] = characterOrder/2;
-  Q['white_collar_ideology_base' + character] = characterFreedom;
-  Q['black_ideology_base' + character] = characterFreedom/2;
-  Q['latino_ideology_base' + character] = characterFreedom/4;
+  Q['unemployed_ideology_base_' + character] = characterOrder/8;
+  Q['blue_collar_ideology_base' + character] = characterOrder/4;
+  Q['white_collar_ideology_base' + character] = characterFreedom/2;
+  Q['black_ideology_base' + character] = characterFreedom/4;
+  Q['latino_ideology_base' + character] = characterFreedom/8;
   Q['business_ideology_base' + character] = characterOrder;
 
   // remember to add in a cap to black and latino minorities later.
@@ -92,9 +173,9 @@ function demographicIdeology () {
 // We will now scale support by the ideology.
 
 
-// for (var c of Q.classes) {
-//        Q[c + '_support'] = Q[c + '_quincy_support']*(1+(Q['quincy_' + c + '_ideology']));
-//  }
+for (var c of Q.classes) {
+       Q[c + '_support_' + character] = Q[c + '_support_' + character]*(1+(Q[c + '_ideology_' + character]));
+  }
 
 
 }
@@ -287,6 +368,7 @@ function demographicDisplay () {
 // Now we just call in the functions.
 
 demographicParty();
+demographicIdeologySupport();
 demographicIdeology();
 demographicApprovalRating();
 demographicDistrictSupport();
@@ -299,7 +381,7 @@ demographicDisplay();
 }
 
 electionCalculate('bruce', Q.order);
-electionCalculate('quincy', 20);
+electionCalculate('quincy', Q.quincyorder);
 
 // Now let's see how the mayoral elections work.
 // Let's start by checking how many people implicitly support Bruce.
@@ -346,7 +428,6 @@ for (var district of Q.districts) {
 
   Q.approval_rating_honeymoon = (Q.swingvoters1994)*0.90
 
-  Q.approval_rating_bruce += Q.approval_rating_honeymoon
 
 // End of elections algorithm.
 
@@ -400,15 +481,25 @@ The mayoral election is here!...
 !}
 
 
-[+ swingvoters1994 +]
 
 Bruce Wayne - [+ final_support_bruce +]%
 
-[+ white_collar_total_support_bruce +]
+[+ ideology_support_status_bruce +]
 
-[+ brucesupport +]
+White Collar %: [+ white_collar_support_bruce +]%
 
-[+ swing_percent_bruce +]
+Blue Collar %: [+ blue_collar_support_bruce +]%
+
+Business %: [+ business_support_bruce +]%
+
+Black %: [+ black_support_bruce +]%
+
+Latino %: [+ latino_support_bruce +]%
+
+Unemployed %: [+ unemployed_support_bruce +]%
+
+Swing Voters (less is better for Bruce) %: [+ swing_percent_bruce +]%
+
 
 {!<div id="electionapprovalbar">!}
 
@@ -424,6 +515,8 @@ Bruce Wayne - [+ final_support_bruce +]%
 
 Quincy Sharp Total - [+ final_support_quincy +]%
 
+[+ ideology_support_status_quincy +]
+
 White Collar %: [+ white_collar_support_quincy +]%
 
 Blue Collar %: [+ blue_collar_support_quincy +]%
@@ -432,12 +525,11 @@ Business %: [+ business_support_quincy +]%
 
 Black %: [+ black_support_quincy +]%
 
-Latino %: [+ latino_support_quincy +]% [+ latino_reactionary_support_quincy +]
-
-
+Latino %: [+ latino_support_quincy +]%
 
 Unemployed %: [+ unemployed_support_quincy +]%
 
+Swing Voters %: [+ swing_percent_quincy +]%
 
 - @victory: We did it!
 

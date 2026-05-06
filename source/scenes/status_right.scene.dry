@@ -61,27 +61,6 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
 
  displayReactionarySeat = function () {
     const resultsDiv = document.getElementById('hiddenreaction');
@@ -461,10 +440,6 @@ Click on seat to show category.
 
 = City Wide Support [+ city_wide_support_bruce_display +]%
 
-{!
-    <canvas id="myChart" style="width: 200px; height: 100px;"> </canvas>
-
-!}
 
 {!<div class="small-text">!}
 
