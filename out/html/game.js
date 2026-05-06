@@ -32,7 +32,23 @@
         window.dendryUI.dendryEngine.goToScene('library');
     }
   };
-
+  // Debug function
+  window.showBatmite = function() {
+    if (window.dendryUI.dendryEngine.state.sceneId.startsWith('batmite')) {
+        window.dendryUI.dendryEngine.goToScene('backSpecialScene');
+    } else {
+        window.dendryUI.dendryEngine.goToScene('batmite');
+    }
+  };
+  
+  // map function test
+  window.showMap = function() {
+    if (window.dendryUI.dendryEngine.state.sceneId.startsWith('map')) {
+        window.dendryUI.dendryEngine.goToScene('backSpecialScene');
+    } else {
+        window.dendryUI.dendryEngine.goToScene('map');
+    }
+  };
   //batphone test function
     window.showBatPhone = function() {
     if (window.dendryUI.dendryEngine.state.sceneId.startsWith('batphone2')) {
@@ -313,6 +329,8 @@ function applyWholesome(str) {
       var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
       $('#batphone').append(dendryUI.contentToHTML.convert(displayContent));
   };
+
+
 
 
   window.music = function() {

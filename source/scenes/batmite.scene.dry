@@ -1,27 +1,79 @@
-title: Election
+title: Batmite Mode
 new-page: true
+is-special: true
 on-arrival: {!
 
-Q.election_1994_seen = 1;
-Q.order = 1;
+    testFunction = function() {
+        const inputElement = document.getElementById("variabletest").value;  
+        console.log(inputElement)
+        Q.typeablevariable = parseInt(inputElement)
+    }
+!}
+on-display: {!
 
-// set quincy's relationship with parties
-// Set his relationships with the parties. Right now I just have his red relations at the inverse of Bruce's, and his blue relations tanked.
+    testFunction = function() {
+        const inputElement = document.getElementById("variabletest").value;  
+        console.log(inputElement)
+        Q.typeablevariable = parseInt(inputElement)
+    }
+!} 
 
-Q.reactionary_relation_quincy = 75;
-Q.conservative_relation_quincy = 50;
-Q.red_moderate_relation_quincy = 40;
-Q.blue_moderate_relation_quincy = 10;
-Q.liberal_relation_quincy = 10;
-Q.progressive_relation_quincy = 5;
-Q.approval_rating_quincy = 30;
-Q.quincyorder = 50;
+<input type="text" id="variabletest" value="1"> <button onclick="testFunction();">Change it</button>
+
+[+ typeablevariable +]
+
+- @raise: Raise approval rating 
+- @lower: Lower approval rating
+- @raise5: Raise approval rating multipled by 5
+- @lower5: Lower approval rating multiplied by 5
+- @orderraise: Raise order (Lowers freedom accordingly)
+- @orderlower: Lower order (Raises freedom accordingly)
+- @demographics: Change demographics.
+- @electoral: Run electoral calculations
+- @debug_stats: Disable or enable hidden stats
+- @backSpecialScene: leave
 
 
-// This code is a bit of a mess, I haven't cleaned it up yet and properly commented it.
-// I will move it to election algorithm once I set up an elections event
+@debug_stats
+on-arrival: {!
+  if (Q.debug == 1) {
+    Q.debug = 0;
+  } else {
+    Q.debug = 1;
+  }
+ 
+!}
+go-to: batmite
 
-// We start by defining class support
+@raise
+on-arrival: approval_rating_bruce += typeablevariable
+go-to: batmite
+
+@lower
+on-arrival: approval_rating_bruce -= typeablevariable
+go-to: batmite
+
+@raise5
+on-arrival: approval_rating_bruce += typeablevariable*5
+go-to: batmite
+
+
+@lower5
+on-arrival: approval_rating_bruce -= typeablevariable*5
+go-to: batmite
+
+
+@orderraise
+on-arrival: order += typeablevariable
+go-to: batmite
+
+
+@orderlower
+on-arrival: order -= typeablevariable
+go-to: batmite
+
+@electoral
+on-arrival: {!
 
 electionCalculate = function (characterName, characterOrder) {
 
@@ -65,7 +117,7 @@ function demographicIdeologySupport () {
 
       Q['white_collar_support_' + character] -= 5;
       Q['blue_collar_support_' + character] -= 10;
-      Q['business_support_' + character] -= 15;
+      Q['business_support_' + character] -= 10;
       Q['black_support_' + character] += 15;
       Q['latino_support_' + character] += 5;
       Q['unemployed_support_' + character] += 10;
@@ -137,11 +189,11 @@ function demographicIdeology () {
 
 // First, we determine how impacted a given demographic is by the character's ideology.
 
-  Q['unemployed_ideology_base_' + character] = characterOrder/4;
-  Q['blue_collar_ideology_base' + character] = characterOrder/2;
+  Q['unemployed_ideology_base_' + character] = characterOrder/8;
+  Q['blue_collar_ideology_base' + character] = characterOrder/4;
   Q['white_collar_ideology_base' + character] = characterFreedom/2;
-  Q['black_ideology_base' + character] = characterFreedom/2;
-  Q['latino_ideology_base' + character] = characterFreedom/4;
+  Q['black_ideology_base' + character] = characterFreedom/4;
+  Q['latino_ideology_base' + character] = characterFreedom/8;
   Q['business_ideology_base' + character] = characterOrder;
 
   // remember to add in a cap to black and latino minorities later.
@@ -177,6 +229,8 @@ function demographicIdeology () {
 //       Q[c + '_support_' + character] = Q[c + '_support_' + character]*(1+(Q[c + '_ideology_' + character]));
 //  }
 
+
+  // cap at 100 or 0
 
 
 }
@@ -415,165 +469,66 @@ demographicDisplay();
 }
 
 electionCalculate('bruce', Q.order);
-electionCalculate('quincy', Q.quincyorder);
-
-// Now let's see how the mayoral elections work.
-// Let's start by checking how many people implicitly support Bruce.
-
-// We define brucesupport, and then we will calculate his pre-existing support from his approval rate by adding all districts together.
-
-Q.brucesupport = 0;
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q.brucesupport += (Q[c + '_' + district + '_city_bruce']);
-  }
-}
-
-// Let's check out his total demographic support. This will be used to show how much each demographic contributed to his election
-// We'll try to define it.
-
-for (var c of Q.classes) {
-  Q[c + '_total_support_bruce'] = 0
-  for (var district of Q.districts) {
-      Q[c + '_total_support_bruce'] += (Q[c + '_' + district + '_city_bruce']);
-  }
-}
-
-// And do the same but for quincy.
-
-Q.quincysupport = 0;
-
-for (var district of Q.districts) {
-  for (var c of Q.classes) {
-      Q.quincysupport += (Q[c + '_' + district + '_city_quincy']);
-  }
-}
-
-// We can find how many swing voters there are by taking in 100 and subtracting it by Quincy's and Bruce's support
-
-  Q.swingvoters1994 = (100 - (Q.brucesupport + Q.quincysupport))
-
-// 90% of them will vote for Bruce and the remainder vote for Quincy. This value will be the honeymoon approval.
-
-  Q.final_support_bruce = (Q.brucesupport + (Q.swingvoters1994*0.90)).toFixed(2);
-
-  Q.final_support_quincy = (Q.quincysupport + (Q.swingvoters1994*0.10)).toFixed(2);
-
-  Q.approval_rating_honeymoon = (Q.swingvoters1994)*0.90
-
-
-// End of elections algorithm.
-
-
-// turn into percentage pls
-
-Q.swing_percent_bruce = 100
-
-for (var c of Q.classes) {
-  Q[c + '_total_support_bruce_percent'] = (Q[c + '_total_support_bruce']/Q.final_support_bruce)*100
-  Q.swing_percent_bruce -= (Q[c + '_total_support_bruce']/Q.final_support_bruce)*100
-
-}
-
 
 !}
-on-display: {!
-  // We want the bars.
+go-to: batmite
 
-// first turn them into percentages
-
-
-
-// Get the root element
-var r = document.querySelector(':root');
-
-
-// set the variables. go go go go go go.
-r.style.setProperty('--bruce-white-collar-bar-width', Q.white_collar_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-blue-collar-bar-width', Q.blue_collar_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-business-bar-width', Q.business_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-black-bar-width', Q.black_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-latino-bar-width', Q.latino_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-unemployed-bar-width', Q.unemployed_total_support_bruce_percent + '%')
-
-r.style.setProperty('--bruce-swing-bar-width', Q.swing_percent_bruce + '%')
-
-!}
-
-= wip
-
-The mayoral election is here!...
-
-{!
-  <img src="img/portraits/bruce.webp">
-!}
-
-
-
-Bruce Wayne - [+ final_support_bruce +]%
-
-[+ ideology_support_status_bruce +]
-
-White Collar %: [+ white_collar_support_bruce +]%
-
-Blue Collar %: [+ blue_collar_support_bruce +]%
-
-Business %: [+ business_support_bruce +]%
-
-Black %: [+ black_support_bruce +]%
-
-Latino %: [+ latino_support_bruce +]%
-
-Unemployed %: [+ unemployed_support_bruce +]%
-
-Swing Voters (less is better for Bruce) %: [+ swing_percent_bruce +]%
-
-
-{!<div id="electionapprovalbar">!}
-
-  <div id="election1994whitecollar"><button class="hiddenbutton"></button></div>
-  <div id="election1994bluecollar"><button class="hiddenbutton"></button></div>
-  <div id="election1994business"><button class="hiddenbutton"></button></div>
-  <div id="election1994black"><button class="hiddenbutton"></button></div>
-  <div id="election1994latino"><button class="hiddenbutton"></button></div>
-  <div id="election1994unemployed"><button class="hiddenbutton"></button></div>
-  <div id="election1994swing"><button class="hiddenbutton"></button></div>
-
-{!</div>!}
-
-Quincy Sharp Total - [+ final_support_quincy +]%
-
-[+ ideology_support_status_quincy +]
-
-White Collar %: [+ white_collar_support_quincy +]%
-
-Blue Collar %: [+ blue_collar_support_quincy +]%
-
-Business %: [+ business_support_quincy +]%
-
-Black %: [+ black_support_quincy +]%
-
-Latino %: [+ latino_support_quincy +]%
-
-Unemployed %: [+ unemployed_support_quincy +]%
-
-Swing Voters %: [+ swing_percent_quincy +]%
-
-- @victory: We did it!
-
-@victory
+@demographics
 on-arrival: {!
-  electionCalculate('bruce', Q.order);
 
-  for (var c of Q.classes) {
-      Q[c +'_support_old_bruce'] = Q[c + '_support_bruce'];
-  }
+    Q.raise = 1
 
+    testFunction = function() {
+        const inputElement = document.getElementById("variabletest2").value;  
+        console.log(inputElement)
+        Q.typeablevariable = parseInt(inputElement)
+    }
+
+    raiseSupport = function() {
+      Q.raise = 1
+    }
+
+    lowerSupport = function() {
+      Q.raise = -1
+    }
 !}
-go-to: root.1994_main
+new-page: true
+
+<input type="text" id="variabletest2" value="1"> <button onclick="testFunction();">Change it!</button>
+
+[+ typeablevariable +]
+
+<button onclick = "raiseSupport()">Raise Support</button> <button onclick="lowerSupport">Lower Support</button>
+
+
+- @demographicwhitecollar: White Collar
+- @demographicbluecollar: Blue Collar
+- @demographicbusiness: Business
+- @demographicblack: Black
+- @demographiclatino: Latino
+- @demographicunemployed: Unemployed
+- @batmite: Back to the main menu.
+
+@demographicwhitecollar
+on-arrival: white_collar_support_bruce += typeablevariable*(raise); white_collar_support_bruce_display = white_collar_support_bruce
+go-to: demographics
+
+@demographicbluecollar
+on-arrival: blue_collar_support_bruce += typeablevariable*(raise); blue_collar_support_bruce_display = blue_collar_support_bruce
+go-to: demographics
+
+@demographicbusiness
+on-arrival: business_support_bruce += typeablevariable*(raise)
+go-to: demographics
+
+@demographicblack
+on-arrival: black_support_bruce += typeablevariable*(raise)
+go-to: demographics
+
+@demographiclatino
+on-arrival: latino_support_bruce += typeablevariable*(raise)
+go-to: demographics
+
+@demographicunemployed
+on-arrival: unemployed_support_bruce += typeablevariable*(raise)
+go-to: demographics

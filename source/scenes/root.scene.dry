@@ -49,6 +49,7 @@ on-arrival: {!
 
 document.getElementById("idAudio").play();
 
+Q.debug = 0;
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;

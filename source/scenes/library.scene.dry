@@ -9,7 +9,6 @@ Herein contains relevant information about the government, history, mechanics an
 
 @menu
 
-- @debug: Dev Testing.
 - @government: Gotham City's system of government
 - @timeline: Timeline of the Weimar Republic before 1928
 - @curr_gov: Current government details
@@ -161,39 +160,3 @@ go-to: menu
 
 {!<svg id="crime_history" style="width: 500px; height: 300px;"> </svg>!}
 
-@debug 
-
-
-- @raise: Raise approval rating by +1
-- @lower: Lower approval rating by -1
-- @raise5: Raise approval rating by +5
-- @lower5: Lower approval rating by -5
-- @orderlower: Raise order by 1 (Lowers freedom by 1)
-- @orderraise: Lower order by 1 (Raises freedom by 1)
-
-@raise
-on-arrival: approval_rating += 1
-go-to: debug
-
-@lower
-on-arrival: approval_rating -= 1
-go-to: debug
-
-@raise5
-on-arrival: approval_rating += 5
-go-to: debug
-
-
-@lower5
-on-arrival: approval_rating -= 5
-go-to: debug
-
-
-@orderlower
-on-arrival: order += 1
-go-to: debug
-
-
-@orderraise
-on-arrival: order -= 1
-go-to: debug

@@ -25,6 +25,8 @@ on-display: {!
 {!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
 {!</div>!}
 
+[+ ideology_support_status_bruce +]
+
 Approval Rate: {!<b>!}
 [? if approval_rating_bruce >= 0 and approval_rating_bruce < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
 [? if approval_rating_bruce >= 5 and approval_rating_bruce < 10 : {!<span style="color: #ad0000; text-decoration-line: underline;">!}?]
