@@ -116,13 +116,13 @@ Reactionaries: [+ reactionary_relation : relationships +]
 
 Conservatives: [+ conservative_relation : relationships +]
 
-Republicans: [+ red_moderate_relation : relationships +]
+Moderate Republicans: [+ red_moderate_relation : relationships +]
 
-Democrats: [+ blue_moderate_relation : relationships +]
+Moderate Democrats: [+ blue_moderate_relation : relationships +]
 
-Liberal: [+ liberal_relation : relationships +]
+Liberals: [+ liberal_relation : relationships +]
 
-Progressive [+ progressive_relation : relationships +]
+Progressives: [+ progressive_relation : relationships +]
 
 = Fringe
 
@@ -132,12 +132,13 @@ Reform Party: [+ reform_relation : relationships +]
 
 Populist: [+ populist_relation : relationships +]
 
-Libertarian: [+ libertarian_relation : relationships +]
+Libertarians: [+ libertarian_relation : relationships +]
 
 Greens: [+ green_relation : relationships +]
 
 Socialists: [+ socialist_relation : relationships +]    
 
+Nationalists: [+ nationalist_relation : relationships +]
 
 @crime
 on-display: {!

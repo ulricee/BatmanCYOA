@@ -94,7 +94,9 @@ Q.reform_relation = 60;
 Q.populist_relation = 50;
 Q.libertarian_relation = 80;
 Q.socialist_relation = 10;
-Q.green_relation = 5;
+Q.green_relation = 30;
+Q.nationalist_relation = 5;
+
 
 // out of city relations
 
