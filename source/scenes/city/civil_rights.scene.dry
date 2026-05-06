@@ -45,20 +45,24 @@ subtitle: The revised ordinance would require that a genuine disruption to publi
 
 @bar_raids
 subtitle: A direct executive directive to the police to cease raids on LGBT bars and establishments removes one of the most visible and brutalizing tools of suppression the city has used. While Gordon as never validated any, the simple fact they can still happen is intolerable. It costs no legislative capital and can be done immediately. Some Policemen and councilors may not understand just yet, but they soon will.
+on-arrival: lgbtq = 1
 
 WIP
 
 @equal_employment
 subtitle: A municipal ordinance barring employment discrimination based on sexual orientation covers city employees, city contractors, and any business subject to city licensing. It does not reach purely private employers beyond the city's regulatory reach, but it establishes a legal floor and a public standard. Expect council opposition from socially conservative members, though the ordinance is defensible on basic fairness grounds.
+on-arrival: lgbtq = 1
 
 WIP
 
 @cross_dressing
 subtitle: The ordinance criminalizing cross-dressing with "intent to deceive" has been used almost exclusively to arrest drag performers and transgender individuals. Its repeal requires a council vote but is achievable with the right coalition. The legal argument for repeal is strong, the ordinance is vague, selectively enforced, and constitutionally questionable. The political argument is harder in certain districts, but framing it as ending an enforcement absurdity rather than a cultural statement can help bring reluctant votes across. 
+on-arrival: lgbtq = 1
 
 WIP
 
 @lgbtq_governor
 subtitle: The Governor is broadly sympathetic to the cause but has avoided moving on it without political cover. Your endorsement and the expenditure of real capital can provide that cover and push the legislation through Albany. The impact extends far beyond Gotham, a statewide hate crime law protects LGBT residents in every city and county, and the credit for pushing it will follow you.
+on-arrival: lgbtq = 1
 
 WIP

@@ -743,15 +743,15 @@ table {
 }
 
 .mytooltip:hover { 
-  background-color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 5px #000;
 }
 
 .mytooltip .mytooltiptext {
   position: fixed;
   z-index: 999999;
   width: 260px;
-  background: #000000;
-  color: #ffffff;
+  background: var(--content-bg-color);
+  color: var(--text-color);
   text-align: left;
   border-radius: 4px;
   padding: 12px 14px;

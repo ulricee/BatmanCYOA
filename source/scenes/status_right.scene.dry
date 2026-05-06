@@ -125,6 +125,8 @@ if (window && d3) {
       }
 };
 
+Q.republican_display = 0;
+Q.democrat_display = 0;
 
  displayRepublicanSeats = function () {
     displayRepSeat();
@@ -267,6 +269,8 @@ for (var i = 0; i < r.length; i++) {
 {!<div class="small-text">!}
 
 Click on seat to show category.
+
+[+ republican_display +] [+ democrat_display +]
 
 {!<button class="button_show_council" onclick="displayRepublicanSeats();"><span id="republicanshow">!}[+ republican_s +] Republican{!</span></button>!} and {!<button class="button_show_council" onclick="displayDemocratSeats();"><span id="democratshow">!}[+ democrat_s +] Democrat{!</span></button>!}
 
