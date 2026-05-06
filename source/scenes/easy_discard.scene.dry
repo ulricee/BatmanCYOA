@@ -1,6 +1,6 @@
 title: Return card to hand.
 view-if: difficulty <= 0 and last_advisor_action = 0 and last_cabinet_action = 0
-go-to: root
+go-to: root.1994_main
 on-arrival: {!
 if (Q.month_actions > 0) {
     Q.month_actions -= 1;
