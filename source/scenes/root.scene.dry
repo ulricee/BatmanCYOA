@@ -50,6 +50,7 @@ on-arrival: {!
 document.getElementById("idAudio").play();
 
 Q.debug = 0;
+Q.typeablevariable = 1;
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
@@ -62,11 +63,6 @@ Q.month_actions = 0;
 Q.difficulty = 0;
 Q.historical_mode = 0;
 // old demographics
-Q.old_demographics = 0;
-// use decimals for reichstag seats
-// TODO: not yet implemented
-Q.use_decimals = 0;
-
 
 // organizations
 
@@ -277,6 +273,8 @@ Q.pf = 5;
 Q.budget = (Q.yearly_revenue);
 Q.order = 0;
 Q.freedom = ((Q.order)*(-1));
+Q.batman = 0;
+Q.bruce = ((Q.batman)*(-1));
 Q.approval_rating_bruce = Q.approval_rating;
 
 // Old values 
@@ -330,13 +328,29 @@ Q.police_attitude = "Punitive";
 Q.police_militarization = 4;
 Q.police_lethality = "Lethal";
 Q.hero_support = "Good";
-Q.arkham_city = 1;
+Q.arkham_city = 1; 
 Q.we_are_robin = 1;
 Q.suicide_squad = 1;
 Q.county_prosecutor = "Harvey Dent";
 Q.judges = "BLANK";
 Q.jury = "BLANK";
 Q.glut = 10;
+
+// Unit distribution
+Q.distribution_patrol = 5;
+Q.distribution_swat = 3;
+Q.distribution_detective = 2;
+Q.distribution_community = 1;
+Q.distribution_outrech = 1;
+
+
+// Police Equipment
+// 
+
+
+// Tech
+
+
 
 // Suicide Squad Personnel
 
@@ -836,8 +850,14 @@ Q.harvey_helping_city_reform = 0;
 Q.talia_relationship = 50;
 Q.cassandra_relationship = 50;
 Q.shiva_relationship = 50;
+Q.andrea_relationship = 50;
 Q.ra_relationship = 50;
 Q.roman_sionis_relationship = 50;
+Q.harvey_relation = 50;
+Q.harvey_sanity = 50;
+Q.dick_relation = 50;
+Q.gordon_relation = 50;
+
 
 // Flags
 Q.daoist = 0;
@@ -847,6 +867,8 @@ Q.mohism = 0;
 Q.freethinker = 0;
 Q.nonphilosopher = 0;
 
+Q.andrea_breakup = 0;
+
 Q.david_train = 1;
 Q.talia_train = 1;
 Q.shiva_train = 1;
@@ -855,6 +877,15 @@ Q.david_talk = 0;
 Q.david_stop = 0;
 Q.david_letgo = 0;
 Q.david_confront = 0;
+
+Q.dick_harvey_friends = 0;
+
+Q.tim1 = 0;
+Q.tim2 = 0;
+Q.tim3 = 0;
+
+// knowledge
+Q.damian_exists = 0;
 
 // media relation
 Q.gotham_gazette_support = 0;

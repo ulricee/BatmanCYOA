@@ -8,18 +8,59 @@ on-arrival: {!
 !}
 on-display: {!
 
+  const video = document.getElementById('video-wrapper');
+  if (video) {
+    video.style.display = 'none';
+  }
    
-    const element = document.querySelector('.typewriter');
+    const element = document.querySelector('.dialogue1');
     speak(element, .7);
 
 
-!}
+document.getElementById("idAudio").pause();
+document.getElementById("idAudio").src = "audio/sfx/gun.wav";
+document.getElementById("idAudio").play();
 
+!}
+set-bg: img/background/white.jpg
+go-to: bang1choice
+
+@bang1choice
+set-bg: img/background/death.webp
+
+- @bang1: BANG
+
+@bang1 
+on-arrival: {!
+
+document.getElementById("idAudio").pause();
+document.getElementById("idAudio").src = "audio/sfx/gun.wav";
+document.getElementById("idAudio").play();
+
+!}
+set-bg: img/background/white.jpg
+go-to: bang2choice
+
+@bang2choice
+set-bg: img/background/death.webp
+
+- @bang2: BANG
+
+@bang2
+go-to: 1967
+set-bg: img/background/black.jpg
+
+@1967
+on-display: {!
+    const element = document.querySelector('.dialogue1');
+    speak(element, .7);
+!}
+set-bg: img
 
 = 1967, alone.
 
-
-<div class="typewriter">
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue1">!}
 
 Life ended this day, the life that you knew, everything that you had known was shattered by six bullets, two and four in your two parents.
 
@@ -27,8 +68,8 @@ Blood spilled on the pavement, the wind ripping away the last warmth you felt, y
 
 As you moved home, your life had been irrevocably derailed, you needed to find one way out.
 
-</div>
-
+{!</div>
+</button>!}
 
 - @promises: Debug skip to promises.
 - @1967_justice: You needed to bring those that would do such a thing to justice.
@@ -51,13 +92,20 @@ go-to: 1979
 
 @1979
 new-page: true
+on-arrival: {!
+    skip();
+!}
 on-display: {!
-    const element = document.querySelector('.typewriter');
-    speak(element, .7);
+
+    skip();
+    const element2 = document.querySelector('.dialogue2');
+    speak(element2, .7);
 
 !}
+set-bg: img/background/himalayas.jpg
 
-<div class="typewriter">
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue2">!}
 
 As the years sharpened you, Alfred was always by your side to guide you into a much better man than you would have been without him, you eventually found that if anything ought to change, you had to emancipate from him to fight for justice.
 
@@ -67,11 +115,12 @@ They had seen much potential in you and gave you the opportunity to finally have
 
 You only had to prove yourself against one of them.
 
-</div>
+{!</div>
+</button>!}
 
-- @intro_david: You trained with the arm of the demon, David Cain
-- @intro_talia: You trained with daughter of the demon, Talia Al Ghul
-- @intro_shiva: You trained with the voice of the demon, Shiva
+- @intro_david: You trained with the arm of the demon
+- @intro_talia: You trained with daughter of the demon
+- @intro_shiva: You trained with the voice of the demon
 
 
 @intro_david
@@ -88,6 +137,17 @@ go-to: 1980
 
 @1980
 new-page: true
+set-bg: img/background/leagueofassassins.jpg
+on-display: {!
+
+    skip();
+    const element3 = document.querySelector('.dialogue3');
+    speak(element3, .7);
+
+!}
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue3">!}
 
 In the year of grueling training under the guidance of the demon's head, Ra's al Ghul, you've found yourself to be his most apt student.
 
@@ -106,6 +166,9 @@ The gap between the training of the body and that of the mind certainly was diso
 yet,
  
 with time, with recollection… You found something good to be taken from the schools of Chinese thought.
+
+{!</div>
+</button>!}
 
 - @dao: I found Echo in the Dao. Life is an eternal flow that can never be severed, only guided one way or another toward a great whole in an eternal metamorphosis.
 - @confucius: I found Duty in Kong Fuzi's teachings. Each person has a duty to serve the other and harmony may be reached once each achieves virtue.
@@ -143,12 +206,26 @@ go-to: 1981 if david_train; 1982_start if shiva_train; 1982_end if talia_train
 
 @1981
 new-page: true
+set-bg: img/background/leagueofassassins.jpg
+on-display: {!
+
+    skip();
+    const element4 = document.querySelector('.dialogue4');
+    speak(element4, .7);
+
+!}
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue4">!}
 
 As you became David's trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other. 
 
 One night, he would come to you to inform you of his immediate leaving of the League with his daughter Cassandra following an experiment done on her mind turning her into a killing machine at age 5. 
 
 While he trusted the goals of Ra's, he could no longer stand by its methods and is advising you to do the same.
+
+{!</div>
+</button>!}
 
 - @stop_david: You tried to stop Him, Physically.
 - @talk_david: You tried to talk him out of his plan.
@@ -174,6 +251,16 @@ go-to: 1982_end
 
 @1982_start
 new-page: true
+on-display: {!
+
+    skip();
+    const element4 = document.querySelector('.dialogue4');
+    speak(element4, .7);
+
+!}
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue4">!}
 
 You entered a tight circle around Ra's. While your position with him never fully matched one to one, there is trust between the two of you that was built. 
 
@@ -186,6 +273,9 @@ In the distance, a body was set inside, disheveled and… In barely a few instan
 “If we want to survive him, someone needs to take his place.” 
 
 Silence returned to the room, as he marched toward you, you spoke to him, but in a way, he was now already faded where he stood.
+
+{!</div>
+</button>!}
 
 - @ra_talia: Ra's as already prepared for it, Talia will be ready to succeed her father.
 - @ra_shiva: Shiva is right. Someone needs to take his place. Maybe she could be it?
@@ -214,6 +304,76 @@ go-to: 1982_end
 
 @1982_end
 new-page: true
+on-display: {!
+
+    skip();
+    const element5 = document.querySelector('.dialogue5');
+    speak(element5, .5);
+
+!}
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue5">!}
+
+= Taking the Cowl
+
+It’s been a few weeks since you’ve returned to Gotham. 
+
+The place has not changed since the incident. 
+
+Their portraits, they stared back with the same intensity as they did the first day you swore your duties.
+
+“Father,"
+
+"I’ve gathered the means.”
+
+“I do not know how to think it.”
+
+“I know what to do,"
+
+"make them afraid.”
+
+“I have wealth, 
+I have power,
+I’ve got everything.
+ A call from the night.”
+
+“I’ve seen it,
+crashing through the window,
+through our life, 
+
+through what remains.”
+
+“A sentinel of ruins,
+
+a watcher in the dark.”
+
+“Father, 
+
+I will be the bat.”
+
+“But something's 
+
+missing…”
+
+“Something isn’t right.”
+
+“I have to know, 
+
+I have to.”
+
+“I have to know what’s in me, 
+
+driving me forward.”
+
+“I have to know why the cowl chose me.”
+
+“I have to know.”
+
+“What does this cowl mean?”
+
+{!</div>
+</button>!}
 
 - @liberty: Saying Yes to anyone in Authority, anyone with a badge. My parents taught me something else, lying cold on the pavement. They taught me that the world only makes sense when you force it to.
 - @order: Nothing helps one put problems in perspective like allegiance to a higher cause. The Law provides that a man is innocent until proven guilty, and we must abide by it.
@@ -233,24 +393,158 @@ go-to: 1983
 
 @1983
 new-page: true
+on-display: {!
+
+    skip();
+    const element6 = document.querySelector('.dialogue6');
+    speak(element6, .7);
+
+!}
 
 = The Phantasm
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue6">!}
+
+Andrea. She was the first to see through the dark.
+
+She was always a shoulder I could count on, from the years in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+
+Standing in front of me, she tried to stop the murderer of her father.
+
+No, she tried to kill the red hood. She wanted revenge.
+
+She couldn’t get her revenge.
+
+Now, by his own fault, he’s gone, face, body burned by acid.
+
+And yet the pain remains. It’s a silence she was looking for, and now that it was, no one wanted it.
+
+I can see it in the blue of her eyes. I knew from the moment she told me some persons escape justice, some persons that will kill, that will destroy, that will break again, justice powerless to stop them. Someone needs to intervene, do justice in their stead.
+
+I am not an executioner. Yet, she is willing to end life so readily. She is ready to not just be a judge or enforcer, to be the reaper. She can’t see her heart is clouding her judgement, she wants healing and no powers allows her other avenue. 
+
+She doesn’t see the patience, she sees only someone that wishes to stop her from doing what is right, what is just. The fault doesn’t just come from her, she can’t be at fault from wishing death, what so many would want.
+
+I loved her once. Some part of me still does. She can’t see that which drove her to want to kill also drove me to never wish death on anyone. The same experience drove the two of us in completely different directions. 
+
+Now, she’s ready to go on her own, to find herself while I find myself. We may not see each other again for years, yet there's something lingering…
+
+{!</div>
+</button>!}
+
+- @phantasm_feeling: We’re out of touch, out of touch with ourselves, with each other. Still, I have hope time will bring what each of us needs. One day, we’ll find a middle where we will see each other.
+- @phantasm_order: We knew each other well, just not well enough. What we learned pulled us closer, what we now know is driving us apart. I hope she finds herself, but I don’t think we can reconcile. I can’t let my emotions drive me to ignore what I would never allow for anyone else.
+- @phantasm_liberty: I can’t let a white lie hide what broke. She would have broken the life of another if it sounded like the right decision to her. Perhaps she will see the wrong in that decision in the future, yet I can’t let it linger. No one has any right to the life of another.
+
+@phantasm_feeling
+on-arrival: andrea_relationship -= 40; andrea_feeling = 1
+go-to: 1984_start
+
+@phantasm_order
+on-arrival: andrea_relationship -= 50; andrea_breakup = 1; order += 1
+go-to: 1984_start
+
+@phantasm_liberty
+on-arrival: andrea_relationship -= 50; andrea_breakup = 1; liberty += 1
+go-to: 1984_start
 
 - @1984_start: Next Year
 
 @1984_start
 new-page: true
+on-display: {!
+
+    skip();
+    const element7 = document.querySelector('.dialogue7');
+    speak(element7, .7);
+
+!}
+
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue7">!}
 
 = The Grayson's 
 
-- @1984_end: Next Year
+I’ve seen the Graysons many times before. Two seats are now empty today, yet, for a while, it’s something that felt wrong ever since the beginning of this experience.
+
+The smile felt a bit more fake than they should. The jumps, the prestation, cracks were showing through the veneer.
+
+For a moment it felt like rose tinted glasses slimping off, until two parents fell to their death in front of their child, staring at them twenty feet off the ground, shaking, unsure what to do, what to say, frozen in place.
+
+Richard needs someone to help him. He needs someone to support him. Someone to protect him.
+
+In one month, went from a ghost barely breathing to someone taking up a hood on his head to fight crime. 
+
+The reflection was crystal clear. This kid could do a lot of good, he just needed the right guidance.
+
+Taking him as my son, with his enthusiastic consent. The robin will sing in the night.
+
+He only had to swear on it, before me, before the city.
+
+Two heroes in the night. 
+
+{!</div>
+</button>!}
+
+- @grayson_righteous: …And swear that we two will fight together against crime and corruption and never swerve from the path of righteousness.
+- @grayson_liberty: …And swear that we two will fight together against crime and corruption and never swerve from the path of Justice.
+- @grayson_order: …And swear that we two will fight together against crime and corruption and never question the order I am given.
+
+@grayson_righteous
+go-to: 1984_end
+
+@grayson_liberty
+go-to: 1984_end
+
+@grayson_order
+go-to: 1984_end
 
 @1984_end
 new-page: true
+on-display: {!
+
+    skip();
+    const element7 = document.querySelector('.dialogue8');
+    speak(element7, .7);
+
+!}
 
 = Harvey Dent
 
-- @1985_choice: Next Year
+{!<button class="hiddenbutton" onclick="skip();">
+<div class="typewriter dialogue8">!}
+
+The fight for justice is a lonely battle. Yet, the knowledge that someone is beside you, someone will help, it’s something that allows each night to feel a bit more tranquil than they would have usually been.
+
+At one trial, there was an especially fiery assistant county prosecutor which caught your eye. While most in the city that practiced law used it as a way to become a vehicle for corruption, he seemed more invested in finding the truth of the crime of a simple robbery than either the police, the judge or even the defendant were.
+
+Harvey Apollo Dent was certainly a bit of a character. While on the stand his good looks and boundless confidence made him look like the archetypical movie law man of the pulpit, meeting him in his office, he just seemed tired, feeling like he could never do enough, that so many things were out of his control.
+
+You two found a lot in common to discuss, you found in each other the same drive to help people, the same struggle with so many people needing your help, so little time to help them. For the first time in so many years, you finally found a friend.
+
+As you mentioned the strange case of the Graysons, he assured you to do all he could to catch him. While you could find who was the culprit and Batman could catch the man and the law should have put him behind bars, he managed to get out on a technicality.
+
+Still, even if the wider system remains broken and tension seems to be rising between Dick and Harvey. The proof of concept is here. On the ground and on the pulpit, the power it truly had was clear as day. You only had to own it, to work out the kinks.
+
+{!</div>
+</button>!}
+
+- @harvey_law: I think our main goal, before any other, should be to work on those issues of the law. So many crimes are being committed each day, we would do a disservice not to act now and act decisively.
+- @harvey_relation: I think that if such a relationship is to remain strong, I have to keep tighter contact with Harvey. He is a massive asset and he needs to be cherished considering what happened to others in the past.
+- @harvey_dick: I think this issue between him and Dick can still be patched over. This is just a failure of communication. Harvey thought that Dick already hates him and Dick feels like Harvey is heartless for not mentioning the problem. We can’t build anything on hurt feelings.
+
+@harvey_law
+on-arrival: crime_rate -= 5
+go-to: 1985_choice
+
+@harvey_relation
+on-arrival: harvey_relation += 20; harvey_sanity += 10
+go-to: 1985_choice
+
+@harvey_dick
+on-arrival: dick_harvey_friends = 1; harvey_sanity += 10
+go-to: 1985_choice
 
 @1985_choice
 go-to: 1985_start if talia_train = 1; 1985_middle if talia_train = 0
@@ -260,21 +554,118 @@ new-page: true
 
 = The Demon's Heir
 
-- @1985_middle: Next Year
+Gotham was always your home, yet your business takes you all across the globe. In the dusty streets of Shanghai, Waynecorp is one of the first to reach an open pearl, but certainly not the last. Your hotel reeks of extravagance, nothing like the carved out remote palace you lived in the last time you came to this country. You’re flipping through an issue of Times, something you’d never thought you’d say before the hotel phone blares out of nowhere. You pick up, and hear the voice of someone you’d never forget. 
+
+“Wayne. You’re here, correct?”
+
+His daughter. The daughter of the demon. You call out her name.
+
+“Talia. Talia Al Ghul, yes. Wayne, I understand your circumstances at this given moment, but if you have time to spare, I’d like to speak to you in person. I have quite urgent news. Please be there, Wayne.”
+
+You wait at a local shengjian bao stand. The one right next to the hotel. By the glances given at your direction, you stand out like a sore thumb ordering food in fluent Mandarin, waiting for your meal like you’re waiting for a date. In a way you are, you suppose. Finally, she arrives. The two of you sit on stools, first talking about nothing in particular. You feel like teenagers again, but not for long. 
+
+“Wayne. Bruce Wayne. There is something I must tell you.”
+
+She switches from Mandarin to English. Her stoic eyebrows furl in concentration.
+
+“My father and I are raising a child.” 
+
+“Who’s the father?”
+
+She glances around. The Shanghainese don’t understand a lick of what she’s saying. You’re not sure if that’s a good or a bad thing. Talia takes a deep breath in.
+
+“You. You are the father. There was no rape, nothing remotely as such, but beyond that I cannot explain further, but that is the truth.”
+
+- @talia_bullshit: You’re bullshiting me. There’s no way that this could theoretically work, let alone practically! What did you do, take my - no, I don’t even want to know. Talia, you betrayed me!
+- @talia_here: I’m here for you. I don’t know what’s going on, but whatever you’re dealing with, I will be there. For both you, and our child.
+- @talia_idk: That’s a lot to take in. I’m not sure how to feel about this. I need some time, I’m sorry. 
+
+@talia_bullshit
+on-arrival: damian_exists = 1; talia_relationship -= 100
+go-to: 1985_middle
+
+@talia_here
+on-arrival: talia-here += 10; damian_exists = 1
+go-to: 1985_middle
+
+@talia_idk
+on-arrival: damian_exists = 1
+go-to: 1985_middle
+
 
 @1985_middle
 new-page: true
 
 = Killing a Mockingbird
 
-- @1985_end: Next Year
+Thanks to Dick’s and Harvey’s help, you begin to feel like you’re making real progress on crime in the city. Even if some of the goons you end up beating up seem to come back once, they rarely come back a second time. For the first time, you feel like you’re actually making real progress even with everything set up against you.
+
+Someone decided to call on you, someone that inspired you when you were young with millions of others. The hero of Gotham, the Black Canary asking for the help of Batman over something that had struck on her civilian self Dinah Drake.
+
+She had been fighting for two decades already, finding times of peace, times of tension. Yet, a year before you took the cowl, she had stopped appearing nearly to the same degree as she did before. Something was different.
+
+While posters in people’s bedrooms showed black canary acting alone, she had someone close to her that helped her be the super hero people needed. She had found someone close, a private investigator, someone to do the paper work while she did the knuckle work.
+
+In Larry Lance, She found someone to love, someone to marry, someone to finally settle down after years of battle. Yet, the battle would never stop, even after becoming a mother, criminals will be succeeded by new ones in a never ending cycle.
+
+Her husband was killed, while he was always watchful of anything that could strike on him, he seems to have reached for bigger than he should. Now, she was alone with their child and yet had to continue to fight, to continue to bring hope to the people of Gotham without help, with the salary of one florist and with the free time of one parent of one child.
+
+She found in you an opportunity to finally find closure, both to finding who killed her husband but also to finally leave her years of fighting crime knowing that the city is in safe hands. She worked hard since she was just 18, she wants to finally be the mother her daughter deserved.
+
+You told her you will find the culprit. That you will find her husband's killer. You even gave her the necessary financial support to no longer feel on the rope each day of her life and…
+
+- @mockingbird_harvey: You managed to catch the killer with the help of Harvey and his rummaging through the record of thousands of criminals.
+- @mockingbird_gordon: You managed to catch the killer with the outstanding performance of this new commissioner, James Gordon.
+- @mockingbird_dick: You managed to catch the killer thanks to the help of your trusted sidekick complimentary skills, Dick Grayson.
+
+@mockingbird_harvey
+on-arrival: harvey_relation += 10; bruce += 1
+go-to: 1985_end
+
+@mockingbird_gordon
+on-arrival: gordon_relation += 10
+go-to: 1985_end
+
+@mockingbird_dick
+on-arrival: dick_relation += 10; batman += 1
+go-to: 1985_end
+
 
 @1985_end
 new-page: true
 
 = Electoralism 
 
-- @1987: Next Year
+What felt like an eternal whack a mole finally began to feel like deep tangible change. As you and Robin caught the criminal, commissioner Gordon sent you the criminal he couldn’t handle and Harvey made sure that they would stay behind bar’s, you only had to expand your reach of change.
+
+With the success Wayne incorporated was reaching thanks to Lucius’s help, you began to build your new charities for the poor, youth centers for the lost and even supported Dinah Drake’s own Canaries to help people defend themselves, you finally felt like your work was doing something.
+
+Yet, there was something more. Even if you could do each of those things, even if you had the power, the wealth and the support needed, the rot of the city was so deep it didn’t feel like it was enough. Seeing it through Dinah’s eyes, all of the work you had done could break if any links in the chain would snap.
+
+You had a call, one you would not refuse. Hamilton Hill, democratic candidate for the mayorship has reached to you to be one of his supporters. He claimed that he thought to help reform the city away from the corruption and self-destructive ways it became known for by all in the country. 
+
+He said that he was impressed by your work, the <span class="tooltip-text" title="good mod">dynamism</span> you brought to a city, the tangible work you do to help everyone, especially those that need it the most. All that he wanted was for you to help him help you, help him reach the mayorship so he can help you bring changes no one could have thought possible before.
+
+Those promises always sounded more hollow when said by any politician, yet, considering his current polling numbers ranked him as most certainly winning the election, it’s quite probable he may actually be honest and truly wishing to help you and the city. He may get elected either way but you…
+
+- @electoralism_neutral: Decided to tell him that you preferred staying out of politics both on ethical and business ground as the city remains deeply divided.
+- @electoralism_endorsement: You agreed to grant him an endorsement in hopes that his help would bring you the support you require for your plans against poverty.
+- @electoralism_handout: You accepted to endorse him but refused to ask for any handouts as it would just go on the same length of favors of the previous administration.
+
+@electoralism_neutral
+on-arrival: red_moderate_relation_bruce += 10; conservative_relation_bruce += 5; reactionary_relation_bruce += 5 
+go-to: 1987
+
+@electoralism_endorsement
+on-arrival: red_moderate_relation_bruce -= 5; conservative_relation_bruce -= 10; reactionary_relation_bruce -= 10; blue_moderate_relation_bruce += 5; liberal_relation_bruce += 5; progressive_relation_bruce += 10; poverty -= 1
+go-to: 1987
+
+add in charity remember
+
+@electoralism_handout
+on-arrival: blue_moderate_relation_bruce += 10; liberal_relation_bruce += 10; progressive_relation_bruce += 10 
+go-to: 1987
+
 
 @1987
 new-page: true
@@ -327,10 +718,63 @@ new-page: true
 
 @1993_start
 new-page: true
+go-to: tim_menu
 
 = Tim the Menace
 
-- @1993_end: Next Year
+You still visit his grave every week. His smile, his laughter, even his tantrums all robbed away from you, just like that. Papers line your desk both as the businessman and the caped crusader. Papers stained with tears, much to your chagrin. You don’t know what day it is. You don’t care. They all blur blue together. Ring ring ring. That must be the bell, the alarm, the - it doesn’t matter. 
+
+“Bruce. There’s been an intruder at Wayne manor.” 
+
+Who cares. 
+
+“Bruce. He’s set off dang near every security measure we’ve put in place, and he’s working entirely alone!”
+
+Bruce.
+
+“Bruce!”
+
+This is just like every other hobo in every other week that tries to break and enter. This is like every other day in the whole world, Alfred. You.. Don’t… Care.
+
+“Bruce. He’s a kid.” 
+
+You wish you didn’t.
+
+ Alfred drags you over to the security cameras, where fuzzy static outlines a boy who hasn’t even reached his growth spurt yet tripping over basement stairs in an oversized Batman hoodie. He seems timid underneath his four eyes, but in any other scenario you’d applaud the fact that out of all the attempts, this is the one that succeeds. You tell Alfred to escort him out of the building. The kid doesn’t seem interested in any valuables, he’s probably just confused or something. You’re not quite sure how else to explain such a thing. 
+
+He returns, but with a catch. The kid is right behind him. As soon as he sees you, the brunette makes a run for it. He suddenly clasps your hands tight together, and says something nobody should ever know.
+
+“Bruce Wayne! You’re- you're Batman! You need me! You need a Robin!”
+
+@tim_menu
+
+- @tim1: I don’t believe it. This cannot be real. He can’t be serious right now. You? You WANT to be Robin? I - I. I guess we’re doing this now. 
+- @tim2: Your dad doesn’t get paid enough for this. Just give me a second, I’ll phone him and get things straight… you’re not coming back, right?
+- @tim3: This is absurd! I’m preparing for all of this and this guy just shows up? I laugh the hardest I have in years.
+- @robin: Well then, let’s get you set up kid. 
+
+@tim1 
+choose-if: tim1 == 0
+unavailable-subtitle: He is dead serious. He won’t leave.
+on-arrival: tim1 = 1
+go-to: tim_menu
+
+@tim2
+choose-if: tim2 == 0
+unavailable-subtitle: The kid’s name is Tim Drake, you phone his dad and he’s groaning as much as you are. There’s basically nothing he can do.
+on-arrival: tim2 = 1
+go-to: tim_menu
+
+@tim3
+choose-if: tim3 == 0
+unavailable-subtitle: For the first time in forever, your heart feels lighter. Maybe. Maybe this can work.
+on-arrival: tim3 = 1
+go-to: tim_menu
+
+@robin
+view-if: tim1 == 1 and tim2 == 1 and tim3 == 1
+on-arrival: timdrake = 1
+go-to: @1993_end
 
 @1993_end
 new-page: true

@@ -197,13 +197,8 @@ on-display: {!
 
 Crime Rate: [+ crime_rate +]
 
-Falcone Status: [+ falcone_status +]
+{!<div id="hiddenPolice">!}
 
-Penguin Status: [+ penguin_status +]
-
-[? if black_mask_active = 1 : Black Mask: [+ black_mask_status +] ?]
-
-Joker Status: [+ joker_status +]
 
 Size of the police: [+ police_size +]
 
@@ -221,11 +216,33 @@ Prison Glut: [+ glut +]
 
 Punitive / Corrective / Rehabilitative: [+ police_attitude +]
 
+
+{!</div>!}
+
+{!<div id="hiddenCriminals">!}
+
+Falcone Status: [+ falcone_status +]
+
+Penguin Status: [+ penguin_status +]
+
+[? if black_mask_active = 1 : Black Mask: [+ black_mask_status +] ?]
+
+Joker Status: [+ joker_status +]
+
+{!</div>!}
+
+{!<div id="hiddenJustice">!}
+
+
 County Prosecutor: [+ county_prosecutor +]
 
 Judges: [+ judges +]
 
 Jury: [+ jury +]
+
+{!</div>!}
+
+{!<div id="hiddenSquads">!}
 
 = [? if arkham_city = 1 : Arkham City project ?]
 
@@ -250,14 +267,66 @@ I saw this in a videogame
 [? if suicide_catwoman == 1 : Catwoman: [+ suicide_catwoman_status +] ?]
 
 = [? if we_are_robin == 1 : We Are Robin ?]
-not much here
+Nothing here yet
+
+{!</div>!}
 
 
 @family 
 
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fbasic-rgb-139816123.jpg&f=1&nofb=1&ipt=b47f8ff73566d76bdeb6662c8dcd6ec6f66b5ec9580ec3c300e9c9861af93033" class="familybutton">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
+@alfred
+
+= Batfamily
+
+<button class="family_button_fakeactive">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = Alfred 
 
 Awesome butler as always
+
+
+@timdrake
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button_fakeactive">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
 
 = [? if tim_drake == 1 : Robin (Tim Drake) ?]
 
@@ -267,6 +336,23 @@ Awesome butler as always
 
 [? if tim_drake == 1 : Gear: [+ tim_drake_gear +]?]
 
+@dick
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button_fakeactive">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = [? if dick_grayson == 1 : Nightwing (Dick Grayson) ?]
 
 [? if dick_grayson == 1 : Status: [+ dick_grayson_status +]?]
@@ -274,6 +360,23 @@ Awesome butler as always
 [? if dick_grayson == 1 : Training: [+ dick_grayson_training +]?]
 
 [? if dick_grayson == 1 : Gear: [+ dick_grayson_gear +]?]
+
+@jason
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button_fakeactive" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button_fakeactive">Jason Todd</button> ?]
+
 
 = [? if jason_todd == 1 : Jason Todd?]
 
@@ -283,6 +386,23 @@ Awesome butler as always
 
 [? if jason_todd == 1 : Gear: [+ jason_todd_gear +]?]
 
+@damian
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button_fakeactive">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = [? if damian_wayne == 1 : Damian Wayne ?]
 
 [? if damian_wayne == 1 : Status: [+ damian_wayne_status +]?]
@@ -290,6 +410,23 @@ Awesome butler as always
 [? if damian_wayne == 1 : Training: [+ damian_wayne_training +]?]
 
 [? if damian_wayne == 1 : Gear: [+ damian_wayne_gear +]?]
+
+@barbara
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button_fakeactive">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
 
 = [? if barbara_gordon == 1 : Barbara Gordon ?]
 
@@ -299,6 +436,23 @@ Awesome butler as always
 
 [? if barbara_gordon == 1 : Gear: [+ barbara_gordon_gear +]?]
 
+@cassandra
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button_fakeactive" id="cassandra_tab">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = [? if cassandra_cain == 1 : Cassandra Cain ?]
 
 [? if cassandra_cain == 1 : Status: [+ cassandra_cain_status +]?]
@@ -306,6 +460,23 @@ Awesome butler as always
 [? if cassandra_cain == 1 : Training: [+ cassandra_cain_training +]?]
 
 [? if cassandra_cain == 1 : Gear: [+ cassandra_cain_gear +]?]
+
+@duke
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button_fakeactive">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
 
 = [? if duke_thomas == 1 : Duke Thomas ?]
 
@@ -315,6 +486,23 @@ Awesome butler as always
 
 [? if duke_thomas == 1 : Gear: [+ duke_thomas_gear +]?]
 
+@polka
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button_fakeactive">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = [? if polka_batfamily == 1 : Polka Dot Man ?]
 
 [? if polka_batfamily == 1 : Status: [+ polka_batfamily_status +]?]
@@ -323,6 +511,23 @@ Awesome butler as always
 
 [? if polka_batfamily == 1 : Gear: [+ polka_batfamily_gear +]?]
 
+@selina
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button_fakeactive">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button" id="dinah_tab" onclick="window.changeTab('status.dinah', 'dinah_tab');">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
+
 = [? if selina_kyle == 1 : Selina Kyle ?]
 
 [? if selina_kyle == 1 : Status: [+ selina_kyle_status +]?]
@@ -330,6 +535,23 @@ Awesome butler as always
 [? if selina_kyle == 1 : Training: [+ selina_kyle_training +]?]
 
 [? if selina_kyle == 1 : Gear: [+ selina_kyle_gear +]?]
+
+@dinah
+
+= Batfamily
+
+<button class="family_button" id="alfred_tab" onclick="window.changeTab('status.alfred', 'alfred_tab');">Alfred Pennyworth</button>
+[? if tim_drake == 1 : <button class="family_button" id="tim_tab" onclick="window.changeTab('status.timdrake', 'tim_tab');">Tim Drake</button> ?]
+[? if dick_grayson == 1 : <button class="family_button" id="dick_tab" onclick="window.changeTab('status.dick', 'dick_tab');">Dick Grayson</button> ?]
+[? if barbara_gordon == 1 : <button class="family_button" id="barbara_tab" onclick="window.changeTab('status.barbara', 'barbara_tab');">Barbara Gordon</button> ?]
+[? if cassandra_cain == 1 : <button class="family_button" id="cassandra_tab" onclick="window.changeTab('status.cassandra', 'cassandra_tab');">Cassandra Cain</button> ?]
+[? if duke_thomas == 1 : <button class="family_button" id="duke_tab" onclick="window.changeTab('status.duke', 'duke_tab');">Duke Thomas</button> ?]
+[? if polka_batfamily == 1 : <button class="family_button" id="polka_tab" onclick="window.changeTab('status.polka', 'polka_tab');">Polka Dot Man</button> ?]
+[? if selina_kyle == 1 : <button class="family_button" id="selina_tab" onclick="window.changeTab('status.selina', 'selina_tab');">Selina Kyle</button> ?]
+[? if dinah_lance == 1 : <button class="family_button_fakeactive">Dinah Lance</button> ?]
+[? if damian_wayne == 1 : <button class="family_button" id="damian_tab" onclick="window.changeTab('status.damian', 'damian_tab');">Damian Wayne</button> ?]
+[? if jason_todd == 1 : <button class="family_button" id="jason_tab" onclick="window.changeTab('status.jason', 'jason_tab');">Jason Todd</button> ?]
+
 
 = [? if dinah_lance == 1 : Dinah Lance ?]
 

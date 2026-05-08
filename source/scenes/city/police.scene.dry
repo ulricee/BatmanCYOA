@@ -35,6 +35,7 @@ WIP
 WIP
 
 @police_spending
+subtitle: We'll be able to make choices on the size, militarization and distribution of the police force.
 
 = Officer count: [+ police_size : police +] ([+ police_size +]/5)
 
@@ -48,15 +49,43 @@ WIP
 
 Most surplus unit that are not servicing units are sent to the patrol sector.
 
-Patrol Sector: Overstaffed (5/5)
+Patrol Sector: 
+[? if distribution_patrol == 0 : Empty ?]
+[? if distribution_patrol == 1 : On the edge ?]
+[? if distribution_patrol == 2 : Understaffed ?]
+[? if distribution_patrol == 3 : Sufficiently Staffed ?]
+[? if distribution_patrol == 4 : Fully Staffed ?]
+[? if distribution_patrol == 5 : Overstaffed?]
+ ([+ distribution_patrol +]/5)
 
-Swat team: Fully staffed (3/3)
+Swat team: 
+[? if distribution_swat == 0 : Empty ?]
+[? if distribution_swat == 1 : Understaffed ?]
+[? if distribution_swat == 2 : Sufficiently Staffed ?]
+[? if distribution_swat == 3 : Fully Staffed ?]
+ ([+ distribution_swat +]/3)
 
-Detective division: Sufficiently staffed (2/3)
+Detective division:
+[? if distribution_detective == 0 : Empty ?]
+[? if distribution_detective == 1 : Understaffed ?]
+[? if distribution_detective == 2 : Sufficiently Staffed ?]
+[? if distribution_detective == 3 : Fully Staffed ?]
+ ([+ distribution_detective +]/3)
 
-Community policing: Minimal (1/3)
+Community policing:
 
-Outreach and prevention programs: Minimal (1/3)
+[? if distribution_community == 0 : Empty ?]
+[? if distribution_community == 1 : Minimal ?]
+[? if distribution_community == 2 : Sufficient ?]
+[? if distribution_community == 3 : Fully Staffed ?]
+([+ distribution_community +]/3)
+
+Outreach and prevention programs: 
+[? if distribution_outrech == 0 : Empty ?]
+[? if distribution_outrech == 1 : Minimal ?]
+[? if distribution_outrech == 2 : Sufficient ?]
+[? if distribution_outrech == 3 : Fully Staffed ?]
+ ([+ distribution_outrech +]/3)
 
 - @police_spending_officer_count: Let's deal with the officer count.
 - @police_spending_militarization: Let's alter the militarization
@@ -67,7 +96,31 @@ Outreach and prevention programs: Minimal (1/3)
 
 WIP
 
+- @increase_officer: Increase the amount of Officers
+- @decrease_officer: Decrease the quantity of Officers
+- @police_spending: Back
+
+@increase_officer
+
+WIP
+
+@decrease_officer
+
+WIP
+
 @police_spending_militarization
+
+WIP
+
+- @increase_mil: Increase the amount of Officers
+- @decrease_mil: Decrease the quantity of Officers
+- @police_spending: Back
+
+@increase_mil
+
+WIP
+
+@decrease_mil
 
 WIP
 
