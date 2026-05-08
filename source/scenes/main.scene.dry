@@ -1,5 +1,5 @@
 title: Next month
-set-bg: img/gotham_background.webp
+set-bg: img/background/gotham_background.webp
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -71,7 +71,7 @@ max-cards: 3
 - #advisor
 
 @main_easy
-set-bg: img/gotham_background.webp
+set-bg: img/background/gotham_background.webp
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
