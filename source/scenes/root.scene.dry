@@ -430,6 +430,16 @@ Q.stephanie_brown_gear = "no equipment";
 Q.stephanie_brown_training = "untrained";
 
 
+//deputization 
+// TODO: Add deputization flags for each hero
+Q.spoiler_deputized = 0
+Q.selena_deputized = 0
+Q.signal_deputized = 0
+Q.cassandra_deputized = 0
+Q.jason_deputized = 0
+Q.polka_deputized = 0
+
+
 
 // TO DO: Fix ideology
 // Add in negative approval gap push

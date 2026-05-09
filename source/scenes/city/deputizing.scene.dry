@@ -21,18 +21,24 @@ As the city still need all the help from private individual it can get if it is 
 @deputizing_spoiler
 subtitle: Stephanie is rather young and relatively inexperienced as a true operative. However, she did show a lot of potential. She shouldn't be too controversial.
 choose-if: gordon_advisor == 0 and (county_prosecutor != "Janet Van Dorn" or year >= 1997 ) and stephanie_brown == 1
+on-arrival: Q.spoiler_deputized = 1;
 
 @deputizing_selena
 subtitle: Considering the controversy that would follow an ex-Criminal like her being fully deputized, it would be greatly damaging to the trust of major part of the city. She isn't seen as reliable and this may be a long term issue.
+on-arrival: Q.selena_deputized = 1;
 
 @deputizing_signal
 subtitle: The ex self-made Robin with super powers is seen as a massive boon to the forces. There is no opposition for his acceptance.
+on-arrival: Q.signal_deputized = 1;
 
 @deputizing_cassandra
 subtitle: Cassandra has more talent than officers that have been on the ground for decades. There is is little controversy in her deputizing.
+on-arrival: Q.cassandra_deputized = 1;
 
 @deputizing_jason
 subtitle: As an ex-hitman, his addition to the rooster as taken some controversy. However, his talent is without question. It will be a hard sell to have him be seen as an officer of the law
+on-arrival: Q.jason_deputized = 1;
 
 @deputizing_polka
 subtitle: This vilains of circumstance seems more than willing to fight for justice. While some will jeer at his inclusion, no serious person would see him as a liability.
+on-arrival: Q.polka_deputized = 1;
