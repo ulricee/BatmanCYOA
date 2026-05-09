@@ -8,10 +8,10 @@
     <title>Gotham: A place you never leave - Autumn Chen</title>
     <link rel="stylesheet" type="text/css" href="game.css">
     <script src="jquery-1.11.1.min.js"></script>
+    <script src="d3.v7.js"></script>
     <script src="d3.v7.min.js"></script>
     <script src="d3-parliament.js"></script>
     <script src="d3-linegraph.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="core.js"></script>
     <script src="game.js"></script>
     <script src="data.js"></script>
@@ -312,6 +312,8 @@
                     <a id="stats-link" onclick="window.showStats();" href="#">Library</a>
                     <a onclick="dendryUI.showSaveSlots();" href="#">Save/Load</a>
                     <a onclick="window.showOptions();" href="#">Options</a>
+                    <a onclick="window.showMap();" href="#">Map</a>
+                    <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
                 </div>
                     <audio id="idAudio">
 		                <source src="audio/batmanbackground.mp3" type="audio/mp3">
@@ -321,7 +323,7 @@
                 <div id='stats_sidebar' class='tools left'>
                     <div class="tab_container">
                         <button class="tab_button active" id="main_tab" onclick="window.changeTab('status', 'main_tab');">You</button>
-                        <button class="tab_button" id="city_tab" onclick="window.changeTab('status.city', 'city_tab');">City</button>
+                        <button class="tab_button" id="politics_tab" onclick="window.changeTab('status.politics', 'politics_tab');">Politics</button>
                         <button class="tab_button" id="crime_tab" onclick="window.changeTab('status.crime', 'crime_tab');">Crime</button>
                         <button class="tab_button" id="batfamily_tab" onclick="window.changeTab('status.family', 'batfamily_tab');">Family</button>
                     </div>

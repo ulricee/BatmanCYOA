@@ -61,27 +61,6 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-
 
  displayReactionarySeat = function () {
     const resultsDiv = document.getElementById('hiddenreaction');
@@ -146,6 +125,8 @@ if (window && d3) {
       }
 };
 
+Q.republican_display = 0;
+Q.democrat_display = 0;
 
  displayRepublicanSeats = function () {
     displayRepSeat();
@@ -288,6 +269,8 @@ for (var i = 0; i < r.length; i++) {
 {!<div class="small-text">!}
 
 Click on seat to show category.
+
+[+ republican_display +] [+ democrat_display +]
 
 {!<button class="button_show_council" onclick="displayRepublicanSeats();"><span id="republicanshow">!}[+ republican_s +] Republican{!</span></button>!} and {!<button class="button_show_council" onclick="displayDemocratSeats();"><span id="democratshow">!}[+ democrat_s +] Democrat{!</span></button>!}
 
@@ -461,50 +444,11 @@ Click on seat to show category.
 
 = City Wide Support [+ city_wide_support_bruce_display +]%
 
-{!
-    <canvas id="myChart" style="width: 200px; height: 100px;"> </canvas>
-
-!}
 
 {!<div class="small-text">!}
 
-{!<button class="hiddenbutton" onclick="displayUnemployedSupport();"><span class="showclass">!} Unemployed Support: [+ unemployed_support_bruce_display +]%{!</span></button>!}
 
-{!<div id="showunemployedbox">!}
-
-The unemployed [+ unemployed_reactionary : party_support +] the Reactionaries.
-
-The unemployed [+ unemployed_conservative : party_support +] the Conservatives.
-
-The unemployed [+ unemployed_red_moderate : party_support +] the Republican moderates.
-
-The unemployed [+ unemployed_blue_moderate : party_support +] the Democrat moderates.
-
-The unemployed [+ unemployed_liberal : party_support +] the Liberals.
-
-The unemployed [+ unemployed_progressive : party_support +] the Progressives.
-
-{!</div>!}
-
-{!<button class="hiddenbutton" onclick="displayBlueCollarSupport();"><span class="showclass">!}Blue Collar Support: [+ blue_collar_support_bruce_display +]%{!</span></button>!}
-
-{!<div id="showbluecollarbox">!}
-
-The blue collar population [+ blue_collar_reactionary : party_support +] the Reactionaries.
-
-The blue collar population [+ blue_collar_conservative : party_support +] the Conservatives.
-
-The blue collar population [+ blue_collar_red_moderate : party_support +] the Republican moderates.
-
-The blue collar population [+ blue_collar_blue_moderate : party_support +] the Democrat moderates.
-
-The blue collar population [+ blue_collar_liberal : party_support +] the Liberals.
-
-The blue collar population [+ blue_collar_progressive : party_support +] the Progressives.
-
-{!</div>!}
-
-{!<button class="hiddenbutton" onclick="displayWhiteCollarSupport();"><span class="showclass">!}White Collar Support: [+ white_collar_support_bruce_display +]%{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayWhiteCollarSupport();"><span class="showclass">!}White Collar Support: [+ white_collar_support_bruce_display +]% [? if debug == 1 : [+ white_collar_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showwhitecollarbox">!}
 
@@ -522,7 +466,26 @@ The white collar population [+ white_collar_progressive : party_support +] the P
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayBusinessSupport();"><span class="showclass">!}Business Support: [+ business_support_bruce_display +]%{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayBlueCollarSupport();"><span class="showclass">!}Blue Collar Support: [+ blue_collar_support_bruce_display +]% [? if debug == 1 : [+ blue_collar_support_bruce +] ?]{!</span></button>!}
+
+{!<div id="showbluecollarbox">!}
+
+The blue collar population [+ blue_collar_reactionary : party_support +] the Reactionaries.
+
+The blue collar population [+ blue_collar_conservative : party_support +] the Conservatives.
+
+The blue collar population [+ blue_collar_red_moderate : party_support +] the Republican moderates.
+
+The blue collar population [+ blue_collar_blue_moderate : party_support +] the Democrat moderates.
+
+The blue collar population [+ blue_collar_liberal : party_support +] the Liberals.
+
+The blue collar population [+ blue_collar_progressive : party_support +] the Progressives.
+
+{!</div>!}
+
+
+{!<button class="hiddenbutton" onclick="displayBusinessSupport();"><span class="showclass">!}Business Support: [+ business_support_bruce_display +]% [? if debug == 1 : [+ business_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showbusinessbox">!}
 
@@ -540,7 +503,7 @@ The business owners of the city [+ business_progressive : party_support +] the P
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayBlackSupport();"><span class="showclass">!}Black Support: [+ black_support_bruce_display +]%{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayBlackSupport();"><span class="showclass">!}Black Support: [+ black_support_bruce_display +]% [? if debug == 1 : [+ black_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showblackbox">!}
 
@@ -558,7 +521,7 @@ The black community [+ black_progressive : party_support +] the Progressives.
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayLatinoSupport();"><span class="showclass">!}Latino Support: [+ latino_support_bruce_display +]%{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayLatinoSupport();"><span class="showclass">!}Latino Support: [+ latino_support_bruce_display +]% [? if debug == 1 : [+ latino_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showlatinobox">!}
 
@@ -573,6 +536,24 @@ The latino minority [+ latino_blue_moderate : party_support +] the Democrat mode
 The latino minority [+ latino_liberal : party_support +] the Liberals.
 
 The latino minority [+ latino_progressive : party_support +] the Progressives.
+
+{!</div>!}
+
+{!<button class="hiddenbutton" onclick="displayUnemployedSupport();"><span class="showclass">!} Unemployed Support: [+ unemployed_support_bruce_display +]% [? if debug == 1 : [+ unemployed_support_bruce +] ?]{!</span></button>!}
+
+{!<div id="showunemployedbox">!}
+
+The unemployed [+ unemployed_reactionary : party_support +] the Reactionaries.
+
+The unemployed [+ unemployed_conservative : party_support +] the Conservatives.
+
+The unemployed [+ unemployed_red_moderate : party_support +] the Republican moderates.
+
+The unemployed [+ unemployed_blue_moderate : party_support +] the Democrat moderates.
+
+The unemployed [+ unemployed_liberal : party_support +] the Liberals.
+
+The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 
 {!</div>!}
 

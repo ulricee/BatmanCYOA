@@ -7,6 +7,40 @@
   --bruce-unemployed-bar-width: 0%;
   --bruce-swing-bar-width: 0%;
 
+  /* Pie charts */
+
+
+  /* New Gotham Pie Chart*/
+
+/*
+Q.unemployed_new_gotham = 4;
+Q.blue_collar_new_gotham = 8;
+Q.white_collar_new_gotham = 48;
+Q.business_new_gotham = 18;
+Q.black_new_gotham = 12;
+Q.latino_new_gotham = 10;
+
+## The dash length will be the percentage of the circumference. For example, to draw 10% pie, it will be 0.1 * (2 * PI * 25) = 15.7
+## To ensure the border dash appears only once set the gap size to be the circumference minus the dash length (that is 157 - 15.7 = 141.3).
+*/
+  
+  --new-gotham-white-collar-dash-length: 75.36;
+  --new-gotham-white-collar-gap-size: 81.64;
+
+  --new-gotham-business-dash-length: 28.26;
+  --new-gotham-business-gap-size: 128.74;
+
+  --new-gotham-latino-dash-length: 15.7;
+  --new-gotham-latino-gap-size: 141.3;
+
+  --new-gotham-black-dash-length: 18.84;
+  --new-gotham-black-gap-size: 138.16;
+  
+  --new-gotham-blue-collar-dash-length: 12.56;
+  --new-gotham-blue-collar-gap-size: 144.44;
+  
+  --new-gotham-unemployed-dash-length: 6.28;
+  --new-gotham-unemployed-gap-size: 150.72;
 }
 
 body {
@@ -223,14 +257,14 @@ blockquote + blockquote.attribution {
 #tools_wrapper {
   position: absolute;
   width: 100%;
-  max-width: 69em;
+  max-width: 71em;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
 .tools {
   padding: 0.6em;
-  width: 14rem;
+  width: 15rem;
   color: var(--text-color);
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -743,15 +777,15 @@ table {
 }
 
 .mytooltip:hover { 
-  background-color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 5px #000;
 }
 
 .mytooltip .mytooltiptext {
   position: fixed;
   z-index: 999999;
-  width: 260px;
-  background: #000000;
-  color: #ffffff;
+  width: 360px;
+  background: var(--content-bg-color);
+  color: var(--text-color);
   text-align: left;
   border-radius: 4px;
   padding: 12px 14px;
@@ -806,7 +840,6 @@ table {
   background-color: var(--content-bg-color);
   color: var(--hover-color);
   cursor: pointer;
-  font-family: "Minion Pro", Georgia, serif;
 }
 
 .hiddenbutton:hover {
@@ -926,8 +959,9 @@ video {
 /* text appearing */
 
 .typewriter {
-  font-family: monospace;
   text-align: left;
+  font-size: 1.1em;
+  line-height: 155%;
 }
 
 #crime_history_box {
@@ -1011,3 +1045,91 @@ video {
   transform: translate(-2px, -2px);
 }
 /* Area for dark mode stuff */
+
+.StatusPortraitText {
+  text-align: center;
+}
+
+.StatusPortrait {
+  border-radius: 5px;
+}
+
+
+/* Area for map stuff */
+
+#mapdiv {
+  width: 1460px;
+  height: 852px;
+  background-color: white;
+  margin: auto;
+}
+
+.maptable {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#svg1 {
+  width: 1460px;
+  height: 852px;
+}
+
+#mapNewGothamInfo {
+  display: none;
+}
+
+#newgotham {
+  cursor: pointer;
+}
+
+#path5 {
+  cursor: pointer;
+}
+#shape svg {
+ width: 300px;
+ height: 300px;
+ border-radius: 9999px;
+ background-color: WhiteSmoke;
+}
+
+.hoverpiechartslice:hover {
+  stroke: black;
+}
+
+/* family tab */
+
+.family_button {
+    font-family: "Minion Pro", Georgia, serif;
+    background-color: var(--tab-color);
+    color: var(--text-color);
+    /*float: left;*/
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+  }
+.family_button_fakeactive {
+    font-family: "Minion Pro", Georgia, serif;
+    background-color: var(--content-bg-color);
+    color: var(--text-color);
+    /*float: left;*/
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+}
+.family_button:hover {
+    background-color: var(--tab-hover-color);
+}
+
+.familybutton {
+  position: absolute;
+  right: 1085px;
+  top: 85px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-30deg)
+}

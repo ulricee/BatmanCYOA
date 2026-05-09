@@ -18,15 +18,15 @@ Unlike most of the country, Gotham still possesses a vibrant Newspaper industry 
 - @easy_discard
 
 @dailyplanet
-on-arrival: white_collar_support += 2*(freedom); clark = 1
+on-arrival: white_collar_support_bruce += 2*(freedom); clark = 1
 subtitle: As the Daily planet isn't based in Gotham, it's reach is smaller than other newspaper. It's Liberal leaning appeal generally rest in the middle class of the city. However, it could open us to it's great investigative journalist.
 
 @gothamstar
-on-arrival: unemployed_support += 0.5*(credibility); blue_collar_support += 0.5*(credibility); white_collar_support += 0.5*(credibility); business_support += 0.5*(credibility); black_support += 0.5*(credibility); latino_support += 0.5*(credibility)
+on-arrival: unemployed_support_bruce += 0.5*(credibility); blue_collar_support_bruce += 0.5*(credibility); white_collar_support_bruce += 0.5*(credibility); business_support_bruce += 0.5*(credibility); black_support_bruce += 0.5*(credibility); latino_support_bruce += 0.5*(credibility)
 subtitle: The Gotham Star tries to appeal to the largest amount of people while brandishing impartiality. It cast the broadest net of all papers.
 
 @gothamgazette
-on-arrival: business_support += 0.5*(order); blue_collar_support += 0.2*(order/2)
+on-arrival: business_support_bruce += 0.5*(order); blue_collar_support_bruce += 0.2*(order/2)
 subtitle: The Gotham Gazette conservative bias made it the most popular among business owners and some blue collar workers. Persons that read it tended not to vote for you.
 
 @mediaempire
