@@ -242,6 +242,7 @@ Q.latino_bristol = 3;
 
 // district sizes:
 
+Q.gotham_population = 13000000;
 Q.burnley_size = 30;
 Q.somerset_size = 20;
 Q.new_gotham_size = 12;
@@ -268,7 +269,7 @@ Q.yearly_revenue = (Q.property_taxes) + (Q.income_taxes) + (Q.sales_taxes) + (Q.
 
 Q.approval_rating_honeymoon = 0;
 Q.approval_rating = 50;
-Q.credibility = (40)/10;
+Q.credibility = (50)/10;
 Q.pf = 5;
 Q.budget = (Q.yearly_revenue);
 Q.order = 0;
@@ -276,13 +277,14 @@ Q.freedom = ((Q.order)*(-1));
 Q.batman = 0;
 Q.bruce = ((Q.batman)*(-1));
 Q.approval_rating_bruce = Q.approval_rating;
+Q.sanity = 100;
 
 // Old values 
-Q.approval_rating_old = 50;
-Q.credibility_old = (50)/10;
+Q.approval_rating_bruce_old = 50;
+Q.credibility_old = (20)/10;
 Q.pf_old = 5.0;
 Q.budget_old = 10.0;
-Q.poverty_old = 5;
+Q.poverty_old = 0;
 
 // economic value
 Q.poverty = 5;
@@ -328,9 +330,8 @@ Q.police_attitude = "Punitive";
 Q.police_militarization = 4;
 Q.police_lethality = "Lethal";
 Q.hero_support = "Good";
-Q.arkham_city = 1; 
-Q.we_are_robin = 1;
-Q.suicide_squad = 1;
+Q.arkham_city = 0; 
+Q.we_are_robin = 0;
 Q.county_prosecutor = "Harvey Dent";
 Q.judges = "BLANK";
 Q.jury = "BLANK";
@@ -343,6 +344,47 @@ Q.distribution_detective = 2;
 Q.distribution_community = 1;
 Q.distribution_outrech = 1;
 
+// Criminal Gang
+// All values are 1-200
+// 100-200 considered exceptional. Crisis level stuff.
+// Modifiers are required to influence harder
+
+Q.gangs = ['penguin', 'falcone', 'black_mask', 'ventriloquist', 'white_shark', 'snapjaw']
+
+Q.penguin_size = 35;
+Q.penguin_resources = 50;
+Q.penguin_organisation = 80;
+
+Q.falcone_size = 40;
+Q.falcone_resources = 40;
+Q.falcone_organisation = 60;
+
+Q.black_mask_size = 1;
+Q.black_mask_resources = 40;
+Q.black_mask_organisation = 60;
+
+Q.ventriloquist_size = 90;
+Q.ventriloquist_resources = 20;
+Q.ventriloquist_organisation = 5;
+Q.ventriloquist_psycho = 10;
+
+Q.white_shark_size = 10;
+Q.white_shark_resources = 10;
+Q.white_shark_organisation = 50;
+Q.white_shark_danger = 10;
+
+Q.snapjaw_size = 20;
+Q.snapjaw_resources = 30;
+Q.snapjaw_organisation = 60;
+Q.snapjaw_danger = 1;
+
+Q.penguin_trouble = (Q.penguin_size)*(Q.penguin_resources)*(Q.penguin_organisation)/10000
+Q.falcone_trouble = (Q.falcone_size)*(Q.falcone_resources)*(Q.falcone_organisation)/10000
+Q.black_mask_trouble =  (Q.black_mask_size)*(Q.black_mask_resources)*(Q.black_mask_organisation)/10000
+Q.ventriloquist_trouble = (Q.ventriloquist_size)*(Q.ventriloquist_resources)*(Q.ventriloquist_organisation)*(Q.ventriloquist_psycho)/10000
+Q.white_shark_trouble = (Q.white_shark_size)*(Q.white_shark_resources)*(Q.white_shark_organisation)*(Q.white_shark_danger)/10000
+Q.snapjaw_trouble =  (Q.snapjaw_size)*(Q.snapjaw_resources)*(Q.snapjaw_organisation)*(Q.snapjaw_danger)/10000
+
 
 // Police Equipment
 // 
@@ -352,16 +394,17 @@ Q.distribution_outrech = 1;
 
 
 
-// Suicide Squad Personnel
+// Suicide Squad
 
-Q.suicide_bane = 1;
-Q.suicide_killer_croc = 1;
-Q.suicide_polka = 1;
-Q.suicide_kite = 1;
-Q.suicide_catman = 1;
-Q.suicide_clue = 1;
-Q.suicide_boomerang = 1;
-Q.suicide_catwoman = 1;
+Q.suicide_squad = 0;
+Q.suicide_bane = 0;
+Q.suicide_killer_croc = 0;
+Q.suicide_polka = 0;
+Q.suicide_kite = 0;
+Q.suicide_catman = 0;
+Q.suicide_clue = 0;
+Q.suicide_boomerang = 0;
+Q.suicide_catwoman = 0;
 
 Q.suicide_bane_status = "Active";
 Q.suicide_killer_croc_status = "Active";
@@ -593,99 +636,243 @@ Q.economic_records = [];
 Q.crime_records = [{date: 'Wed Jan 1 1990',
   crime: 80,
   police: 84,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Feb 1 1990',
   crime: 81,
   police: 85,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Mar 1 1990',
   crime: 79,
   police: 84,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Apr 1 1990',
   crime: 75,
   police: 86,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed May 1 1990',
   crime: 80,
   police: 86,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jun 1 1990',
   crime: 79,
   police: 87,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jul 1 1990',
   crime: 82,
   police: 84,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Aug 1 1990',
   crime: 85,
   police: 84,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Sep 1 1990',
   crime: 86,
   police: 88,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Oct 1 1990',
   crime: 88,
   police: 88,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Nov 1 1990',
   crime: 90,
   police: 88,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Dec 1 1990',
   crime: 91,
   police: 88,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 
 {date: 'Wed Jan 1 1991',
   crime: 92,
   police: 90,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Feb 1 1991',
   crime: 100,
   police: 91,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Mar 1 1991',
   crime: 101,
   police: 100,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Apr 1 1991',
   crime: 300,
   police: 100,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed May 1 1991',
   crime: 300,
   police: 70,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jun 1 1991',
   crime: 300,
   police: 50,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jul 1 1991',
   crime: 300,
   police: 100,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Aug 1 1991',
   crime: 300,
   police: 110,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Sep 1 1991',
   crime: 300,
   police: 111,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Oct 1 1991',
   crime: 300,
   police: 115,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Nov 1 1991',
   crime: 300,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Dec 1 1991',
   crime: 200,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 
 
@@ -693,105 +880,255 @@ Q.crime_records = [{date: 'Wed Jan 1 1990',
 {date: 'Wed Jan 1 1992',
   crime: 150,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Feb 1 1992',
   crime: 140,
   police: 140,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Mar 1 1992',
   crime: 130,
   police: 139,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Apr 1 1992',
   crime: 120,
   police: 135,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed May 1 1992',
   crime: 100,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jun 1 1992',
   crime: 99,
   police: 120,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Jul 1 1992',
   crime: 98,
   police: 118,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Aug 1 1992',
   crime: 99,
   police: 119,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Sep 1 1992',
   crime: 98,
   police: 125,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Oct 1 1992',
   crime: 99,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Nov 1 1992',
   crime: 100,
   police: 140,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Dec 1 1992',
   crime: 99,
   police: 139,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 
 
 {date: 'Wed Jan 1 1993',
   crime: 98,
   police: 138,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 0,
 },
 {date: 'Wed Feb 1 1993',
   crime: 97,
   police: 137,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Mar 1 1993',
   crime: 96,
   police: 136,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Apr 1 1993',
   crime: 95,
   police: 135,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed May 1 1993',
   crime: 96,
   police: 134,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Jun 1 1993',
   crime: 95,
   police: 133,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Jul 1 1993',
   crime: 94,
   police: 132,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Aug 1 1993',
   crime: 95,
   police: 131,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Sep 1 1993',
   crime: 95,
   police: 131,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Oct 1 1993',
   crime: 97,
   police: 130,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Nov 1 1993',
   crime: 98,
   police: 129,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 {date: 'Wed Dec 1 1993',
   crime: 99,
   police: 128,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 
 {date: 'Wed Jan 1 1994',
   crime: 96,
   police: 125,
+  penguin: 34,
+  falcone: 29.6,
+  black_mask: 0.24,
+  white_shark: 15,
+  snapjaw: 3.6,
+  ventriloquist: 9,
 },
 ];
 
@@ -923,56 +1260,6 @@ new-page: true
 @1994_debug
 on-arrival:  {!
   Q.difficulty = -2
-
-
-if (Q.approval_rating > Q.approval_rating_old)   {
-    Q.approval_rating_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
-    Q.approval_rating_up = 1;
-} else { 
-    Q.approval_rating_up = 0;
-}
-
-if (Q.credibility > Q.credibility_old) {
-    Q.credibility_up = 2;
-} else if (Q.credibility_old == Q.credibility) {
-    Q.credibility_up = 1;
-} else { 
-    Q.credibility_up = 0;
-}
-
-if (Q.pf > Q.pf_old) {
-    Q.pf_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
-    Q.pf_up = 1;
-} else { 
-    Q.pf_up = 0;
-}
-
-if (Q.budget > Q.budget_old) {
-    Q.budget_up = 2;
-} else if (Q.budget_old == Q.budget) {
-    Q.budget_up = 1;
-} else { 
-    Q.budget_up = 0;
-}
-
-
-if (Q.poverty > Q.poverty_old) {
-    Q.poverty_up = 2;
-} else if (Q.poverty_old == Q.poverty) {
-    Q.poverty_up = 1;
-} else { 
-    Q.poverty_up = 0;
-}
-
-Q.approval_rating_old = Q.approval_rating;
-Q.credibility_old = Q.credibility;
-Q.pf_old = Q.pf;
-Q.budget_old = Q.budget;
-Q.poverty_old = Q.poverty;
-
-
 !}
 go-to: election_1994
 

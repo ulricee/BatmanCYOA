@@ -286,7 +286,7 @@ function applyWholesome(str) {
             tabButtons[i].className = tabButtons[i].className.replace(' active', '');
         }
         tabButton.className += ' active';
-
+        
         if (isRight) {
             window.statusTabRight = newTab;
             window.updateSidebarRight();
