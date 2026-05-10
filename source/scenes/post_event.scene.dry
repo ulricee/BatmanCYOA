@@ -279,12 +279,12 @@ var character = 'bruce'
 
 // Checking old values to give arrow displays
 
-if (Q.approval_rating > Q.approval_rating_old)   {
-    Q.approval_rating_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
-    Q.approval_rating_up = 1;
+if (Q.approval_rating_bruce > Q.approval_rating_bruce_old)   {
+    Q.approval_rating_bruce_up = 2;
+} else if (Q.approval_rating_bruce_old == Q.approval_rating_bruce) {
+    Q.approval_rating_bruce_up = 1;
 } else { 
-    Q.approval_rating_up = 0;
+    Q.approval_rating_bruce_up = 0;
 }
 
 if (Q.credibility > Q.credibility_old) {
@@ -297,7 +297,7 @@ if (Q.credibility > Q.credibility_old) {
 
 if (Q.pf > Q.pf_old) {
     Q.pf_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
+} else if (Q.pf_old == Q.pf) {
     Q.pf_up = 1;
 } else { 
     Q.pf_up = 0;
@@ -335,11 +335,15 @@ if (Q.poverty > Q.poverty_old) {
 
 
 
-Q.approval_rating_bruce_old = Q.approval_rating;
+Q.approval_rating_bruce_old = Q.approval_rating_bruce;
 Q.credibility_old = Q.credibility;
 Q.pf_old = Q.pf;
 Q.budget_old = Q.budget;
 Q.poverty_old = Q.poverty;
+
+Q.credibility_display = (Q.credibility).toFixed(1)
+
+Q.freedom = (Q.order)*(-1)
 
 // Reducing approval rating honeymoon every moonth.
 if (Q.approval_rating_honeymoon > 0) {

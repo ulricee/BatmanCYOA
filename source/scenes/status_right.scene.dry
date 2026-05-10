@@ -737,6 +737,19 @@ On the entire city, this gives us {!<b>!}[+ latino_bristol_city_bruce_display +]
 
 @debug
 
+Penguin Trouble: [+ penguin_trouble +]
+
+Falcone Trouble: [+ falcone_trouble +]
+
+Ventriloquist: [+ ventriloquist_trouble +]
+
+Black Mask: [+ black_mask_trouble +]
+
+White Shark: [+ white_shark_trouble +]
+
+Snapjaw: [+ snapjaw_trouble +]
+
+
 Seat 1: [+ seat1_district +] [+ seat1_district_alignment +]
 
 Seat 2: [+ seat2_district +] [+ seat2_district_alignment +]
