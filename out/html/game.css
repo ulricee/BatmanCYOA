@@ -6,41 +6,6 @@
   --bruce-latino-bar-width: 0%;
   --bruce-unemployed-bar-width: 0%;
   --bruce-swing-bar-width: 0%;
-
-  /* Pie charts */
-
-
-  /* New Gotham Pie Chart*/
-
-/*
-Q.unemployed_new_gotham = 4;
-Q.blue_collar_new_gotham = 8;
-Q.white_collar_new_gotham = 48;
-Q.business_new_gotham = 18;
-Q.black_new_gotham = 12;
-Q.latino_new_gotham = 10;
-
-## The dash length will be the percentage of the circumference. For example, to draw 10% pie, it will be 0.1 * (2 * PI * 25) = 15.7
-## To ensure the border dash appears only once set the gap size to be the circumference minus the dash length (that is 157 - 15.7 = 141.3).
-*/
-  
-  --new-gotham-white-collar-dash-length: 75.36;
-  --new-gotham-white-collar-gap-size: 81.64;
-
-  --new-gotham-business-dash-length: 28.26;
-  --new-gotham-business-gap-size: 128.74;
-
-  --new-gotham-latino-dash-length: 15.7;
-  --new-gotham-latino-gap-size: 141.3;
-
-  --new-gotham-black-dash-length: 18.84;
-  --new-gotham-black-gap-size: 138.16;
-  
-  --new-gotham-blue-collar-dash-length: 12.56;
-  --new-gotham-blue-collar-gap-size: 144.44;
-  
-  --new-gotham-unemployed-dash-length: 6.28;
-  --new-gotham-unemployed-gap-size: 150.72;
 }
 
 body {
@@ -688,10 +653,7 @@ table {
     text-decoration-style: dotted;
 }
 
-
-
-
-  /* Testing advice board PLEASE UPDATE THE VARIABLES LATER BRO DONT USE THESE NAMES */
+/* Testing advice board PLEASE UPDATE THE VARIABLES LATER BRO DONT USE THESE NAMES */
 
 .adviceboard {
   display: flex; 
@@ -700,13 +662,39 @@ table {
   justify-content: flex-start;
   align-content: space-between;
   border-radius: 10px;
+  height: 25em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+.advicesection {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: space-between;
+  border: 1px solid rgb(179, 179, 179);
 }
 
 .advice_img {
     float: left;
-    max-width: 60%;
-    max-height: 60%;
+    max-width: 40%;
+    max-height: 40%;
+    padding: 5px;
 }
+
+.advisorname {
+  position: relative;
+  overflow: visible;
+  word-break: keep-all;  
+  width: 200%;
+  right: 10px;
+}
+
+.advisorspeech {
+  font-size: 1em;
+  line-height: 100%;
+}
+
 .advice_text {
   width: 100%;
 }
@@ -777,7 +765,7 @@ table {
 }
 
 .mytooltip:hover { 
-  text-shadow: 0px 0px 5px #000;
+  text-shadow: 2px 2px 5px #000;
 }
 
 .mytooltip .mytooltiptext {
@@ -838,12 +826,14 @@ table {
 .hiddenbutton {
   border: 0px;
   background-color: var(--content-bg-color);
-  color: var(--hover-color);
+  color: var(--text-color);
   cursor: pointer;
 }
 
 .hiddenbutton:hover {
   color: var(--hover-color);
+  box-shadow: 4px 4px black;
+
 }
 
 #hiddenbudget {
@@ -885,6 +875,22 @@ table {
   display: none;
 }
 
+#hiddenPolice {
+  display: none;
+}
+
+#hiddenCriminals {
+  display: none;
+}
+
+#hiddenJustice {
+  display: none;
+}
+
+#hiddenSquads {
+  display: none;
+}
+
 #mainwrapper {
   color: var(--text-color);
   background-color: var(--content-bg-color);
@@ -920,9 +926,18 @@ table {
    text-align: center;
 }
 
+.ideologybruce {
+  text-align: center;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes scroll-horizontal {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
 }
 
 video {
@@ -960,7 +975,7 @@ video {
 
 .typewriter {
   text-align: left;
-  font-size: 1.1em;
+
   line-height: 155%;
 }
 
@@ -1060,15 +1075,18 @@ video {
 #mapdiv {
   width: 1460px;
   height: 852px;
-  background-color: white;
+  background-color: var(--tab-bg-color);
   margin: auto;
 }
 
 .maptable {
+  background-color: var(--tab-bg-color);
+  border: 3px dashed var(--border-color);
   margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-x: scroll;
+}
+.maptable table, th, td {
+  border: 1px solid var(--content-bg-color);
 }
 
 #svg1 {
@@ -1094,9 +1112,12 @@ video {
  background-color: WhiteSmoke;
 }
 
-.hoverpiechartslice:hover {
-  stroke: black;
+.mapgraphcontainer {
+  display: flex;
+  text-align: horizontal
+
 }
+
 
 /* family tab */
 
@@ -1132,4 +1153,93 @@ video {
   width: 40px;
   height: 40px;
   transform: rotate(-30deg)
+}
+
+#game-title {
+  color: white;
+  position: relative;
+  right: 200px;
+  margin: auto;
+}
+
+input {
+  background-color: var(--content-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+
+.ideologybar {
+  background: #e8d35f;
+  background: linear-gradient(90deg,rgba(232, 211, 95, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(42, 123, 155, 1) 100%);
+  border: 2px solid black;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.gradientideology {
+    background: #e8d35f;
+  background: linear-gradient(90deg,rgba(232, 211, 95, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(42, 123, 155, 1) 100%);
+  border: 1px solid white;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.marker {
+  position: relative;
+  background: white;
+  border: 2px solid black;
+  width: 10px;
+  height: 20px;
+  border-radius: 4px;
+  margin: 0 auto;
+  bottom: 8px;
+}
+
+.identitybar {
+  border: 2px solid black;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.identitygradient {
+  background: #abd4f5;
+  background: linear-gradient(90deg,rgba(171, 212, 245, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(0, 52, 69, 1) 100%);
+  border: 1px solid white;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.markeridentity {
+  position: relative;
+  background-color: white;
+  border: 2px solid black;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  left: 50%;
+  bottom: 3px;
+}
+
+
+
+.newsbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.newsbutton {
+  background-color: var(--tab-bg-color);
+  border: 5px solid var(--card-border-color);
+  color: var(--text-color);
+  width: 10em;
+
 }

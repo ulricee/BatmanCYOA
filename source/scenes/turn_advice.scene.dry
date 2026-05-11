@@ -4,27 +4,63 @@ is-special: true
 
 = Advice Board
 
-{!
+[? if year == 1994 and month == 1 : {!
     <div class="adviceboard">
-    <div class="fleximg">
-        <img src="img/portraits/james_gordon.png" class="advice_img">
-        <div class="fleximg2">
-            <p class="advice_text"><b>James Gordon:</b></p>
-            <p>Hi Batman
-               tougher on crime pls</p>
+
+        <div class="advicesection">
+            <div class="fleximg">
+                <img src="img/portraits/DickGrayson.png" class="advice_img">
+            </div>
+       
+            <div class="advicetextcontainer">
+                <p class="advisorname"><b>Dick Grayson</b></p>
+
+                <p class="advisorspeech">You're on the top of the world now. I'm certain you know what to do.</p>
+            </div>
         </div>
-    </div>
-    <div class="fleximg">
-        <img src="img/portraits/james_gordon.png" class="advice_img">
-        <div class="fleximg2">
-            <p class="advice_text"><b>James Gordon:</b></p>
-            <p>Hi Batman
-               tougher on crime pls</p>
+
+        <div class="advicesection">
+            <div class="fleximg">
+                <img src="img/portraits/TimDrake.png" class="advice_img">
+            </div>
+       
+            <div class="advicetextcontainer">
+                <p class="advisorname"><b>Tim Drake</b></p>
+
+                <p class="advisorspeech">Huh...I always knew you'd win it, Bruce! It's just, a lot to take in right now...</p>
+            </div>
         </div>
-    </div>
+
+        <div class="advicesection">
+            <div class="fleximg">
+                <img src="img/portraits/HarveyDent.png" class="advice_img">
+            </div>
+       
+            <div class="advicetextcontainer">
+                <p class="advisorname"><b>Harvey Dent</b></p>
+
+                <p class="advisorspeech">I sent you a compiled list of the Rogues that have yet to be put behind bars. You should consult it.</p>
+            </div>
+        </div>
+
+        <div class="advicesection">
+            <div class="fleximg">
+                <img src="img/portraits/rupert_thorne.png" class="advice_img">
+            </div>
+       
+            <div class="advicetextcontainer">
+                <p class="advisorname"><b>Rupert Thorne</b></p>
+
+                <p class="advisorspeech">I know we've had our issues in the past, Mr.Wayne. However, I'm certain we can create a constructive relationship.</p>
+            </div>
+        </div>
+
+
+
     </div>
 
 !}
 
 
 
+?]

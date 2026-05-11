@@ -21,6 +21,7 @@ document.getElementById("idAudio").pause();
 document.getElementById("idAudio").src = "audio/sfx/gun.wav";
 document.getElementById("idAudio").play();
 
+
 !}
 set-bg: img/background/white.jpg
 go-to: bang1choice
@@ -54,13 +55,24 @@ set-bg: img/background/black.jpg
 on-display: {!
     const element = document.querySelector('.dialogue1');
     speak(element, .7);
+
+    document.getElementById("clicktest").addEventListener("click", function(){
+        skip();
+});    
+
+killfunction = function() {
+    document.getElementsByClassName('choices').style.display = 'none'
+}
+
 !}
 set-bg: img
 
 = 1967, alone.
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue1">!}
+{!<button onclick="killfunction();">!}aa{!</button>!}
+
+{!
+<div class="typewriter dialogue1" id="clicktest">!}
 
 Life ended this day, the life that you knew, everything that you had known was shattered by six bullets, two and four in your two parents.
 
@@ -68,8 +80,7 @@ Blood spilled on the pavement, the wind ripping away the last warmth you felt, y
 
 As you moved home, your life had been irrevocably derailed, you needed to find one way out.
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @promises: Debug skip to promises.
 - @1967_justice: You needed to bring those that would do such a thing to justice.
@@ -92,20 +103,17 @@ go-to: 1979
 
 @1979
 new-page: true
-on-arrival: {!
-    skip();
-!}
 on-display: {!
-
-    skip();
+    
     const element2 = document.querySelector('.dialogue2');
     speak(element2, .7);
 
 !}
 set-bg: img/background/himalayas.jpg
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue2">!}
+= 1979, In the Dragon's den
+
+{!<div class="typewriter dialogue2">!}
 
 As the years sharpened you, Alfred was always by your side to guide you into a much better man than you would have been without him, you eventually found that if anything ought to change, you had to emancipate from him to fight for justice.
 
@@ -115,8 +123,7 @@ They had seen much potential in you and gave you the opportunity to finally have
 
 You only had to prove yourself against one of them.
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @intro_david: You trained with the arm of the demon
 - @intro_talia: You trained with daughter of the demon
@@ -140,14 +147,14 @@ new-page: true
 set-bg: img/background/leagueofassassins.jpg
 on-display: {!
 
-    skip();
     const element3 = document.querySelector('.dialogue3');
     speak(element3, .7);
 
 !}
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue3">!}
+= 1980, In the court of the underking
+
+{!<div class="typewriter dialogue3">!}
 
 In the year of grueling training under the guidance of the demon's head, Ra's al Ghul, you've found yourself to be his most apt student.
 
@@ -167,8 +174,7 @@ yet,
  
 with time, with recollection… You found something good to be taken from the schools of Chinese thought.
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @dao: I found Echo in the Dao. Life is an eternal flow that can never be severed, only guided one way or another toward a great whole in an eternal metamorphosis.
 - @confucius: I found Duty in Kong Fuzi's teachings. Each person has a duty to serve the other and harmony may be reached once each achieves virtue.
@@ -212,11 +218,11 @@ on-display: {!
     skip();
     const element4 = document.querySelector('.dialogue4');
     speak(element4, .7);
-
 !}
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue4">!}
+= 1981, David’s escape:
+
+{!<div class="typewriter dialogue4">!}
 
 As you became David's trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other. 
 
@@ -225,7 +231,7 @@ One night, he would come to you to inform you of his immediate leaving of the Le
 While he trusted the goals of Ra's, he could no longer stand by its methods and is advising you to do the same.
 
 {!</div>
-</button>!}
+!}
 
 - @stop_david: You tried to stop Him, Physically.
 - @talk_david: You tried to talk him out of his plan.
@@ -259,8 +265,9 @@ on-display: {!
 
 !}
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue4">!}
+= 1982, The Fading Dragon
+
+{!<div class="typewriter dialogue4">!}
 
 You entered a tight circle around Ra's. While your position with him never fully matched one to one, there is trust between the two of you that was built. 
 
@@ -274,8 +281,7 @@ In the distance, a body was set inside, disheveled and… In barely a few instan
 
 Silence returned to the room, as he marched toward you, you spoke to him, but in a way, he was now already faded where he stood.
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @ra_talia: Ra's as already prepared for it, Talia will be ready to succeed her father.
 - @ra_shiva: Shiva is right. Someone needs to take his place. Maybe she could be it?
@@ -308,14 +314,12 @@ on-display: {!
 
     skip();
     const element5 = document.querySelector('.dialogue5');
-    speak(element5, .5);
-
+    speak(element5, .7);
 !}
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue5">!}
+{!<div class="typewriter dialogue5">!}
 
-= Taking the Cowl
+= 1982, Taking the Cowl
 
 It’s been a few weeks since you’ve returned to Gotham. 
 
@@ -372,8 +376,7 @@ driving me forward.”
 
 “What does this cowl mean?”
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @liberty: Saying Yes to anyone in Authority, anyone with a badge. My parents taught me something else, lying cold on the pavement. They taught me that the world only makes sense when you force it to.
 - @order: Nothing helps one put problems in perspective like allegiance to a higher cause. The Law provides that a man is innocent until proven guilty, and we must abide by it.
@@ -401,10 +404,9 @@ on-display: {!
 
 !}
 
-= The Phantasm
+= 1983, The Phantasm
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue6">!}
+{!<div class="typewriter dialogue6">!}
 
 Andrea. She was the first to see through the dark.
 
@@ -430,8 +432,7 @@ I loved her once. Some part of me still does. She can’t see that which drove h
 
 Now, she’s ready to go on her own, to find herself while I find myself. We may not see each other again for years, yet there's something lingering…
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @phantasm_feeling: We’re out of touch, out of touch with ourselves, with each other. Still, I have hope time will bring what each of us needs. One day, we’ll find a middle where we will see each other.
 - @phantasm_order: We knew each other well, just not well enough. What we learned pulled us closer, what we now know is driving us apart. I hope she finds herself, but I don’t think we can reconcile. I can’t let my emotions drive me to ignore what I would never allow for anyone else.
@@ -461,8 +462,7 @@ on-display: {!
 
 !}
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue7">!}
+{!<div class="typewriter dialogue7">!}
 
 = The Grayson's 
 
@@ -484,8 +484,7 @@ He only had to swear on it, before me, before the city.
 
 Two heroes in the night. 
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @grayson_righteous: …And swear that we two will fight together against crime and corruption and never swerve from the path of righteousness.
 - @grayson_liberty: …And swear that we two will fight together against crime and corruption and never swerve from the path of Justice.
@@ -505,15 +504,14 @@ new-page: true
 on-display: {!
 
     skip();
-    const element7 = document.querySelector('.dialogue8');
-    speak(element7, .7);
+    const element8 = document.querySelector('.dialogue8');
+    speak(element8, .7);
 
 !}
 
 = Harvey Dent
 
-{!<button class="hiddenbutton" onclick="skip();">
-<div class="typewriter dialogue8">!}
+{!<div class="typewriter dialogue8">!}
 
 The fight for justice is a lonely battle. Yet, the knowledge that someone is beside you, someone will help, it’s something that allows each night to feel a bit more tranquil than they would have usually been.
 
@@ -527,8 +525,7 @@ As you mentioned the strange case of the Graysons, he assured you to do all he c
 
 Still, even if the wider system remains broken and tension seems to be rising between Dick and Harvey. The proof of concept is here. On the ground and on the pulpit, the power it truly had was clear as day. You only had to own it, to work out the kinks.
 
-{!</div>
-</button>!}
+{!</div>!}
 
 - @harvey_law: I think our main goal, before any other, should be to work on those issues of the law. So many crimes are being committed each day, we would do a disservice not to act now and act decisively.
 - @harvey_relation: I think that if such a relationship is to remain strong, I have to keep tighter contact with Harvey. He is a massive asset and he needs to be cherished considering what happened to others in the past.
@@ -585,7 +582,7 @@ on-arrival: damian_exists = 1; talia_relationship -= 100
 go-to: 1985_middle
 
 @talia_here
-on-arrival: talia-here += 10; damian_exists = 1
+on-arrival: talia_relationship += 10; damian_exists = 1
 go-to: 1985_middle
 
 @talia_idk

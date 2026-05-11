@@ -12,6 +12,8 @@ if (Q.advisor_action_timer <= 0) {
 
 Q.onmain = 1
 
+Q.freedom = ((Q.order)*(-1));
+
 // changing to normal from dark knight version
 
     const toolsWrapper = document.getElementById('tools_wrapper');
@@ -38,6 +40,7 @@ Q.horse_music = 1;
 
 
 }
+    window.batphone();
 
 !}
 on-departure: {!
@@ -96,6 +99,7 @@ if (Q.horse_music == 0) {
     video.style.display = 'none';
   }
 
+Q.freedom = ((Q.order)*(-1));
 
 
 document.getElementById("idAudio").pause();
@@ -131,11 +135,58 @@ max-cards: 9
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
+
 {!<div class="scrollable-box">!}
 
 {!<p class="both">!}[? if year = 1994 and month = 1: After an easier than expected electoral triumph against Quincy Sharp, you now have powers greater than you've ever seen before to change everything inside of Gotham.<br><br>However, power is never without its cost. For every power gained, a reflection imparts its influence on something else. If power doesn't corrupts you, it will corrupt someone else.<br><br>Yet, as the stakes have never been higher, it is on you to finally break the cycle. Gotham's fate was never a fatality.?]{!</p>!}
 
 {!</div>!}
+
+{!
+    
+<div style="
+  width:100%;
+  height:20px;
+  overflow:hidden;
+  position:relative;
+  background-color: #141414;
+">
+  <div style="
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    perspective:none;
+  ">
+    <div style="
+      white-space:nowrap;
+      width:auto;
+      font-family:Inter, sans-serif;
+      font-size:10px;
+      color:#ffffff;
+      line-height:1.6;
+      text-align:center;
+      animation:scroll-horizontal 22.96s linear infinite;
+      transform-style:preserve-3d;
+      transform-origin:50% 100%;
+    ">
+      Gang Massacre: 20 found dead in Crime Alley following all out brawl. The police is on the search. Commissioner James Gordon has promised closer police oversight of the area.               As the year begins, inflation nationwide seems to be increasing at a rate of 2.56%.
+
+
+    </div>
+  </div>
+</div>
+!}
+
+{!<div class="newsbar">
+
+<button class="newsbutton">Gotham Gazette</button>
+<button class="newsbutton">Gotham Star</button>
+<button class="newsbutton">The Daily Planet</button>
+</div>
+!}
+
 
 - @business
 - @city

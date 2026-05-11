@@ -290,7 +290,87 @@ function demographicDistrictSupport() {
     }
   }
 
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_' + district + '_support_display'] = Q[c + '_' + party + '_' + district + '_support'].toFixed(1);
 
+      }
+
+    }
+  }
+  // Calculate total
+  
+  for (var district of Q.districts) {
+    for (var party of Q.parties) {
+      for (var c of Q.classes) {
+        Q[party + '_' + district + '_total_support'] = 0;
+      }
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var party of Q.parties) {
+      for (var c of Q.classes) {
+        Q[party + '_' + district + '_total_support'] += Q[c + '_' + party + '_' + district + '_support'];
+      }
+    }
+  }
+
+  
+  for (var district of Q.districts) {
+    for (var party of Q.parties) {
+      for (var c of Q.classes) {
+        Q[party + '_' + district + '_total_support_display'] = Q[party + '_' + district + '_total_support'].toFixed(1);
+      }
+    }
+  }
+
+
+// Figure out the numbers of people
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_' + district + '_number'] = (((Q[c + '_' + party])*((Q[c + '_' + district])/100))/100)*((Q.gotham_population)*(Q[district + '_size']/100));
+
+      }
+
+    }
+  }
+
+  // Display numbers of people into format of 100.1k
+
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_' + district + '_number_display'] = (Q[c + '_' + party + '_' + district + '_number']/1000).toFixed(1);
+
+      }
+
+    }
+  }
+
+// See party support %
+
+ for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_' + district + '_percent'] = (Q[c + '_' + party + '_' + district + '_support'])/(Q[c + '_' + district]);
+      }
+    }
+  }
+
+
+
+ for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      for (var party of Q.parties) {
+        Q[c + '_' + party + '_' + district + '_percent_display'] = (Q[c + '_' + party + '_' + district + '_percent']*100).toFixed(1);
+      }
+    }
+  }
 // Per Character
 
   for (var district of Q.districts) {
@@ -574,6 +654,50 @@ on-arrival: {!
   for (var c of Q.classes) {
       Q[c +'_support_old_bruce'] = Q[c + '_support_bruce'];
   }
+
+
+
+if (Q.approval_rating_bruce > Q.approval_rating_bruce_old)   {
+    Q.approval_rating_bruce_up = 2;
+} else if (Q.approval_rating_bruce_old == Q.approval_rating_bruce) {
+    Q.approval_rating_bruce_up = 1;
+} else { 
+    Q.approval_rating_bruce_up = 0;
+}
+
+if (Q.credibility > Q.credibility_old) {
+    Q.credibility_up = 2;
+} else if (Q.credibility_old == Q.credibility) {
+    Q.credibility_up = 1;
+} else { 
+    Q.credibility_up = 0;
+}
+
+if (Q.pf > Q.pf_old) {
+    Q.pf_up = 2;
+} else if (Q.pf_old == Q.pf) {
+    Q.pf_up = 1;
+} else { 
+    Q.pf_up = 0;
+}
+
+if (Q.budget > Q.budget_old) {
+    Q.budget_up = 2;
+} else if (Q.budget_old == Q.budget) {
+    Q.budget_up = 1;
+} else { 
+    Q.budget_up = 0;
+}
+
+
+if (Q.poverty > Q.poverty_old) {
+    Q.poverty_up = 2;
+} else if (Q.poverty_old == Q.poverty) {
+    Q.poverty_up = 1;
+} else { 
+    Q.poverty_up = 0;
+}
+
 
 !}
 go-to: root.1994_main

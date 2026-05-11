@@ -14,18 +14,41 @@ on-display: {!
       }
 };
 
+    document.getElementById("mayorbudgetshow").addEventListener("click", function(){
+        const resultsDiv = document.getElementById('hiddenbudget');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+    })
+
+
 !}
 
 = [+ month : month +] [+ year +]
 
-{!<img src="img/portraits/bruce.webp" class="StatusPortrait">!}
+{!<img src="img/portraits/bruce.webp" class="StatusPortrait" onclick="enableBatmanMode()">!}
 
 
 {!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
 {!</div>!}
 
-[+ ideology_support_status_bruce +]
+{!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
+
+
+{!<div class="ideologybar">
+
+    <div class="gradientideology">
+            <div class="marker">
+            </div>
+    </div>
+
+<span></span>
+
+</div>!}
 
 Approval Rate: {!<b>!}
 [? if approval_rating_bruce >= 0 and approval_rating_bruce < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
@@ -54,20 +77,21 @@ Approval Rate: {!<b>!}
 {!</span></b>!}
 
 Credibility: 
-[? if credibility == 5 : {!<span style="color: #000; text-decoration-line: underline;">!}?]
-[? if credibility < 5 : {!<span style = "color: #000; text-decoration-line: underline;">!}?]
-[+ credibility +]
+[? if credibility == 5 : {!<span style="color: #1a5c00; text-decoration-line: underline;">!}?]
+[? if credibility < 5 : {!<span style = "color: #2f922c; text-decoration-line: underline;">!}?]
+[+ credibility +].0
 {!</span>!}% 
 [? if credibility_up == 2 : ↑ ?]
 [? if credibility_up == 1 : → ?]
 [? if credibility_up == 0 : ↓ ?]
 
-Personal Funds: {!<span>!}[+ pf +]{!</span>!} 
+Personal Funds: {!<span style = "color: #2f922c; text-decoration-line: underline;">!}[+ pf +].0{!</span>!} 
 [? if pf_up == 2 : ↑ ?]
 [? if pf_up == 1 : → ?]
 [? if pf_up == 0 : ↓ ?]
 
-{!<button onclick="displayMayorBudget()" class="hiddenbutton">!}Mayoral Budget: {!<span>!}[+ budget +]{!</span></button>!}
+
+{!<span id="mayorbudgetshow" class="hiddenbutton">!}Mayoral Budget: {!<span>!}{!<span style = "color: #75cc72; text-decoration-line: underline;">!}[+ budget +].0{!</span>!}
 [? if budget_up == 2 : ↑ ?]
 [? if budget_up == 1 : → ?]
 [? if budget_up == 0 : ↓ ?]
@@ -95,17 +119,24 @@ Poverty Rate: [+ poverty : poverty +]
 [? if poverty_up == 1 : → ?]
 [? if poverty_up == 0 : ↓ ?]
 
-Economic Situation: Fragile Balance ↑
-
-Order: [+ order +]
-
-Freedom: [+ freedom +]
+Economic Situation: {!<b><span style = "color: #ffcc24;">!}Fragile Balance{!</span></b>!} ↑
 
 {!<hr>!}
 
 Identity: Batman
 
+{!<div class="identitybar">
+    <div class="identitygradient">
+        <div class="markeridentity"></div>
+    </div>
+<span></span>
+
+</div>!}
+
+
 Moral Compass: [+ moral_compass : moral_compass +]
+
+Sanity: [+ sanity +]
 
 @politics
 
@@ -163,10 +194,10 @@ on-display: {!
 
     var minCrime = d3.min(Q.crime_records, d => d.crime);
     var maxPolice = d3.min(Q.crime_records, d => d.crime);
-    var lines_3 = d3.linegraph(true, true, ['crime', 'police'],
-            {'crime': '#ff0000', 'police': '#001aff'},
-            {'crime': 'Crime', 'police': 'Police Spending'},
-            maxPolice + 70, minCrime - 10, 21);
+    var lines_3 = d3.linegraph(true, true, ['crime', 'police', 'penguin', 'falcone', 'ventriloquist', 'black_mask', 'white_shark', 'snapjaw'],
+            {'crime': '#ff0000', 'police': '#001aff', 'penguin': '#40008a', 'falcone': '#ffffff', 'ventriloquist': '#7f9e83', 'white_shark': '#b88686', 'snapjaw': '#0f5c38'},
+            {'crime': 'Crime', 'police': 'Police Spending', 'penguin': 'Penguin', 'falcone': 'Falcone', 'ventriloquist': 'The Ventriloquist', 'white_shark': 'White Shark', 'snapjaw': 'Snapjaw Gang'},
+            maxPolice + 70, minCrime - 75, 21);
     lines_3.width(width).height(300);
     d3.select("#crime_history2").datum(Q.crime_records).call(lines_3);
 
@@ -187,18 +218,63 @@ on-display: {!
         document.getElementById('crime_history_box').attachEvent('onmousewheel', scrollHorizontally);
     }
 })();
+
+
+
+ displayHiddenPolice = function () {
+    const resultsDiv = document.getElementById('hiddenPolice');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+ displayHiddenCriminals = function () {
+    const resultsDiv = document.getElementById('hiddenCriminals');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+
+ displayHiddenJustice = function () {
+    const resultsDiv = document.getElementById('hiddenJustice');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
+
+
+ displayHiddenSquads = function () {
+    const resultsDiv = document.getElementById('hiddenSquads');
+      // Toggle display between 'none' and 'block'
+      if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
+          resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+      } else {
+          resultsDiv.style.display = 'none';
+      }
+};
     !}
 
-= Crime Rate
+= Crime Rate [+ crime_rate +]
 
 {!<div id="crime_history_box">!}
 {!<svg id="crime_history2" style="width: 500px; height: 300px;"> </svg>!}
 {!</div>!}
 
-Crime Rate: [+ crime_rate +]
+{!<button class="family_button" onclick="displayHiddenPolice();">!}Police{!</button>!}
 
 {!<div id="hiddenPolice">!}
-
 
 Size of the police: [+ police_size +]
 
@@ -216,8 +292,9 @@ Prison Glut: [+ glut +]
 
 Punitive / Corrective / Rehabilitative: [+ police_attitude +]
 
-
 {!</div>!}
+
+{!<button class="family_button" onclick="displayHiddenCriminals();">!}Criminals{!</button>!}
 
 {!<div id="hiddenCriminals">!}
 
@@ -231,8 +308,9 @@ Joker Status: [+ joker_status +]
 
 {!</div>!}
 
-{!<div id="hiddenJustice">!}
+{!<button class="family_button" onclick="displayHiddenJustice();">!}Justice{!</button>!}
 
+{!<div id="hiddenJustice">!}
 
 County Prosecutor: [+ county_prosecutor +]
 
@@ -240,13 +318,13 @@ Judges: [+ judges +]
 
 Jury: [+ jury +]
 
-{!</div>!}
-
-{!<div id="hiddenSquads">!}
-
 = [? if arkham_city = 1 : Arkham City project ?]
 
-I saw this in a videogame
+{!</div>!}
+
+[? if suicide_squad == 1 or we_are_robin == 1 : {!<button class="family_button" onclick="displayHiddenSquads();">!}Squads{!</button>!} ?]
+
+{!<div id="hiddenSquads">!}
 
 = [? if suicide_squad == 1 : Suicide Squad ?]
 
@@ -267,7 +345,6 @@ I saw this in a videogame
 [? if suicide_catwoman == 1 : Catwoman: [+ suicide_catwoman_status +] ?]
 
 = [? if we_are_robin == 1 : We Are Robin ?]
-Nothing here yet
 
 {!</div>!}
 
