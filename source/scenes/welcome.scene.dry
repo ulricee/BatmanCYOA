@@ -17,9 +17,9 @@ on-display: {!
     speak(element, .7);
 
 
-document.getElementById("idAudio").pause();
-document.getElementById("idAudio").src = "audio/sfx/gun.wav";
-document.getElementById("idAudio").play();
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/sfx/gun.wav";
+document.getElementById("mixtape").play();
 
 
 !}
@@ -34,9 +34,9 @@ set-bg: img/background/death.webp
 @bang1 
 on-arrival: {!
 
-document.getElementById("idAudio").pause();
-document.getElementById("idAudio").src = "audio/sfx/gun.wav";
-document.getElementById("idAudio").play();
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/sfx/gun.wav";
+document.getElementById("mixtape").play();
 
 !}
 set-bg: img/background/white.jpg
@@ -73,6 +73,12 @@ set-bg: img
 
 {!
 <div class="typewriter dialogue1" id="clicktest">!}
+
+
+{!<table>
+
+            
+            </table>!}
 
 Life ended this day, the life that you knew, everything that you had known was shattered by six bullets, two and four in your two parents.
 

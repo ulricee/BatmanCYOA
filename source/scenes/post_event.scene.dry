@@ -350,6 +350,7 @@ if (Q.approval_rating_honeymoon > 0) {
     Q.approval_rating_honeymoon -= 1;
 }
 
+// CSS variables
 
 
 !}

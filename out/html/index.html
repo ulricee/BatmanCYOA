@@ -16,13 +16,26 @@
     <script src="game.js"></script>
     <script src="data.js"></script>
     <script src="speak.js"></script>
+    <script src="musiccalls.js"></script>
+    <script src="buttons.js"></script>
   </head>
   <body>
+    <div class="theantidendry"></div>
+
+    <div class="achievementcontainer" id="achievementcontainer">
+        <div class="achievementnotification" id="achievementnotification">
+            <div id="achievementtitle"></div>
+            <div id="achievementdescription"></div>
+        </div>
+        <div class="achievementimagecontainer" id="achievementimagecontainer"><img id="achievementimage"></div>
+    </div>
+
     <div class="background" id="bg2">
 
     </div>
 
     <div class="background" id="bg1">
+
         <div class="video-wrapper" id="video-wrapper">
             <video playsinline autoplay muted loop>
                 <source src="video/batmanbackground.mp4" type="video/mp4">
@@ -314,7 +327,7 @@
                     <a onclick="window.showMap();" href="#">Map</a>
                     <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
                 </div>
-                    <audio id="idAudio">
+                    <audio id="mixtape">
 		                <source src="audio/batmanbackground.mp3" type="audio/mp3">
 	                </audio>
             </header>
@@ -340,7 +353,7 @@
                     </div>
                     <div id="qualities_right">
                     </div>
-                    <div id="mixtape">
+                    <div id="mixtapecontainer">
                     </div>
                 </div>
 

@@ -83,6 +83,7 @@
       }
   };
 
+
   window.hideOptions = function() {
       var save_element = document.getElementById('options');
       save_element.style.display = "none";
@@ -162,6 +163,16 @@
       window.dendryUI.saveSettings();
   };
 
+  window.enableHiddenBatmanMode = function() {
+      document.body.classList.add('hidden-batman-mode');
+      var hiddenmode = 1;
+      window.dendryUI.saveSettings();
+  };
+  window.disableHiddenBatmanMode = function() {
+      document.body.classList.remove('hidden-batman-mode');
+      var hiddenmode = 0;
+      window.dendryUI.saveSettings();
+  };
 
   // populates the checkboxes in the options view
   window.populateOptions = function() {
@@ -334,29 +345,26 @@ function applyWholesome(str) {
 
 
   window.music = function() {
-      $('#mixtape').empty();
+      $('#mixtapecontainer').empty();
       var scene = dendryUI.game.scenes[window.mixtape];
       dendryUI.dendryEngine._runActions(scene.onArrival);
       var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
-      $('#mixtape').append(dendryUI.contentToHTML.convert(displayContent));
+      $('#mixtapecontainer').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
-        var idAudio = document.getElementById("idAudio");
+        let mixtape = document.getElementById("mixtape");
 
 		playaudio = function () {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.play();
+            mixtape.play();
 		};
 
         pauseaudio = function () {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.pause();
+            mixtape.pause();
 		};
 
         stopaudio = function () {
-            var idAudio = document.getElementById("idAudio");
-			idAudio.pause();
-			idAudio.currentTime = 0;
+            mixtape.pause();
+			mixtape.currentTime = 0;
 		};
 
   /*
@@ -405,7 +413,7 @@ function applyWholesome(str) {
     if (window.dendryUI.dark_mode) {
         document.body.classList.add('dark-mode');
     }
-    window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
+    window.pinnedCardsDescription = " ";
   };
 
 
