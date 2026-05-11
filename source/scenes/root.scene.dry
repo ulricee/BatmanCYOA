@@ -472,6 +472,10 @@ Q.stephanie_brown_status = "Inactive";
 Q.stephanie_brown_gear = "no equipment";
 Q.stephanie_brown_training = "untrained";
 
+Q.selena_kyle = 0;
+Q.selena_kyle_status = "Inactive";
+Q.selena_kyle_gear = "Fully Equipped";
+Q.selena_kyle_training = "Fully Trained";
 
 //deputization 
 // TODO: Add deputization flags for each hero
