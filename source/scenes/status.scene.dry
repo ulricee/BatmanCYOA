@@ -50,7 +50,7 @@ on-display: {!
 
 </div>!}
 
-Approval Rate: {!<b>!}
+• Approval Rate: {!<b>!}
 [? if approval_rating_bruce >= 0 and approval_rating_bruce < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
 [? if approval_rating_bruce >= 5 and approval_rating_bruce < 10 : {!<span style="color: #ad0000; text-decoration-line: underline;">!}?]
 [? if approval_rating_bruce >= 10 and approval_rating_bruce < 15 : {!<span style="color: #bd0000; text-decoration-line: underline;">!}?]
@@ -76,7 +76,7 @@ Approval Rate: {!<b>!}
 [? if approval_rating_bruce_up == 0 : ↓ ?]
 {!</span></b>!}
 
-Credibility: 
+• Credibility: 
 [? if credibility == 5 : {!<span style="color: #1a5c00; text-decoration-line: underline;">!}?]
 [? if credibility < 5 : {!<span style = "color: #2f922c; text-decoration-line: underline;">!}?]
 [+ credibility +].0
@@ -85,13 +85,13 @@ Credibility:
 [? if credibility_up == 1 : → ?]
 [? if credibility_up == 0 : ↓ ?]
 
-Personal Funds: {!<span style = "color: #2f922c; text-decoration-line: underline;">!}[+ pf +].0{!</span>!} 
+• Personal Funds: {!<span style = "color: #2f922c; text-decoration-line: underline;">!}[+ pf +].0{!</span>!} 
 [? if pf_up == 2 : ↑ ?]
 [? if pf_up == 1 : → ?]
 [? if pf_up == 0 : ↓ ?]
 
 
-{!<span id="mayorbudgetshow" class="hiddenbutton">!}Mayoral Budget: {!<span>!}{!<span style = "color: #75cc72; text-decoration-line: underline;">!}[+ budget +].0{!</span>!}
+• {!<span id="mayorbudgetshow" class="hiddenbutton">!}Mayoral Budget: {!<span>!}{!<span style = "color: #75cc72; text-decoration-line: underline;">!}[+ budget +].0{!</span>!}
 [? if budget_up == 2 : ↑ ?]
 [? if budget_up == 1 : → ?]
 [? if budget_up == 0 : ↓ ?]
@@ -114,16 +114,16 @@ Personal Funds: {!<span style = "color: #2f922c; text-decoration-line: underline
 
 {!</div>!}
 
-Poverty Rate: [+ poverty : poverty +]
+• Poverty Rate - [+ poverty : poverty +]
 [? if poverty_up == 2 : ↑ ?]
 [? if poverty_up == 1 : → ?]
 [? if poverty_up == 0 : ↓ ?]
 
-Economic Situation: {!<b><span style = "color: #ffcc24;">!}Fragile Balance{!</span></b>!} ↑
+• Economic Situation - {!<b><span style = "color: #ffcc24;">!}Fragile Balance{!</span></b>!} ↑
 
 {!<hr>!}
 
-Identity: Batman
+• Identity: Batman
 
 {!<div class="identitybar">
     <div class="identitygradient">
@@ -134,9 +134,9 @@ Identity: Batman
 </div>!}
 
 
-Moral Compass: [+ moral_compass : moral_compass +]
+• Moral Compass - [+ moral_compass : moral_compass +]
 
-Sanity: [+ sanity +]
+• Sanity - [+ sanity +]
 
 @politics
 
@@ -147,42 +147,72 @@ Sanity: [+ sanity +]
 {!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}[+ president +]{!</span>!}
 
-Relations: [+ presidential_relation : relationships +]
+Relations - [+ presidential_relation : relationships +]
 {!</div>!}
 
 = The State
 
-Governor [+ governor +]: [+ governor_relation : relationships +]
+Governor [+ governor +] - [+ governor_relation : relationships +]
 
-State Legislature: [+ state_legislature_relation : relationships +]
+State Legislature - [+ state_legislature_relation : relationships +]
 
 = The Establishment
 
-Reactionaries: [+ reactionary_relation : relationships +]
+{!<div class="fakecard"><img src="img/portraits/rupert_thorne.png" class="StatusPortrait"></div>!}
 
-Conservatives: [+ conservative_relation : relationships +]
+{!<div class="StatusPortraitText">!}
 
-Moderate Republicans: [+ red_moderate_relation : relationships +]
+[? if rupert_advisor == 1 : {!<span style="font-size: 20px">!}Council Speaker{!</span>!}
+<br>
+{!<b><span style="color: #c91c1c;">!}
+ Rupert Thorne 
+{!</span></b>!}
+<br>
+Relations - [+ rupert_thorne_relation : relationships +]
+?]
 
-Moderate Democrats: [+ blue_moderate_relation : relationships +]
+{!</div>!}
 
-Liberals: [+ liberal_relation : relationships +]
 
-Progressives: [+ progressive_relation : relationships +]
+[? if hamilton_advisor == 1 : Council Speaker
+{!<b><span style="color: #74c8ff;">!}
+ Hamilton Hill: 
+{!</span></b>!}
+[+ rupert_thorne_relation : relationships +]
+?]
+
+[? if doug_advisor == 1 : Council Speaker
+{!<b><span style="color: #a785a1;">!}
+ Doug Thomas: 
+{!</span></b>!}
+[+ rupert_thorne_relation : relationships +]
+?]
+
+• Reactionaries - [+ reactionary_relation_bruce : relationships +]
+
+• Conservatives - [+ conservative_relation_bruce : relationships +]
+
+• Moderate Republicans - [+ red_moderate_relation_bruce : relationships +]
+
+• Moderate Democrats - [+ blue_moderate_relation_bruce : relationships +]
+
+• Liberals - [+ liberal_relation_bruce : relationships +]
+
+• Progressives - [+ progressive_relation_bruce : relationships +]
 
 = Fringe
 
-Nationalists: [+ nationalist_relation : relationships +]
+• Nationalists - [+ nationalist_relation : relationships +]
 
-Reform Party: [+ reform_relation : relationships +]
+• Reform Party - [+ reform_relation : relationships +]
 
-Populist: [+ populist_relation : relationships +]
+• Populist - [+ populist_relation : relationships +]
 
-Libertarians: [+ libertarian_relation : relationships +]
+• Libertarians - [+ libertarian_relation : relationships +]
 
-Greens: [+ green_relation : relationships +]
+• Greens - [+ green_relation : relationships +]
 
-Socialists: [+ socialist_relation : relationships +]    
+•Socialists - [+ socialist_relation : relationships +]    
 
 [? if lgbtq == 1: <b><span style="color: #ff0000">L</span><span style="color: #ff7b00">G</span><span style="color: #ffae00">B</span><span style="color: #2ec500">T</span><span style="color: #00b6adb6">Q</span> <span style="color: #0011ff">C</span><span style="color: #8c00ff">o</span><span style="color: #ff00dd">m</span><span style="color: #ff5bf1">m</span><span style="color: #00c9c9">u</span><span style="color: #ff0000">n</span><span style="color: #ff7b00">i</span><span style="color: #ffd000">t</span><span style="color: #2ec500">y</span></b>: [+ lgbtq_relation : relationships +] ?]
 

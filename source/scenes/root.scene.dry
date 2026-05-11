@@ -17,6 +17,7 @@ on-arrival: {!
     video.style.display = 'none';
   }
 } 
+
 !}
 on-display: {!
 !}
@@ -24,18 +25,32 @@ on-display: {!
 
 @start_menu
 new-page: true
-go-to: start_menu_2
 on-display: {!
-      window.enableBatmanMode();
+      window.enableHiddenBatmanMode();
       window.enableDarkMode();
+
+
+
 !}
 
-= Gotham: A place you never leave.
+= Warning
 
+This game deals with mature themes featuring Child Abuse, Traumatic Experiences, Suicides and Sexual Assault.
+
+- @start_menu_2: Proceed.
 
 
 @start_menu_2
+on-arrival: {!
 
+mixtape_vinyl();
+
+!}
+new-page: true
+
+= Gotham: A place you never leave.
+
+- @load: Load game
 - @start: Start game
 - @library: Library
 - @credits: Credits
@@ -47,7 +62,9 @@ on-arrival: {!
   const video = document.getElementById('video-wrapper');
   video.style.display = 'block';
 
-document.getElementById("idAudio").play();
+music_vinyl = 0
+document.getElementById("mixtape").src = "audio/batmanbackground.mp3";
+document.getElementById("mixtape").play();
 
 Q.debug = 0;
 Q.typeablevariable = 1;
@@ -67,14 +84,8 @@ Q.historical_mode = 0;
 // organizations
 
 // inter-party relations
-Q.reactionary_relation = 25;
-Q.conservative_relation = 50;
-Q.red_moderate_relation = 60;
-Q.blue_moderate_relation = 60;
-Q.liberal_relation = 70;
-Q.progressive_relation = 60;
-Q.lgbtq_relation = 50;
-Q.lgbtq = 0;
+Q.city_council_relation = 50;
+Q.corrupt_council_relation = 25;
 
 // bruce
 Q.reactionary_relation_bruce = 25;
@@ -1193,8 +1204,12 @@ Q.roman_sionis_relationship = 50;
 Q.harvey_relation = 50;
 Q.harvey_sanity = 50;
 Q.dick_relation = 50;
-Q.gordon_relation = 50;
 
+// Advisor relationships
+Q.gordon_relation = 50;
+Q.rupert_thorne_relation = 30;
+Q.hamilton_relation = 50;
+Q.doug_relation = 50;
 
 // Flags
 Q.daoist = 0;
@@ -1221,8 +1236,15 @@ Q.tim1 = 0;
 Q.tim2 = 0;
 Q.tim3 = 0;
 
-// knowledge
+// This flag determines whether you see relations with corrupt councilmen or not.
+Q.corrupt = 0;
+
+// Knowledge flags
 Q.damian_exists = 0;
+
+// End of flags.
+
+
 
 // media relation
 Q.gotham_gazette_support = 0;
@@ -1247,6 +1269,11 @@ Q.moral_compass = 50; // 0-100 scale (0 = i am vengence, 50 = i am the night, 10
 
 Q.horse_music = 0;
 
+
+!}
+on-display: {!
+        window.disableHiddenBatmanMode();
+        window.enableBatmanMode();
 
 !}
 set-bg: img/map_2.jpg

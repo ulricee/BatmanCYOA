@@ -19,6 +19,7 @@ Herein contains relevant information about the government, history, mechanics an
 - @factions: Internal factions
 - @figures: Figures and charts
 - @backSpecialScene: Exit library.
+- @load: Load
 
 @government
 go-to: menu

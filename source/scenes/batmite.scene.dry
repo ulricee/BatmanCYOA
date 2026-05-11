@@ -19,7 +19,19 @@ on-display: {!
         console.log(inputElement)
         Q.typeablevariable = parseInt(inputElement)
     }
+    Q.markerposition = Q.order*2.7;
+
+    if (Q.markerposition >= 50) {
+        Q.markerposition = 50;
+    } 
     
+    if (Q.markerposition <= -50) {
+        Q.markerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
 !} 
 
 <input type="text" id="variabletest" value="1"> <button onclick="testFunction();">Change it</button>
