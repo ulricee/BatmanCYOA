@@ -88,23 +88,22 @@ Q.city_council_relation = 50;
 Q.corrupt_council_relation = 25;
 
 // bruce
-Q.reactionary_relation_bruce = 25;
+Q.reactionary_relation_bruce = 50;
 Q.conservative_relation_bruce = 50;
-Q.red_moderate_relation_bruce = 60;
-Q.blue_moderate_relation_bruce = 60;
-Q.liberal_relation_bruce = 70;
-Q.progressive_relation_bruce = 60;
+Q.red_moderate_relation_bruce = 50;
+Q.blue_moderate_relation_bruce = 50;
+Q.liberal_relation_bruce = 50;
+Q.progressive_relation_bruce = 50;
 Q.lgbtq_relation_bruce = 50;
 
 // non mainstream parties
 
-Q.reform_relation = 60;
-Q.populist_relation = 50;
-Q.libertarian_relation = 80;
-Q.socialist_relation = 10;
-Q.green_relation = 30;
-Q.nationalist_relation = 5;
-
+Q.reform_relation_bruce = 60;
+Q.populist_relation_bruce = 50;
+Q.libertarian_relation_bruce = 80;
+Q.socialist_relation_bruce = 10;
+Q.green_relation_bruce = 30;
+Q.nationalist_relation_bruce = 5;
 
 // out of city relations
 
@@ -298,8 +297,11 @@ Q.budget_old = 10.0;
 Q.poverty_old = 0;
 
 // economic value
-Q.poverty = 5;
-Q.economy = 5;
+Q.poverty = 50;
+Q.economy = 50;
+
+// Polls
+
 
 // Fundraising values.
 
@@ -1212,6 +1214,7 @@ Q.hamilton_relation = 50;
 Q.doug_relation = 50;
 
 // Flags
+Q.ra_successor = "Ra"
 Q.daoist = 0;
 Q.confucius = 0;
 Q.legalist = 0;
@@ -1221,9 +1224,9 @@ Q.nonphilosopher = 0;
 
 Q.andrea_breakup = 0;
 
-Q.david_train = 1;
-Q.talia_train = 1;
-Q.shiva_train = 1;
+Q.david_train = 0;
+Q.talia_train = 0;
+Q.shiva_train = 0;
 
 Q.david_talk = 0;
 Q.david_stop = 0;
@@ -1236,6 +1239,12 @@ Q.tim1 = 0;
 Q.tim2 = 0;
 Q.tim3 = 0;
 
+Q.hamilton_support = 0;
+
+
+Q.seeingasbatman = 0;
+Q.seeingasbruce = 1;
+
 // This flag determines whether you see relations with corrupt councilmen or not.
 Q.corrupt = 0;
 
@@ -1243,6 +1252,7 @@ Q.corrupt = 0;
 Q.damian_exists = 0;
 
 // End of flags.
+
 
 
 
@@ -1264,6 +1274,7 @@ Q.business_board_corruption = 3;
 //batman's moral compass
 Q.moral_compass = 50; // 0-100 scale (0 = i am vengence, 50 = i am the night, 100 = i am justice)
 
+Q.political_perception = 50; // 0-100 scale (0 = Right Wing, 50 = Independent/Centrist, 100 = Left Wing)
 
 // music
 
@@ -1320,5 +1331,4 @@ go-to: welcome
 new-page: true
 go-to: main if difficulty >= 0 and election_1994; main.main_easy if difficulty < 0; election_1994 if election_1994_seen == 0
 
-= January 1994
-
+= [+ month:month +], [+ year +]

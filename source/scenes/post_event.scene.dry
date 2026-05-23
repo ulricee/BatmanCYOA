@@ -146,6 +146,48 @@ if (toolsWrapper) {
 //        Q[c + '_support'] = Q[c + '_quincy_support']*(1+(Q['quincy_' + c + '_ideology']));
 //  }
 
+var character = 'bruce'
+
+// district updated
+
+  for (var district of Q.districts) {
+    Q[district + '_total_' + character] = 0;
+    for (var c of Q.classes) {
+        Q[district + '_total_' + character] += (Q[c + '_' + district + '_support_' + character]);
+    }
+  }
+
+  // approval changes
+
+// we get minor approval changes per district, add them up, divide by six, and change class support by it.
+
+minorapproval = function () {
+    
+    
+
+
+  for (var district of Q.districts) {
+        Q[district + '_approval_total_' + character] = 0;
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[district + '_approval_total_' + character] += (Q[c + '_' + district + '_approval_' + character])/6;
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_approval_gap_' + character] = (Q[district + '_approval_total_' + character])-(Q[c + '_support_' + character])
+    }
+  }
+
+
+
+}
+
+minorapproval();
+
 
 Q.approval_change_bruce = 0;
 
@@ -181,9 +223,6 @@ Q.approval_rating_bruce += (Q.approval_change_bruce);
 
 
 // Trying to convert support changes into approval change.
-
-
-var character = 'bruce'
 
 
     Q['city_wide_support_' + character] = 0;
@@ -356,7 +395,7 @@ if (Q.approval_rating_honeymoon > 0) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +]
+= [+ month:month +], [+ year +]
 
 @events_choice
 

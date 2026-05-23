@@ -56,9 +56,9 @@ on-display: {!
 
         killAchievement = function() {
             container.style.display = 'none'
-            title.innerHTML -= 'With Friends like these…';
+            title.innerHTML = ' ';
 
-            description.innerHTML -= 'Form an Alliance';
+            description.innerHTML = ' ';
 
             console.log("Achievement killed")
             
@@ -67,9 +67,9 @@ on-display: {!
 
         container.style.display = 'block';
 
-        title.innerHTML += 'With Friends like these…';
+        title.innerHTML = 'With Friends like these…';
 
-        description.innerHTML += 'Form an Alliance';
+        description.innerHTML = 'Form an Alliance';
 
         document.getElementById("achievementimage").src = "img/achievements/WithFriendsLikeThese.webp"; 
 

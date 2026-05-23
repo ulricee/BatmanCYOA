@@ -16,10 +16,11 @@
     <script src="game.js"></script>
     <script src="data.js"></script>
     <script src="speak.js"></script>
-    <script src="musiccalls.js"></script>
     <script src="buttons.js"></script>
+    <script src="test.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/iranian-sans" rel="stylesheet">
   </head>
-  <body>
+  <body id="body">
     <div class="theantidendry"></div>
 
     <div class="achievementcontainer" id="achievementcontainer">
@@ -327,9 +328,8 @@
                     <a onclick="window.showMap();" href="#">Map</a>
                     <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
                 </div>
-                    <audio id="mixtape">
-		                <source src="audio/batmanbackground.mp3" type="audio/mp3">
-	                </audio>
+                <audio id="mixtape" src="audio/batmanbackground.mp3" type="audio/mp3" ontimeupdate="mixtape_bar()">
+	            </audio>
             </header>
             <div id="tools_wrapper">
                 <div id='stats_sidebar' class='tools left'>
@@ -344,7 +344,7 @@
                     <div id="turn_advice">
                     </div>
                 </div>
-
+            
                 <div id='stats_sidebar_right' class='tools right'>
                     <div class="tab_container">
                         <button class="tab_button active" id="city_council_tab" onclick="window.changeTab('status_right', 'city_council_tab', 'isRight');">City Council</button>
@@ -355,6 +355,8 @@
                     </div>
                     <div id="mixtapecontainer">
                     </div>
+
+
                 </div>
 
             </div>
@@ -381,4 +383,5 @@
         </div>
     </div>
   </body>
+  <script src="musiccalls.js"></script>
 </html>

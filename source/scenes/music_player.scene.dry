@@ -1,16 +1,19 @@
 title: Mixtape
 new-page: true
 is-special: true
+on-arrival: {!
+    activate_mixtape();
+!}
 on-display: {!
-
+    activate_mixtape();
 !}
 
 = mixtape
 
-
-
-{!<button id="pausemusicbutton" onclick="pauseaudio();">!}Pause{!</button>!}
-
 {!
+<input type="range" max="100" id="musicbar" onclick="mixtape_bar();"/>
+
+<button id="pausemusicbutton" onclick="pauseaudio();">Pause</button>
 <button id="playmusicbutton" onclick="playaudio();">Play</button>
+
 !}
