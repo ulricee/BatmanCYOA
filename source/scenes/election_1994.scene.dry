@@ -3,7 +3,6 @@ new-page: true
 on-arrival: {!
 
 Q.election_1994_seen = 1;
-Q.order = 1;
 
 // set quincy's relationship with parties
 // Set his relationships with the parties. Right now I just have his red relations at the inverse of Bruce's, and his blue relations tanked.
@@ -559,7 +558,9 @@ for (var c of Q.classes) {
 
 !}
 on-display: {!
-  // We want the bars.
+  window.disableHiddenBatmanMode();
+
+// We want the bars.
 
 // first turn them into percentages
 
@@ -583,6 +584,8 @@ r.style.setProperty('--bruce-latino-bar-width', Q.latino_total_support_bruce_per
 r.style.setProperty('--bruce-unemployed-bar-width', Q.unemployed_total_support_bruce_percent + '%')
 
 r.style.setProperty('--bruce-swing-bar-width', Q.swing_percent_bruce + '%')
+
+// change batman vs bruce vs you button
 
 !}
 
@@ -697,7 +700,6 @@ if (Q.poverty > Q.poverty_old) {
 } else { 
     Q.poverty_up = 0;
 }
-
 
 !}
 go-to: root.1994_main

@@ -24,12 +24,62 @@ on-display: {!
       }
     })
 
+nametabchange = function () {
+    
+        if (Q.seeingasbruce == 1) {
+            if (Q.bruce >= Q.batman) {
+                var elem = document.getElementById("main_tab");
+                elem.innerHTML = "You"
+            } 
+            if (Q.bruce < Q.batman) {
+                var elem = document.getElementById("main_tab");
+                elem.innerHTML = "Bruce"
+            }
+
+        }
+        
+        if (Q.seeingasbatman == 1) {
+            if (Q.batman >= Q.bruce) {
+                var elem = document.getElementById("main_tab");
+                elem.innerHTML = "You"
+            } 
+            if (Q.batman < Q.bruce) {
+                var elem = document.getElementById("main_tab");
+                elem.innerHTML = "Batman"
+            }
+
+        }
+}
+
+
+    enableBatmanModeStatus = function () {
+        Q.seeingasbruce = 0;
+        Q.seeingasbatman = 1;
+        enableBatmanMode();
+        document.getElementById('batman_div').style.display = "block";
+        document.getElementById('bruce_wayne_div').style.display = "none";
+        nametabchange();
+
+    }
+
+    disableBatmanModeStatus = function () {
+        Q.seeingasbruce = 1;
+        Q.seeingasbatman = 0;
+        disableBatmanMode();
+        document.getElementById('batman_div').style.display = "none";
+        document.getElementById('bruce_wayne_div').style.display = "block";
+        nametabchange();
+
+    }
+
 
 !}
 
+{!<div id="bruce_wayne_div">!}
+
 = [+ month : month +] [+ year +]
 
-{!<img src="img/portraits/bruce.webp" class="StatusPortrait" onclick="enableBatmanMode()">!}
+{!<div class="fakecardnosize tabbutton" id="batman_tab_change"><img src="img/portraits/brucewaynemayor.webp" class="StatusPortrait" onclick="enableBatmanModeStatus()"></div>!}
 
 
 {!<div class="StatusPortraitText">!}
@@ -37,7 +87,6 @@ on-display: {!
 {!</div>!}
 
 {!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
-
 
 {!<div class="ideologybar">
 
@@ -138,6 +187,28 @@ on-display: {!
 
 • Sanity - [+ sanity +]
 
+{!</div>!}
+{!<div id="batman_div">!}
+
+
+= [+ month : month +] [+ year +]
+
+{!<div class="fakecardnosize"><img src="img/portraits/brucewaynemayor.webp" class="StatusPortrait" onclick="disableBatmanModeStatus()"></div>!}
+
+{!<div class="StatusPortraitText">!}
+{!<span style="font-size: 20px">!}Batman{!</span>!}
+{!</div>!}
+
+{!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
+
+Equipment:
+
+
+
+{!</div>!}
+
+
+
 @politics
 
 = The Presidency
@@ -202,17 +273,17 @@ Relations - [+ rupert_thorne_relation : relationships +]
 
 = Fringe
 
-• Nationalists - [+ nationalist_relation : relationships +]
+• Nationalists - [+ nationalist_relation_bruce : relationships +]
 
-• Reform Party - [+ reform_relation : relationships +]
+• Reform Party - [+ reform_relation_bruce : relationships +]
 
-• Populist - [+ populist_relation : relationships +]
+• Populist - [+ populist_relation_bruce : relationships +]
 
-• Libertarians - [+ libertarian_relation : relationships +]
+• Libertarians - [+ libertarian_relation_bruce : relationships +]
 
-• Greens - [+ green_relation : relationships +]
+• Greens - [+ green_relation_bruce : relationships +]
 
-•Socialists - [+ socialist_relation : relationships +]    
+•Socialists - [+ socialist_relation_bruce : relationships +]    
 
 [? if lgbtq == 1: <b><span style="color: #ff0000">L</span><span style="color: #ff7b00">G</span><span style="color: #ffae00">B</span><span style="color: #2ec500">T</span><span style="color: #00b6adb6">Q</span> <span style="color: #0011ff">C</span><span style="color: #8c00ff">o</span><span style="color: #ff00dd">m</span><span style="color: #ff5bf1">m</span><span style="color: #00c9c9">u</span><span style="color: #ff0000">n</span><span style="color: #ff7b00">i</span><span style="color: #ffd000">t</span><span style="color: #2ec500">y</span></b>: [+ lgbtq_relation : relationships +] ?]
 

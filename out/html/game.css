@@ -7,6 +7,20 @@
   --bruce-unemployed-bar-width: 0%;
   --bruce-swing-bar-width: 0%;
   --bruce-ideology-bar: 0%;
+
+  --transform-x: -360deg;
+  --transform-y: -360deg;
+
+  --music-progress: 0%;
+  --ul: block;
+
+--reactionary-bar-width: 0%;
+--conservative-bar-width: 0%;
+--red-bar-width: 0%;
+--blue-bar-width: 0%;
+--liberal-bar-width: 0%;
+--progressive-bar-width: 0%;
+
 }
 
 body {
@@ -31,6 +45,8 @@ body {
   line-height: 155%;
   overflow-y: scroll;
   cursor: url('path-to-image.png'), auto;
+  text-align: center;
+
 }
 body.dark-mode {
   --bg-color: #000;
@@ -71,7 +87,6 @@ body.batman-mode {
   --card-border-color: #4c4c4c;
   --card-bg-color: #3f3f3f;
   --shadow-color: #000000;
-  text-align: center;
 }
 body.batman-mode #mainwrapper { 
   border-style: double;
@@ -82,6 +97,12 @@ body.batman-mode .tools {
   border-style: double;
   border-width: 4px;
   border-color: #888;
+}
+
+
+body.dark-mode.hidden-batman-mode {
+  height: 100%;
+
 }
 
 body.hidden-batman-mode {
@@ -98,12 +119,30 @@ body.hidden-batman-mode {
   --card-bg-color: #3f3f3f;
   --shadow-color: #000000;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+
 }
 body.hidden-batman-mode #mainwrapper { 
+  border-radius: 0px;
   border-style: double;
   border-width: 0px;
   border-color: #888;
+  min-height: 100vh;
+  box-shadow: 0px 0px 5px #000
 }
+
+
+body.hidden-batman-mode #page { 
+  min-height: 100vh;
+}
+
 body.hidden-batman-mode .tools {
   border-style: double;
   border-width: 0px;
@@ -115,6 +154,30 @@ body.hidden-batman-mode #game-title {
 
 body.hidden-batman-mode #header-links {
   visibility: hidden;
+}
+
+body.hidden-batman-mode #mid_panel {
+    min-height: 100vh;
+}
+
+body.hidden-batman-mode #bg1 {
+  filter: blur(8px);
+}
+
+body.hidden-batman-mode #bg2 {
+  filter: blur(8px);
+}
+
+body.hidden-batman-mode header {
+  width: 100%;
+  background-color: black;
+  padding: 2em 1.6em 1.6em 1.6em;
+  box-shadow: 0px 0px 5px #000
+
+}
+
+body.hidden-batman-mode footer {
+  display: none;
 }
 
 header, #mainwrapper, footer {
@@ -130,6 +193,13 @@ header, #mainwrapper, footer {
   padding: 1em 1.5em 1.5em 1.5em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
+.reichstag {
+  transform: translate3d(20, 20, 20);
+  display: block;
+  margin: auto;
+}
+
 footer {
   margin-top: 1em;
   font-size: 0.8em;
@@ -204,13 +274,25 @@ p.game-over {
   border-radius: 4px;
   color: #999;
 }
+
+
+@keyframes choicefadein {
+  0% {opacity: 0%;}
+  5% {opacity: 10%;}
+  90% {opacity: 90%;}
+  100% {opacity: 100%;}
+}
+
+
 ul.choices {
+  animation: choicefadein 1s ease-in;
   border: 2px solid rgb(0, 0, 0);
   padding: 0;
   margin: 0.25em 0 0 0;
   list-style-type: none;
   border-radius: 4px;
   clear: left;
+  display: var(--ul);
 }
 ul.choices li {
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -228,11 +310,36 @@ ul.choices li.unavailable {
   background-color: var(--unavailable-bg-color) !important;
   cursor: default !important;
 }
+
+@keyframes lihoveranim {
+  0% {background-color: #000; opacity: 0.3; box-shadow: 0px 0px 0px 0px var(--link-hover-color);}
+  100% {background-color: var(--link-hover-color); opacity: 1.0; box-shadow: 0px 0px 50px 50px var(--link-hover-color);}
+}
+
 ul.choices li:hover {
   background-color: var(--link-hover-color);
   cursor: pointer;
   opacity: 1.0;
 }
+
+.hidden-batman-mode ul.choices li:hover {
+  animation: lihoveranim 0.25s ease-in;
+  background-color: var(--link-hover-color);
+  cursor: pointer;
+  opacity: 1.0;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50px 50px var(--link-hover-color);
+}
+
+
+body.hidden-batman-mode ul.choices {
+  border: 0px solid rgb(0, 0, 0);
+}
+
+body.hidden-batman-mode ul.choices li {
+  border-bottom: 0px solid rgb(0, 0, 0);
+}
+
 ul.choices li:last-child {
   border-bottom: none;
 }
@@ -251,6 +358,7 @@ blockquote + blockquote.attribution {
 /* This is mostly copied from undum. */
 #mid_panel {
   margin: 0 16rem;
+  overflow: hidden;
 }
 #page {
   margin: 0 auto;
@@ -259,26 +367,31 @@ blockquote + blockquote.attribution {
 #tools_wrapper {
   position: absolute;
   width: 100%;
-  max-width: 71em;
   left: 0;
   right: 0;
   margin: 0 auto;
+  z-index: 5;
 }
+
+#batman_div {
+  display: none;
+}
+
 .tools {
   padding: 0.6em;
-  width: 15rem;
+  width: 16rem;
   color: var(--text-color);
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .tools.left {
-  float: left;
-  left: 0.4em;
+  position: absolute;
+  left: 35vh;
 }
 .tools.right {
-  float: right;
-  right: 0.4em;
+  position: absolute;
+  right: 35vh;
 }
 .advice {
   padding: 0.6em;
@@ -334,6 +447,11 @@ blockquote + blockquote.attribution {
 }
 .tab_button:hover {
     background-color: var(--tab-hover-color);
+}
+
+
+#batman_tab {
+  display: none;
 }
 
 
@@ -443,6 +561,24 @@ a.card:hover {
   position: relative;
   margin: auto;
 }
+
+.fakecardnosize {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border: 10px solid var(--card-border-color);
+  margin-bottom: 0.5em;
+  position: relative;
+  margin: auto;
+}
+
+
+.fakecardnosize:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+  top: -5px;
+}
+
 .fakecard:hover {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   left: -5px;
@@ -609,10 +745,13 @@ img {
   .tools.left {
       float: none;
       left: 0;
+      transform-style: preserve-3d;
+      perspective: 500px;
   }
   .tools.right {
       float: none;
-      right: 0;
+      transform-style: preserve-3d;
+      transition: all .1s;
   }
   #mid_panel {
       margin: 0 auto;
@@ -684,27 +823,33 @@ table {
 
 .hiddenreaction {
   display: none;
+  text-align: left;
 }
 
 .hiddenconservative {
   display: none;
+  text-align: left;
 }
 
 .hiddenliberal {
   display: none;
+  text-align: left;
 }
 
 .hiddenprogressive {
   display: none;
+  text-align: left;
 }
 
 .hiddenblue {
   display: none;
+  text-align: left;
 }
 
 
 .hiddenred {
   display: none;
+  text-align: left;
 }
 
 
@@ -759,25 +904,17 @@ table {
   position: relative;
   overflow: visible;
   word-break: keep-all;  
-  width: 200%;
   right: 10px;
 }
 
 .advisorspeech {
   font-size: 1em;
   line-height: 100%;
+  text-align: left;
 }
 
 .advice_text {
   width: 100%;
-}
-
-#stats_sidebar {
-}
-
-#stats_sidebar2 {
-    border-radius: 10px;
-    position: relative;
 }
 
 .scrollable-box {
@@ -843,7 +980,7 @@ table {
 
 .mytooltip .mytooltiptext {
   position: fixed;
-  z-index: 999999;
+  z-index: 6;
   width: 360px;
   background: var(--content-bg-color);
   color: var(--text-color);
@@ -869,7 +1006,7 @@ table {
   bottom: auto;
   top: calc(var(--mouse-y, 0px) - 20px);
   left: calc(var(--mouse-x, 0px));
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%) rotateX(var(--transform-x)) rotateY(var(--transform-y));
 }
 
 #republicanshow {
@@ -975,8 +1112,7 @@ table {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 10px solid var(--card-border-color);
   margin: 10px;
 }
 
@@ -984,11 +1120,11 @@ table {
   position: relative;
   z-index: 999;
   transform: scale(1.5);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 10px solid var(--card-border-color);
   filter: brightness(150%);
   background-color:  var(--content-bg-color);
   cursor: pointer;
-  transition: transform 0.5s, filter 0.5s;
+  transition: transform 0.1s, filter 0.5s;
 }
 
 .inlineblock {
@@ -1042,11 +1178,23 @@ video {
   animation: fadeIn 10s ease-in;
 }
 
-/*uhh  music?? */
+/* Music css */
+#musicbar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
 
 /* text appearing */
 
+@keyframes textappearanimation {
+  0% {visibility: hidden; opacity: 0%;}
+  100% {visibility: visible; opacity: 100%;}
+}
+
 .typewriter {
+  animation: textappearanimation 1s ease-in;
   text-align: left;
 
   line-height: 155%;
@@ -1069,6 +1217,76 @@ video {
   display: flex;
 }
 
+#councilapprovalbar {
+  width: 100%;
+  height: 5px;
+  display: flex;
+  border-radius: 5px;
+}
+
+
+#marker33 {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  left: 33%;
+}
+
+#marker66 {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  left: 66%;
+}
+
+
+#electionmarker {
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+}
+
+#councilreactionary {
+  width: var(--reactionary-bar-width);
+  background-color: #8B0000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+#councilconservative {
+  width: var(--conservative-bar-width);
+  background-color: #c91c1c;
+}
+
+#councilred {
+  width: var(--red-bar-width);
+  background-color: #ff3a3a;
+}
+
+#councilblue {
+  width: var(--blue-bar-width);
+  background-color: #74c8ff;
+}
+
+#councilliberal {
+  width: var(--liberal-bar-width);
+  background-color: #2b8eff;
+}
+
+#councilprogressive {
+  width: var(--progressive-bar-width);
+  background-color: #0044ff;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#councilapprovalbar div:hover {
+  transform: translate(-2px, -2px);
+}
 
 #election1994whitecollar {
   width: var(--bruce-white-collar-bar-width);
@@ -1626,11 +1844,11 @@ input {
 }
 
 #starbutton:hover {
-  transform: translate(2px, 0px)
+  transform: translate(0px, -2px)
 }
 
 #dailyplanetbutton:hover {
-  transform: translate(2px, 2px)
+  transform: translate(2px, -2px)
 }
 
 .newsbutton:active {

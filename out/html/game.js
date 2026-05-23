@@ -246,6 +246,7 @@ function applyWholesome(str) {
         });
     });
 }
+
   // This function allows you to do something in response to signals.
   window.handleSignal = function(signal, event, scene_id) {
   };
@@ -355,14 +356,17 @@ function applyWholesome(str) {
         let mixtape = document.getElementById("mixtape");
 
 		playaudio = function () {
+            let mixtape = document.getElementById("mixtape");
             mixtape.play();
 		};
 
         pauseaudio = function () {
+            let mixtape = document.getElementById("mixtape");
             mixtape.pause();
 		};
 
         stopaudio = function () {
+            let mixtape = document.getElementById("mixtape");
             mixtape.pause();
 			mixtape.currentTime = 0;
 		};
@@ -398,7 +402,6 @@ function applyWholesome(str) {
       return bar;
   };
 
-
   window.justLoaded = true;
   window.statusTab = "status";
   window.statusTabRight = "status_right";
@@ -423,7 +426,6 @@ document.addEventListener('mousemove', e => {
         el.style.setProperty('--mouse-y', e.clientY + 'px');
     });
 });
-
 
 
 

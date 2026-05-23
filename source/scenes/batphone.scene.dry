@@ -7,7 +7,7 @@ is-special: true
 Here, we can contact a variety of characters.
 
 {!<div class="batphonecontainer">!}
-{!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Batfamily</figcaption></figure></div>!}
+{!<div class="inlineblock"><figure class="batfamilybutton"><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Batfamily</figcaption></figure></div>!}
 {!<div class="inlineblock"><figure><img src="img/batfamily.jpg" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Vigilantes</figcaption></figure></div>!}
 {!<div class="inlineblock"><figure><img src="img/buttons/leagueofassassins.png" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>League of Assassins</figcaption></figure></div>!}
 {!<div class="inlineblock"><figure><img src="img/buttons/policebutton.png" id="batfamilybutton" onclick="window.showBatPhone()"><figcaption>Police</figcaption></figure></div>!}

@@ -21,6 +21,8 @@ document.getElementById("mixtape").pause();
 document.getElementById("mixtape").src = "audio/sfx/gun.wav";
 document.getElementById("mixtape").play();
 
+        window.enableHiddenBatmanMode();
+        window.disableBatmanMode();
 
 !}
 set-bg: img/background/white.jpg
@@ -53,38 +55,32 @@ set-bg: img/background/black.jpg
 
 @1967
 on-display: {!
-    const element = document.querySelector('.dialogue1');
-    speak(element, .7);
-
-    document.getElementById("clicktest").addEventListener("click", function(){
-        skip();
-});    
-
-killfunction = function() {
-    document.getElementsByClassName('choices').style.display = 'none'
-}
+    
+introDialogue();
 
 !}
-set-bg: img
+set-bg: img/background/graveyard.webp
 
 = 1967, alone.
 
-{!<button onclick="killfunction();">!}aa{!</button>!}
-
 {!
-<div class="typewriter dialogue1" id="clicktest">!}
+<div class="typewriter dialogue1" id="dialogue1">!}
 
+Life ended this day. 
 
-{!<table>
+The life that you knew.
 
-            
-            </table>!}
+Everything that you had known was shattered by six bullets. 
 
-Life ended this day, the life that you knew, everything that you had known was shattered by six bullets, two and four in your two parents.
+Two and four in your two parents.
 
-Blood spilled on the pavement, the wind ripping away the last warmth you felt, you felt nothing else in this place to move forward.
+Blood spilled on the pavement, the wind ripping away the last warmth you felt. 
 
-As you moved home, your life had been irrevocably derailed, you needed to find one way out.
+You felt nothing else in this place to move forward.
+
+As you moved home, your life had been irrevocably derailed.
+
+You needed to find one way out.
 
 {!</div>!}
 
@@ -111,17 +107,18 @@ go-to: 1979
 new-page: true
 on-display: {!
     
-    const element2 = document.querySelector('.dialogue2');
-    speak(element2, .7);
+introDialogue();
 
 !}
 set-bg: img/background/himalayas.jpg
 
 = 1979, In the Dragon's den
 
-{!<div class="typewriter dialogue2">!}
+{!<div class="typewriter dialogue2" id="dialogue2">!}
 
-As the years sharpened you, Alfred was always by your side to guide you into a much better man than you would have been without him, you eventually found that if anything ought to change, you had to emancipate from him to fight for justice.
+As the years sharpened you, Alfred was always by your side to guide you into a much better man than you would have been without him.
+
+You eventually found that if anything ought to change, you had to emancipate from him to fight for justice.
 
 As training continued, words reached you from a strange group fighting corruption in the Himalayas. 
 
@@ -153,8 +150,7 @@ new-page: true
 set-bg: img/background/leagueofassassins.jpg
 on-display: {!
 
-    const element3 = document.querySelector('.dialogue3');
-    speak(element3, .7);
+introDialogue();
 
 !}
 
@@ -221,20 +217,25 @@ new-page: true
 set-bg: img/background/leagueofassassins.jpg
 on-display: {!
 
-    skip();
-    const element4 = document.querySelector('.dialogue4');
-    speak(element4, .7);
+introDialogue();
+
 !}
 
 = 1981, David’s escape:
 
 {!<div class="typewriter dialogue4">!}
 
-As you became David's trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other. 
+As you became David Cain’s trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other.
 
-One night, he would come to you to inform you of his immediate leaving of the League with his daughter Cassandra following an experiment done on her mind turning her into a killing machine at age 5. 
+You learned you did have quite a bit in common, both orphans that have tried to find a place in their life without any clear guide. Yet, it’s very clear that his origin as a child abandoned from the Korean war adopted by an American family made clear that there is no bottom to misery.
 
-While he trusted the goals of Ra's, he could no longer stand by its methods and is advising you to do the same.
+Still, knowing him better, while he practiced neutrality, he seemed more and more disillusioned by the work he did. He had hopes, all his life, hopes of making things better. Hopes dashed in his homeland, a country that had abandoned him that then saw him as a foreign agent for daring to ask for change in a fascist regime. Hopes that seem to fade yet again as the league seemed more interested in the minutia of ideals than in actions.
+
+One night, knocking on your door. He would come to you to inform you of his immediate leave. This did not surprise you however, what did was the fact he intended to leave with his daughter Cassandra.
+
+He told you his story, the whole story. From his activism against the South Korean dictatorship to his fascination for the league of assassins, his falling in love with Shiva, a child that expedited a marriage which saw both clash over their superficially similar but deeply different vision for the world. All of those could be accepted, could be tolerated but for one thing.
+
+“Ra’s wanted to turn my daughter into a killing machine. They have warped her brain, made her kill as just a child. Shiva said it’s a necessary sacrifice, I will not abandon my child.” 
 
 {!</div>
 !}
@@ -265,11 +266,10 @@ go-to: 1982_end
 new-page: true
 on-display: {!
 
-    skip();
-    const element4 = document.querySelector('.dialogue4');
-    speak(element4, .7);
+introDialogue();
 
 !}
+set-bg: img/background/ra.webp
 
 = 1982, The Fading Dragon
 
@@ -297,31 +297,37 @@ Silence returned to the room, as he marched toward you, you spoke to him, but in
 - @ra_man: Ra's is a man like any other under the weight of age. If he is to fade away, that is not for me to decide what comes next.
 
 @ra_talia
+on-arrival: ra_successor = "Talia"
 go-to: 1982_end
 
 @ra_shiva
+on-arrival: ra_successor = "Shiva"
 go-to: 1982_end
 
 @ra_volunteer
+on-arrival: ra_successor = "Bruce"
 go-to: 1982_end
 
 @ra_cure
+on-arrival: ra_successor = "No one."
 go-to: 1982_end
 
 @ra_relief
+on-arrival: ra_successor = "No one."
 go-to: 1982_end
 
 @ra_man
+on-arrival: ra_successor = "No one."
 go-to: 1982_end
 
 @1982_end
 new-page: true
 on-display: {!
 
-    skip();
-    const element5 = document.querySelector('.dialogue5');
-    speak(element5, .7);
+introDialogue();
+
 !}
+set-bg: img/background/waynemanor.png
 
 {!<div class="typewriter dialogue5">!}
 
@@ -404,39 +410,53 @@ go-to: 1983
 new-page: true
 on-display: {!
 
-    skip();
-    const element6 = document.querySelector('.dialogue6');
-    speak(element6, .7);
+introDialogue();
+
 
 !}
+set-bg: img/background/andrea.jpg
 
 = 1983, The Phantasm
 
 {!<div class="typewriter dialogue6">!}
 
-Andrea. She was the first to see through the dark.
+The first year is often the most difficult. Where theory must stand against the waves of reality. Yet, you are alone to help it, all you can do is tread and pray for the best. Sure, Alfred always was an anchor, yet you found yourself reaching out to another hand through the waters. 
 
-She was always a shoulder I could count on, from the years in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+Andrea. 
 
-Standing in front of me, she tried to stop the murderer of her father.
+Oh Andrea. She never gave up on anyone, did she?
 
-No, she tried to kill the red hood. She wanted revenge.
+It’s funny, how she walked up to you in the parking lots of Gotham Academy when everyone else seemed hellbent on staying out of your way. How the first thing she said to the weeping 1st grader wasn’t “Do you need someone to talk to?”, “It’ll get better,” or all the other empty platitudes thrown your way by peers and teachers alike. She just sat down next to you on the curb, placed her backpack next to yours, and told you bluntly as all children do,
 
-She couldn’t get her revenge.
+“It’s okay, my mom’s dead too.” 
+
+You didn’t say much back to her that day. The fresh memory of blood spilling on concrete was too much for you to care about anyone else, let alone another kid your age who would always tag along while you waited for Alfred there on out.  You didn’t get it. Why me? Why her? Maybe it was just the fact that between the ruby bricks of private school, there was at least one person who wouldn’t soothe your pain, but instead, truly understand it. 
+
+She told you she was Andrea, but her friends called her Andi. She spent her weekends watching TV, cutting up her Barbies’ dresses and squiggling markers on their faces to look like the Grey Ghost. You liked the Grey Ghost too. And so, for the first time in a while, the two of you had a conversation. A real one with more than just Andi listing off how her funeral proceedings were going and how boring all of it was. She was your first friend, and she had no reason to be. 
+
+From then on out, she was always a shoulder you could count on. Your helping hand in the nights of grief. From the moments in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+
+She had no reason to trust you when you came back from Tibet. The two of you hadn’t spoken in years. For all she knew, you were destined to become another nepotistic playboy who did nothing but spend his parents fortune on hedonism and hookers. You insisted that any support was optional. You did have a reason to leave Gotham, leave before you graduated, and even leave you. A part of you wishes you never did. But still, she chose to reach out again. Her embrace after miles of separation between space and time never left your heart. 
+
+You didn’t know it back then, but it was then where you first fell in love with the girl who never let you go. 
+
+You couldn’t let her go. Yanking her arm, you beg her to stop. To not let the death of her father end like this. She couldn’t get her revenge.
+
+So then, you let the Red Hood go. 
 
 Now, by his own fault, he’s gone, face, body burned by acid.
 
-And yet the pain remains. It’s a silence she was looking for, and now that it was, no one wanted it.
+And yet the pain remains. It’s a silence she was longing for, and now that it was here, it was the last thing anyone wanted.
 
-I can see it in the blue of her eyes. I knew from the moment she told me some persons escape justice, some persons that will kill, that will destroy, that will break again, justice powerless to stop them. Someone needs to intervene, do justice in their stead.
+You can see it in the blue of her eyes. Betrayal. You knew from the moment she told you that some escape justice, the same that will kill, that will destroy, that will break again, with justice powerless to stop them; that someone needs to intervene, to be justice in their stead.
 
-I am not an executioner. Yet, she is willing to end life so readily. She is ready to not just be a judge or enforcer, to be the reaper. She can’t see her heart is clouding her judgement, she wants healing and no powers allows her other avenue. 
+You are no executioner. Yet Andi was prepared to act in your stead. Not just to be a judge or enforcer, but become the reaper herself. She can’t see her heart is clouding her judgement. That no amount of killing within ever truly grants fulfillment. That this all is just a mirage in the desert.
 
-She doesn’t see the patience, she sees only someone that wishes to stop her from doing what is right, what is just. The fault doesn’t just come from her, she can’t be at fault from wishing death, what so many would want.
+She doesn’t see the patience, only someone that wishes to stop her from doing what is right, what is just. The person who she always stood back to back, turning against hers. You don’t blame Andi. Fault doesn’t just come from her. She can’t be at fault from wishing justice, in a world as cruel as this one.
 
-I loved her once. Some part of me still does. She can’t see that which drove her to want to kill also drove me to never wish death on anyone. The same experience drove the two of us in completely different directions. 
+You loved her once. Some part of you still does. If only the same road didn't drive the two of you in completely different directions. If only you didn’t abandon her when she needed it the most. 
 
-Now, she’s ready to go on her own, to find herself while I find myself. We may not see each other again for years, yet there's something lingering…
+Now, she’s ready to go on her own, to find herself while you do the same. You may not see each other again for years, maybe even for the rest of your life. But there's something lingering within the thoughts of your first love…
 
 {!</div>!}
 
@@ -462,33 +482,44 @@ go-to: 1984_start
 new-page: true
 on-display: {!
 
-    skip();
-    const element7 = document.querySelector('.dialogue7');
-    speak(element7, .7);
+introDialogue();
+
 
 !}
+set-bg: img/background/grayson.jpg
 
 {!<div class="typewriter dialogue7">!}
 
 = The Grayson's 
 
-I’ve seen the Graysons many times before. Two seats are now empty today, yet, for a while, it’s something that felt wrong ever since the beginning of this experience.
+You’ve seen the Graysons many times before. They’re always a delight when they come to town. The carefully staged acrobatics of human form leaping through the air as if it were water, that stuff always amazed you. Two seats are now empty today, yet for a while, there’s something that just feels… off since the beginning of this show.
 
-The smile felt a bit more fake than they should. The jumps, the prestation, cracks were showing through the veneer.
+Their smiles are just a bit more fake than they should be. The jumps were just slightly off sync, the presentation just a bit too saccharine. Cracks were showing through the veneer of the impeccable flying Graysons.
 
-For a moment it felt like rose tinted glasses slimping off, until two parents fell to their death in front of their child, staring at them twenty feet off the ground, shaking, unsure what to do, what to say, frozen in place.
+For a moment it felt like rose tinted glasses slimping off, like a growing itch howling to be scratched. The lights dimmed. Two parents on their toes leaped from the height of clouds. And they fell. 
 
-Richard needs someone to help him. He needs someone to support him. Someone to protect him.
+There was not a sound.
 
-In one month, went from a ghost barely breathing to someone taking up a hood on his head to fight crime. 
+And then there was a crunch.
+
+Only then did the lights come back up. Where in place of a happy family bowing down to the crowd were two limp bodies in front of their child. He stared at them twenty feet off the ground, shaking, unsure what to do, what to say, frozen in place, as the world could do nothing but gawk at his every move. 
+
+You and the hundreds of other onlookers were promptly escorted off the premises. As you looked back from the performance turned crime scene, police coddled a tween in blankets, whose only words he would speak were cries of anguish towards the family stolen right in front of him. 
+
+You spoke to GPD the next day. Told them if he needed a home, they should contact you pronto. That Grayson kid needs someone to help him. He needs someone to support him. Someone to protect him.
+
+You promptly signed the forms to adopt Richard Grayson the following week. At first, he seemed bewildered that you would take him in. His house was too big. The floors are too shiny. The plants are too tightly trimmed. He didn’t talk to you much in between the police interrogations and the child support check ins. It was like taking care of a ghost barely breathing. 
+
+You got through to him though, eventually. You got to know Richard, or Dick as his parents called him. He became more restless, always sliding down stair rails and cracking quips with Alfred. Eventually, he took up a hood on his head to fight crime. 
 
 The reflection was crystal clear. This kid could do a lot of good, he just needed the right guidance.
 
-Taking him as my son, with his enthusiastic consent. The robin will sing in the night.
+Taking him as your son, with his enthusiastic consent, the robin will spread his wings and sing in the skies.
 
 He only had to swear on it, before me, before the city.
 
 Two heroes in the night. 
+
 
 {!</div>!}
 
@@ -509,27 +540,37 @@ go-to: 1984_end
 new-page: true
 on-display: {!
 
-    skip();
-    const element8 = document.querySelector('.dialogue8');
-    speak(element8, .7);
+introDialogue();
 
 !}
+set-bg: img/background/harveydent.webp
 
 = Harvey Dent
 
 {!<div class="typewriter dialogue8">!}
+The fight for justice is a lonely battle. Yet, the knowledge that someone is beside you, someone will help, it’s something that makes each night of sleep feel a little less guilty. 
 
-The fight for justice is a lonely battle. Yet, the knowledge that someone is beside you, someone will help, it’s something that allows each night to feel a bit more tranquil than they would have usually been.
+After Andrea, you never trusted yourself to find someone like that again. 
 
-At one trial, there was an especially fiery assistant county prosecutor which caught your eye. While most in the city that practiced law used it as a way to become a vehicle for corruption, he seemed more invested in finding the truth of the crime of a simple robbery than either the police, the judge or even the defendant were.
+You’ve attended many trials in your life. Mostly as a spectator. Sometimes as a witness. Once as a juror. Almost all of them were loaded to the brim with bribes openly hanging from everyone’s pockets. But not this time. 
 
-Harvey Apollo Dent was certainly a bit of a character. While on the stand his good looks and boundless confidence made him look like the archetypical movie law man of the pulpit, meeting him in his office, he just seemed tired, feeling like he could never do enough, that so many things were out of his control.
+An especially fiery assistant county prosecutor caught your eye bickering with the judge. While most who passed the bar here used it as a way to become a vehicle for corruption, he seemed more invested in finding the truth of the crime of a simple robbery than either the police, the judge he was giving an earful to, or even the defendant were.
 
-You two found a lot in common to discuss, you found in each other the same drive to help people, the same struggle with so many people needing your help, so little time to help them. For the first time in so many years, you finally found a friend.
+You reached out to him after the trial. Both of you knew the result from the get go, but he seemed crushed by it anyways. As you consoled the man, you exchanged cards. Reading his, you learned the assistant’s name was Harvey Apollo Dent. You were ready to just leave it at that; the past taught you not to trust. 
 
-As you mentioned the strange case of the Graysons, he assured you to do all he could to catch him. While you could find who was the culprit and Batman could catch the man and the law should have put him behind bars, he managed to get out on a technicality.
+But as always, trust doesn’t work on Wayne time alone. 
 
-Still, even if the wider system remains broken and tension seems to be rising between Dick and Harvey. The proof of concept is here. On the ground and on the pulpit, the power it truly had was clear as day. You only had to own it, to work out the kinks.
+He’d call your number on your card every now and then to ask about financial business. Inevitably, you’d have to do the same when it came to the law. He was smart, as devoted to justice as you were. As terrible of a sleeper you were. You found in each other the same drive to help people, the same struggle with so many people needing your help, but with so little time to help them. Against your better judgement, you’d come to know Harvey as your friend. 
+
+Still, while on the stand his good looks and boundless confidence made him seem like the archetypical movie law man of the pulpit, meeting him in his office was like talking to an entirely different man. His desk was haphazardly scattered with papers, books piled against his desk up against each other, reaching the height of his waist. Harvey Dent just seemed tired, feeling like he could never do enough. Be enough. That so many things were out of his control.
+
+As you mentioned the strange case of the Graysons, he assured you he’d do all he could to catch him. You found the culprit as Batman. Caught the man redhanded with the law ready to put him behind bars as Handsome Harv worked tirelessly on the one case he promised to you would be in good hands. 
+
+The killer of the Graysons managed to get out on a technicality.
+
+There’s not much a mere man can do against a broken system after all. It didn’t make the sting of it hurt any less. You find yourself pulled between two worlds. One where a swindler sold a grand lie, only to disappear once the charade was revealed, and one where not even an orphan could ever forgive the great sins of personal disgrace. 
+
+But that’s what failure is for, right? The proof of concept is still here. On the ground and on the pulpit, the power it truly had was clear as day. You only had to own it, to work out the kinks.
 
 {!</div>!}
 
@@ -553,7 +594,12 @@ go-to: 1985_choice
 go-to: 1985_start if talia_train = 1; 1985_middle if talia_train = 0
 
 @1985_start
+on-display: {!
+    introDialogue();
+!}
 new-page: true
+
+{!<div class="typewriter">!}
 
 = The Demon's Heir
 
@@ -565,7 +611,29 @@ His daughter. The daughter of the demon. You call out her name.
 
 “Talia. Talia Al Ghul, yes. Wayne, I understand your circumstances at this given moment, but if you have time to spare, I’d like to speak to you in person. I have quite urgent news. Please be there, Wayne.”
 
-You wait at a local shengjian bao stand. The one right next to the hotel. By the glances given at your direction, you stand out like a sore thumb ordering food in fluent Mandarin, waiting for your meal like you’re waiting for a date. In a way you are, you suppose. Finally, she arrives. The two of you sit on stools, first talking about nothing in particular. You feel like teenagers again, but not for long. 
+You wait at a local shengjian bao stand. The one right next to the hotel. By the glances given at your direction, you stand out like a sore thumb ordering food in fluent Mandarin, waiting for your meal like you’re waiting for a date. In a way you are, you suppose. Finally, she arrives. The two of you sit on flimsy stools, and she seems just happy to be there. To be with a friend again.
+
+“How is the city of Gotham like, Wayne?” 
+
+You lean in forward, hand resting against your chin. Dangerous as always. That’s why it needs me, to push the city forward, not back. 
+
+“Your determination was always admirable, Wayne. Perhaps you can take my father and I to visit one day.” 
+
+Maybe. But you have a feeling her dad prefers the grand peaks of Tibet over the bustling metro of Gotham. Ms. Al Ghul, with her posture as straight as a soldier’s, is unfazed by your remarks. 
+
+“Perhaps, then, it will have to be the two of us. You’ve seen my hometown, I would like to visit yours. See how the man who my father praises so highly was formed. Perhaps, just this once.” 
+
+You tilt your head to the side. Your stomach growls smelling scents of freshly grilled pork buns. Ah, remind me then, when is our serving going to arrive? 
+
+She looks down. Then, the daughter of the demon effortlessly scans her surroundings. She stands up, and alerts the stand operator of their tardiness. Soon enough, she places the container of buns right on the egg cart right between you two. 
+
+“It is quite fortunate that he was finished with our order the moment I had asked him about it.” 
+
+She then tosses a pair of chopsticks into the air and you just barely catch it as she splits hers in two with effortless force. She dips her bao in vinegar. You’re about to go condimentless on yours before she alerts you to the other dipping tray she brought with the order. 
+
+“The soy sauce is for you, laowai.” 
+
+Your face is flushed with embarrassment. You didn’t think she’d remember. You and Talia gobble down your evening snack, talking about nothing in particular. For just a second, the two of you feel like teenagers again. As you snag the last bun from the grasp of her chopsticks, making sure to eat it as obnoxiously slow as possible. After that, you’re ready to call it quits. You push away your stool, ready to leave before she uncharacteristically blurts something out.
 
 “Wayne. Bruce Wayne. There is something I must tell you.”
 
@@ -578,6 +646,8 @@ She switches from Mandarin to English. Her stoic eyebrows furl in concentration.
 She glances around. The Shanghainese don’t understand a lick of what she’s saying. You’re not sure if that’s a good or a bad thing. Talia takes a deep breath in.
 
 “You. You are the father. There was no rape, nothing remotely as such, but beyond that I cannot explain further, but that is the truth.”
+
+{!</div>!}
 
 - @talia_bullshit: You’re bullshiting me. There’s no way that this could theoretically work, let alone practically! What did you do, take my - no, I don’t even want to know. Talia, you betrayed me!
 - @talia_here: I’m here for you. I don’t know what’s going on, but whatever you’re dealing with, I will be there. For both you, and our child.
@@ -598,6 +668,12 @@ go-to: 1985_middle
 
 @1985_middle
 new-page: true
+set-bg: img/background/rooftops.webp
+on-display: {!
+    introDialogue();
+!}
+
+{!<div class="typewriter">!}
 
 = Killing a Mockingbird
 
@@ -616,6 +692,8 @@ Her husband was killed, while he was always watchful of anything that could stri
 She found in you an opportunity to finally find closure, both to finding who killed her husband but also to finally leave her years of fighting crime knowing that the city is in safe hands. She worked hard since she was just 18, she wants to finally be the mother her daughter deserved.
 
 You told her you will find the culprit. That you will find her husband's killer. You even gave her the necessary financial support to no longer feel on the rope each day of her life and…
+
+{!</div>!}
 
 - @mockingbird_harvey: You managed to catch the killer with the help of Harvey and his rummaging through the record of thousands of criminals.
 - @mockingbird_gordon: You managed to catch the killer with the outstanding performance of this new commissioner, James Gordon.
@@ -636,6 +714,12 @@ go-to: 1985_end
 
 @1985_end
 new-page: true
+on-display: {!
+    introDialogue();
+!}
+set-bg: img/background/rich.jpg
+
+{!<div class="typewriter">!}
 
 = Electoralism 
 
@@ -651,6 +735,8 @@ He said that he was impressed by your work, the <span class="tooltip-text" title
 
 Those promises always sounded more hollow when said by any politician, yet, considering his current polling numbers ranked him as most certainly winning the election, it’s quite probable he may actually be honest and truly wishing to help you and the city. He may get elected either way but you…
 
+{!</div>!}
+
 - @electoralism_neutral: Decided to tell him that you preferred staying out of politics both on ethical and business ground as the city remains deeply divided.
 - @electoralism_endorsement: You agreed to grant him an endorsement in hopes that his help would bring you the support you require for your plans against poverty.
 - @electoralism_handout: You accepted to endorse him but refused to ask for any handouts as it would just go on the same length of favors of the previous administration.
@@ -660,32 +746,134 @@ on-arrival: red_moderate_relation_bruce += 10; conservative_relation_bruce += 5;
 go-to: 1987
 
 @electoralism_endorsement
-on-arrival: red_moderate_relation_bruce -= 5; conservative_relation_bruce -= 10; reactionary_relation_bruce -= 10; blue_moderate_relation_bruce += 5; liberal_relation_bruce += 5; progressive_relation_bruce += 10; poverty -= 1
+on-arrival: red_moderate_relation_bruce -= 5; conservative_relation_bruce -= 10; reactionary_relation_bruce -= 10; blue_moderate_relation_bruce += 5; liberal_relation_bruce += 5; progressive_relation_bruce += 10; poverty -= 1; hamilton_support = 1
 go-to: 1987
 
 add in charity remember
 
 @electoralism_handout
-on-arrival: blue_moderate_relation_bruce += 10; liberal_relation_bruce += 10; progressive_relation_bruce += 10 
+on-arrival: blue_moderate_relation_bruce += 10; liberal_relation_bruce += 10; progressive_relation_bruce += 10; hamilton_support = 1
 go-to: 1987
 
 
 @1987
 new-page: true
+set-bg: img/background/catwomanrooftops.webp
+on-display: {!
+    introDialogue();
+!}
+
+{!<div class="typewriter">!}
 
 = The Catwoman Rips your Cowl
+
+Most criminals were one and done. It’s not rare for someone to escape their first crime. It’s rarer if they escape their second. It becomes notable when they escape it thrice. After that, the numbers become less meaningful. It’s less a statistic, it’s more of a myth. 
+
+There was one such criminal that escaped you 3 times already. The Catwoman. The greatest thief of gotham city, responsible for the sudden unfortunate disappearance of multiple private collections of arts and jewelry. 
+
+The Jewels and metal made sense to be resold, but why from the hardest places to take them from? And the art… There was nothing that seemed to co-relate to a clear buyer for any of them. Either she had perfect execution and no long term plan, her plans were unknown or… She’s simply yearning for the challenge.
+
+Trying to catch Catwoman felt more like a chase. A thrill, a hunt rather than a fight. This is how she liked it after all.
+
+Another night went and this time, you managed to catch her before she could fade in the night. New diamonds sparkling brighter than streetlights hung around her arm.
+
+You jumped out from one building to the other, two shadows dancing on roofs, a flash with each hop, a drum with each step.
+
+Suddenly, you flew, you heard a snap. You felt your grappling hook fail you for the first time. All became dark.
+
+“Have you ever danced with the Devil in the pale moonlight?”
+
+Eyes open, back against the ground. You had failed. A rip between two roofs let you fall onto a narrow street, a miracle and preparations for such an event allowing you to breathe but…
+
+You felt the wind on your face. Your mask has been on your face for so long, you had forgotten what it felt to have the rays of the moon cool your skin.
+
+“You’re a bad dancer… Bruce.”
+
+You reflexively put your hand on your face. Some blood falling over your fingers. The feline shadow came into view as you try to stand on your feet. As she came to finish her work? She has taken everything after all.
+
+“I’m surprised you’re doing all of this out of all people, you know?  Risking your life for the sake of others… You’ve blown me way out of my expectations…”
+
+Adrenaline seeps through your veins. You gulp, bracing for the worst. A spotlight, a camera flash. 
+
+“But I don’t want this night to end this way, not just yet.”
+
+Steps came closer, their noise throwing you against the wall. Yet, throwing out her whips to the ground, throwing diamonds and jewels. She was not cornering you. Her hands drawing on her face, pulling out the face of Selina Kyle.
+
+The voice didn’t feel quite right up until now, but it couldn’t be anyone else. The head of the most successful investment firm of the city… Stealing? Those certainly had value but she had no need to take them for herself.
+
+“You don’t know how many cops have tried to catch me in the act since I first started, Batman. It’s like they’re personally offended by me just existing, by me getting away every single time.”
+
+This wasn’t a gloat. Even towering over you, none of this imbalance was abused in her words.
+
+“But you, you never wavered. You could’ve just shot the damn bitch before she escapes again, you know, Batsy? But you didn’t. You play fair, but you’re a rebel in the books. You always get knocked down, and yet you always get back up again. You’re an oxymoron, Bruce. I like that about you. You’re the thrill I want.”
+
+“There’s no other man in this town that I've trusted more than you, Batman. This hunt isn’t over. One to one, I want you to trust me. Trust my name to you as you gave yours to mine.”
+
+Slowly, this mask would fall back onto her face, taking back her whip, a wink and a swing into the night.
+
+She gave you this night to you.
+
+{!</div>!}
 
 - @1989_start: Next Year
 
 @1989_start
 new-page: true
+on-display: {!
+    introDialogue();
+!}
+
+{!<div class="typewriter">!}
 
 = Independence
 
-- @1989_middle: Next Year
+“You’re not doing enough, dad.”
+
+This was a sentence that Dick has been saying at an ever increasing pace since a few years now. For a while it felt like the natural effect of becoming a teenager. However, the opposition wasn’t as much a general rebellion against authority as a feeling you’re simply not getting it.
+
+“I just think you don’t get what people go through! You’ve never had to worry about your next meal, or the water going out, or hell, even just paying rent! You just can’t see people need just so much more.”
+
+Clinging crystal glasses with the crust of society, the sizzle of champagne, the look on their smile is clear. All teeth, most proud of achieving their places, not through luck, not through inheritance, only through their own great skills. Just like you? Isn’t it how it is?
+
+You did work your ass off to get to the place you are? They don’t know just how hard it is to own a multinational company while also doing the hard work of stemming the waves of crime in the city after all. And yet… There's something disgusting here. Even without their brow full of sweat and their purse so heavy, they claim they just can’t do more.
+
+“Look dad… Bruce. I’m ripping off the band-aid. I think it’s time I do what I should have done since the start. I can’t thank you enough for all the help you’ve given me - I mean not just the whole adopting me thing, but everything. I don’t know how much it would take to repay it back, if I even COULD in the first place but…”
+
+“I don’t think we can’t continue working like this, dad. Together. In the city. We’re driving ourselves apart.”
+
+You gave Dick an allowance and the best suit he could dream off to fight in his home city, Blüdhaven. For those that know, the message was to try and spread the fight against crime out of the border of just one city. Yet, even after the hug and the leave, it’s clear this wasn’t the break you had wanted. 
+
+Dick probably would never have fully accustomed himself with the kind of life you had brought him in. Too many false smiles, too many lies, too many handshakes with snakes. The irony of him leaving the mansion to still be financially dependent on you isn’t lost on you either. If he justify it on the fact he’s giving away 90% of what you’re giving him, then all power to him.
+
+Yet, eating with one person less, another room empty, hearing the echoes slightly louder… He had to get out someday, find his way out, find his way to be free. To make his own way. He changed a lot, he will continue to. 
+
+Being a parent is the hardest job in the world. He needed you being here, you helping him, but perhaps not advising him. You think he knew rather quickly what he wanted to do and in a way, he’ll be much brighter than you are, as he took what you knew to make even more. 
+
+{!</div>!}
+
+- @dick_liberty: I was perhaps a bit too protective of him. He had seen so many things and I had the power to protect him from those things. Yet he didn’t want to protect himself, he needed to help others. I need to let people breathe.
+- @dick_sanity: I never saw anyone with as much trust in himself as him. There are doubts, some I still share, that I fear may be the only thing tearing me down. I can’t let myself do nothing fearing what I may do wrong.
+- @dick_morality: I think there is something that separates him from other kids. I’ve been bitter, I may have become a monster if I had not been in such good company. He didn’t need that, he simply wanted to be the best for others. This is all that matters.
+
+@dick_liberty
+on-arrival: order -= 1
+go-to: 1989_middle
+
+@dick_sanity
+on-arrival: sanity += 10
+go-to: 1989_middle
+
+@dick_morality
+on-arrival: moral_compass += 15
+go-to: 1989_middle
 
 @1989_middle
 new-page: true
+on-display: {!
+    introDialogue();
+!}
+
+{!<div class="typewriter">!}
 
 = Replacement
 
@@ -693,24 +881,179 @@ new-page: true
 
 @1989_end 
 new-page: true
+on-display: {!
+    introDialogue();
+!}
+set-bg: img/background/quincysharp.webp
+
+{!<div class="typewriter">!}
 
 = Reaction
 
-- @1991_start: I hate the guy.
+After 4 years of rule, Hamilton Hill has little to show for it. At least, that’s what most media have been spewing ever since his inauguration.
+
+In those 4 years, you’ve defeated the five families of Gotham, finally put the Joker behind bars, led to a never seen reduction in the crime rate of Gotham city and yet, people only think that the city has become more violent, more divided, more unsafe.
+
+Some would say that Hamilton Hill is just riding your result, some will say that he should have done more, some others will say that the deck is stacked against them. However, isn’t that the excuse every politician uses?
+
+Be that as it may, Hamilton Hill will join the choirs by touting the lines of law and order during his re-election attempt. This was not his terrain, not his culture, he got thrown out.
+
+There's a new man in town, his name is Quincy Sharp. Tough as nails, tough on crime, tough on the sources of crimes, criminals. He’s giving an open hand to anyone that would help him, which include those that have previously fought against him.
+
+You didn’t fully trust Hamilton Hill before, you’re not sure why you should trust Sharp either. He has a way of speaking that much more straight Hill ever was, however, if you can trust his words, can you trust who put those in his mouth? 
+
+{!</div>!}
+
+- @supportquincy: Whatever his political ideals or personality, I’ve much more to lose than to gain by staying silent. I will present an open palm to him.
+- @dontsupportquincy: Don't support.
+
+
+@supportquincy
+on-arrival: {!
+    if (Q.hamilton_support) {
+        Q.order += 1;
+        Q.blue_moderate_relation_bruce -= 20; 
+        Q.liberal_relation_bruce -= 20; 
+        Q.progressive_relation_bruce -= 20;
+        Q.red_moderate_relation_bruce += 20; 
+        Q.conservative_relation_bruce += 20;
+        Q.reactionary_relation_bruce += 20;
+        Q.credibility -= 2;
+    }
+
+    if (!Q.hamilton_support) {
+        Q.order += 1;
+        Q.political_perception -= 25;
+        Q.blue_moderate_relation_bruce -= 10; 
+        Q.liberal_relation_bruce -= 10; 
+        Q.progressive_relation_bruce -= 10;
+        Q.red_moderate_relation_bruce += 20; 
+        Q.conservative_relation_bruce += 20;
+        Q.reactionary_relation_bruce += 20;
+        Q.credibility -= 2;
+    }
+
+!}
+
+[? if hamilton_support == 1 : As you previously supported Hamilton Hill, crossing the aisle so easily is being seen by many as the behavior of a Weathervane. Others will say you're bi-partisan, but their numbers are much smaller. ?]
+
+[? if hamilton_support == 0 : Taking pictures with the man, their was something rather fresh about a person ready to say things as they perceived them, not packaged in a way people would prefer to hear it. You’ve gained the bias of being a conservative politician. But maybe that’s what you are? ?]
+
+- @1991_start_quincy: Time passes.
+
+@dontsupportquincy
+on-arrival: {!
+    if (Q.hamilton_support) {
+        Q.order -= 1
+        Q.blue_moderate_relation_bruce += 20; 
+        Q.liberal_relation_bruce += 20; 
+        Q.progressive_relation_bruce += 20;
+        Q.red_moderate_relation_bruce -= 10; 
+        Q.conservative_relation_bruce -= 10;
+        Q.reactionary_relation_bruce -= 10;
+        Q.political_perception += 25
+    }
+
+    if (!Q.hamilton_support) {
+        Q.reform_relation_bruce += 20;
+        Q.populist_relation_bruce += 20;
+        Q.libertarian_relation_bruce += 20;
+        Q.socialist_relation_bruce += 20;
+        Q.green_relation_bruce += 20;
+        Q.nationalist_relation_bruce += 20;
+
+        Q.credibility += 2;
+    }
+!}
+
+[? if hamilton_support == 1 : Taking a stand in silence against the new mayor drew battle lines between the two of you. You're a successful businessman, you’re giving a lot to the city, he can’t hurt you just yet. Still, around some circles, people have floated your name as their ticket back into townhall. ?]
+
+[? if hamilton_support == 0 : You have heard from Clark that superheroes shouldn’t involve themselves in the affairs of humans. There's a limit to this point but even here, you have no reason to stand one way or the other. It’s not through alienating each group that you’ll unite anyone. ?]
+
+- @1991_start: Time passes.
 
 @1991_start
+on-display: {!
+    introDialogue();
+!}
 new-page: true
+set-bg: img/background/darkyearrooftops.webp
+
+{!<div class="typewriter">!}
 
 = The Dark Year 
 
-- @dark_year_safe: Focused on keeping the people safe.
-- @dark_year_criminal: Focused on Catching the escaped criminals.
+Things have not improved since the arrival of Quincy Sharp. No, they became much worse. Militarization, privatisation of prisons, violence on every part of society. The policemen dressed up as the military, no, PMC’s taking their insurgent into working camps. What used to be a city now looked like a zone of war undergoing pacification.
+
+6 years of work to create a relationship between the police and population made by Gordon destroyed in an instant. For the mayor, he had become a liability.
+
+Under the new police chief, Lyle Bolton, crime will be answered by fire and brimstone, destroying everything in their path to achieve their goal of ending crime in the city. No innocent will be spared in the fight for order. To that end, the Bat’s services are no longer required.
+
+You are now an outlaw for all intent and purposes, much like the proverbial canary, the bat being removed became a show of realization for the average person in the city that things have taken a turn for the cruel. The journals, the tv could say that the violence is justified, when a friend of a friend gets hurt, it’s hard to believe their words.
+
+Gaps, fractures are appearing in society. People are blaming each other, people are no longer speaking to one another, they are shouting, they are screaming at each other, at everything. Understanding is lost, there's only pain and physical communication.
+
+The wound bursted. The Prisons, those places are overstuffed, overcruel, overpriced, understaffed and undersized, the dam as broken. The criminals are back on the streets, the circus is back in town.
+
+Jason said that he had stolen before, to feed himself, feed people he cared about, all because the rules were set up for him to be unable to follow them without suffering or making others suffer. When the law becomes unjust, isn’t it only fair to break it in turn? To right what became wrong?
+
+Even acting against the law, you need act, you need to do something to save the city before it breaks apart on itself.
+
+{!</div>!}
+
+- @dark_year_safe:  I need to help the people stay safe, I need to save them from the wind or they’ll fall. This is where wealth needs to act.
+- @dark_year_criminal: There's not thirty ways of helping the people against those criminals. We will fight those criminals, may the police like or hate it.
+
+@1991_start_quincy
+on-display: {!
+    introDialogue();
+!}
+new-page: true
+set-bg: img/background/darkyearrooftops.webp
+
+{!<div class="typewriter">!}
+
+= The Dark Year
+
+Perhaps, this was a mistake.
+
+The plan was flawed, or maybe it was the execution, either way, the situation is rapidly degrading. Quincy is going too hard to fast on too many things all at once. When everything was a nail to him, he needed as many hammers as he could get his hands on.
+
+Perhaps he was much too enthusiastic in making out of all the police force his own legions of Batman to fight against crime. They don’t know what they are doing. They have weapons of war, orders to shoot, they don’t know how to fix, only how to break.
+
+James couldn’t allow it to continue. With his resignation blew away most of the influence you had to keep the worst excesses of this police. Instead of a stone to sharpen against, they will find a rock to throw at their adversary, Lyle Bolton.
+
+It was said that by the end of his term, Hamilton Hill was deeply unpopular. That’s wrong, seeing the protest, seeing the shoots, seeing the vandalism. That’s real hate, that’s true unpopularity, that is the show of someone that has lost the mandate of the people and now acted on pure instinct.
+
+It wasn’t just one thing, it wasn’t just putting the prison to sale, it was just locking everyone up, including likely many innocent people in jail, it wasn’t just making them work their stay in bars. It was everything. So much pressure in such a short amount of time let a loud and instant pop all around the town as the prison burst and flowed out to the streets.
+
+Suddenly, for someone who seemed to always have the solution to everything he set himself out to do, Quincy looked particularly powerless and in search of aid right after it had become perhaps too late for him to fix much of anything.
+
+Jason told me that people need things to blow in their faces for them to really realize they are wrong. It’s only when someone breaks something that they start to slow down. When they do irrevocable damage to something they care about deeply. When they think they can’t walk back and are fully responsible for it.
+
+However, Quincy has never met any resistance in his entire life, any time where everything could be turned back as the hands of a clock. For him, this gale has become a death sentence, something it may as well be.
+
+Some won’t forgive your shaking hand with the most unpopular man in Gotham. Yet, their gratitude is less important than their welfare. They deserve everything they can receive, then, perhaps, it will be a good place to start. 
+
+{!</div>!}
+
+- @dark_year_safe:  I need to help the people stay safe, I need to save them from the wind or they’ll fall. This is where wealth needs to act.
+- @dark_year_criminal: There's not thirty ways of helping the people against those criminals. We will fight those criminals, may the police like or hate it.
 
 @dark_year_safe
-go-to: 1991_end
+on-arrival: bruce += 1; approval_rating_bruce += 5; poverty -= 3
+
+You spend much to help the population avoid its terminal fall. It’s like plugging a massive hole and yet, you feel like you made a change and people saw it.
+
+- @1991_end: Next year.
 
 @dark_year_criminal
-go-to: 1991_end
+on-arrival: batman += 1; crime_rate -= 5; approval_rating += 5
+set-bg: img/background/gothambatman.webp
+
+Batman remained the one arm of justice that people still looked up too in the dark night. The people don’t trust the forces, but they trust a man with no name.
+
+- @1991_end: Next year.
 
 @1991_end
 new-page: true
@@ -722,6 +1065,8 @@ new-page: true
 @1993_start
 new-page: true
 go-to: tim_menu
+
+{!<div class="typewriter">!}
 
 = Tim the Menace
 
@@ -748,6 +1093,8 @@ You wish you didn’t.
 He returns, but with a catch. The kid is right behind him. As soon as he sees you, the brunette makes a run for it. He suddenly clasps your hands tight together, and says something nobody should ever know.
 
 “Bruce Wayne! You’re- you're Batman! You need me! You need a Robin!”
+
+{!</div>!}
 
 @tim_menu
 
@@ -1249,5 +1596,6 @@ Q.credibility_old = Q.credibility;
 Q.pf_old = Q.pf;
 Q.budget_old = Q.budget;
 Q.poverty_old = Q.poverty;
+
 !}
 go-to: election_1994

@@ -33,7 +33,6 @@ Q.horse_music = 1;
 
 
 }
-    window.batphone();
 
 !}
 on-departure: {!
@@ -49,6 +48,8 @@ on-display: {!
       });
     window.disableBatmanMode();
 
+    Q.markerposition = Q.order*2.7;
+
     if (Q.markerposition >= 50) {
         Q.markerposition = 50;
     } 
@@ -60,11 +61,13 @@ on-display: {!
 
     var r = document.querySelector(':root');
     r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
+
+    nametabchange();
+
+    window.batphone();
     
 !}
 max-cards: 3
-
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
 {!<div class="scrollable-box">!}
 
@@ -88,7 +91,6 @@ if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
     Q.onmain = 1;
-    window.batphone();
 
 if (Q.horse_music == 0) {
 
@@ -127,6 +129,8 @@ on-display: {!
          el.style.maxWidth = '540px';
       });
     window.disableBatmanMode();
+    
+    Q.markerposition = Q.order*2.7;
 
     if (Q.markerposition >= 50) {
         Q.markerposition = 50;
@@ -139,15 +143,12 @@ on-display: {!
 
     var r = document.querySelector(':root');
     r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
-    var r = document.querySelector(':root');
-    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
+    nametabchange();
 
+    window.batphone();
 
 !}
 max-cards: 9
-
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
-
 
 {!<div class="scrollable-box">!}
 
