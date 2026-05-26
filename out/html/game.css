@@ -367,10 +367,10 @@ blockquote + blockquote.attribution {
 #tools_wrapper {
   position: absolute;
   width: 100%;
+  max-width: 73em;
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 5;
 }
 
 #batman_div {
@@ -386,12 +386,12 @@ blockquote + blockquote.attribution {
   border-radius: 10px;
 }
 .tools.left {
-  position: absolute;
-  left: 35vh;
+  float: left;
+  left: 0.4em;
 }
 .tools.right {
-  position: absolute;
-  right: 35vh;
+  float: right;
+  right: 0.4em;
 }
 .advice {
   padding: 0.6em;

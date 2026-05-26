@@ -4,5 +4,6 @@ tags: advisor
 card-image: img/portraits/james_gordon.png
 view-if: gordon_advisor = 1
 new-page: true 
+frequency: 100
 
 Gordon
