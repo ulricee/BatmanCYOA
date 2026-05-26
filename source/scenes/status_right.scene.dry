@@ -649,6 +649,10 @@ The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 
 = Burnley ([+ burnley_total_bruce_display +]% Approval)
 
+[+ district_approval_gap_final_bruce +]
+
+[+ district_approval_gap_bruce +]
+
 The old industrial heart of the city that has since then went into quite some decline.
 
 {!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnley_approval_bruce_display +]%{!</b>!} supports Bruce. 
@@ -822,6 +826,73 @@ On the entire city, this gives us {!<b>!}[+ latino_bristol_city_bruce_display +]
 {!</div>!}
 
 {!</div>!}
+
+@economy
+
+= Economy
+
+{!<div class="small-text">!}
+
+Unemployment Rate: [+ unemployment_rate +]%
+
+Nationwide Inflation: [+ inflation +]%
+
+General Sentiment: Okay
+
+{!</div>!}
+
+= Affordability 
+
+{!<div class="small-text">!}
+
+• Personal Consumption Expenditures: [+ cpi +]
+
+The Consumer price index is essentially how much the average Gothamite pays.
+
+• Costumer Spending Index: [+ csi +]
+
+The Consumer spending index is the average consumer spending of Gotham on personal goods and services.
+
+• Costumer Sentiment: Very Low
+
+Costumer Sentiment is based on polls interviewing people about their spending.
+
+{!</div>!}
+
+
+{!<table>
+    <th>
+        <tr>1</tr>
+        <tr>2</tr>
+        <tr>3</tr>
+    </th>
+    <th>
+        <tr>1</tr>
+        <tr>2</tr>
+        <tr>3</tr>
+    </th>
+
+
+</table>
+!}
+
+= Jobs
+
+• Small Business Health: 
+
+• Large Business Health: 
+
+• Jobs: 
+
+= Poverty
+
+• Poverty Rate:
+
+• Supplemental Poverty Measure
+
+
+
+
 
 @debug
 
