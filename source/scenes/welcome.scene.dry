@@ -64,7 +64,12 @@ set-bg: img/background/graveyard.webp
 = 1967, alone.
 
 {!
+
+
 <div class="typewriter dialogue1" id="dialogue1">!}
+
+<img src="img/background/death.webp" class="death">
+
 
 Life ended this day. 
 
@@ -815,7 +820,16 @@ She gave you this night to you.
 
 {!</div>!}
 
-- @1989_start: Next Year
+- @catwoman_open: I do not know all the games she plays, but those seem not as mortal. I’ll talk more with Selina, with Catwoman. This is not an edge she wishes to fall down from. I know she will be better.
+- @catwoman_villain: I think she may be much more naïve than she claims to be. It may not come this year or the next, but eventually, she’ll be caught.
+
+@catwoman_open
+on-arrival: selina_relation += 20
+go-to: 1989_start
+
+@catwoman_villain
+on-arrival: selina_villain = 1; selina_relation -= 20
+go-to: 1989_start
 
 @1989_start
 new-page: true
@@ -907,9 +921,10 @@ You didn’t fully trust Hamilton Hill before, you’re not sure why you should 
 - @supportquincy: Whatever his political ideals or personality, I’ve much more to lose than to gain by staying silent. I will present an open palm to him.
 - @dontsupportquincy: Don't support.
 
-
 @supportquincy
 on-arrival: {!
+    Q.quincy_support = 1;
+
     if (Q.hamilton_support) {
         Q.order += 1;
         Q.blue_moderate_relation_bruce -= 20; 
@@ -1010,6 +1025,7 @@ on-display: {!
 !}
 new-page: true
 set-bg: img/background/darkyearrooftops.webp
+on-arrival: approval_rating_bruce -= 5
 
 {!<div class="typewriter">!}
 
@@ -1037,18 +1053,32 @@ Some won’t forgive your shaking hand with the most unpopular man in Gotham. Ye
 
 {!</div>!}
 
-- @dark_year_safe:  I need to help the people stay safe, I need to save them from the wind or they’ll fall. This is where wealth needs to act.
-- @dark_year_criminal: There's not thirty ways of helping the people against those criminals. We will fight those criminals, may the police like or hate it.
+- @dark_year_quincy_criminal: I’ll make it clear to Quincy Sharp, Either the police change now or the people will make it change by force. Batman will deal with the rogue elements, this can’t continue.
+- @dark_year_quincy_people: Sharp has prejudice in him. He may not show it too publicly, but I can see it. He needs to give back to the people before they take everything from him. This is no longer up to negotiation.
+
+@dark_year_quincy_criminal
+on-arrival: crime_rate -= 15; quincy_crime_rate = 1; batman += 1
+
+Much of the easily reversible policy that had been set was reset. However, before the real hard work could begin, Lyle Bolton mutinied against what he thought was a betrayal of the population. You gladly beat him and took him to court. Gordon has his work cut out for him, but at least he wouldn’t be sandbagged while doing it anymore.
+
+- @1991_end: Next year.
+
+@dark_year_quincy_people
+on-arrival: poverty -= 15; bruce += 1
+
+The Sharp social contract would usually be rather popular. After all, people usually liked having jobs, having money, not being in the gutter. That’s what you marketed it as, that’s what some saw it as. Still, for so many, all they could see was the reflection of the face-shields of the military police.
+
+- @1991_end: Next year.
 
 @dark_year_safe
-on-arrival: bruce += 1; approval_rating_bruce += 5; poverty -= 3
+on-arrival: bruce += 1; approval_rating_bruce += 5; poverty -= 5
 
 You spend much to help the population avoid its terminal fall. It’s like plugging a massive hole and yet, you feel like you made a change and people saw it.
 
 - @1991_end: Next year.
 
 @dark_year_criminal
-on-arrival: batman += 1; crime_rate -= 5; approval_rating += 5
+on-arrival: batman += 1; crime_rate -= 5; approval_rating_bruce += 5
 set-bg: img/background/gothambatman.webp
 
 Batman remained the one arm of justice that people still looked up too in the dark night. The people don’t trust the forces, but they trust a man with no name.
@@ -1432,7 +1462,7 @@ choose-if: campaignpromises <= 5
 on-arrival: {!
     Q.promise_admnistration_increase = 1;
 
-    Q.approval_rating += 3
+    Q.approval_rating_bruce += 3
 
     Q.blue_moderate_relation_bruce += 5;
     Q.liberal_relation_bruce += 5;
@@ -1453,7 +1483,7 @@ choose-if: campaignpromises <= 5
 on-arrival: {!
     Q.promise_poverty_decrease = 1;
 
-    Q.approval_rating += 4
+    Q.approval_rating_bruce += 4
 
     Q.blue_moderate_relation_bruce += 7;
     Q.liberal_relation_bruce += 7;
@@ -1550,52 +1580,6 @@ go-to: admnistration
 choose-if: campaignpromises > 0
 on-arrival: {!
 
-if (Q.approval_rating > Q.approval_rating_old)   {
-    Q.approval_rating_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
-    Q.approval_rating_up = 1;
-} else { 
-    Q.approval_rating_up = 0;
-}
-
-if (Q.credibility > Q.credibility_old) {
-    Q.credibility_up = 2;
-} else if (Q.credibility_old == Q.credibility) {
-    Q.credibility_up = 1;
-} else { 
-    Q.credibility_up = 0;
-}
-
-if (Q.pf > Q.pf_old) {
-    Q.pf_up = 2;
-} else if (Q.approval_rating_old == Q.approval_rating) {
-    Q.pf_up = 1;
-} else { 
-    Q.pf_up = 0;
-}
-
-if (Q.budget > Q.budget_old) {
-    Q.budget_up = 2;
-} else if (Q.budget_old == Q.budget) {
-    Q.budget_up = 1;
-} else { 
-    Q.budget_up = 0;
-}
-
-
-if (Q.poverty > Q.poverty_old) {
-    Q.poverty_up = 2;
-} else if (Q.poverty_old == Q.poverty) {
-    Q.poverty_up = 1;
-} else { 
-    Q.poverty_up = 0;
-}
-
-Q.approval_rating_old = Q.approval_rating;
-Q.credibility_old = Q.credibility;
-Q.pf_old = Q.pf;
-Q.budget_old = Q.budget;
-Q.poverty_old = Q.poverty;
 
 !}
 go-to: election_1994

@@ -260,6 +260,9 @@ Q.old_gotham_size = 18;
 Q.burnside_size = 15;
 Q.bristol_size = 5;
 
+
+
+
 // Main Tab values
 // Budget Breakdown
 
@@ -286,7 +289,7 @@ Q.order = 0;
 Q.freedom = ((Q.order)*(-1));
 Q.batman = 0;
 Q.bruce = ((Q.batman)*(-1));
-Q.approval_rating_bruce = Q.approval_rating;
+Q.approval_rating_bruce = 50;
 Q.sanity = 100;
 
 // Old values 
@@ -299,6 +302,30 @@ Q.poverty_old = 0;
 // economic value
 Q.poverty = 50;
 Q.economy = 50;
+
+Q.unemployment_rate = 10.43;
+
+
+// These economic values go from -100 to 100
+
+// Economic Growth
+Q.business_health = 0;
+Q.jobs = 0;
+Q.job_quality = 0;
+
+// Poverty
+Q.affordability = 0;
+
+
+
+// Synergies
+// Consumer spending index: Affected by affordability and jobs. It measures how much consumer spending there is.
+// Consumer price index: Essentially a comparison of affordability to the national inflation. 
+// 2.56 (1994), 2.83 (1995), 2.95 (1996) and 2.29 (1997)
+
+Q.inflation = 2.56;
+Q.csi = 4585;
+Q.cpi = 2.56+(5*(Q.affordability+1))
 
 // Polls
 
@@ -1201,6 +1228,7 @@ Q.talia_relationship = 50;
 Q.cassandra_relationship = 50;
 Q.shiva_relationship = 50;
 Q.andrea_relationship = 50;
+Q.selina_relationship = 30;
 Q.ra_relationship = 50;
 Q.roman_sionis_relationship = 50;
 Q.harvey_relation = 50;
@@ -1223,6 +1251,8 @@ Q.freethinker = 0;
 Q.nonphilosopher = 0;
 
 Q.andrea_breakup = 0;
+Q.selina_villain = 0;
+
 
 Q.david_train = 0;
 Q.talia_train = 0;
@@ -1240,10 +1270,13 @@ Q.tim2 = 0;
 Q.tim3 = 0;
 
 Q.hamilton_support = 0;
-
+Q.quincy_support = 0;
 
 Q.seeingasbatman = 0;
 Q.seeingasbruce = 1;
+
+// Chart flags
+Q.quincy_crime_rate = 0;
 
 // This flag determines whether you see relations with corrupt councilmen or not.
 Q.corrupt = 0;

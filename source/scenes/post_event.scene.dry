@@ -189,6 +189,16 @@ minorapproval = function () {
 minorapproval();
 
 
+
+
+
+    Q['district_approval_change_' + character] = 0;
+
+    Q['district_approval_change_bruce'] = Q['district_approval_gap_final_' + character] - Q['district_approval_gap_final_' + character + '_old'];
+
+
+
+
 Q.approval_change_bruce = 0;
 
 for (var c of Q.classes) {
@@ -218,8 +228,7 @@ Q.approval_rating_bruce += (Q.approval_change_bruce);
         Q[c + '_support_bruce'] += ((Q.approval_gap_bruce)*(Q[c + '_approval_weight_bruce']));
     }
 
-
-
+// Approval gap for districts
 
 
 // Trying to convert support changes into approval change.
@@ -314,8 +323,6 @@ Q.approval_rating_bruce += (Q.approval_change_bruce);
 // 
 
 
-
-
 // Checking old values to give arrow displays
 
 if (Q.approval_rating_bruce > Q.approval_rating_bruce_old)   {
@@ -391,6 +398,23 @@ if (Q.approval_rating_honeymoon > 0) {
 
 // CSS variables
 
+
+
+
+
+
+
+
+
+
+
+
+Q.unemployment_rate = 0;
+
+
+  for (var district of Q.districts) {
+        Q.unemployment_rate += (Q['unemployed_' + district])*((Q[district + '_size'])/100);
+  }
 
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
