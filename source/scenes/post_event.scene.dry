@@ -146,6 +146,58 @@ if (toolsWrapper) {
 //        Q[c + '_support'] = Q[c + '_quincy_support']*(1+(Q['quincy_' + c + '_ideology']));
 //  }
 
+var character = 'bruce'
+
+// district updated
+
+  for (var district of Q.districts) {
+    Q[district + '_total_' + character] = 0;
+    for (var c of Q.classes) {
+        Q[district + '_total_' + character] += (Q[c + '_' + district + '_support_' + character]);
+    }
+  }
+
+  // approval changes
+
+// we get minor approval changes per district, add them up, divide by six, and change class support by it.
+
+minorapproval = function () {
+    
+    
+
+
+  for (var district of Q.districts) {
+        Q[district + '_approval_total_' + character] = 0;
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[district + '_approval_total_' + character] += (Q[c + '_' + district + '_approval_' + character])/6;
+    }
+  }
+
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+        Q[c + '_' + district + '_approval_gap_' + character] = (Q[district + '_approval_total_' + character])-(Q[c + '_support_' + character])
+    }
+  }
+
+
+
+}
+
+minorapproval();
+
+
+
+
+
+    Q['district_approval_change_' + character] = 0;
+
+    Q['district_approval_change_bruce'] = Q['district_approval_gap_final_' + character] - Q['district_approval_gap_final_' + character + '_old'];
+
+
+
 
 Q.approval_change_bruce = 0;
 
@@ -176,14 +228,10 @@ Q.approval_rating_bruce += (Q.approval_change_bruce);
         Q[c + '_support_bruce'] += ((Q.approval_gap_bruce)*(Q[c + '_approval_weight_bruce']));
     }
 
-
-
+// Approval gap for districts
 
 
 // Trying to convert support changes into approval change.
-
-
-var character = 'bruce'
 
 
     Q['city_wide_support_' + character] = 0;
@@ -275,8 +323,6 @@ var character = 'bruce'
 // 
 
 
-
-
 // Checking old values to give arrow displays
 
 if (Q.approval_rating_bruce > Q.approval_rating_bruce_old)   {
@@ -350,12 +396,30 @@ if (Q.approval_rating_honeymoon > 0) {
     Q.approval_rating_honeymoon -= 1;
 }
 
+// CSS variables
 
+
+
+
+
+
+
+
+
+
+
+
+Q.unemployment_rate = 0;
+
+
+  for (var district of Q.districts) {
+        Q.unemployment_rate += (Q['unemployed_' + district])*((Q[district + '_size'])/100);
+  }
 
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +]
+= [+ month:month +], [+ year +]
 
 @events_choice
 

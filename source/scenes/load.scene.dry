@@ -1,0 +1,56 @@
+title: Load
+on-display: {!
+    dendryUI.populateSaveSlots(64, 2);
+!}
+
+
+{!
+  <div id="savetab">
+    <div id="savelist">
+      <div class="savesquare" id="saveblock1">
+
+      </div>
+      <div class="savesquare" id="saveblock2">
+        a
+      </div>
+      <div class="savesquare" id="saveblock3">
+      </div>
+      <div class="savesquare" id="saveblock4">
+      </div>
+      <div class="savesquare" id="saveblock5">
+      </div>
+      <div class="savesquare" id="saveblock6">
+      </div>
+      <div class="savesquare" id="saveblock7">
+      </div>
+      <div class="savesquare" id="saveblock8">
+      </div>
+
+    </div>
+    <div id="saveinfo">
+        <div id="saveinfo1">
+            <table>
+            
+
+
+            <tr>
+                <td>8</td>
+                <td>
+                    <button class="b save_button" id="save_button_8">Save</button>
+                </td>
+                <td>
+                    <button class="b delete_button" id="delete_button_8">Delete</button>
+                </td>
+                <td class="save_info" id="save_info_8"></td>
+                <td>
+                    <button class="b export_button" id="export_button_8">Export</button>
+                </td>
+            </tr>
+            </table>
+        </div>
+    
+    </div>
+    </div>
+!}
+
+- @root: Return.

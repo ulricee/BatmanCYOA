@@ -2,13 +2,6 @@ title: Next month
 set-bg: img/background/gotham_background.webp
 is-hand: true
 on-arrival: {!
-if (Q.advisor_action_timer <= 0) {
-    Q.pinnedCardsDescription = 'Advisors - an action is available.';
-} else if (Q.advisor_action_timer == 1) {
-    Q.pinnedCardsDescription = 'Advisors - next action available in 1 month.';
-} else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
-}
 
 Q.onmain = 1
 
@@ -28,9 +21,9 @@ if (toolsWrapper) {
     
 
 if (Q.horse_music == 0) {
-document.getElementById("idAudio").pause();
-document.getElementById("idAudio").src = "audio/horse.mp3";
-document.getElementById("idAudio").play();
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/horse.mp3";
+document.getElementById("mixtape").play();
 Q.horse_music = 1;
 
       const elements = document.querySelectorAll('header, #mainwrapper, footer');
@@ -40,7 +33,6 @@ Q.horse_music = 1;
 
 
 }
-    window.batphone();
 
 !}
 on-departure: {!
@@ -56,10 +48,28 @@ on-display: {!
       });
     window.disableBatmanMode();
 
+    Q.markerposition = Q.order*2.7;
+
+    if (Q.markerposition >= 50) {
+        Q.markerposition = 50;
+    } 
+    
+    if (Q.markerposition <= -50) {
+        Q.markerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
+
+    nametabchange();
+
+    window.batphone();
+
+    window.disableHiddenBatmanMode();
+    
 !}
 max-cards: 3
-
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
 {!<div class="scrollable-box">!}
 
@@ -77,20 +87,12 @@ max-cards: 3
 set-bg: img/background/gotham_background.webp
 is-hand: true
 on-arrival: {!
-if (Q.advisor_action_timer <= 0) {
-    Q.pinnedCardsDescription = 'Advisors - an action is available.';
-} else if (Q.advisor_action_timer == 1) {
-    Q.pinnedCardsDescription = 'Advisors - next action available in 1 month.';
-} else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
-}
 
     const toolsWrapper = document.getElementById('tools_wrapper');
 if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
     Q.onmain = 1;
-    window.batphone();
 
 if (Q.horse_music == 0) {
 
@@ -102,9 +104,9 @@ if (Q.horse_music == 0) {
 Q.freedom = ((Q.order)*(-1));
 
 
-document.getElementById("idAudio").pause();
-document.getElementById("idAudio").src = "audio/horse.mp3";
-document.getElementById("idAudio").play();
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/horse.mp3";
+document.getElementById("mixtape").play();
 Q.horse_music = 1;
 }
 
@@ -129,16 +131,99 @@ on-display: {!
          el.style.maxWidth = '540px';
       });
     window.disableBatmanMode();
+    
+    Q.markerposition = Q.order*2.7;
 
+    if (Q.markerposition >= 50) {
+        Q.markerposition = 50;
+    } 
+    
+    if (Q.markerposition <= -50) {
+        Q.markerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
+    nametabchange();
+
+    window.batphone();
+  window.disableHiddenBatmanMode();
 !}
 max-cards: 9
 
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
-
-
 {!<div class="scrollable-box">!}
 
-{!<p class="both">!}[? if year = 1994 and month = 1: After an easier than expected electoral triumph against Quincy Sharp, you now have powers greater than you've ever seen before to change everything inside of Gotham.<br><br>However, power is never without its cost. For every power gained, a reflection imparts its influence on something else. If power doesn't corrupts you, it will corrupt someone else.<br><br>Yet, as the stakes have never been higher, it is on you to finally break the cycle. Gotham's fate was never a fatality.?]{!</p>!}
+{!<div id="mainthought">
+  <p class="both">!}
+[? if year = 1994 and month = 1: After an easier than expected electoral triumph against Quincy Sharp, you now have powers greater than you've ever seen before to change everything inside of Gotham.<br><br>However, power is never without its cost. For every piece of power gained, a reflection imparts its influence on something else. If power doesn't corrupts you, it will corrupt someone else.<br><br>Yet, as the stakes have never been higher, it is on you to finally break the cycle. Gotham's fate was never a fatality.?]
+{!</p>
+</div>!}
+
+{!<div id="dailyplanet">
+  <p class="both">!}
+= The Daily Planet
+
+{!
+<div class="bodynews">
+<div class="head">
+    <div class="headerobjectswrapper">
+        <div class="weatherforcastbox"><span style="font-style: italic;">Weatherforcast for the next 24 hours: Plenty of Sunshine</span><br><span>Wind: 7km/h SSE; Ther: 21°C; Hum: 82%</span></div>
+        <header>Newpost York</header>
+    </div>
+
+    <div class="subhead">York, MA - Thursday August 30, 1978 - Seven Pages</div>
+</div>
+<div class="content">
+    <div class="collumns">
+        <div class="collumn">
+            <div class="head"><span class="headline hl3">When darkness overspreads my eyes</span><p><span class="headline hl4">by JOHANN WOLFGANG VON GOETHE</span></p></div>
+            When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;<p>and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath of that universal love which bears and sustains us, as it floats around us in an eternity of bliss; and then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing, Oh, would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite God!</p></div>
+        <div class="collumn">
+            <div class="head"><span class="headline hl5">Give people courage</span><p><span class="headline hl6">The crowd seemed to grow</span></p></div>
+            The sunset faded to twilight before anything further happened.  The crowd far away on the left, towards Woking, seemed to grow, and I heard now a faint murmur from it.  The little knot of people towards Chobham dispersed.  There was scarcely an intimation of movement from the pit.</p>
+			<figure class="figure">
+								<img class="media" src="http://i.giphy.com/PW7MoTD2d9pJK.gif" alt="">
+								<figcaption class="figcaption">Hermine hoping for courage.</figcaption>
+						</figure>
+
+            <p>It was this, as much as anything, that gave people courage, and I suppose the new arrivals from Woking also helped to restore confidence.  At any rate, as the dusk came on a slow, intermittent movement upon the sand pits began, a movement that seemed to gather force as the stillness of the evening about the cylinder remained unbroken.  Vertical black figures in twos and threes would advance, stop, watch, and advance again, spreading out as they did so in a thin irregular crescent that promised to enclose the pit in its attenuated horns.  I, too, on my side began to move towards the pit.</p>
+
+            <p>Then I saw some cabmen and others had walked boldly into the sand pits, and heard the clatter of hoofs and the gride of wheels.  I saw a lad trundling off the barrow of apples.  And then, within thirty yards of the pit, advancing from the direction of Horsell, I noted a little black knot of men, the foremost of whom was waving a white flag.</p>
+
+            </div>
+        <div class="collumn"><div class="head"><span class="headline hl1">May the Force be with you</span><p><span class="headline hl2">Let go your conscious self and act on instinct</span></p></div>Partially, but it also obeys your commands. Hey, Luke! May the Force be with you. I have traced the Rebel spies to her. Now she is my only link to finding their secret base.</p>
+	<figure class="figure">
+								<img class="media" src="http://i.giphy.com/4fDWVPMoSyhgc.gif" alt="">
+								<figcaption class="figcaption">"This time, let go your conscious self and act on instinct."</figcaption>
+						</figure>
+            <p>Leave that to me. Send a distress signal, and inform the Senate that all on board were killed. <span class="citation">"Don't under&shy;estimate the Force. I suggest you try it again, Luke."</span> This time, let go your conscious self and act on instinct. In my experience, there is no such thing as luck. You're all clear, kid. Let's blow this thing and go home!</p>
+            <p>You don't believe in the Force, do you? Partially, but it also obeys your commands. The plans you refer to will soon be back in our hands. As you wish.</p></div>
+        <div class="collumn"><div class="head"><span class="headline hl3">The buzz of the little world </span><p><span class="headline hl4">A thousand unknown plants</span></p></div><p>I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath</p></div>
+        <div class="collumn"><div class="head"><span class="headline hl1">It wasn't a dream </span><p><span class="headline hl4">by FRANZ KAFKA</span></p></div><p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. </p>
+					
+					<p>His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. </p></div>
+    </div>
+</div>
+
+</div>
+!}
+
+{!</p>
+</div>!}
+
+{!<div id="gothamstar">
+  <p class="both">!}
+= The Gotham Star
+{!</p>
+</div>!}
+
+{!<div id="gothamgazette">
+  <p class="both">!}
+= The Gotham Gazette
+{!</p>
+</div>!}
+
 
 {!</div>!}
 
@@ -181,9 +266,9 @@ max-cards: 9
 
 {!<div class="newsbar">
 
-<button class="newsbutton">Gotham Gazette</button>
-<button class="newsbutton">Gotham Star</button>
-<button class="newsbutton">The Daily Planet</button>
+<button class="newsbutton" id="gazettebutton" onclick="gothamGazetteSwitch();">Gotham Gazette</button>
+<button class="newsbutton" id="starbutton" onclick="gothamStarSwitch();">Gotham Star</button>
+<button class="newsbutton" id="dailyplanetbutton" onclick="dailyPlanetSwitch()">The Daily Planet</button>
 </div>
 !}
 

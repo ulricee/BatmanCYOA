@@ -5,7 +5,6 @@
   "main": "out/html/index.html",
   "scripts": {
     "dendrynexus": "dendrynexus",
-    "dendry": "dendry",
     "build": "dendrynexus make-html"
   },
   "repository": {
@@ -20,8 +19,7 @@
   },
   "homepage": "https://github.com/aucchen/social_democracy_alternate_history",
   "dependencies": {
-    "dendry": "github:aucchen/dendry",
-    "dendrynexus": "github:aucchen/dendrynexus",
+    "dendrynexus": "github:FrancoDGamer/mydendrynexus",
     "howler": "^2.2.4",
     "jquery": "^4.0.0",
     "node-web-audio-api": "^1.0.9",

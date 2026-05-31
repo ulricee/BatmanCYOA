@@ -19,7 +19,19 @@ on-display: {!
         console.log(inputElement)
         Q.typeablevariable = parseInt(inputElement)
     }
+    Q.markerposition = Q.order*2.7;
+
+    if (Q.markerposition >= 50) {
+        Q.markerposition = 50;
+    } 
     
+    if (Q.markerposition <= -50) {
+        Q.markerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
 !} 
 
 <input type="text" id="variabletest" value="1"> <button onclick="testFunction();">Change it</button>
@@ -32,11 +44,20 @@ on-display: {!
 - @lower5: Lower approval rating multiplied by 5
 - @orderraise: Raise order (Lowers freedom accordingly)
 - @orderlower: Lower order (Raises freedom accordingly)
+- @batman: Raise batman
+- @bruce: Raise bruce
 - @demographics: Change demographics.
 - @relations: Change party relations
 - @debug_stats: Disable or enable hidden stats
 - @backSpecialScene: leave
 
+@batman 
+on-arrival: batman += 1
+go-to: batmite
+
+@bruce
+on-arrival: bruce += 1
+go-to: batmite
 
 @debug_stats
 on-arrival: {!
@@ -141,6 +162,8 @@ go-to: demographics
 
 @relations
 on-arrival: {!
+
+    Q.raise = 1;
 
     testFunction = function() {
         const inputElement = document.getElementById("variabletest3").value;  

@@ -95,11 +95,11 @@ const colourList = [{
     },
     {
         word: "Reform Party",
-        style: "color: #653579; font-weight: bold;",
+        style: "color: #8c51a5; font-weight: bold;",
     },
     {
         word: "Populist",
-        style: "color: #a70061; font-weight: bold;",
+        style: "color: #c23587; font-weight: bold;",
     },
     {
         word: "Libertarians",
@@ -115,6 +115,6 @@ const colourList = [{
     },
     {
         word: "Nationalists",
-        style: "color: #475397; font-weight: bold;",
+        style: "color: #6774be; font-weight: bold;",
     }
 ];

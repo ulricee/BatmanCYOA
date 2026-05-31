@@ -16,13 +16,27 @@
     <script src="game.js"></script>
     <script src="data.js"></script>
     <script src="speak.js"></script>
+    <script src="buttons.js"></script>
+    <script src="test.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/iranian-sans" rel="stylesheet">
   </head>
-  <body>
+  <body id="body">
+    <div class="theantidendry"></div>
+
+    <div class="achievementcontainer" id="achievementcontainer">
+        <div class="achievementnotification" id="achievementnotification">
+            <div id="achievementtitle"></div>
+            <div id="achievementdescription"></div>
+        </div>
+        <div class="achievementimagecontainer" id="achievementimagecontainer"><img id="achievementimage"></div>
+    </div>
+
     <div class="background" id="bg2">
 
     </div>
 
     <div class="background" id="bg1">
+
         <div class="video-wrapper" id="video-wrapper">
             <video playsinline autoplay muted loop>
                 <source src="video/batmanbackground.mp4" type="video/mp4">
@@ -314,9 +328,8 @@
                     <a onclick="window.showMap();" href="#">Map</a>
                     <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
                 </div>
-                    <audio id="idAudio">
-		                <source src="audio/batmanbackground.mp3" type="audio/mp3">
-	                </audio>
+                <audio id="mixtape" src="audio/batmanbackground.mp3" type="audio/mp3" ontimeupdate="mixtape_bar()">
+	            </audio>
             </header>
             <div id="tools_wrapper">
                 <div id='stats_sidebar' class='tools left'>
@@ -331,17 +344,20 @@
                     <div id="turn_advice">
                     </div>
                 </div>
-
+            
                 <div id='stats_sidebar_right' class='tools right'>
                     <div class="tab_container">
                         <button class="tab_button active" id="city_council_tab" onclick="window.changeTab('status_right', 'city_council_tab', 'isRight');">City Council</button>
+                        <button class="tab_button" id="economy_tab" onclick="window.changeTab('status_right.economy', 'economy_tab', 'isRight');">Economy</button>
                         <button class="tab_button" id="poll_tab" onclick="window.changeTab('status_right.polls', 'poll_tab', 'isRight');">Polls</button>
                         <button class="tab_button" id="debug_tab" onclick="window.changeTab('status_right.debug', 'debug_tab', 'isRight');"></button>
                     </div>
                     <div id="qualities_right">
                     </div>
-                    <div id="mixtape">
+                    <div id="mixtapecontainer">
                     </div>
+
+
                 </div>
 
             </div>
@@ -368,4 +384,7 @@
         </div>
     </div>
   </body>
+  <script src="musiccalls.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script> 
 </html>

@@ -15,13 +15,13 @@ is-special: true
             <div class="advicetextcontainer">
                 <p class="advisorname"><b>Dick Grayson</b></p>
 
-                <p class="advisorspeech">You're on the top of the world now. I'm certain you know what to do.</p>
+                <p class="advisorspeech">You're on the top of the world now. I'm 100% certain you know what to do.</p>
             </div>
         </div>
 
         <div class="advicesection">
             <div class="fleximg">
-                <img src="img/portraits/TimDrake.png" class="advice_img">
+                <img src="img/portraits/TimDrakeYoung.png" class="advice_img">
             </div>
        
             <div class="advicetextcontainer">

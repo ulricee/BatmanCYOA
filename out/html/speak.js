@@ -73,9 +73,58 @@ const skip = () => {
   }
 }
 
+// Function to make choices disappear
+choiceDisappear = function () {
+  let choiceGone = 1;
+    var r = document.querySelector(':root');
+    r.style.setProperty('--ul', 'none');
+}
+// Make choices appear 
+choiceAppear = function () {
+    var r = document.querySelector(':root');
+    r.style.setProperty('--ul', 'block');
+}
+
 // End speech
 const doneTalking = () => {
   speakState.currentLine = [];
   speakState.currentBalloon = null;
   speakState.speakIndex = 0;
+  choiceAppear();
 }
+
+// Custom Function for dialogue.
+
+introDialogue = function() {
+
+    callDialogue = function () { 
+        let element = document.querySelector('.typewriter');
+        speak(element, .7);
+    }
+
+    window.setTimeout(callDialogue, 1)
+
+    document.getElementById("body").addEventListener("click", function(){
+        skip();
+});    
+
+    choiceDisappear();
+
+}
+
+extraIntroDialogue = function() {
+
+    callExtraDialogue = function () { 
+        let element = document.querySelector('.extrachoice');
+        speak(element, .5);
+    }
+
+    window.setTimeout(callExtraDialogue, 1)
+
+    document.getElementById("body").addEventListener("click", function(){
+        skip();
+});    
+
+    choiceDisappear();
+  
+  }

@@ -2,6 +2,7 @@ title: Status
 new-page: true
 is-special: true
 on-display: {!
+
 data = [
     {
         "id": "reactionary",
@@ -42,8 +43,6 @@ data = [
 ];
 
 
-
-
 if (window && d3) {
     var width = 200; 
     var height = 100;
@@ -61,14 +60,22 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 
+var reactionary_display = 0
+var conservative_display = 0
+var red_display = 0
+var blue_display = 0
+var liberal_display = 0
+var progressive_display = 0
 
  displayReactionarySeat = function () {
     const resultsDiv = document.getElementById('hiddenreaction');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          reactionary_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          reactionary_display = 0;
       }
 };
 
@@ -77,8 +84,10 @@ if (window && d3) {
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          conservative_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          conservative_display = 0;
       }
 };
 
@@ -87,8 +96,10 @@ if (window && d3) {
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          red_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          red_display = 0;
       }
 };
 
@@ -97,8 +108,10 @@ if (window && d3) {
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          blue_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          blue_display = 0;
       }
 };
 
@@ -109,8 +122,10 @@ if (window && d3) {
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          liberal_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          liberal_display = 0;
       }
 };
 
@@ -120,44 +135,83 @@ if (window && d3) {
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
+          progressive_display = 1;
       } else {
           resultsDiv.style.display = 'none';
+          progressive_display = 0;
       }
 };
 
 Q.republican_display = 0;
 Q.democrat_display = 0;
 
+var republican_display = 0
+var democrat_display = 0
+
  displayRepublicanSeats = function () {
+    if (republican_display == 1) {
+    republican_display = 0;
     displayRepSeat();
     displayConservativeSeat();
     displayReactionarySeat();
-    Q.republican_display = 1;
-    if (Q.democrat_display == 1) {
+    } else if (republican_display == 0) {
+    republican_display = 1;
+    displayRepSeat();
+    displayConservativeSeat();
+    displayReactionarySeat();
+    }
+
+    if (democrat_display == 1) {
         displayProgressiveSeat();
         displayLiberalSeat();
         displayDemSeat();
-        Q.democrat_display = 0;
+        democrat_display = 0;
     }
 }
 
  displayDemocratSeats = function () {
-    displayProgressiveSeat();
-    displayLiberalSeat();
-    displayDemSeat();
-    Q.democrat_display = 1;
-    if (Q.republican_display == 1) {
-        displayRepSeat();
-        displayConservativeSeat();
-        displayReactionarySeat();
-        Q.republican_display = 0;
+
+    if (progressive_display == 0 && liberal_display == 0 && blue_display == 0) {
+
+        if (democrat_display == 1) {
+            displayProgressiveSeat();
+            displayLiberalSeat();
+            displayDemSeat();
+            democrat_display = 0;
+        } else if (democrat_display == 0) {  
+            displayProgressiveSeat();
+            displayLiberalSeat();
+            displayDemSeat();
+            democrat_display = 1;
+        }
+        if (republican_display == 1) {
+            displayRepSeat();
+            displayConservativeSeat();
+            displayReactionarySeat();
+            republican_display = 0;
+        }
+    } else {
+        if (progressive_display == 1) {
+            displayProgressiveSeat();
+        }
+        if (liberal_display == 1) {
+            displayLiberalSeat();
+        }
+        if (blue_display == 1) {
+            displayDemSeat();
+        }
     }
 };
+
     var r = document.getElementsByClassName('seat reactionary');
 for (var i = 0; i < r.length; i++) {
     r[i].style.pointerEvents = 'all';
     r[i].style.cursor = 'pointer';
     r[i].addEventListener('click', displayReactionarySeat);
+    r[i].addEventListener("mouseover", function () {
+
+    })
+
 }
 
     var r = document.getElementsByClassName('seat conservative');
@@ -257,8 +311,22 @@ for (var i = 0; i < r.length; i++) {
       }
 };
 
+var r = document.querySelector(':root');
 
-// testinngg
+r.style.setProperty('--reactionary-bar-width', Q.reactionary_percent + '%')
+
+r.style.setProperty('--conservative-bar-width', Q.conservative_percent + '%')
+
+r.style.setProperty('--red-bar-width', Q.red_moderate_percent + '%')
+
+r.style.setProperty('--blue-bar-width', Q.blue_moderate_percent + '%')
+
+r.style.setProperty('--liberal-bar-width', Q.liberal_percent + '%')
+
+r.style.setProperty('--progressive-bar-width', (Q.progressive_percent) + '%')
+
+    
+
 
 !}
 
@@ -266,11 +334,31 @@ for (var i = 0; i < r.length; i++) {
 
 {!<svg id="reichstag" class="reichstag" style="width: 200px; height: 100px;"> </svg>!}
 
+{!<div id="councilborder"> 
+    
+    <div id="councilapprovalbar">!}
+
+          <div id="marker33"></div>
+          <div id="marker66"></div>
+           <div id="electionmarker"></div>
+  
+      <div id="councilreactionary"><button class="hiddenbutton"></button></div>
+  <div id="councilconservative"><button class="hiddenbutton"></button></div>
+  <div id="councilred"><button class="hiddenbutton"></button></div>
+  <div id="councilblue"><button class="hiddenbutton"></button></div>
+  <div id="councilliberal"><button class="hiddenbutton"></button></div>
+  <div id="councilprogressive"><button class="hiddenbutton"></button></div>
+
+{!</div></div>!}
+
 {!<div class="small-text">!}
 
 Click on seat to show category.
 
-[+ republican_display +] [+ democrat_display +]
+
+{!<div style="font-size: 1.2em; margin: auto; position: relative; text-align: center; width: 100%;">!} Relations - [+ city_council_relation : relationships +]{!</div>!}
+
+[? if corrupt == 1 : • Corrupt Councilmen - [+ corrupt_council_relation : relationships +]?]
 
 {!<button class="button_show_council" onclick="displayRepublicanSeats();"><span id="republicanshow">!}[+ republican_s +] Republican{!</span></button>!} and {!<button class="button_show_council" onclick="displayDemocratSeats();"><span id="democratshow">!}[+ democrat_s +] Democrat{!</span></button>!}
 
@@ -278,7 +366,7 @@ Click on seat to show category.
 
 {!<div class="hiddenreaction" id="hiddenreaction">!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats ([+ reactionary_percent +]%), [+ reactionary_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div>!} Reactionaries: [+ reactionary_s +] seats ([+ reactionary_percent +]%), [+ reactionary_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_reactionary > 0 : - [+ bristol_seats_reactionary +] from Bristol Seats ?]
 
@@ -304,7 +392,7 @@ Click on seat to show category.
 
 {!<div class="hiddenconservative" id="hiddenconservative">!}
 
-{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats ([+ conservative_percent +]%), [+ conservative_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#c91c1c'> </div>!} Conservatives: [+ conservative_s +] seats ([+ conservative_percent +]%), [+ conservative_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_conservative > 0 : - [+ bristol_seats_conservative +] from Bristol Seats ?]
 
@@ -330,7 +418,7 @@ Click on seat to show category.
 
 {!<div class="hiddenred" id="hiddenred">!}
 
-{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats ([+ red_moderate_percent +]%), [+ red_moderate_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ff3a3a'> </div>!} Moderate Republicans: [+ red_moderate_s +] seats ([+ red_moderate_percent +]%), [+ red_moderate_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_red_moderate > 0 : - [+ bristol_seats_red_moderate +] from Bristol Seats ?]
 
@@ -360,7 +448,7 @@ Click on seat to show category.
 
 {!<div class="hiddenblue" id="hiddenblue">!}
 
-{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats ([+ blue_moderate_percent +]%), [+ blue_moderate_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#74c8ff'> </div>!} Moderate Democrats: [+ blue_moderate_s +] seats ([+ blue_moderate_percent +]%), [+ blue_moderate_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_blue_moderate > 0 : - [+ bristol_seats_blue_moderate +] from Bristol  ?]
 
@@ -386,7 +474,7 @@ Click on seat to show category.
 
 {!<div class="hiddenliberal" id="hiddenliberal">!}
 
-{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats ([+ liberal_percent +]%), [+ liberal_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#2b8eff'> </div>!} Liberals: [+ liberal_s +] seats ([+ liberal_percent +]%), [+ liberal_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_liberal > 0 : - [+ bristol_seats_liberal +] from Bristol Seats ?]
 
@@ -412,7 +500,7 @@ Click on seat to show category.
 
 {!<div class="hiddenprogressive" id="hiddenprogressive">!}
 
-{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats ([+ progressive_percent +]%), [+ progressive_relation : relationships +] relations {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0044ff'> </div>!} Progressives: [+ progressive_s +] seats ([+ progressive_percent +]%), [+ progressive_relation_bruce : relationships +] relations {!</td></tr>!}
 
 [? if bristol_seats_progressive > 0 : - [+ bristol_seats_progressive +] from Bristol Seats ?]
 
@@ -560,6 +648,10 @@ The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 {!<div class="scrollable-box-polls">!}
 
 = Burnley ([+ burnley_total_bruce_display +]% Approval)
+
+[+ district_approval_gap_final_bruce +]
+
+[+ district_approval_gap_bruce +]
 
 The old industrial heart of the city that has since then went into quite some decline.
 
@@ -734,6 +826,73 @@ On the entire city, this gives us {!<b>!}[+ latino_bristol_city_bruce_display +]
 {!</div>!}
 
 {!</div>!}
+
+@economy
+
+= Economy
+
+{!<div class="small-text">!}
+
+Unemployment Rate: [+ unemployment_rate +]%
+
+Nationwide Inflation: [+ inflation +]%
+
+General Sentiment: Okay
+
+{!</div>!}
+
+= Affordability 
+
+{!<div class="small-text">!}
+
+• Personal Consumption Expenditures: [+ cpi +]
+
+The Consumer price index is essentially how much the average Gothamite pays.
+
+• Costumer Spending Index: [+ csi +]
+
+The Consumer spending index is the average consumer spending of Gotham on personal goods and services.
+
+• Costumer Sentiment: Very Low
+
+Costumer Sentiment is based on polls interviewing people about their spending.
+
+{!</div>!}
+
+
+{!<table>
+    <th>
+        <tr>1</tr>
+        <tr>2</tr>
+        <tr>3</tr>
+    </th>
+    <th>
+        <tr>1</tr>
+        <tr>2</tr>
+        <tr>3</tr>
+    </th>
+
+
+</table>
+!}
+
+= Jobs
+
+• Small Business Health: 
+
+• Large Business Health: 
+
+• Jobs: 
+
+= Poverty
+
+• Poverty Rate:
+
+• Supplemental Poverty Measure
+
+
+
+
 
 @debug
 
