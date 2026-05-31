@@ -27,7 +27,7 @@ on-arrival: spoiler_deputized = 1;
 subtitle: Considering the controversy that would follow an ex-Criminal like her being fully deputized, it would be greatly damaging to the trust of major part of the city. She isn't seen as reliable and this may be a long term issue.
 choose-if: ((county_prosecutor != "Janet Van Dorn" and harvey_advisor == 0) or relation >= 60) and selena_kyle == 1;
 unavailable-subtitle: If you have good enough relationship with her, you may convince her to change her Name to avoid the controversy, leading her to be called "The Huntress".
-on-arrival: selena_deputized = 1;
+on-arrival: selena_deputized = 1; selena_name_changed = 1;
 
 @deputizing_signal
 subtitle: The ex self-made Robin with super powers is seen as a massive boon to the forces. There is no opposition for his acceptance.

@@ -486,7 +486,8 @@ Q.cassandra_deputized = 0
 Q.jason_deputized = 0
 Q.polka_deputized = 0
 
-
+//Selena can change her name to the huntress
+Q.selena_name_changed = 0
 
 // TO DO: Fix ideology
 // Add in negative approval gap push
