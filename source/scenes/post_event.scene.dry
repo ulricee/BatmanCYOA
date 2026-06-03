@@ -110,35 +110,6 @@ if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
 }
 
-
-  Q.unemployed_ideology_base_bruce = (Q.order)/4;
-  Q.blue_collar_ideology_base_bruce = (Q.order)/2;
-  Q.white_collar_ideology_base_bruce = (Q.order)*(-1);
-  Q.black_ideology_base_bruce = ((Q.order)*(-1))/2;
-  Q.latino_ideology_base_bruce = ((Q.order)*(-1))/4;
-  Q.business_ideology_base_bruce = (Q.order);
-
-
-  Q.ideology_support_bruce = 0;
-
-    for (var c of Q.classes) {
-        if ([Q[c + '_ideology_base_bruce']] == 0) {
-          Q[c + '_ideology_base_bruce'] = 1;
-        }      
-        if (Q[c + '_ideology_base_bruce'] > 0) {
-          Q['ideology_support_bruce'] += (Q[c + '_ideology_base_bruce']);
-        } else if ([Q[c + '_ideology_base_bruce']] < 0) {
-          Q['ideology_support_bruce'] += (Q[c + '_ideology_base_bruce'])*(-1);
-        }
-  }
-
-  Q.unemployed_ideology_bruce = (Q.unemployed_ideology_base_bruce/Q.ideology_support_bruce);
-  Q.blue_collar_ideology_bruce = (Q.blue_collar_ideology_base_bruce/Q.ideology_support_bruce);
-  Q.white_collar_ideology_bruce = (Q.white_collar_ideology_base_bruce/Q.ideology_support_bruce);
-  Q.black_ideology_bruce = (Q.black_ideology_base_bruce/Q.ideology_support_bruce);
-  Q.latino_ideology_bruce = (Q.latino_ideology_base_bruce/Q.ideology_support_bruce);
-  Q.business_ideology_bruce = (Q.business_ideology_base_bruce/Q.ideology_support_bruce);
-
 // We will now scale support by the ideology.
 
 
@@ -148,179 +119,7 @@ if (toolsWrapper) {
 
 var character = 'bruce'
 
-// district updated
 
-  for (var district of Q.districts) {
-    Q[district + '_total_' + character] = 0;
-    for (var c of Q.classes) {
-        Q[district + '_total_' + character] += (Q[c + '_' + district + '_support_' + character]);
-    }
-  }
-
-  // approval changes
-
-// we get minor approval changes per district, add them up, divide by six, and change class support by it.
-
-minorapproval = function () {
-    
-    
-
-
-  for (var district of Q.districts) {
-        Q[district + '_approval_total_' + character] = 0;
-  }
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[district + '_approval_total_' + character] += (Q[c + '_' + district + '_approval_' + character])/6;
-    }
-  }
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_approval_gap_' + character] = (Q[district + '_approval_total_' + character])-(Q[c + '_support_' + character])
-    }
-  }
-
-
-
-}
-
-minorapproval();
-
-
-
-
-
-    Q['district_approval_change_' + character] = 0;
-
-    Q['district_approval_change_bruce'] = Q['district_approval_gap_final_' + character] - Q['district_approval_gap_final_' + character + '_old'];
-
-
-
-
-Q.approval_change_bruce = 0;
-
-for (var c of Q.classes) {
-    Q[c + '_approval_change_bruce'] = ((Q[c + '_support_bruce'])-(Q[c + '_support_old_bruce']))/6;
-    Q.approval_change_bruce += Q[c + '_approval_change_bruce'];
-}
-
-Q.approval_rating_bruce += (Q.approval_change_bruce);
-
-    for (var c of Q.classes) {
-      if (Q[c + '_ideology_bruce'] > 0) {
-          Q[c + '_approval_weight_bruce'] = Q[c + '_ideology_bruce'];
-      } else {
-          Q[c + '_approval_weight_bruce'] = (Q[c + '_ideology_bruce'])*(-1);
-      }
-    }
-
-  Q.approval_gap_bruce = 0;
-
-    for (var c of Q.classes) { 
-          Q[c + '_approval_gap_bruce'] = ((Q.approval_rating_bruce)-(Q[c + '_support_bruce']));
-          Q.approval_gap_bruce += (Q[c + '_approval_gap_bruce']);
-    }
-
-
-  for (var c of Q.classes) {
-        Q[c + '_support_bruce'] += ((Q.approval_gap_bruce)*(Q[c + '_approval_weight_bruce']));
-    }
-
-// Approval gap for districts
-
-
-// Trying to convert support changes into approval change.
-
-
-    Q['city_wide_support_' + character] = 0;
-
-    for (var c of Q.classes) {
-        Q['city_wide_support_' + character] += (Q[c + '_support_' + character])/6;
-    }
-
-  // District to city wide support.
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_city_total'] = Q[district + '_size']*((Q[c + '_' + district])/100)
-    }
-  } 
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_city_' + character] = ((Q[c + '_' + district + '_city_total']))*(Q[c + '_' + district + '_approval_' + character]/100)
-    }
-  }
-
-  // real support city wide. E.c not dividing the universals by six, but the sum of all district contributions.
-
-  Q['truesupport_' + character] = 0;
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q['truesupport_' + character] += (Q[c + '_' + district + '_support']);
-    }
-  } 
-
-// The following isn't a division by the classes, but by the number of districts.
-
-  Q['truesupport_' + character] = Q['truesupport_' + character]/6
-
-  // Getting old values.
-
-  for (var c of Q.classes) {
-      Q[c +'_support_old_' + character] = Q[c + '_support_' + character];
-  }
-
-  for (var c of Q.classes) {
-    for (var party of Q.parties) {
-      Q[c + '_' + party + '_support_old_' + character] = Q[c + '_' + party + '_support_' + character];
-    }
-  }
-
-
-
-// Converting into displayable values
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_support_bruce' + '_display'] = (Q[c + '_' + district + '_support_bruce']).toFixed(2  );
-    }
-  }
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_approval_bruce' + '_display'] = (Q[c + '_' + district + '_approval_bruce']).toFixed(2);
-    }
-  }
-
-  for (var c of Q.classes) {
-    for (var party of Q.parties) {
-      Q[c + '_' + party + '_support' + '_display'] = (Q[c + '_' + party + '_support_bruce']).toFixed(2);
-  } 
-    Q[c + '_support_bruce' + '_display'] = (Q[c + '_support_bruce']).toFixed(2);
-  }
-
-  for (var district of Q.districts) {
-        Q[district + '_total_bruce' + '_display'] = Q[district + '_total_bruce'].toFixed(2);
-  }
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_city_bruce' + '_display'] = (Q[c + '_' + district + '_city_bruce']).toFixed(2)
-    }
-  }
-
-  for (var district of Q.districts) {
-    for (var c of Q.classes) {
-        Q[c + '_' + district + '_city_total_display'] = (Q[c + '_' + district + '_city_total']).toFixed(2)
-    }
-  }
-    Q['city_wide_support_bruce' + '_display'] = (Q['city_wide_support_bruce']).toFixed(2);
-
-// 
 
 
 // Checking old values to give arrow displays
@@ -398,8 +197,18 @@ if (Q.approval_rating_honeymoon > 0) {
 
 // CSS variables
 
+// test for final_c support
 
 
+
+  for (var c of Q.classes) {
+      Q[c +'_support_final_old_bruce'] = Q[c + '_support_final_bruce'];
+  }
+
+
+  for (var c of Q.classes) {
+      Q[c +'_percent_old_bruce'] = Q[c + '_percent_bruce'];
+  }
 
 
 
@@ -416,6 +225,7 @@ Q.unemployment_rate = 0;
         Q.unemployment_rate += (Q['unemployed_' + district])*((Q[district + '_size'])/100);
   }
 
+  
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 

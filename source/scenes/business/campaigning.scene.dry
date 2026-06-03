@@ -117,22 +117,22 @@ WIP
 - @bristol_unemployed_district: Bristol
 
 @burnley_bluecollar_district
-on-arrival: blue_collar_burnley_support_bruce += 2
+on-arrival: blue_collar_burnley_approval_bruce += 2
 
 @somerset_bluecollar_district
-on-arrival: blue_collar_somerset_support_bruce += 2
+on-arrival: blue_collar_somerset_approval_bruce += 2
 
 @new_gotham_bluecollar_district
-on-arrival: blue_collar_new_gotham_support_bruce += 2
+on-arrival: blue_collar_new_gotham_approval_bruce += 2
 
 @old_gotham_bluecollar_district
-on-arrival: blue_collar_old_gotham_support_bruce += 2
+on-arrival: blue_collar_old_gotham_approval_bruce += 2
 
 @burnside_bluecollar_district
-on-arrival: blue_collar_burnside_support_bruce += 2
+on-arrival: blue_collar_burnside_approval_bruce += 2
 
 @bristol_bluecollar_district
-on-arrival: blue_collar_bristol_support_bruce += 2
+on-arrival: blue_collar_bristol_approval_bruce += 2
 
 @burnley_whitecollar_district
 on-arrival: white_collar_burnley_support_bruce += 2

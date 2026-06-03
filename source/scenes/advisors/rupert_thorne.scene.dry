@@ -4,5 +4,6 @@ tags: advisor
 card-image: img/portraits/rupert_thorne.png
 view-if: rupert_advisor = 1
 new-page: true 
+order: 2
 
 Rupert

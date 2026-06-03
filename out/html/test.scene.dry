@@ -1,0 +1,41 @@
+title: Example Scene
+subtitle: Example Yes
+unavailable-subtitle: Example No
+view-if: example = 0
+choose-if: example = 2
+new-page: true
+is-special: true
+on-arrival: example = 1
+on-display: example = 2
+on-departure: example = 3
+tags: tests 
+order: 1
+priority: 1
+frequency: 1
+max-visits: 1
+go-to: root
+set-bg: img/example.webp
+achievement: example
+
+Content.
+
+- @sub-scene1
+- @sub-scene2: Title 2.
+- @sub-scene3: Title 3.
+- @sub-scene4: Title 4.
+
+
+@sub-scene1
+title: Title.
+view-if: subscene > 0
+choose-if: subscene = 2
+order: 1
+priority: 1 
+frequency: 1
+
+
+@sub-scene2
+
+@sub-scene3
+
+@sub-scene4

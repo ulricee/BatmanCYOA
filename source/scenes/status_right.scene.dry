@@ -60,22 +60,22 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 
-var reactionary_display = 0
-var conservative_display = 0
-var red_display = 0
-var blue_display = 0
-var liberal_display = 0
-var progressive_display = 0
+var reactionary = 0
+var conservative = 0
+var red = 0
+var blue = 0
+var liberal = 0
+var progressive = 0
 
  displayReactionarySeat = function () {
     const resultsDiv = document.getElementById('hiddenreaction');
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          reactionary_display = 1;
+          reactionary = 1;
       } else {
           resultsDiv.style.display = 'none';
-          reactionary_display = 0;
+          reactionary = 0;
       }
 };
 
@@ -84,10 +84,10 @@ var progressive_display = 0
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          conservative_display = 1;
+          conservative = 1;
       } else {
           resultsDiv.style.display = 'none';
-          conservative_display = 0;
+          conservative = 0;
       }
 };
 
@@ -96,10 +96,10 @@ var progressive_display = 0
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          red_display = 1;
+          red = 1;
       } else {
           resultsDiv.style.display = 'none';
-          red_display = 0;
+          red = 0;
       }
 };
 
@@ -108,10 +108,10 @@ var progressive_display = 0
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          blue_display = 1;
+          blue = 1;
       } else {
           resultsDiv.style.display = 'none';
-          blue_display = 0;
+          blue = 0;
       }
 };
 
@@ -122,10 +122,10 @@ var progressive_display = 0
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          liberal_display = 1;
+          liberal = 1;
       } else {
           resultsDiv.style.display = 'none';
-          liberal_display = 0;
+          liberal = 0;
       }
 };
 
@@ -135,69 +135,69 @@ var progressive_display = 0
       // Toggle display between 'none' and 'block'
       if (resultsDiv.style.display === 'none' || resultsDiv.style.display === '') {
           resultsDiv.style.display = 'block'; // or 'table' for the table specifically
-          progressive_display = 1;
+          progressive = 1;
       } else {
           resultsDiv.style.display = 'none';
-          progressive_display = 0;
+          progressive = 0;
       }
 };
 
-Q.republican_display = 0;
-Q.democrat_display = 0;
+Q.republican = 0;
+Q.democrat = 0;
 
-var republican_display = 0
-var democrat_display = 0
+var republican = 0
+var democrat = 0
 
  displayRepublicanSeats = function () {
-    if (republican_display == 1) {
-    republican_display = 0;
+    if (republican == 1) {
+    republican = 0;
     displayRepSeat();
     displayConservativeSeat();
     displayReactionarySeat();
-    } else if (republican_display == 0) {
-    republican_display = 1;
+    } else if (republican == 0) {
+    republican = 1;
     displayRepSeat();
     displayConservativeSeat();
     displayReactionarySeat();
     }
 
-    if (democrat_display == 1) {
+    if (democrat == 1) {
         displayProgressiveSeat();
         displayLiberalSeat();
         displayDemSeat();
-        democrat_display = 0;
+        democrat = 0;
     }
 }
 
  displayDemocratSeats = function () {
 
-    if (progressive_display == 0 && liberal_display == 0 && blue_display == 0) {
+    if (progressive == 0 && liberal == 0 && blue == 0) {
 
-        if (democrat_display == 1) {
+        if (democrat == 1) {
             displayProgressiveSeat();
             displayLiberalSeat();
             displayDemSeat();
-            democrat_display = 0;
-        } else if (democrat_display == 0) {  
+            democrat = 0;
+        } else if (democrat == 0) {  
             displayProgressiveSeat();
             displayLiberalSeat();
             displayDemSeat();
-            democrat_display = 1;
+            democrat = 1;
         }
-        if (republican_display == 1) {
+        if (republican == 1) {
             displayRepSeat();
             displayConservativeSeat();
             displayReactionarySeat();
-            republican_display = 0;
+            republican = 0;
         }
     } else {
-        if (progressive_display == 1) {
+        if (progressive == 1) {
             displayProgressiveSeat();
         }
-        if (liberal_display == 1) {
+        if (liberal == 1) {
             displayLiberalSeat();
         }
-        if (blue_display == 1) {
+        if (blue == 1) {
             displayDemSeat();
         }
     }
@@ -530,13 +530,27 @@ Click on seat to show category.
 
 @polls
 
-= City Wide Support [+ city_wide_support_bruce_display +]%
-
+= City Wide Support [+ city_support_bruce +]%
 
 {!<div class="small-text">!}
 
+approval change: [+ approval_change_bruce +]
 
-{!<button class="hiddenbutton" onclick="displayWhiteCollarSupport();"><span class="showclass">!}White Collar Support: [+ white_collar_support_bruce_display +]% [? if debug == 1 : [+ white_collar_support_bruce +] ?]{!</span></button>!}
+approval gap: [+ approval_gap_bruce +]
+
+[+ white_collar_support_final_bruce +]/[+ white_collar_max_support +] ([+ white_collar_support_bruce +]%)
+
+[+ blue_collar_support_final_bruce +]/[+ blue_collar_max_support +] ([+ blue_collar_support_bruce +]%)
+
+[+ business_support_final_bruce +]/[+ business_max_support +] ([+ business_support_bruce +]%)
+
+[+ black_support_final_bruce +]/[+ black_max_support +] ([+ black_support_bruce +]%)
+
+[+ latino_support_final_bruce +]/[+ latino_max_support +] ([+ latino_support_bruce +]%)
+
+[+ unemployed_support_final_bruce +]/[+ unemployed_max_support +] ([+ unemployed_support_bruce +]%)
+
+{!<button class="hiddenbutton" onclick="displayWhiteCollarSupport();"><span class="showclass">!}White Collar Support: [+ white_collar_support_bruce +]% [? if debug == 1 : [+ white_collar_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showwhitecollarbox">!}
 
@@ -554,7 +568,7 @@ The white collar population [+ white_collar_progressive : party_support +] the P
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayBlueCollarSupport();"><span class="showclass">!}Blue Collar Support: [+ blue_collar_support_bruce_display +]% [? if debug == 1 : [+ blue_collar_support_bruce +] ?]{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayBlueCollarSupport();"><span class="showclass">!}Blue Collar Support: [+ blue_collar_support_bruce +]% [? if debug == 1 : [+ blue_collar_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showbluecollarbox">!}
 
@@ -573,7 +587,7 @@ The blue collar population [+ blue_collar_progressive : party_support +] the Pro
 {!</div>!}
 
 
-{!<button class="hiddenbutton" onclick="displayBusinessSupport();"><span class="showclass">!}Business Support: [+ business_support_bruce_display +]% [? if debug == 1 : [+ business_support_bruce +] ?]{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayBusinessSupport();"><span class="showclass">!}Business Support: [+ business_support_bruce +]% [? if debug == 1 : [+ business_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showbusinessbox">!}
 
@@ -591,7 +605,7 @@ The business owners of the city [+ business_progressive : party_support +] the P
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayBlackSupport();"><span class="showclass">!}Black Support: [+ black_support_bruce_display +]% [? if debug == 1 : [+ black_support_bruce +] ?]{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayBlackSupport();"><span class="showclass">!}Black Support: [+ black_support_bruce +]% [? if debug == 1 : [+ black_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showblackbox">!}
 
@@ -609,7 +623,7 @@ The black community [+ black_progressive : party_support +] the Progressives.
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayLatinoSupport();"><span class="showclass">!}Latino Support: [+ latino_support_bruce_display +]% [? if debug == 1 : [+ latino_support_bruce +] ?]{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayLatinoSupport();"><span class="showclass">!}Latino Support: [+ latino_support_bruce +]% [? if debug == 1 : [+ latino_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showlatinobox">!}
 
@@ -627,7 +641,7 @@ The latino minority [+ latino_progressive : party_support +] the Progressives.
 
 {!</div>!}
 
-{!<button class="hiddenbutton" onclick="displayUnemployedSupport();"><span class="showclass">!} Unemployed Support: [+ unemployed_support_bruce_display +]% [? if debug == 1 : [+ unemployed_support_bruce +] ?]{!</span></button>!}
+{!<button class="hiddenbutton" onclick="displayUnemployedSupport();"><span class="showclass">!} Unemployed Support: [+ unemployed_support_bruce +]% [? if debug == 1 : [+ unemployed_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showunemployedbox">!}
 
@@ -647,7 +661,7 @@ The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 
 {!<div class="scrollable-box-polls">!}
 
-= Burnley ([+ burnley_total_bruce_display +]% Approval)
+= Burnley ([+ burnley_total_bruce +]% Approval)
 
 [+ district_approval_gap_final_bruce +]
 
@@ -655,172 +669,172 @@ The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 
 The old industrial heart of the city that has since then went into quite some decline.
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnley_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_burnley_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_burnley +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnley_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_burnley_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_burnley +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnley_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_burnley_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_burnley_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_burnley +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_burnley_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_burnley_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_burnley +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_burnley_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_burnley_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_burnley_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_burnley +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_burnley_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_burnley_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_burnley +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_burnley_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_burnley_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_burnley_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_burnley +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_burnley_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_burnley_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_burnley +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_burnley_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_burnley_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_burnley_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_burnley +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_burnley_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_burnley_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_burnley +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_burnley_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_burnley_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_burnley_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_burnley +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_burnley_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_burnley_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_burnley_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_burnley_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_burnley +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_burnley_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_burnley_city_total +]%{!</b>!} possible.
 
 
-= Somerset ([+ somerset_total_bruce_display +]% Approval)
+= Somerset ([+ somerset_total_bruce +]% Approval)
 
 Set right in the middle of Gotham, it's the bustling commercial center.
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_somerset_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_somerset_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_somerset +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_somerset_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_somerset_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_somerset +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_somerset_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_somerset_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_somerset_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_somerset +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_somerset_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_somerset_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_somerset +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_somerset_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_somerset_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_somerset_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_somerset +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_somerset_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_somerset_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_somerset +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_somerset_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_somerset_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_somerset_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_somerset +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_somerset_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_somerset_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_somerset +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_somerset_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_somerset_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_somerset_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_somerset +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_somerset_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_somerset_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_somerset +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_somerset_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_somerset_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_somerset_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_somerset +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_somerset_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_somerset_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_somerset_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_somerset_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_somerset +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_somerset_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_somerset_city_total +]%{!</b>!} possible.
 
 
-= New Gotham ([+ new_gotham_total_bruce_display +]% Approval)
+= New Gotham ([+ new_gotham_total_bruce +]% Approval)
 
 Highly international. Tech companies. New wealth. That's what goes on in New Gotham.
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_new_gotham_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_new_gotham_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_new_gotham +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_new_gotham_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_new_gotham_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_new_gotham +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_new_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_new_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_new_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_new_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_new_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_new_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_new_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_new_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_new_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_new_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_new_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_new_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_new_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_new_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_new_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_new_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_new_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_new_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_new_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_new_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_new_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_new_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_new_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_new_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_new_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_new_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_new_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_new_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_new_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_new_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_new_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_new_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_new_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_new_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_new_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_new_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_new_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_new_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_new_gotham_city_total +]%{!</b>!} possible.
 
 
-= Old Gotham ([+ old_gotham_total_bruce_display +]% Approval)
+= Old Gotham ([+ old_gotham_total_bruce +]% Approval)
 
 The old gothic part of the city, with some very rich estates and some very poor slums.
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_old_gotham_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_old_gotham_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_old_gotham +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_old_gotham_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_old_gotham_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_old_gotham +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_old_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_old_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_old_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_old_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_old_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_old_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_old_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_old_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_old_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_old_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_old_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_old_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_old_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_old_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_old_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_old_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_old_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_old_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_old_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_old_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_old_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_old_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_old_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_old_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_old_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_old_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_old_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_old_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_old_gotham_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_old_gotham_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_old_gotham_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_old_gotham +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_old_gotham_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_old_gotham_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_old_gotham_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_old_gotham_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_old_gotham +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_old_gotham_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_old_gotham_city_total +]%{!</b>!} possible.
 
 
-= Burnside ([+ burnside_total_bruce_display +]% Approval)
+= Burnside ([+ burnside_total_bruce +]% Approval)
 
 An upper middle class district.
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnside_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_burnside_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_burnside +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_burnside_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_burnside_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_burnside +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_burnside_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_burnside_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_burnside_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_burnside +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_burnside_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_burnside_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_burnside +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_burnside_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_burnside_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_burnside_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_burnside +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_burnside_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_burnside_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_burnside +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_burnside_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_burnside_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_burnside_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_burnside +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_burnside_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_burnside_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_burnside +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_burnside_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_burnside_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_burnside_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_burnside +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_burnside_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_burnside_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_burnside +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_burnside_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_burnside_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_burnside_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_burnside +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_burnside_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_burnside_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_burnside_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_burnside_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_burnside +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_burnside_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_burnside_city_total +]%{!</b>!} possible.
 
 
-= Bristol ([+ bristol_total_bruce_display +]% Approval)
+= Bristol ([+ bristol_total_bruce +]% Approval)
 
-{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_bristol_approval_bruce_display +]%{!</b>!} supports Bruce. 
-This is {!<b>!}[+ unemployed_bristol_support_bruce_display +]%{!</b>!} out of {!<b>!}[+ unemployed_bristol +]%{!</b>!} of the district population.
-On the entire city, this gives us {!<b>!}[+ unemployed_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}Unemployed:{!</b>!} {!<b>!}[+ unemployed_bristol_percent_bruce +]%{!</b>!} supports Bruce. 
+This is {!<b>!}[+ unemployed_bristol_support_bruce +]%{!</b>!} out of {!<b>!}[+ unemployed_bristol +]%{!</b>!} of the district population.
+On the entire city, this gives us {!<b>!}[+ unemployed_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ unemployed_bristol_city_total +]%{!</b>!} possible.
 
-{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_bristol_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ blue_collar_bristol_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ blue_collar_bristol +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ blue_collar_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}Blue Collar:{!</b>!} {!<b>!}[+ blue_collar_bristol_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ blue_collar_bristol_support_bruce +]{!</b>!}% out of {!<b>!}[+ blue_collar_bristol +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ blue_collar_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ blue_collar_bristol_city_total +]%{!</b>!} possible.
 
-{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_bristol_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ white_collar_bristol_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ white_collar_bristol +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ white_collar_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}White Collar:{!</b>!} {!<b>!}[+ white_collar_bristol_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ white_collar_bristol_support_bruce +]{!</b>!}% out of {!<b>!}[+ white_collar_bristol +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ white_collar_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ white_collar_bristol_city_total +]%{!</b>!} possible.
 
-{!<b>!}Business:{!</b>!} {!<b>!}[+ business_bristol_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ business_bristol_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ business_bristol +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ business_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}Business:{!</b>!} {!<b>!}[+ business_bristol_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ business_bristol_support_bruce +]{!</b>!}% out of {!<b>!}[+ business_bristol +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ business_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ business_bristol_city_total +]%{!</b>!} possible.
 
-{!<b>!}Black:{!</b>!} {!<b>!}[+ black_bristol_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ black_bristol_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ black_bristol +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ black_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}Black:{!</b>!} {!<b>!}[+ black_bristol_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ black_bristol_support_bruce +]{!</b>!}% out of {!<b>!}[+ black_bristol +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ black_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ black_bristol_city_total +]%{!</b>!} possible.
 
-{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_bristol_approval_bruce_display +]{!</b>!}% supports Bruce. 
-This is {!<b>!}[+ latino_bristol_support_bruce_display +]{!</b>!}% out of {!<b>!}[+ latino_bristol +]{!</b>!}% of the district population.
-On the entire city, this gives us {!<b>!}[+ latino_bristol_city_bruce_display +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_bristol_city_total_display +]%{!</b>!} possible.
+{!<b>!}Latino:{!</b>!} {!<b>!}[+ latino_bristol_percent_bruce +]{!</b>!}% supports Bruce. 
+This is {!<b>!}[+ latino_bristol_support_bruce +]{!</b>!}% out of {!<b>!}[+ latino_bristol +]{!</b>!}% of the district population.
+On the entire city, this gives us {!<b>!}[+ latino_bristol_city_bruce +]%{!</b>!} support in mayoral elections, out of {!<b>!}[+ latino_bristol_city_total +]%{!</b>!} possible.
 
 
 {!</div>!}
@@ -843,38 +857,30 @@ General Sentiment: Okay
 
 = Affordability 
 
-{!<div class="small-text">!}
+{!<div class="small-text">
 
-• Personal Consumption Expenditures: [+ cpi +]
-
-The Consumer price index is essentially how much the average Gothamite pays.
-
-• Costumer Spending Index: [+ csi +]
-
-The Consumer spending index is the average consumer spending of Gotham on personal goods and services.
-
-• Costumer Sentiment: Very Low
-
-Costumer Sentiment is based on polls interviewing people about their spending.
-
-{!</div>!}
-
-
-{!<table>
-    <th>
-        <tr>1</tr>
-        <tr>2</tr>
-        <tr>3</tr>
-    </th>
-    <th>
-        <tr>1</tr>
-        <tr>2</tr>
-        <tr>3</tr>
-    </th>
-
+<table class="economytable">
+    <tr>
+        <td>• Personal Consumption Expenditures:!} [+ cpi +]{!</td>
+    </tr>
+    <tr>
+        <td>The Consumer price index is essentially how much the average Gothamite pays.</td>
+    </tr>
+    <tr>
+        <td>• Costumer Spending Index:!} [+ csi +]{!</td>
+    </tr>
+    <tr>
+        <td>The Consumer spending index is the average consumer spending of Gotham on personal goods and services.</td>
+    </tr>
+        <td>• Costumer Sentiment: Very Low</td>
+    </tr>
+    <tr>
+        <td>Costumer Sentiment is based on polls interviewing people about their spending.</td>
+    </tr>
 
 </table>
-!}
+
+</div>!}
 
 = Jobs
 
@@ -948,3 +954,39 @@ Seat 18: [+ seat18_district +] [+ seat18_district_alignment +]
 Seat 19: [+ seat19_district +] [+ seat19_district_alignment +]
 
 Seat 20: [+ seat20_district +] [+ seat20_district_alignment +]
+
+@robin 
+
+
+
+{!
+    <div class="megabox">
+    <div class="RobinBox">
+
+
+        <div class="AlfredBox">
+            <img>
+            <figcaption></figcaption>
+        </div>
+
+
+        <div class="wearerobin">
+
+            <div class="robinbox">
+            </div>
+
+            <div class="robinbox">
+            </div>
+
+            <div class="robinbox">
+            </div>
+
+            <div class="robinbox">
+                <p>robin</p>
+            </div>
+
+        </div>
+    </div>
+!}
+
+robin
