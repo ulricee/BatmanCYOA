@@ -97,16 +97,67 @@ You needed to find one way out.
 
 @1967_justice
 on-arrival: order += 1
-go-to: 1979
+go-to: 1977
 
 @1967_vengeance
 on-arrival: liberty += 1; moral_compass -= 5
-go-to: 1979
+go-to: 1977
 
 @1967_never
 on-arrival: moral_compass += 10
-go-to: 1979
+go-to: 1977
 
+
+@1977
+new-page: true
+on-display: {!
+    introDialogue();
+!}
+set-bg: img/background/summer.jpg
+
+= 1977, Walk on a summer's day
+
+{!<div class="typewriter">!}
+
+For weeks, you seemed like a ghost. Someone that could talk and sometimes answer, but to the world around you, you were a shell of a human. A boy with a flickering soul, ready to be extinguished at any moment. A will burning without fuel.
+
+The first year is often the most difficult. Where theory must stand against the waves of reality. Yet when you brave it alone, all you can do is tread and pray for the best. Sure, Alfred always was an anchor, yet you found yourself reaching out to another hand through the waters. Just a girl. A girl named Andrea Beaumont.
+
+It’s funny, how she walked up to you in the parking lots of Gotham Academy when everyone else seemed hellbent on staying out of your way. How the first thing she said to the weeping 1st grader wasn’t “Do you need someone to talk to?”, “It’ll get better,” or all the other empty platitudes thrown your way by peers and teachers alike. She just sat down next to you on the curb, placed her backpack next to yours, and told you bluntly as all children do,
+
+“It’s okay, my mom’s dead too.” 
+
+You didn’t say much back to her that day. The fresh memory of blood spilling on concrete was too much for you to care about anyone else, let alone another kid your age who would always tag along while you waited for Alfred there on out.  You didn’t get it. Why me? Why her? Maybe it was just the fact that between the ruby bricks of private school, there was at least one person who wouldn’t soothe your pain, but instead, truly understand it. 
+
+She told you she was Andrea, but her friends called her Andi. She spent her weekends watching TV, cutting up her Barbies’ dresses and squiggling markers on their faces to look like the Grey Ghost. You liked the Grey Ghost too. And so, for the first time in a while, the two of you had a conversation. A real one with more than just Andi listing off how her funeral proceedings were going and how boring all of it was. 
+
+{!</div>!}
+
+- @1977_2: She was your first friend, and she had no reason to be.
+
+@1977_2
+new-page: true
+on-display: {!
+    introDialogue();
+!}
+
+= 1977, Walk on a summer's day
+
+{!<div class="typewriter">!}
+
+From then on out, she was always a shoulder you could count on. Your helping hand in the nights of grief. From the moments in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+
+You didn’t deserve the butterflies in your stomach you felt when you were next to her. You didn’t deserve the warmth of her presence thawing your grieving, numb heart. You’d swear you’d never be happy again, that you’d used your hole of eternal suffering to avenge what you swore to your parents, that the only way forward was alone. Out there, you are bewildered feeling something you wanted that wasn’t a duty. To want something, or someone you’d need.
+
+You felt the tug of two hands, one cold, one warmer. A pull from the past and the future. Andrea was there, waiting patiently through one side of the tunnel. She wished to bring you to the old continent, to let your past flow behind you. A fresh start. A new beginning of trust, and love. You felt the clasp of her soft, chill hand. 
+
+And you chose to let go.
+
+You couldn’t abandon this home. No matter how far you could run away from it, the pain would not fade. Gotham chained you to the ground. This was a place you could not leave.
+
+{!</div>!}
+
+- @1979: It is my duty and curse. To fight for those that cannot.
 
 @1979
 new-page: true
@@ -274,7 +325,7 @@ on-display: {!
 introDialogue();
 
 !}
-set-bg: img/background/ra.webp
+set-bg: img/background/bruce_v_ras.webp
 
 = 1982, The Fading Dragon
 
@@ -1087,18 +1138,63 @@ Batman remained the one arm of justice that people still looked up too in the da
 
 @1991_end
 new-page: true
+on-display: {!
+    introDialogue();
+!}
+go-to: jason_menu
 
-= Jason's Capture and Death
+{!<div class="typewriter">!}
 
-- @1993_start: That sucks
+= 1991, Jason's Capture and Death
+
+Last night was tiring. Jason’s been missing for days. You have no clue where he went, let alone where to look. Before you panic further you receive a call. Gordon received a tape at the GCPD this morning. The Tape is black, with a white label taped to it. Drawn with a red marker, it’s a smiling face. 
+
+You immediately fill with dread as you believe the worse has happened. At the batcave you analyze the video. You didn’t think he could be this cruel, this reprehensible. 
+
+Jason. It couldn’t be. It’s hours of video, where he beats Jason to near death with a crowbar. Jason’s screams are something you can’t ever forget. It’s haunting. 
+
+You have to stop him. This has gone too far. He was just a boy. What monster does that to a boy? 
+
+{!</div>!}
+
+@jason_menu
+
+- @footage: Analyze the tape further and find the location.
+- @find_joker: I need to find him, this ends tonight. I will put him behind bars and make sure he never ever gets out again
+- @kill_joker: Kill Joker.
+
+@footage 
+subtitle: Maybe he's still alive.
+view-if: jason_footage = 0
+on-arrival: jason_footage = 1
+go-to: jason_menu
+
+You pry through the footage. He left no evidence to where this happened. Let alone where the body….. no, there isn’t a body. He’s alive…
+
+@find_joker
+
+You find Joker. Believe it or not he simply turns himself in, no fight, no theatrics. Nothing. He gives up. The two of you say nothing on the ride to Arkham. You can’t muster a word. And he’s already got his laughs in.
+
+- @1993_start: Next year.
+
+@kill_joker
+choose-if: sanity == 0 or moral_compass == 0
+unavailable-subtitle: No… that’s too far. I can’t bring myself. He’d only get what he wants. 
+
+No. You did not do this.
+
+- @find_joker: You went to find him.
 
 @1993_start
 new-page: true
+on-display: {!
+    introDialogue();
+!}
 go-to: tim_menu
 
 {!<div class="typewriter">!}
 
-= Tim the Menace
+= 1993, Tim the Menace
 
 You still visit his grave every week. His smile, his laughter, even his tantrums all robbed away from you, just like that. Papers line your desk both as the businessman and the caped crusader. Papers stained with tears, much to your chagrin. You don’t know what day it is. You don’t care. They all blur blue together. Ring ring ring. That must be the bell, the alarm, the - it doesn’t matter. 
 
@@ -1118,7 +1214,7 @@ This is just like every other hobo in every other week that tries to break and e
 
 You wish you didn’t.
 
- Alfred drags you over to the security cameras, where fuzzy static outlines a boy who hasn’t even reached his growth spurt yet tripping over basement stairs in an oversized Batman hoodie. He seems timid underneath his four eyes, but in any other scenario you’d applaud the fact that out of all the attempts, this is the one that succeeds. You tell Alfred to escort him out of the building. The kid doesn’t seem interested in any valuables, he’s probably just confused or something. You’re not quite sure how else to explain such a thing. 
+Alfred drags you over to the security cameras, where fuzzy static outlines a boy who hasn’t even reached his growth spurt yet tripping over basement stairs in an oversized Batman hoodie. He seems timid underneath his four eyes, but in any other scenario you’d applaud the fact that out of all the attempts, this is the one that succeeds. You tell Alfred to escort him out of the building. The kid doesn’t seem interested in any valuables, he’s probably just confused or something. You’re not quite sure how else to explain such a thing. 
 
 He returns, but with a catch. The kid is right behind him. As soon as he sees you, the brunette makes a run for it. He suddenly clasps your hands tight together, and says something nobody should ever know.
 
@@ -1158,8 +1254,147 @@ go-to: @1993_end
 
 @1993_end
 new-page: true
+on-display: {!
+    introDialogue();
+!}
 
-- @promises: Promises
+{!<div class="typewriter">!}
+
+Things have ran on for a long time. A decade fighting crime and somehow, it feels as if you’ve stepped in the place you’ve been when you first returned from Tibet.
+
+Crime still fills the street, people still cheat, lie to one another, some starve while others overstuff themselves. And yet, here you are, a stranger now just another part of those moving pictures.
+
+Time has only made you grow even more resentful of politicians than you were but a teenager. Once I found the hole, it just went all the way down. To were? Who knows.
+
+This was rock bottom. You’ve found those abyss and they have stared back once again. They are judging you, all your actions, all your failures. You are even harsher to yourself than they’ll ever be. No one sees as many flaws as a mirror.
+
+Yet, this duty is still called to you. You felt their hold, warm. You had to do it, for them. You had to break this cycle. No one will but you. Authors are happy with an eternally ongoing story that sees them always escape.
+
+This book will see a chapter close. You have the pen, the ink. Was this what you wanted? How will you judge?
+
+{!</div>!}
+
+
+
+- @bruce: I inspired fear. It is time I inspire hope. My suit will serve better than my Cowl.
+- @batman: This place of power is but a springboard for my duty to the city. Batman will no longer be bound.
+
+@bruce 
+on-arrival: bruce += 5
+go-to: you
+
+@batman
+on-arrival: batman += 5
+go-to: you
+
+@you
+on-display: {!
+    dendryUI.populateSaveSlots(64, 2);
+!}
+
+This is you.
+
+{!<div class="fakecardnosize tabbutton"><img src="img/portraits/brucewaynemayor.webp" class="StatusPortrait"></div>!}
+
+
+{!<div class="StatusPortraitText">!}
+{!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
+{!</div>!}
+
+{!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
+
+{!<div class="ideologybar">
+
+    <div class="gradientideology">
+            <div class="marker">
+            </div>
+    </div>
+
+<span></span>
+
+</div>!}
+
+• Approval Rate: {!<b>!}
+[? if approval_rating_bruce >= 0 and approval_rating_bruce < 5 : {!<span style="color: #940000; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 5 and approval_rating_bruce < 10 : {!<span style="color: #ad0000; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 10 and approval_rating_bruce < 15 : {!<span style="color: #bd0000; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 15 and approval_rating_bruce < 20 : {!<span style="color: #ca2525; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 20 and approval_rating_bruce < 25 : {!<span style="color: #cc3f3f; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 25 and approval_rating_bruce < 30 : {!<span style="color: #db6454; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 30 and approval_rating_bruce < 35 : {!<span style="color: #ff7c54; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 35 and approval_rating_bruce < 40 : {!<span style="color: #ee8345; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 40 and approval_rating_bruce < 45 : {!<span style="color: #f1862e; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 45 and approval_rating_bruce < 50 : {!<span style="color: #df8919; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 50 and approval_rating_bruce < 55 : {!<span style="color: #c58700; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 55 and approval_rating_bruce < 60 : {!<span style="color: #c5a100; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 60 and approval_rating_bruce < 65 : {!<span style="color: #9ba823; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 65 and approval_rating_bruce < 70 : {!<span style="color: #7fb64c; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 70 and approval_rating_bruce < 75 : {!<span style="color: #5dc534; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 75 and approval_rating_bruce < 80 : {!<span style="color: #34c558; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 80 and approval_rating_bruce < 85 : {!<span style="color: #26be77; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 85 and approval_rating_bruce < 90 : {!<span style="color: #34c5a1; text-decoration-line: underline;">!}?]
+[? if approval_rating_bruce >= 90 and approval_rating_bruce <= 100 : {!<span style="color: #11ecaa; text-decoration-line: underline;">!}?]
+[+ approval_rating_bruce +]%
+[? if approval_rating_bruce_up == 2 : ↑ ?]
+[? if approval_rating_bruce_up == 1 : → ?]
+[? if approval_rating_bruce_up == 0 : ↓ ?]
+{!</span></b>!}
+
+• Credibility: 
+[? if credibility == 5 : {!<span style="color: #1a5c00; text-decoration-line: underline;">!}?]
+[? if credibility < 5 : {!<span style = "color: #2f922c; text-decoration-line: underline;">!}?]
+[+ credibility +].0
+{!</span>!}% 
+[? if credibility_up == 2 : ↑ ?]
+[? if credibility_up == 1 : → ?]
+[? if credibility_up == 0 : ↓ ?]
+
+• Personal Funds: {!<span style = "color: #2f922c; text-decoration-line: underline;">!}[+ pf +].0{!</span>!} 
+[? if pf_up == 2 : ↑ ?]
+[? if pf_up == 1 : → ?]
+[? if pf_up == 0 : ↓ ?]
+
+• Identity: Batman
+
+{!<div class="identitybar">
+    <div class="identitygradient">
+        <div class="markeridentity"></div>
+    </div>
+<span></span>
+
+</div>!}
+
+
+• Moral Compass - [+ moral_compass : moral_compass +]
+
+• Sanity - [+ sanity +]
+
+Save?
+
+    <div id="saveinfo">
+        <div id="saveinfo1">
+            <table>
+            <tr>
+                <td>8</td>
+                <td>
+                    <button class="b save_button" id="save_button_8">Save</button>
+                </td>
+                <td>
+                    <button class="b delete_button" id="delete_button_8">Delete</button>
+                </td>
+                <td class="save_info" id="save_info_8"></td>
+                <td>
+                    <button class="b export_button" id="export_button_8">Export</button>
+                </td>
+            </tr>
+            </table>
+        </div>
+    
+    </div>
+
+- @promises: Promises.
+
+
 
 @promises
 on-arrival: {!

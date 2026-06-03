@@ -9,10 +9,11 @@ on-arrival: {!
         Q.typeablevariable = parseInt(inputElement)
     }
 
-  electionCalculate('bruce', Q.order);
-  
+    electionCalculate('bruce', Q.order);
+
 !}
 on-display: {!
+
 
     testFunction = function() {
         const inputElement = document.getElementById("variabletest").value;  
@@ -49,6 +50,7 @@ on-display: {!
 - @demographics: Change demographics.
 - @relations: Change party relations
 - @debug_stats: Disable or enable hidden stats
+- @robin_mode: activate robin mode!!!
 - @backSpecialScene: leave
 
 @batman 
@@ -221,3 +223,9 @@ go-to: relations
 @relationprogressive
 on-arrival: progressive_relation_bruce += typeablevariable*(raise)
 go-to: relations
+
+@robin_mode 
+on-arrival: {!
+  window.enableRobinMode();
+!}
+go-to: batmite
