@@ -31,16 +31,22 @@ on-arrival: selena_deputized = 1; selena_name_changed = 1;
 
 @deputizing_signal
 subtitle: The ex self-made Robin with super powers is seen as a massive boon to the forces. There is no opposition for his acceptance.
+view-if: duke_thomas == 1;
 on-arrival: signal_deputized = 1;
 
 @deputizing_cassandra
 subtitle: Cassandra has more talent than officers that have been on the ground for decades. There is is little controversy in her deputizing.
+view-if: cassandra_cain == 1;
 on-arrival: cassandra_deputized = 1;
 
 @deputizing_jason
 subtitle: As an ex-hitman, his addition to the rooster as taken some controversy. However, his talent is without question. It will be a hard sell to have him be seen as an officer of the law
+view-if: jason_todd == 1;
+choose-if: county_prosecutor != "Janet Van Dorn";
 on-arrival: jason_deputized = 1;
 
 @deputizing_polka
 subtitle: This vilains of circumstance seems more than willing to fight for justice. While some will jeer at his inclusion, no serious person would see him as a liability.
+choose-if: gil_advisor == 0 and polka_batfamily = 1;
+unavailable-subtitle: Gil Mason would refuse him because he think he would detract from the image of the police... Somehow
 on-arrival: polka_deputized = 1;
