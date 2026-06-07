@@ -560,9 +560,27 @@ Q.dinah_lance_status = "Active";
 Q.dinah_lance_gear = "Equipment Placeholder";
 Q.dinah_lance_training = "Trained";
 
-  
+Q.stephanie_brown = 0;
+Q.stephanie_brown_status = "Inactive";
+Q.stephanie_brown_gear = "no equipment";
+Q.stephanie_brown_training = "untrained";
 
+Q.selena_kyle = 0;
+Q.selena_kyle_status = "Inactive";
+Q.selena_kyle_gear = "Fully Equipped";
+Q.selena_kyle_training = "Fully Trained";
 
+//deputization 
+// TODO: Add deputization flags for each hero
+Q.spoiler_deputized = 0
+Q.selena_deputized = 0
+Q.signal_deputized = 0
+Q.cassandra_deputized = 0
+Q.jason_deputized = 0
+Q.polka_deputized = 0
+
+//Selena can change her name to the huntress
+Q.selena_name_changed = 0
 
 // TO DO: Fix ideology
 // Add in negative approval gap push
