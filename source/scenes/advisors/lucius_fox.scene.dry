@@ -4,5 +4,6 @@ tags: advisor
 card-image: img/portraits/lucius_fox.png
 view-if: lucius_advisor = 1
 new-page: true 
+order: 3
 
 Lucius

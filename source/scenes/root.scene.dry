@@ -39,7 +39,6 @@ This game deals with mature themes featuring Child Abuse, Traumatic Experiences,
 
 - @start_menu_2: Proceed.
 
-
 @start_menu_2
 on-arrival: {!
 
@@ -124,57 +123,93 @@ Q.lgbtq_moderate = 0;
 
 
 Q.classes = ['unemployed', 'blue_collar', 'white_collar', 'business', 'black', 'latino'];
-Q.parties = ['reactionary', 'conservative', 'red_moderate', 'blue_moderate', 'liberal', 'progressive'];
+Q.parties = ['reactionary', 'conservative', 'red_moderate', 'blue_moderate', 'liberal', 'progressive', 'reform', 'populist', 'libertarian', 'socialist', 'green', 'nationalist'];
 
 // Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.unemployed_reactionary = 50;
-Q.unemployed_conservative = 0;
-Q.unemployed_red_moderate = 0;
-Q.unemployed_blue_moderate = 0;
-Q.unemployed_liberal = 0;
-Q.unemployed_progressive = 45;
-Q.unemployed_lgbtq = 5;
 
-Q.blue_collar_reactionary = 25;
+Q.unemployed_reactionary = 30;
+Q.unemployed_conservative = 3;
+Q.unemployed_red_moderate = 2;
+Q.unemployed_blue_moderate = 3;
+Q.unemployed_liberal = 2;
+Q.unemployed_progressive = 30;
+Q.unemployed_lgbtq = 5;
+Q.unemployed_reform = 13;
+Q.unemployed_populist = 4;
+Q.unemployed_libertarian = 5;
+Q.unemployed_socialist = 1;
+Q.unemployed_green = 1
+Q.unemployed_nationalist = 1;
+
+Q.blue_collar_reactionary = 20;
 Q.blue_collar_conservative = 12.5;
 Q.blue_collar_red_moderate = 12.5;
 Q.blue_collar_blue_moderate = 12.5;
 Q.blue_collar_liberal = 12.5;
-Q.blue_collar_progressive = 20;
+Q.blue_collar_progressive = 15;
 Q.blue_collar_lgbtq = 5;
+Q.blue_collar_reform = 5;
+Q.blue_collar_populist = 1;
+Q.blue_collar_libertarian = 1;
+Q.blue_collar_socialist = 1;
+Q.blue_collar_green = 1;
+Q.blue_collar_nationalist = 1;
 
-Q.white_collar_reactionary = 25;
-Q.white_collar_conservative = 15;
+Q.white_collar_reactionary = 20;
+Q.white_collar_conservative = 14;
 Q.white_collar_red_moderate = 10;
 Q.white_collar_blue_moderate = 20;
-Q.white_collar_liberal = 20;
+Q.white_collar_liberal = 14;
 Q.white_collar_progressive = 5;
 Q.white_collar_lgbtq = 5;
+Q.white_collar_reform = 5;
+Q.white_collar_populist = 0;
+Q.white_collar_libertarian = 3;
+Q.white_collar_socialist = 1;
+Q.white_collar_green = 3;
+Q.white_collar_nationalist = 0;
 
 Q.business_reactionary = 25;
 Q.business_conservative = 15;
 Q.business_red_moderate = 10;
-Q.business_blue_moderate = 30;
+Q.business_blue_moderate = 25;
 Q.business_liberal = 12.5;
 Q.business_progressive = 2.5;
 Q.business_lgbtq = 5;
+Q.business_reform = 1;
+Q.business_populist = 0;
+Q.business_libertarian = 2;
+Q.business_socialist = 0;
+Q.business_green = 0;
+Q.business_nationalist = 2;
 
 Q.black_reactionary = 5;
-Q.black_conservative = 15;
-Q.black_red_moderate = 30;
+Q.black_conservative = 10;
+Q.black_red_moderate = 20;
 Q.black_blue_moderate = 5;
 Q.black_liberal = 20;
 Q.black_progressive = 20;
 Q.black_lgbtq = 5;
+Q.black_reform = 3;
+Q.black_populist = 5;
+Q.black_libertarian = 0;
+Q.black_socialist = 1;
+Q.black_green = 1;
+Q.black_nationalist = 0;
 
-Q.latino_reactionary = 20;
+Q.latino_reactionary = 18;
 Q.latino_conservative = 10;
-Q.latino_red_moderate = 20;
+Q.latino_red_moderate = 17;
 Q.latino_blue_moderate = 10;
 Q.latino_liberal = 10;
-Q.latino_progressive = 25;
+Q.latino_progressive = 20;
 Q.latino_lgbtq = 5;
+Q.latino_reform = 2;
+Q.latino_populist = 3;
+Q.latino_libertarian = 2;
+Q.latino_socialist = 0;
+Q.latino_green = 0;
+Q.latino_nationalist = 3;
 
 // lgbtq system
 
@@ -184,17 +219,17 @@ for (var c of Q.classes) {
 
   if (Q.lgbtq_progressive == 1) {
     Q[c + '_progressive'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
-    Q[c + '_lgbtq'] = 0;
+    Q[c + '_lgbtq'] -= (Q[c + '_lgbtq'])/Q.lgbtq_total;
   }
 
   if (Q.lgbtq_liberal == 1) {
     Q[c + '_liberal'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
-    Q[c + '_lgbtq'] = 0;
+    Q[c + '_lgbtq'] -= (Q[c + '_lgbtq'])/Q.lgbtq_total;
   }
 
   if (Q.lgbtq_moderate == 1) {
     Q[c + '_blue_moderate'] += (Q[c + '_lgbtq'])/Q.lgbtq_total;
-    Q[c + '_lgbtq'] = 0;
+    Q[c + '_lgbtq'] -= (Q[c + '_lgbtq'])/Q.lgbtq_total;
   }
   }
 
@@ -203,7 +238,6 @@ for (var c of Q.classes) {
 Q.districts = ['burnley', 'somerset', 'new_gotham', 'old_gotham', 'burnside', 'bristol'];
 
 // Burnley
-
 Q.unemployed_burnley = 16;
 Q.blue_collar_burnley = 38;
 Q.white_collar_burnley = 14;
@@ -212,7 +246,6 @@ Q.black_burnley = 13;
 Q.latino_burnley = 13;
 
 // Somerset
-
 Q.unemployed_somerset = 8;
 Q.blue_collar_somerset = 30;
 Q.white_collar_somerset = 28;
@@ -235,6 +268,7 @@ Q.white_collar_old_gotham = 24;
 Q.business_old_gotham = 9;
 Q.black_old_gotham = 19;
 Q.latino_old_gotham = 12;
+
 // Burnside
 Q.unemployed_burnside = 5;
 Q.blue_collar_burnside = 15;
@@ -242,6 +276,7 @@ Q.white_collar_burnside = 42;
 Q.business_burnside = 20;
 Q.black_burnside = 10;
 Q.latino_burnside = 8;
+
 // Bristol
 Q.unemployed_bristol = 2;
 Q.blue_collar_bristol = 5;
@@ -260,6 +295,24 @@ Q.old_gotham_size = 18;
 Q.burnside_size = 15;
 Q.bristol_size = 5;
 
+// Party size per district
+// This gives us the base value for a value ala district support, e.c if there are 8 unemployed in burnley and 50% support, we get unemployed_reactionary_burley = 4
+// CIty is scaled by the district size. Percent is the percent of the district that goes for that. Approval always starts at 60%
+// We honestly do not need to set unique values, they just repeat off the starting ones. We will however need to normalize in the future
+
+for (var party of Q.parties) {
+  for (var district of Q.districts) {
+    for (var c of Q.classes) {
+      Q[c + '_' + party + '_' + district] = Q[c + '_' + party]*(Q[c + '_' + district]/100)
+      // Q[c + '_' + party + '_' + district + '_city'] = Q[c + '_' + party + '_' + district]*(Q[district = '_size']/100)
+      // Q[c + '_' + party + '_' + district + '_percent'] = Q[c + '_' + party];
+      // Q[c + '_' + party + '_' + district + '_approval'] = 0;
+      // Q[c + '_' + party + '_' + district + '_approval'] += 60; 
+      Q[c + '_' + party + '_' + district + '_old'] = Q[c + '_' + party + '_' + district];
+      Q[c + '_' + party + '_old'] = Q[c + '_' + party];
+    }
+  }  
+}
 
 
 
@@ -1286,6 +1339,7 @@ Q.dick_harvey_friends = 0;
 Q.tim1 = 0;
 Q.tim2 = 0;
 Q.tim3 = 0;
+Q.jason_footage = 0;
 
 Q.hamilton_support = 0;
 Q.quincy_support = 0;
@@ -1301,6 +1355,7 @@ Q.corrupt = 0;
 
 // Knowledge flags
 Q.damian_exists = 0;
+
 
 // End of flags.
 
@@ -1341,10 +1396,58 @@ on-display: {!
 set-bg: img/map_2.jpg
 new-page: true
 
+<button>Difficulty Options</button><button>Acessibility Options</button>
+
+{!
+  <table>
+    <tr>
+      <th>
+      </th>
+      <td>
+      Saving: <input type="checkbox" value="1"></input>
+      </td>
+      <td>
+      Polls: <input type="checkbox" value="1"></input>
+      </td>
+      <td>
+      Resources: 
+      <select name="resources" id="resourcediff">
+        <option value="few">None</option>
+        <option value="few">Few</option>
+        <option value="normal">Normal</option>
+        <option value="lots">Lots</option>
+        <option value="plentiful">Plentiful</option>
+        <option value="infinite">Infinite</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <th>
+      </th>
+      <td>
+      Batmite Mode: <input type="checkbox"></input>
+      </td>
+      <td>
+      Sandbox: <input type="checkbox"></input>
+      </td>
+      <td>
+      Crime: 
+      <select name="crime" id="crimediff">
+        <option value="normal">Normal</option>
+        <option value="lots">Lots</option>
+        <option value="plentiful">Plentiful</option>
+        <option value="infinite">Nightmare</option>
+        <option value="infinite">Dark Year</option>
+      </select>
+      </td>
+    </tr>
+  </table>
+
+  
+!}
+
 - @1994_debug: Debug Enter
-- @1994_normal: Begin (normal difficulty)
-- @1994_hard: Begin (hard difficulty)
-- @1994_historical: Begin (historical mode)
+- @1994_normal: Begin.
 
 @1994_debug
 on-arrival:  {!

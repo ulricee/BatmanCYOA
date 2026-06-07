@@ -174,6 +174,14 @@
       window.dendryUI.saveSettings();
   };
 
+  window.enableRobinMode = function() {
+      document.body.classList.add('robin-mode');
+      document.getElementById('tab_container_right').style.display = 'none';
+        window.changeTab('status_right.robin', 'robin_tab', 'isRight');
+  };
+
+
+
   // populates the checkboxes in the options view
   window.populateOptions = function() {
     var disable_bg = window.dendryUI.disable_bg;
