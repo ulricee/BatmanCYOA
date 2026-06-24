@@ -105,10 +105,7 @@ if (this.ui && this.ui.show_portraits) {
 if (typeof window !== "undefined" && window.generateBar) {
 }
 
-    const toolsWrapper = document.getElementById('tools_wrapper');
-if (toolsWrapper) {
-  toolsWrapper.style.display = 'block';
-}
+
 
 // We will now scale support by the ideology.
 

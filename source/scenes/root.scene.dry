@@ -4,19 +4,18 @@ go-to: post_event if started = 1; start_menu if started = 0
 on-arrival: {!
   Q.toolsonce = 0;
  
-  const toolsWrapper = document.getElementById('tools_wrapper');
   
   if (Q.toolsonce == 0) {
-  if (toolsWrapper) {
-  toolsWrapper.style.display = 'none';
+    window.disabletools();
   }
+
   Q.toolsonce = 1;
 
   const video = document.getElementById('video-wrapper');
   if (video) {
     video.style.display = 'none';
   }
-} 
+
 
 !}
 on-display: {!
@@ -1304,7 +1303,12 @@ Q.ra_relationship = 50;
 Q.roman_sionis_relationship = 50;
 Q.harvey_relation = 50;
 Q.harvey_sanity = 50;
+
+
+// Batfamily relationships
 Q.dick_relation = 50;
+Q.jason_relation = 0;
+Q.dinah_lance_relation = 50;
 
 // Advisor relationships
 Q.gordon_relation = 50;
@@ -1355,6 +1359,17 @@ Q.corrupt = 0;
 
 // Knowledge flags
 Q.damian_exists = 0;
+
+// RNG Flags
+
+Q.serialkiller = "N/A";
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+var serialkiller = getRandomInt(3);
+
 
 
 // End of flags.

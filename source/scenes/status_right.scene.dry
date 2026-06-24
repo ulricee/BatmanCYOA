@@ -46,7 +46,7 @@ data = [
 if (window && d3) {
     var width = 200; 
     var height = 100;
-    var screenWidth = document.getElementById('content').offsetWidth;
+    var screenWidth = document.getElementById('mid_panel').offsetWidth;
     if (screenWidth < width - 50) {
         width = screenWidth - 50; 
         height = width;
@@ -534,22 +534,6 @@ Click on seat to show category.
 
 {!<div class="small-text">!}
 
-approval change: [+ approval_change_bruce +]
-
-approval gap: [+ approval_gap_bruce +]
-
-[+ white_collar_support_final_bruce +]/[+ white_collar_max_support +] ([+ white_collar_support_bruce +]%)
-
-[+ blue_collar_support_final_bruce +]/[+ blue_collar_max_support +] ([+ blue_collar_support_bruce +]%)
-
-[+ business_support_final_bruce +]/[+ business_max_support +] ([+ business_support_bruce +]%)
-
-[+ black_support_final_bruce +]/[+ black_max_support +] ([+ black_support_bruce +]%)
-
-[+ latino_support_final_bruce +]/[+ latino_max_support +] ([+ latino_support_bruce +]%)
-
-[+ unemployed_support_final_bruce +]/[+ unemployed_max_support +] ([+ unemployed_support_bruce +]%)
-
 {!<button class="hiddenbutton" onclick="displayWhiteCollarSupport();"><span class="showclass">!}White Collar Support: [+ white_collar_support_bruce +]% [? if debug == 1 : [+ white_collar_support_bruce +] ?]{!</span></button>!}
 
 {!<div id="showwhitecollarbox">!}
@@ -662,10 +646,6 @@ The unemployed [+ unemployed_progressive : party_support +] the Progressives.
 {!<div class="scrollable-box-polls">!}
 
 = Burnley ([+ burnley_total_bruce +]% Approval)
-
-[+ district_approval_gap_final_bruce +]
-
-[+ district_approval_gap_bruce +]
 
 The old industrial heart of the city that has since then went into quite some decline.
 
@@ -954,6 +934,23 @@ Seat 18: [+ seat18_district +] [+ seat18_district_alignment +]
 Seat 19: [+ seat19_district +] [+ seat19_district_alignment +]
 
 Seat 20: [+ seat20_district +] [+ seat20_district_alignment +]
+
+
+approval change: [+ approval_change_bruce +]
+
+approval gap: [+ approval_gap_bruce +]
+
+[+ white_collar_support_final_bruce +]/[+ white_collar_max_support +] ([+ white_collar_support_bruce +]%)
+
+[+ blue_collar_support_final_bruce +]/[+ blue_collar_max_support +] ([+ blue_collar_support_bruce +]%)
+
+[+ business_support_final_bruce +]/[+ business_max_support +] ([+ business_support_bruce +]%)
+
+[+ black_support_final_bruce +]/[+ black_max_support +] ([+ black_support_bruce +]%)
+
+[+ latino_support_final_bruce +]/[+ latino_max_support +] ([+ latino_support_bruce +]%)
+
+[+ unemployed_support_final_bruce +]/[+ unemployed_max_support +] ([+ unemployed_support_bruce +]%)
 
 @robin 
 

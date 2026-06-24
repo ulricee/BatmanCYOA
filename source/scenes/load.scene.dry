@@ -1,8 +1,11 @@
 title: Load
+on-arrival: {!
+
+!}
 on-display: {!
     dendryUI.populateSaveSlots(64, 2);
+    createsave();
 !}
-
 
 {!
   <div id="savetab">

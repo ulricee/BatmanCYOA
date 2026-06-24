@@ -19,6 +19,7 @@ on-display: {!
 
 document.getElementById("mixtape").pause();
 document.getElementById("mixtape").src = "audio/sfx/gun.wav";
+document.getElementById("mixtape").volume = 0.4
 document.getElementById("mixtape").play();
 
         window.enableHiddenBatmanMode();
@@ -38,6 +39,7 @@ on-arrival: {!
 
 document.getElementById("mixtape").pause();
 document.getElementById("mixtape").src = "audio/sfx/gun.wav";
+document.getElementById("mixtape").volume = 0.4
 document.getElementById("mixtape").play();
 
 !}
@@ -45,7 +47,6 @@ set-bg: img/background/white.jpg
 go-to: bang2choice
 
 @bang2choice
-set-bg: img/background/death.webp
 
 - @bang2: BANG
 
@@ -57,6 +58,13 @@ set-bg: img/background/black.jpg
 on-display: {!
     
 introDialogue();
+
+
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/darkknightrachel.mp3";
+document.getElementById("mixtape").volume = 0.4
+document.getElementById("mixtape").play();
+
 
 !}
 set-bg: img/background/graveyard.webp
@@ -89,7 +97,7 @@ You needed to find one way out.
 
 {!</div>!}
 
-- @promises: Debug skip to promises.
+- @you: Debug skip to promises.
 - @1967_justice: You needed to bring those that would do such a thing to justice.
 - @1967_vengeance: You swore that you will have vengeance for what happened.
 - @1967_never: You saw that nothing like this should ever happen to anyone.
@@ -112,6 +120,7 @@ go-to: 1977
 new-page: true
 on-display: {!
     introDialogue();
+
 !}
 set-bg: img/background/summer.jpg
 
@@ -119,9 +128,21 @@ set-bg: img/background/summer.jpg
 
 {!<div class="typewriter">!}
 
-For weeks, you seemed like a ghost. Someone that could talk and sometimes answer, but to the world around you, you were a shell of a human. A boy with a flickering soul, ready to be extinguished at any moment. A will burning without fuel.
+For weeks, you seemed like a ghost. Someone that could talk and sometimes answer, but to the world around you?
 
-The first year is often the most difficult. Where theory must stand against the waves of reality. Yet when you brave it alone, all you can do is tread and pray for the best. Sure, Alfred always was an anchor, yet you found yourself reaching out to another hand through the waters. Just a girl. A girl named Andrea Beaumont.
+You were a shell of a human. 
+
+A boy with a flickering soul, ready to be extinguished at any moment. 
+
+A will burning without fuel.
+
+The first year is often the most difficult. Where theory must stand against the waves of reality. Yet when you brave it alone, all you can do is tread and pray for the best. 
+
+Sure, Alfred always was an anchor, yet you found yourself reaching out to another hand through the waters. 
+
+Just a girl.
+
+A girl named Andrea Beaumont.
 
 It’s funny, how she walked up to you in the parking lots of Gotham Academy when everyone else seemed hellbent on staying out of your way. How the first thing she said to the weeping 1st grader wasn’t “Do you need someone to talk to?”, “It’ll get better,” or all the other empty platitudes thrown your way by peers and teachers alike. She just sat down next to you on the curb, placed her backpack next to yours, and told you bluntly as all children do,
 
@@ -133,9 +154,10 @@ She told you she was Andrea, but her friends called her Andi. She spent her week
 
 {!</div>!}
 
-- @1977_2: She was your first friend, and she had no reason to be.
+- @1977_2: She was your first friend.
 
 @1977_2
+subtitle: And she had no reason to be.
 new-page: true
 on-display: {!
     introDialogue();
@@ -145,15 +167,29 @@ on-display: {!
 
 {!<div class="typewriter">!}
 
-From then on out, she was always a shoulder you could count on. Your helping hand in the nights of grief. From the moments in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+From then on out, she was always a shoulder you could count on. 
 
-You didn’t deserve the butterflies in your stomach you felt when you were next to her. You didn’t deserve the warmth of her presence thawing your grieving, numb heart. You’d swear you’d never be happy again, that you’d used your hole of eternal suffering to avenge what you swore to your parents, that the only way forward was alone. Out there, you are bewildered feeling something you wanted that wasn’t a duty. To want something, or someone you’d need.
+Your helping hand in the nights of grief. 
+
+From the moments in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
+
+You didn’t deserve the butterflies in your stomach you felt when you were next to her. 
+
+You didn’t deserve the warmth of her presence thawing your grieving, numb heart. 
+
+You’d swear you’d never be happy again, that you’d used your hole of eternal suffering to avenge what you swore to your parents, that the only way forward was alone. 
+
+Out there, you are bewildered feeling something you wanted that wasn’t a duty. 
+
+To want something, or someone you’d need.
 
 You felt the tug of two hands, one cold, one warmer. A pull from the past and the future. Andrea was there, waiting patiently through one side of the tunnel. She wished to bring you to the old continent, to let your past flow behind you. A fresh start. A new beginning of trust, and love. You felt the clasp of her soft, chill hand. 
 
 And you chose to let go.
 
-You couldn’t abandon this home. No matter how far you could run away from it, the pain would not fade. Gotham chained you to the ground. This was a place you could not leave.
+You couldn’t abandon this home. No matter how far you could run away from it, the pain would not fade. Gotham chained you to the ground.
+
+This was a place you could not leave.
 
 {!</div>!}
 
@@ -164,6 +200,11 @@ new-page: true
 on-display: {!
     
 introDialogue();
+
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/arrowraalghul.mp3";
+document.getElementById("mixtape").play();
+
 
 !}
 set-bg: img/background/himalayas.jpg
@@ -216,19 +257,19 @@ introDialogue();
 
 In the year of grueling training under the guidance of the demon's head, Ra's al Ghul, you've found yourself to be his most apt student.
 
-The immortal ideals were quite foreign to you as his sensibilities seem to have deep roots in oriental philosophies.
+The immortal's ideals were quite foreign to you as his sensibilities seem to have deep roots in oriental philosophies.
 
-Confucianism, 
+Confucianism.
 
-Daoism, 
+Daoism.
          
-Legalism, 
+Legalism. 
          
 Mohism.
 
-The gap between the training of the body and that of the mind certainly was disorienting,
+The gap between the training of the body and that of the mind certainly was disorienting.
 
-yet,
+And yet,
  
 with time, with recollection… You found something good to be taken from the schools of Chinese thought.
 
@@ -283,13 +324,23 @@ introDialogue();
 
 As you became David Cain’s trusted lieutenant, what used to only be professional issues slowly mellowed as both of you learned more about each other.
 
-You learned you did have quite a bit in common, both orphans that have tried to find a place in their life without any clear guide. Yet, it’s very clear that his origin as a child abandoned from the Korean war adopted by an American family made clear that there is no bottom to misery.
+You learned you did have quite a bit in common, both orphans that have tried to find a place in their life without any clear guide. 
 
-Still, knowing him better, while he practiced neutrality, he seemed more and more disillusioned by the work he did. He had hopes, all his life, hopes of making things better. Hopes dashed in his homeland, a country that had abandoned him that then saw him as a foreign agent for daring to ask for change in a fascist regime. Hopes that seem to fade yet again as the league seemed more interested in the minutia of ideals than in actions.
+Yet, it’s very clear that his origin as a child abandoned from the Korean war adopted by an American family made clear that there is no bottom to misery.
+
+Still, knowing him better, while he practiced neutrality, he seemed more and more disillusioned by the work he did. 
+
+He had hopes, all his life, hopes of making things better. Hopes dashed in his homeland, a country that had abandoned him that then saw him as a foreign agent for daring to ask for change in a fascist regime. Hopes that seem to fade yet again as the league seemed more interested in the minutia of ideals than in actions.
 
 One night, knocking on your door. He would come to you to inform you of his immediate leave. This did not surprise you however, what did was the fact he intended to leave with his daughter Cassandra.
 
-He told you his story, the whole story. From his activism against the South Korean dictatorship to his fascination for the league of assassins, his falling in love with Shiva, a child that expedited a marriage which saw both clash over their superficially similar but deeply different vision for the world. All of those could be accepted, could be tolerated but for one thing.
+He told you his story, the whole story. 
+
+From his activism against the South Korean dictatorship to his fascination for the league of assassins, his falling in love with Shiva, a child that expedited a marriage which saw both clash over their superficially similar but deeply different vision for the world. 
+
+All of those could be accepted, could be tolerated.
+
+But for one thing.
 
 “Ra’s wanted to turn my daughter into a killing machine. They have warped her brain, made her kill as just a child. Shiva said it’s a necessary sacrifice, I will not abandon my child.” 
 
@@ -335,9 +386,13 @@ You entered a tight circle around Ra's. While your position with him never fully
 
 Shiva would bring you into the deepest lair's of the Demon's head under the mountain, a place nearly no person had ever seen, something sickly, something ancient brewing in a vast pool of what looked closer to an acid than a normal liquid.
 
-In the distance, a body was set inside, disheveled and… In barely a few instant, recovered to the form you knew of Ra's. In that display however, a few words were told by the trusted voice.
+In the distance, a body was set inside, disheveled and… In barely a few instant, recovered to the form you knew of Ra's. 
 
-“The Emperor is fading. His body may not look like it just yet, but I've seen it. Unless we fall by the sword, he won't survive us.”
+In that display however, a few words were told by the trusted voice.
+
+“The Emperor is fading."
+
+"His body may not look like it just yet, but I've seen it. Unless we fall by the sword, he won't survive us.”
 
 “If we want to survive him, someone needs to take his place.” 
 
@@ -382,6 +437,10 @@ on-display: {!
 
 introDialogue();
 
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/maskofthephantasm.mp3";
+document.getElementById("mixtape").play();
+
 !}
 set-bg: img/background/waynemanor.png
 
@@ -395,7 +454,7 @@ The place has not changed since the incident.
 
 Their portraits, they stared back with the same intensity as they did the first day you swore your duties.
 
-“Father,"
+“Father."
 
 "I’ve gathered the means.”
 
@@ -405,38 +464,41 @@ Their portraits, they stared back with the same intensity as they did the first 
 
 "make them afraid.”
 
-“I have wealth, 
-I have power,
-I’ve got everything.
- A call from the night.”
+“I have wealth."
 
-“I’ve seen it,
-crashing through the window,
-through our life, 
+"I have power."
 
-through what remains.”
+"I’ve got everything."
 
-“A sentinel of ruins,
+"A call from the night.”
 
-a watcher in the dark.”
+“I’ve seen it."
 
-“Father, 
+"Crashing through the window, through our life. 
 
-I will be the bat.”
+"Through what remains.”
 
-“But something's 
+“A sentinel of ruins."
 
-missing…”
+"A watcher in the dark.”
+
+“Father."
+
+"I will be the bat.”
+
+“But something's...
+
+...missing…”
 
 “Something isn’t right.”
 
-“I have to know, 
+“I have to know."
 
-I have to.”
+"I have to.”
 
-“I have to know what’s in me, 
+“I have to know what’s in me."
 
-driving me forward.”
+"Driving me forward.”
 
 “I have to know why the cowl chose me.”
 
@@ -476,21 +538,9 @@ set-bg: img/background/andrea.jpg
 
 {!<div class="typewriter dialogue6">!}
 
-The first year is often the most difficult. Where theory must stand against the waves of reality. Yet, you are alone to help it, all you can do is tread and pray for the best. Sure, Alfred always was an anchor, yet you found yourself reaching out to another hand through the waters. 
-
 Andrea. 
 
 Oh Andrea. She never gave up on anyone, did she?
-
-It’s funny, how she walked up to you in the parking lots of Gotham Academy when everyone else seemed hellbent on staying out of your way. How the first thing she said to the weeping 1st grader wasn’t “Do you need someone to talk to?”, “It’ll get better,” or all the other empty platitudes thrown your way by peers and teachers alike. She just sat down next to you on the curb, placed her backpack next to yours, and told you bluntly as all children do,
-
-“It’s okay, my mom’s dead too.” 
-
-You didn’t say much back to her that day. The fresh memory of blood spilling on concrete was too much for you to care about anyone else, let alone another kid your age who would always tag along while you waited for Alfred there on out.  You didn’t get it. Why me? Why her? Maybe it was just the fact that between the ruby bricks of private school, there was at least one person who wouldn’t soothe your pain, but instead, truly understand it. 
-
-She told you she was Andrea, but her friends called her Andi. She spent her weekends watching TV, cutting up her Barbies’ dresses and squiggling markers on their faces to look like the Grey Ghost. You liked the Grey Ghost too. And so, for the first time in a while, the two of you had a conversation. A real one with more than just Andi listing off how her funeral proceedings were going and how boring all of it was. She was your first friend, and she had no reason to be. 
-
-From then on out, she was always a shoulder you could count on. Your helping hand in the nights of grief. From the moments in doubts, to the years in shadow, to those rebuilding, she was the first to trust.
 
 She had no reason to trust you when you came back from Tibet. The two of you hadn’t spoken in years. For all she knew, you were destined to become another nepotistic playboy who did nothing but spend his parents fortune on hedonism and hookers. You insisted that any support was optional. You did have a reason to leave Gotham, leave before you graduated, and even leave you. A part of you wishes you never did. But still, she chose to reach out again. Her embrace after miles of separation between space and time never left your heart. 
 
@@ -652,6 +702,11 @@ go-to: 1985_start if talia_train = 1; 1985_middle if talia_train = 0
 @1985_start
 on-display: {!
     introDialogue();
+
+    
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/arrowraalghul.mp3";
+document.getElementById("mixtape").play();
 !}
 new-page: true
 
@@ -727,6 +782,11 @@ new-page: true
 set-bg: img/background/rooftops.webp
 on-display: {!
     introDialogue();
+
+
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/maskofthephantasm.mp3";
+document.getElementById("mixtape").play();
 !}
 
 {!<div class="typewriter">!}
@@ -942,7 +1002,54 @@ on-display: {!
 
 = Replacement
 
-- @1989_end: Next Year
+Fighting alone. This is what you were trained to do. To be a lone vigil in the night. To be the cog in the machine which shall not break. To be marching in the desert guided by a single star.
+
+As you are once more alone, you feel a tension return. You had felt it, how easier it has been to work with someone else for those 5 years. However, it’s only now you can really feel just how reliant you have become on Dick’s help. A second set of eyes, hands, someone to trust to do as much good as you could, or at least close to it. But… No… That wasn’t just it. There's something more.
+
+Even as crime does not seem as overwhelming as it used to be, you can feel the grinding of the gears. As much as you would prefer not to have them face those pains… Dick proved that they are seeking those themselves even if you try to protect them. They just need your help. No… You needed theirs.
+
+There’s two you’ve seen. Two rebels without cause. Two punks lost on what to do with themselves. One trying to desperately break from the golden cage she’s found herself in and the other simply trying to survive, both unable to know what to do. They only need to find their way. You thought you had found one yourself, now you’re not so sure.
+
+Dinah Lance has been breaking bad for a while. It seems the money that you gave to her mother has driven a wedge between the two. Dinah Drake began to pamper her daughter, to use the wealth she now had to work even more for others and her daughter only wanted to be loved, to feel something. 
+
+She has seen you as what her mother used to be, in what she wanted to become, what she felt pressured to be and what she deeply didn’t want to end up as. She wanted to find her place in this world, her own place, wherever it may be. Even going so far as to talk with the cat. Trying to reach a seventeen year old girl who’s scream broke glass was a challenge in itself. 
+
+The black canary was both feather of freedom and tar coated. She had a legacy to live by, even as her own mother said the contrary. She wanted to be herself, to be her own vision of what best she saw in her parents, in those she looked up to so much. She wanted to finally break the mistake that had been made over and over again, making brand new ones.
+
+Perhaps you really are nuts, taking in not only her but also the most troubled kid in the orphanage. The superintendent said that those kinds of kids, that never knew their parents, those that only knew the harshness of life, that had no one to talk to, no one to speak words that feel genuine, to hear answers that took into account what they think.
+
+You could see it in his eyes, when you revealed the wings of the bat, there was something inside that could be said in words. You spread your hand, asking him to be at your side, he took it. He felt in that dark cloak someone to be, someone strong, someone that will no longer have to fear for his life, for his mind. Someone who was no longer being beaten up. Someone that can be more than who he was, Someone else.
+
+You saw many links of someone rough in him. As someone finally free striking those that had failed with furious anger. You knew you needed to help him. He already knew what he wanted to do, he was the person he finally could be. He wanted to do everything all at once. To do all the good that needed to be done. It’s destroying himself.
+
+They needed you. They are afraid, they fear being alone again, to be left out of life, to be seen as a burden. They are trying to prove to you their worth even though they are already worthy. They want to help others, to do good, to be free and fulfilled, that all that matters. They were lost, in some way, they still are. They wish to be the best they can be but having tasted the bitterness of the grey line between good and evil, they don’t know where the edge should fall.
+
+They are worth your support by their own lives, they really do, not because of their powers, because of their drive, but by who they are. You’ve been distant, maybe too focused on your mission rather than who you need to be with to fulfill it. You can’t march on alone, not after being lost for so long. You need to help them. You’ve heard those doubts, those voices without breath.
+
+Why preach in a desert? Did you want to beat people so they could finally escape their nights? They are already loving your image much more than your ideal. Why are you doing this by duty and not by want? Is it too soon or already too late? Is it true or done for your sake? Bruce, If you can’t help them, who could save you?
+
+You’ve burned your hands with the fire. It’s a pain that will not fade. It’s the curse of seeing the truth, to never be able to ignore it. It’s the curse of knowing all your acts and consequences are yours. The curse of being free. It’s a pain you cannot bear alone.
+
+You’ve seen your reflection in their eyes. You can’t be blind to it. You’ve been brought through suffering they’ve only had too much of. You need to light the fires, even if it burns yourself.
+
+{!</div>!}
+
+- @replacement_bruce: I put on the cape so I wouldn't have to feel it anymore. So the grief would have somewhere to go. I see now that was never going to work. You can't build something living out of what you're running from.
+- @replacement_jason: Anger is not a compass. I know because I've tried to use it as one. Every time you hit someone out of fury rather than necessity, you're not protecting anyone. You're just making sure the pain lands somewhere. Eventually, it will land back on you.
+- @replacement_dinah: Those that truly raised us never stopped caring. They just forgot that care isn't something you construct for someone else. You don't have to carry their name or their cause. You only have to carry what you actually believe in. That's harder than it sounds. It’s something I still struggle with.
+
+@replacement_bruce
+on-arrival: bruce += 1
+go-to: 1989_end
+
+@replacement_jason
+on-arrival: moral_compass += 5; jason_relation += 10
+go-to: 1989_end
+
+@replacement_dinah
+on-arrival: moral_compass += 5; dinah_lance_relation += 10
+go-to: 1989_end
+
 
 @1989_end 
 new-page: true
@@ -1129,7 +1236,15 @@ You spend much to help the population avoid its terminal fall. It’s like plugg
 - @1991_end: Next year.
 
 @dark_year_criminal
-on-arrival: batman += 1; crime_rate -= 5; approval_rating_bruce += 5
+on-arrival: {!
+Q.batman += 1; 
+Q.crime_rate -= 5; 
+Q.approval_rating_bruce += 5 
+
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/dannyelfman.mp3";
+document.getElementById("mixtape").play();
+!}
 set-bg: img/background/gothambatman.webp
 
 Batman remained the one arm of justice that people still looked up too in the dark night. The people don’t trust the forces, but they trust a man with no name.
@@ -1187,6 +1302,13 @@ No. You did not do this.
 
 @1993_start
 new-page: true
+on-arrival: {!
+
+
+document.getElementById("mixtape").pause();
+document.getElementById("mixtape").src = "audio/music/darkknightrachel.mp3";
+document.getElementById("mixtape").play();
+!}
 on-display: {!
     introDialogue();
 !}
@@ -1288,8 +1410,43 @@ on-arrival: batman += 5
 go-to: you
 
 @you
+on-arrival: {!
+
+    Q.identity = Q.batman-Q.bruce
+
+    Q.markerposition = Q.order*2.7;
+
+    if (Q.markerposition >= 50) {
+        Q.markerposition = 50;
+    } 
+    
+    if (Q.markerposition <= -50) {
+        Q.markerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-ideology-bar', Q.markerposition + '%')
+
+    Q.ideologymarkerposition = Q.identity*2.7;
+
+    if (Q.ideologymarkerposition >= 50) {
+        Q.ideologymarkerposition = 50;
+    } 
+    
+    if (Q.ideologymarkerposition <= -50) {
+        Q.ideologymarkerposition = -50
+    }
+
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--bruce-identity-bar', Q.markerposition + '%')
+
+!}
 on-display: {!
-    dendryUI.populateSaveSlots(64, 2);
+        dendryUI.populateSaveSlots(64, 2);
+
+
 !}
 
 This is you.
@@ -1371,8 +1528,9 @@ This is you.
 
 Save?
 
-    <div id="saveinfo">
-        <div id="saveinfo1">
+    <div id="saveinfo1display">
+
+       <div id="saveinfo1">
             <table>
             <tr>
                 <td>8</td>
@@ -1389,8 +1547,9 @@ Save?
             </tr>
             </table>
         </div>
-    
     </div>
+
+    
 
 - @promises: Promises.
 
@@ -1402,6 +1561,7 @@ Q.campaignpromises = 0;
 
 !}
 new-page: true
+
 
 WIP
 

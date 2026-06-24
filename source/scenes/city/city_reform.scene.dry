@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: city
 on-arrival: month_actions += 1;
-card-image: img/sangerbund.jpg
+card-image: img/placeholder.jpg
 
 - @gerrymandering: We need to reform the electoral system.
 - @city_reform_doi: We need to reform the department of investigation.

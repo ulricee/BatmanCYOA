@@ -317,59 +317,105 @@
     </div>
 
     <div id='page'>
-        <div id="mid_panel">
-            <header>
-                <h1 id="game-title">Gotham - A place you never leave</h1>
 
-                <div id="header-links">
-                    <a id="stats-link" onclick="window.showStats();" href="#">Batcomputer</a>
-                    <a onclick="dendryUI.showSaveSlots();" href="#">Save/Load</a>
-                    <a onclick="window.showOptions();" href="#">Options</a>
-                    <a onclick="window.showMap();" href="#">Map</a>
-                    <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
-                </div>
-                <audio id="mixtape" src="audio/batmanbackground.mp3" type="audio/mp3" ontimeupdate="mixtape_bar()">
-	            </audio>
-            </header>
-            <div id="tools_wrapper">
-                <div id='stats_sidebar' class='tools left'>
-                    <div class="tab_container">
-                        <button class="tab_button active" id="main_tab" onclick="window.changeTab('status', 'main_tab');">You</button>
-                        <button class="tab_button" id="politics_tab" onclick="window.changeTab('status.politics', 'politics_tab');">Politics</button>
-                        <button class="tab_button" id="crime_tab" onclick="window.changeTab('status.crime', 'crime_tab');">Crime</button>
-                        <button class="tab_button" id="batfamily_tab" onclick="window.changeTab('status.family', 'batfamily_tab');">Family</button>
-                    </div>
-                    <div id="qualities">
-                    </div>
-                    <div id="turn_advice">
-                    </div>
-                </div>
-            
-                <div id='stats_sidebar_right' class='tools right'>
-                    <div class="tab_container" id="tab_container_right">
-                        <button class="tab_button active" id="city_council_tab" onclick="window.changeTab('status_right', 'city_council_tab', 'isRight');">City Council</button>
-                        <button class="tab_button" id="economy_tab" onclick="window.changeTab('status_right.economy', 'economy_tab', 'isRight');">Economy</button>
-                        <button class="tab_button" id="poll_tab" onclick="window.changeTab('status_right.polls', 'poll_tab', 'isRight');">Polls</button>
-                        <button class="tab_button" id="debug_tab" onclick="window.changeTab('status_right.debug', 'debug_tab', 'isRight');"></button>
-                        <button class="tab_button" id="robin_tab"></button>
+            <div id="mid_panel">
+                <div id="header_panel">
+                    <header>
+                        <h1 id="game-title">Gotham - A place you never leave</h1>
 
-                    </div>
-                    <div id="qualities_right">
-                    </div>
-                    <div id="mixtapecontainer">
-                    </div>
-
-
+                        <div id="header-links">
+                            <a id="stats-link" onclick="window.showStats();" href="#">Batcomputer</a>
+                            <a onclick="dendryUI.showSaveSlots();" href="#">Save/Load</a>
+                            <a onclick="window.showOptions();" href="#">Options</a>
+                            <a onclick="window.showMap();" href="#">Map</a>
+                            <a onclick="window.showBatmite();" href="#">Batmite Mode</a>
+                        </div>
+                        <audio id="mixtape" src="audio/batmanbackground.mp3" type="audio/mp3" ontimeupdate="mixtape_bar()">
+                        </audio>
+                    </header>
                 </div>
 
+                <div id="game_panel">
+
+                    <div id="left_tools_wrapper">
+
+                        <div id='stats_sidebar' class='tools left'>
+                            <div class="tab_container">
+                                <button class="tab_button active" id="main_tab" onclick="window.changeTab('status', 'main_tab');">You</button>
+                                <button class="tab_button" id="politics_tab" onclick="window.changeTab('status.politics', 'politics_tab');">Politics</button>
+                                <button class="tab_button" id="crime_tab" onclick="window.changeTab('status.crime', 'crime_tab');">Crime</button>
+                                <button class="tab_button" id="batfamily_tab" onclick="window.changeTab('status.family', 'batfamily_tab');">Family</button>
+                            </div>
+                            <div id="qualities">
+                            </div>
+                            <div id="turn_advice">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="maingamearea">
+
+                        <div id="bigwrapper">
+                            <div id="handholder">
+                            </div>
+
+                            <div id='map'>
+                            </div>
+                            
+                            <div id="cardwrapper">
+                                <div id="deckholder" >
+                                </div>
+
+                            </div>
+
+                            <div id='mainwindowcontainer'>
+                                <div id="news_tab">
+                                </div>
+                                <div id="batphone">
+                                </div>
+                                <div id="advisor-div">
+                                </div>
+                            </div>
+
+                            <div id="mainwrapper">
+                                <div id='content'>
+                                </div>
+                            </div>
+
+                            <div id="invisiblecontainers">
+
+                                <div id="newgothamcontainer">
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div id="right_tools_wrapper">
+                        <div id='stats_sidebar_right' class='tools right'>
+                            <div class="tab_container" id="tab_container_right">
+                                <button class="tab_button active" id="city_council_tab" onclick="window.changeTab('status_right', 'city_council_tab', 'isRight');">City Council</button>
+                                <button class="tab_button" id="economy_tab" onclick="window.changeTab('status_right.economy', 'economy_tab', 'isRight');">Economy</button>
+                                <button class="tab_button" id="poll_tab" onclick="window.changeTab('status_right.polls', 'poll_tab', 'isRight');">Polls</button>
+                                <button class="tab_button" id="debug_tab" onclick="window.changeTab('status_right.debug', 'debug_tab', 'isRight');"></button>
+                                <button class="tab_button" id="robin_tab"></button>
+
+                            </div>
+                            <div id="qualities_right">
+                            </div>
+                            <div id="mixtapecontainer">
+                            </div>
+                    </div> 
+                </div>
             </div>
 
-            <div id="mainwrapper">
-                <div id='content'>
-                </div>
-                <div id="batphone">
-                </div>
-            </div>
+           </div>
+           
 
             <footer>
       <!--
@@ -389,5 +435,9 @@
   <script src="musiccalls.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script> 
-  
+  <script src="svg.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.pan-zoom.js/2.7.0/svg.pan-zoom.min.js"></script>
+  <script src="testscript.js"></script>
+  <script src="svg-pan-zoom.min.js"></script>
+
 </html>

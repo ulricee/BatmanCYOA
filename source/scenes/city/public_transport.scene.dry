@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: city
 on-arrival: month_actions += 1;
-card-image: img/sangerbund.jpg
+card-image: img/placeholder.jpg
 
 Public transportation inside of Gotham is a lifeblood that is keeping the entire city from breaking upon it's own car dependency. They have since become universal in support and universal in the requirement for them not to cost any money and not to disrupt them in any way. Which of the great pillars of Gothamite transportation would you wish to invest upon?
 

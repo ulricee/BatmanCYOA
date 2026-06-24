@@ -19,8 +19,9 @@
   },
   "homepage": "https://github.com/aucchen/social_democracy_alternate_history",
   "dependencies": {
+    "@svgdotjs/svg.js": "^3.2.5",
     "chart.js": "^4.5.1",
-    "dendrynexus": "github:FrancoDGamer/mydendrynexus",
+    "dendrynexus": "github:aucchen/dendrynexus",
     "howler": "^2.2.4",
     "jquery": "^4.0.0",
     "node-web-audio-api": "^1.0.9",

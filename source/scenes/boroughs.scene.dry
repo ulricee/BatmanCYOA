@@ -1,0 +1,259 @@
+title: Boroughs
+is-special: true
+
+test
+
+@new_gotham
+
+
+= New Gotham ()
+
+Demographic Makeup 
+
+das test
+
+{!
+   <div class="mapgraphcontainer">
+      <div class="piecontainer">
+         <svg width="300" height="200" id="test"></svg>
+      </div>
+      <div class="maptextcontainer">
+      
+         <table>
+            <tr>
+               <th>White Collar:</th>
+               <td>!}[+ white_collar_new_gotham +]%{!</td>
+            </tr>
+            <tr>
+               <th>Blue Collar:</th>
+               <td>!}[+ blue_collar_new_gotham +]%{!</td>
+            </tr>
+            <tr>
+               <th>Business:</th>
+               <td>!}[+ business_new_gotham +]%{!</td>
+            </tr>
+            <tr>
+               <th>Black:</th>
+               <td>!}[+ black_new_gotham +]%{!</td>
+            </tr>
+            <tr>
+               <th>Latino:</th>
+               <td>!}[+ latino_new_gotham +]%{!</td>
+            </tr>
+            <tr>
+               <th>Unemployed:</th>
+               <td>!}[+ unemployed_new_gotham +]%{!</td>
+            </tr>
+         </table>
+      </div>
+   </div>
+ !}
+
+
+{!<div class="maptable" id="maptablenewgotham">!}
+            <table>
+               <tr>
+                  <th>Party</th>     
+               
+                  <td>Total</td>
+
+                  <td>White Collar</td>
+                  <td>White Collar Quantity</td>
+                  <td>White Collar %</td>
+
+                  <td>Blue Collar</td>
+                  <td>Blue Collar Quantity</td>
+                  <td>Blue Collar %</td>
+
+                  <td>Business</td>
+                  <td>Business Quantity</td>
+                  <td>Business %</td>
+
+                  <td>Black</td>
+                  <td>Black Quantity</td>
+                  <td>Black %</td>
+
+                  <td>Latino</td>
+                  <td>Latino Quantity</td>       
+                  <td>Latino %</td>
+
+                  <td>Unemployed</td>
+                  <td>Unemployed Quantity</td>   
+                  <td>Unemployed %</td>
+               </tr>
+               <tr>
+                  <th>Reactionaries</th>
+
+                  <td>[+ reactionary_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_reactionary_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_reactionary_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_reactionary_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_reactionary_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ business_reactionary_new_gotham_number_display +]k</td>
+                  <td>[+ business_reactionary_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ black_reactionary_new_gotham_number_display +]k</td>
+                  <td>[+ black_reactionary_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ latino_reactionary_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_reactionary_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_reactionary_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_reactionary_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_reactionary_new_gotham_percent_display +]%</td>
+               </tr>
+               <tr>
+                  <th>Conservatives</th>
+
+                  <td>[+ conservative_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_conservative_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_conservative_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_conservative_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_conservative_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ business_conservative_new_gotham_number_display +]k</td>
+                  <td>[+ business_conservative_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ black_conservative_new_gotham_number_display +]k</td>
+                  <td>[+ black_conservative_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ latino_conservative_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_conservative_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_conservative_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_conservative_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_conservative_new_gotham_percent_display +]%</td>
+               </tr>
+               <tr>
+                  <th>Moderate Republicans</th>
+
+                  <td>[+ red_moderate_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_red_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_red_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_red_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_red_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ business_red_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ business_red_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ black_red_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ black_red_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ latino_red_moderate_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_red_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_red_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_red_moderate_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_red_moderate_new_gotham_percent_display +]%</td>
+               </tr>
+               <tr>
+                  <th>Moderate Democrats</th>
+
+                  <td>[+ blue_moderate_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_blue_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_blue_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_blue_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_blue_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ business_blue_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ business_blue_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ black_blue_moderate_new_gotham_number_display +]k</td>
+                  <td>[+ black_blue_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ latino_blue_moderate_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_blue_moderate_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_blue_moderate_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_blue_moderate_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_blue_moderate_new_gotham_percent_display +]%</td>
+               </tr>
+               <tr>
+                  <th>Liberals</th>
+
+                  <td>[+ liberal_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_liberal_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_liberal_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_liberal_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_liberal_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ business_liberal_new_gotham_number_display +]k</td>
+                  <td>[+ business_liberal_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ black_liberal_new_gotham_number_display +]k</td>
+                  <td>[+ black_liberal_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ latino_liberal_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_liberal_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_liberal_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_liberal_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_liberal_new_gotham_percent_display +]%</td>
+               </tr>
+               <tr>
+                  <th>Progressives</th>
+                  
+                  <td>[+ progressive_new_gotham_total_support_display +]%</td>
+
+                  <td>+[+ white_collar_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ white_collar_progressive_new_gotham_number_display +]k</td>
+                  <td>[+ white_collar_progressive_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ blue_collar_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ blue_collar_progressive_new_gotham_number_display +]k</td>
+                  <td>[+ blue_collar_progressive_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ business_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ business_progressive_new_gotham_number_display +]k</td>
+                  <td>[+ business_progressive_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ black_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ black_progressive_new_gotham_number_display +]k</td>
+                  <td>[+ black_progressive_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ latino_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ latino_progressive_new_gotham_number_display +]k</td>       
+                  <td>[+ latino_progressive_new_gotham_percent_display +]%</td>
+
+                  <td>+[+ unemployed_progressive_new_gotham_support_display +]%</td>
+                  <td>[+ unemployed_progressive_new_gotham_number_display +]k</td>   
+                  <td>[+ unemployed_progressive_new_gotham_percent_display +]%</td>
+               </tr>
+
+            </table>
