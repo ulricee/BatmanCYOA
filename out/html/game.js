@@ -179,9 +179,7 @@
       document.getElementById('tab_container_right').style.display = 'none';
         window.changeTab('status_right.robin', 'robin_tab', 'isRight');
   };
-
-
-
+  
   // populates the checkboxes in the options view
   window.populateOptions = function() {
     var disable_bg = window.dendryUI.disable_bg;
@@ -324,6 +322,8 @@ function applyWholesome(str) {
       window.updateSidebarRight();
       window.advice();
       window.music();
+      window.news();
+      window.boroughNewGotham();
     };
 
   window.advice = function() {
@@ -342,6 +342,14 @@ function applyWholesome(str) {
       $('#batphone').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
+ window.news = function() {
+      $('#news_tab').empty();
+      var scene = dendryUI.game.scenes[window.newstab];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#news_tab').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+  
   window.batphoneremove = function() {
       $('#batphone').empty();
       var scene = dendryUI.game.scenes[window.nothing];
@@ -351,7 +359,165 @@ function applyWholesome(str) {
   };
 
 
+  
 
+  window.mapadd = function() {
+      $('#map').empty();
+      var scene = dendryUI.game.scenes[window.map];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#map').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+
+  window.mapremove = function() {
+      $('#map').empty();
+      var scene = dendryUI.game.scenes[window.nothing];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#map').append(dendryUI.contentToHTML.convert(displayContent));
+  };
+
+    svgzoom = function() {
+       var nodes = document.getElementById('svg1');
+
+       nodes.panZoom();
+    }
+
+
+        window.deckchange = function (deckchange, area) {
+            var decks = document.querySelector(deckchange)
+            console.log("deckchange")
+            $(decks).detach().appendTo(area)
+        }
+
+        window.deckchanges = function (deckchange, area) {
+            setTimeout(() => {
+                                window.mainwindow();
+            }, 0.1);
+        }
+        
+        let onmainwindow = 0;
+
+    window.establishmain = function () {
+            document.getElementById('body').addEventListener("mouseover", window.mainwindow());
+    }
+        
+    window.preparemainwindow = function () {
+        var mainarea = document.getElementById('maingamearea');
+        
+        mainarea.style.display = 'none';
+    }
+
+    window.mainwindow = function () {
+        if ((window.dendryUI.dendryEngine.state.sceneId.startsWith('main'))) {
+            window.mapadd();
+
+            var mapwindow = document.getElementById('map');
+            var cardwrapper = document.getElementById('cardwrapper');
+            var handwrapper = document.getElementById('handholder');
+            var mainscene = document.getElementById('mainwrapper');
+            var mainarea = document.getElementById('maingamearea');
+            var wrapper1 = document.getElementById('right_tools_wrapper');
+            var wrapper2 = document.getElementById('left_tools_wrapper');
+            var mainfeatures = document.getElementById('mainwindowcontainer');
+
+            mapwindow.style.display = 'block';
+            cardwrapper.style.display = 'flex';
+            mainscene.style.display = 'none';
+            mainarea.style.display = 'block';
+            handwrapper.style.display = 'block';
+            mainfeatures.style.display = 'block';
+
+            mainarea.style.width = '50vw';
+            mainarea.style.padding = '0.1em';
+            wrapper1.style.width = '25vw';
+            wrapper2.style.width = '25vw';
+
+            deckchange('.decks', '#deckholder');
+            deckchange('.hand', '#handholder');
+            deckchange('.pinned-cards', '#advisor-div');
+
+            svgPanZoom('#svg1', {
+                zoomScaleSensitivity: 0.2
+                , minZoom: 1
+                , maxZoom: 10
+                , contain: true
+            });;
+
+            console.log("finished");
+
+        }
+    }
+
+    // borough stuff
+
+    window.boroughNewGotham = function() {
+      $('#newgothamcontainer').empty();
+      var scene = dendryUI.game.scenes[window.boroughNewGothamtab];
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#newgothamcontainer').append(dendryUI.contentToHTML.convert(displayContent));
+    };
+
+    
+
+    window.newgothamtab = function() {
+
+        var newgotham = document.getElementById('newgothamcontainer')
+        var container = document.getElementById('invisiblecontainers')
+
+        container.style.display = 'block';
+        newgotham.style.display = 'block';
+        
+        
+        window.boroughNewGotham();
+
+        movabletab('newgothamcontainer');
+
+        
+
+    }
+
+
+    window.disabletools = function () {
+            var wrapper1 = document.getElementById('right_tools_wrapper')
+            var wrapper2 = document.getElementById('left_tools_wrapper')
+
+            wrapper1.style.display = "none"
+            wrapper2.style.display = "none"
+    }
+
+    window.enabletools = function () {
+                    var wrapper1 = document.getElementById('right_tools_wrapper')
+            var wrapper2 = document.getElementById('left_tools_wrapper')
+
+            wrapper1.style.display = "block"
+            wrapper2.style.display = "block"
+    }
+
+    window.mainwindowdepart = function () {
+
+        var mapwindow = document.getElementById('map');
+        var cardwrapper = document.getElementById('cardwrapper');
+        var handwrapper = document.getElementById('handholder');
+        var mainscene = document.getElementById('mainwrapper');
+        var mainarea = document.getElementById('maingamearea');
+        var wrapper1 = document.getElementById('right_tools_wrapper')
+        var wrapper2 = document.getElementById('left_tools_wrapper')
+        var mainfeatures = document.getElementById('mainwindowcontainer');
+
+        mapwindow.style.display = 'none';
+        cardwrapper.style.display = 'none';
+        mainscene.style.display = 'block';
+        handwrapper.style.display = 'none';
+        mainarea.style.width = '33%';
+        mainarea.style.padding = '0.1em';
+        wrapper1.style.width = '33.5%';
+        wrapper2.style.width = '33.5%';
+        mainfeatures.style.display = 'none';
+
+        
+    }
 
   window.music = function() {
       $('#mixtapecontainer').empty();
@@ -378,6 +544,54 @@ function applyWholesome(str) {
             mixtape.pause();
 			mixtape.currentTime = 0;
 		};
+
+        window.registering = function () {
+                  dendryUI.dendryEngine.displayHand();
+
+        }
+
+
+        window.deckfunctionmakework = function () {
+
+            const deckarea = document.getElementById('deckholder')
+            const handarea = document.getElementById('handholder')
+
+            $(deckarea).on('click', 'ul.decks li a', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                var choice = $(this).attr('card-id');
+                dendryUI.dendryEngine.drawCard(choice);
+                return false;
+            });
+
+            $(handarea).on('click', 'ul.hand li a', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                var choice = $(this).attr('card-id');
+                dendryUI.dendryEngine.playCard(choice);
+                window.mainwindowdepart();
+                return false;
+             });
+            (function() {
+                function scrollHorizontally(e) {
+                    e = window.event || e;
+                    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+                    this.scrollLeft -= (delta * 40); // Multiplied by 40
+                    e.preventDefault();
+                }
+                if (document.getElementById('handholder').addEventListener) {
+                    // IE9, Chrome, Safari, Opera
+                    document.getElementById('handholder').addEventListener('mousewheel', scrollHorizontally, false);
+                    // Firefox
+                    document.getElementById('handholder').addEventListener('DOMMouseScroll', scrollHorizontally, false);
+                } else {
+                    // IE 6/7/8
+                    document.getElementById('handholder').attachEvent('onmousewheel', scrollHorizontally);
+                }
+            })();
+
+        }
+
 
   /*
    * This function copied from the code for Infinite Space Battle Simulator
@@ -416,6 +630,9 @@ function applyWholesome(str) {
   window.adviceBoard = "turn_advice";
   window.mixtape = "music_player";
   window.batPhone = "batphone";
+  window.newstab = "news";
+  window.boroughNewGothamtab = "boroughs.new_gotham";
+  window.map = "mapdisplay";
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 
@@ -425,6 +642,7 @@ function applyWholesome(str) {
         document.body.classList.add('dark-mode');
     }
     window.pinnedCardsDescription = " ";
+
   };
 
 

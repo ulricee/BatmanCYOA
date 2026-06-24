@@ -9,10 +9,8 @@ Q.freedom = ((Q.order)*(-1));
 
 // changing to normal from dark knight version
 
-    const toolsWrapper = document.getElementById('tools_wrapper');
-if (toolsWrapper) {
-  toolsWrapper.style.display = 'block';
-}
+
+window.enabletools();
 
   const video = document.getElementById('video-wrapper');
   if (video) {
@@ -38,6 +36,7 @@ Q.horse_music = 1;
 on-departure: {!
     Q.onmain = 0;
     window.batphoneremove();
+    window.mapremove();
 
 !}
 on-display: {!
@@ -65,9 +64,11 @@ on-display: {!
     nametabchange();
 
     window.batphone();
+    window.mapadd();
 
     window.disableHiddenBatmanMode();
-    
+    window.enabletools();
+
 !}
 max-cards: 3
 
@@ -202,10 +203,8 @@ set-bg: img/background/gotham_background.webp
 is-hand: true
 on-arrival: {!
 
-    const toolsWrapper = document.getElementById('tools_wrapper');
-if (toolsWrapper) {
-  toolsWrapper.style.display = 'block';
-}
+window.enabletools();
+
     Q.onmain = 1;
 
 if (Q.horse_music == 0) {
@@ -229,14 +228,18 @@ Q.horse_music = 1;
       elements.forEach(el => {
          el.style.maxWidth = '540px';
       });
+  window.deckchange('.hand', 'testdivhand');
 
+  console.log("this receives main");
+
+  window.preparemainwindow();
 
 
 !}
 on-departure: {!
     Q.onmain = 0;
     window.batphoneremove();
-
+    window.mainwindowdepart();
 !}
 on-display: {!
 
@@ -262,9 +265,31 @@ on-display: {!
     nametabchange();
 
     window.batphone();
-  window.disableHiddenBatmanMode();
+    window.disableHiddenBatmanMode();
+
+  window.deckchanges('.hand', 'testdivhand');
+  window.deckfunctionmakework();
+window.enabletools();
+
+
+
+
 !}
 max-cards: 9
+
+
+
+{!<button onclick="deckchange('.decks', '#deckholder');">deckchange</button>!}
+{!<button onclick="deckchange('.hand', 'testdivhand');">handchange</button>!}
+{!<button onclick="drawbusiness();">drawcard</button>!}
+
+
+
+<div id="testdivhand">
+
+aaaa
+
+</div>
 
 {!<div class="scrollable-box">!}
 
@@ -385,6 +410,7 @@ max-cards: 9
 <button class="newsbutton" id="dailyplanetbutton" onclick="dailyPlanetSwitch()">The Daily Planet</button>
 </div>
 !}
+
 
 
 - @business

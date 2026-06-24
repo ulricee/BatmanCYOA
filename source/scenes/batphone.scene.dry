@@ -1,6 +1,8 @@
 title: Status
 new-page: true
 is-special: true
+on-arrival: {!
+!}
 
 {!<hr>!}
 {!<h1>!}Batphone{!</h1>!}

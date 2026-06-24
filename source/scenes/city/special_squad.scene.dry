@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 on-arrival: month_actions += 1;
 tags: city
-card-image: img/sangerbund.jpg
+card-image: img/placeholder.jpg
 
 a
 

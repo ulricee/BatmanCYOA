@@ -5,12 +5,12 @@ on-arrival: {!
 
    Q.onmain = 0
 
-   if (Q.onmain == 0) {
-      const elements = document.querySelectorAll('header, #mainwrapper, footer');
-      elements.forEach(el => {
-         el.style.maxWidth = '5400px';
-      });
-   }
+   // if (Q.onmain == 0) {
+   //   const elements = document.querySelectorAll('header, #mainwrapper, footer');
+   //   elements.forEach(el => {
+   //      el.style.maxWidth = '5400px';
+   //   });
+   // }
 
 
 
@@ -43,14 +43,14 @@ on-arrival: {!
 };
 
 
+
 !}
 on-display: {!
 
-     const toolsWrapper = document.getElementById('tools_wrapper');
-  if (toolsWrapper) {
-  toolsWrapper.style.display = 'none';
-  }
-
+//     const toolsWrapper = document.getElementById('tools_wrapper');
+//  if (toolsWrapper) {
+//  toolsWrapper.style.display = 'none';
+//  }
    
    let whitecollarnewgotham = Q.white_collar_new_gotham
    let bluecollarnewgotham = Q.blue_collar_new_gotham
@@ -91,16 +91,14 @@ on-display: {!
         })
         .attr("d", arc);
 
-
+      deckchange('.decks', '#deckholder');
+      deckchange('.hands', '#handholder');
+   window.disabletools();
 
 
 !}
 on-departure: {!
-     const toolsWrapper = document.getElementById('tools_wrapper');
-  
-  if (toolsWrapper) {
-  toolsWrapper.style.display = 'block';
-  }
+window.enabletools();
 
 !}
 
