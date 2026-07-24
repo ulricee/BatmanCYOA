@@ -72,7 +72,6 @@ nametabchange = function () {
 
     }
 
-
 !}
 
 {!<div id="bruce_wayne_div">!}
@@ -85,6 +84,7 @@ nametabchange = function () {
 {!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}Bruce Wayne{!</span>!}
 {!</div>!}
+
 
 {!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
 
@@ -193,11 +193,15 @@ nametabchange = function () {
 
 = [+ month : month +] [+ year +]
 
-{!<div class="fakecardnosize"><img src="img/portraits/brucewaynemayor.webp" class="StatusPortrait" onclick="disableBatmanModeStatus()"></div>!}
+{!<div class="fakecardnosize"><img src="img/portraits/batmanportrait.png" class="StatusPortrait" onclick="disableBatmanModeStatus()"></div>!}
 
 {!<div class="StatusPortraitText">!}
 {!<span style="font-size: 20px">!}Batman{!</span>!}
 {!</div>!}
+
+= Status Report 
+
+Injuries: None 
 
 {!<div class="ideologybruce">!}[+ ideology_support_status_bruce +]{!</div>!}
 

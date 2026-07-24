@@ -94,6 +94,65 @@ Q.liberal_relation_bruce = 50;
 Q.progressive_relation_bruce = 50;
 Q.lgbtq_relation_bruce = 50;
 
+Q.order = 0;
+Q.freedom = ((Q.order)*(-1));
+Q.batman = 0;
+Q.bruce = ((Q.batman)*(-1));
+Q.approval_rating_bruce = 50;
+Q.sanity = 100;
+
+Q.batman_success = 0;
+Q.batman_injury = 0;
+Q.batman_hp = 3;
+
+// Barbara
+
+Q.barbara_success = 0;
+Q.barbara_hp = 0;
+
+// Tim
+
+Q.tim_dodge = 0;
+
+// Stephanie
+
+Q.stephanie_dodge = 0;
+
+// Jason
+Q.jason_success = 0;
+Q.jason_injury = 0;
+Q.jason_killrisk = 0;
+Q.jason_cleanhit = 0;
+
+// Dick
+Q.dick_success = 0;
+Q.dick_injury = 0;
+Q.dick_hp = 0;
+Q.dick_exploit = 0;
+
+// Damian
+Q.damian_success = 0;
+
+// Cassandra
+
+Q.cassandra_success = 0;
+Q.cassandra_cleanhit = 0;
+
+// Stephanie
+
+Q.stephanie_success = 0;
+Q.stephanie_ = 0;
+
+
+// Dinah Lance
+Q.dinah_success = 0;
+Q.dinah_inspiration = 0;
+Q.dinah_collateral = 0;
+
+
+
+
+
 // non mainstream parties
 
 Q.reform_relation_bruce = 60;
@@ -337,13 +396,6 @@ Q.approval_rating = 50;
 Q.credibility = (50)/10;
 Q.pf = 5;
 Q.budget = (Q.yearly_revenue);
-Q.order = 0;
-Q.freedom = ((Q.order)*(-1));
-Q.batman = 0;
-Q.bruce = ((Q.batman)*(-1));
-Q.approval_rating_bruce = 50;
-Q.sanity = 100;
-
 // Old values 
 Q.approval_rating_bruce_old = 50;
 Q.credibility_old = (20)/10;

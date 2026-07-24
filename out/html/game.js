@@ -165,11 +165,13 @@
 
   window.enableHiddenBatmanMode = function() {
       document.body.classList.add('hidden-batman-mode');
+      document.getElementById('maingamearea').classList.add('hidden-batman-mode');
       var hiddenmode = 1;
       window.dendryUI.saveSettings();
   };
   window.disableHiddenBatmanMode = function() {
       document.body.classList.remove('hidden-batman-mode');
+      document.getElementById('maingamearea').classList.remove('hidden-batman-mode');
       var hiddenmode = 0;
       window.dendryUI.saveSettings();
   };
