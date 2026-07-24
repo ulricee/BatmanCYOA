@@ -1,0 +1,147 @@
+title: The Office
+new-page: true
+tags: event
+view-if: year = 1994 and month = 0
+max-visits: 1
+
+= 1991
+
+
+You ran a test over it. 
+
+
+
+
+
+- @batman: Meanwhile...
+- @bruce: Meanwhile...
+
+@bruce
+
+You sit on the .
+
+"Ferris Boyle?!"
+
+- @batcomputer_menu: To the batcave!
+
+
+
+@batman
+
+You monitor the situation 
+
+Alfred behind you says: ""
+
+- @batman_1: Yes, Alfred, .
+- @batman_2: This doesn't bodes well for the admnistration, that's for sure. Boyle has been one of our close allies.
+- @batman_3: I don't know. The situation seems suspicious, I have always felt something was off with Ferris Boyle, we won't know until he broadcasts his demands.
+
+@batman_1
+go-to: batcomputer_menu
+
+@batman_2
+go-to: batcomputer_menu
+
+@batman_3
+go-to: batcomputer_menu
+
+@batcomputer_menu
+
+You can prepare, get as much  , but time is ticking. 
+
+If you , you might be able to get there before the police and media start acting. You might even get valuable information such as the hostage holder's demands. But the situation is only bound to get worse the more time you take.
+
+
+
+- @information: This is a hostage situation. I have to be prepared to negotiate if it comes down to it. I need information to get myself an edge. 
+- @tech: I've seen this before. GothTech uses and leases some of the cryogenic technology to Wayne Medical, who uses it to preserve tissue. Alfred, I need you to bring some samples over, I need to examine it.
+- @location: Pull up the blueprints. Let's see the Gothcorp building.
+- @go: Time is of essence. I'll go.
+
+
+@go
+subtitle: 
+
+@location
+subtitle: We will be able to spend time in exchange for environmental advantages.
+
+- @gothcorp_entrance: We need entrance points, what are the best ways to get inside?
+- @gothcorp_security: Let's analyse the building's security systems.
+- @gothcorp_escape_routes: Let's see escape routes. Fire exits, maintenance tunnels, vents, how can I get out quickly if needed?
+- @gothcorp_suspect_escape: Let's focus on the suspect instead. If it comes down to it, what routes will he have to escape? How can we stop it?
+- @gothcorp_room: Let's focus on the room that Boyle is being held in.
+- @gothcorp_server: If we needed to get information on site, where would Boyle store it?
+
+@tech
+subtitle: We will be able to spend time in exchange for information on the technology.
+
+Alfred returns with the files you wanted, as well as a capsule frozen inside. "Master [+ alfred_name +]."
+
+[? if alfred_name == "Batman" : "Very funny, Alfred." You reply.?]
+
+[? if alfred_name == "Wayne" : "Thank you, Alfred. Let's see what can be done with it..."?]
+
+You walk to a nearby chemicals station, your little workshop. You slide in the capsule as you move through the files. Time to test the cryogenics out. 
+
+- @chemistry: Let's analyse the chemical composition.
+- @chemistry_2: Is there a weakness to the freezing formula?
+- @freezing_gun: [+ suspect_name +] is reportedly using some kind of tool. How can the freezing formula be efficiently ejected?
+- @gadget: What gadgets would be most efficient against it?  
+- @prototype_fire: I've done as much research as possible. I can't get a gadget done, but maybe I can prototype a formula for undoing the mollecular dullness, rapidly melting the ice without collateral damage, it'll be useful.
+- @prototype_ice: I've done as much research as possible. I can't get a gadget done on the spot, but maybe I can prepare a batarang with our version of the freezing formula. 
+- @batcomputer_menu: We're done here.
+
+@information
+subtitle: We will be able to spend time in exchange for information on the suspect.
+
+- @victor_fries: Pull up the file on [+ suspect_name +].
+- @nora_fries: Look deeper into his family.
+- @goth_corp: Look through his GothCorp company records.
+- @immigration_records: We have access to more tools now that we're in the mayor office. Let's check the immigration records.
+- @ferris_boyle: Pull up the file on Ferris Boyle.
+- @company_records: We have access to more tools now that we're in the mayor's office. Let's check the company records for anything of use.
+- @batcomputer_menu: We're done here.
+
+@gothcorp_entrance
+
+@gothcorp_escape_routes
+
+@gothcorp_room
+
+@gothcorp_security
+
+@gothcorp_server
+
+@gothcorp_suspect_escape
+
+@chemistry
+
+@chemistry_2
+
+@freezing_gun
+
+@gadget
+
+@prototype_fire
+
+@prototype_ice
+
+@victor_fries
+
+Name: Victor Fries. Born Hirohito Fuyuki in Sapporo.
+
+Victor's records indicate that he is estranged with most of his family. 
+
+Sometime after getting his citizenship, he renamed himself to Victor Fuyuki, and later on took his wife's, Nora Fries, last name.
+
+@immigration_records
+
+@nora_fries
+
+You find that most of his family is estranged from Japan, 
+
+@goth_corp
+
+@ferris_boyle
+
+@company_records

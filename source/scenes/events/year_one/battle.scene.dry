@@ -1,0 +1,13 @@
+title: The 
+new-page: true
+tags: event
+view-if: year = 1994 and month = 0
+max-visits: 1
+
+
+
+
+
+
+
+

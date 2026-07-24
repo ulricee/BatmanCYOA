@@ -1,0 +1,188 @@
+title: The Office
+new-page: true
+tags: event
+max-visits: 1
+
+""
+
+"The Budget ." Your new secretary says.
+
+You step.
+
+- @mayoral: Act mayoral.
+- @friendly: Act friendly.
+- @flirt: Flirt with the secretary.
+
+@mayoral
+go-to: office_menu
+
+@friendly
+go-to: office_menu
+
+@flirt
+go-to: office_menu
+
+@office_menu
+
+You enter the office.
+
+
+
+- @letters: Three envelopes with red seal, stacked on top of one another.
+- @reports: Files .
+- @phone: You're full of calls.
+- @main: Let's get this show on the road.
+
+@letters
+
+You . 
+
+On the top of your desk, three envelopes. Your eyes instinctively analyze it for clues before you , 
+
+
+
+- @quincy_letter_support: Read the letter.
+- @quincy_letter: Read the letter.
+- @letters_2: I'm not reading Quincy's letter. Let me check what's underneath.
+
+
+@quincy_letter_support
+view-if: quincy_support == 1
+
+Dear Bruce,
+
+I'm not much for fancy words. Never was, no matter how many speeches my staff wrote for me. So I'll say this plain.
+
+You won. Fair and square. And for the first time  years, I'm not afraid of what comes next. Because it's you.
+
+I remember the night when Bolton went buck-wild. I was alone in this office. The phones were dead. The National Guard wasn't answering. And I sat right here, in this chair, a cigar in my mouth and not a clue what to do. Then my secretary buzzed and said, "Bruce Wayne is on line two." I almost laughed. I thought you were calling about another permits. Something about building permits. Something like that.
+
+But you weren't soft. You said, "Mayor, I've got Batman on the line. Say the word, he will do what needs to be done." And you meant it. You didn't ask for credit. You didn't leak it to the press. You just showed up. He just showed up and Bolton got locked up.
+
+When the Arkham budget got frozen and I couldn't pay for the night staff, you wrote a check before I could finish explaining the problem. When my own deputy tried to stab me in the back, you were the one who told me to keep my chin up. You said, "Quincy, you're not crazy. You're just tired." I've never forgotten that.
+
+I know people whisper about me. Say I'm out of touch. Say I held on too long. Maybe they're right. But they don't know the half of it. They don't know the nights I sat here praying for someone to help, and the only person who ever walked through that door was you. Not the council. Not the commissioner. You.
+
+So this letter, It's a thank you.
+The city isn't a machine, Bruce. It's a patient. I've been trying to keep it stable for a long time, but I'm not a young man anymore, and I'm not a fool. I know my limits. You don't have the same limits I do. You have resources. You have people who love you. And more than that, you have a good heart. You hide it behind all that money and that square jaw, but I've seen it. I've leaned on it.
+
+Take care of this place. Take care of the people at the bottom. The ones who don't vote, don't donate, don't show up in the society pages. They're the ones who need a mayor who sees them. You'll see them. I know you will. Just never share this same kindness to people on the same level as yours. For me, for them. It's just weakness. I'm giving it back to you now because I've given nothing to you or anybody else.
+
+The desk is yours. The office is yours. And my respect, that's yours too, has been for years.
+
+Come visit sometime. I'll make tea, we'll share a smoke. The good kind, not the zoning meeting chamomile I told you about last time.
+
+With gratitude,
+
+Quincy Sharp
+
+P.S. The lock on the private washroom has been temperamental for a while. You probably can guess as to why. Give it a firm jiggle. 
+
+- @redirect1: At the end of the day, Quincy was simply a man who could not put up the fight that was being asked of him. Nevertheless, the war continues.
+- @redirect2: Rest easy now, Quincy. I'll take on the mantle and make this city safe, old friend.
+- @redirect3: As necessary as our partnership was, I can't say I share the same sentiment. He ruined a lot of people's lives.
+- @redirect4: Old Quincy. No self awareness and no self reflection. I can finally put this behind me.
+
+@redirect1
+go-to: letters_2
+
+@redirect2
+go-to: letters_2
+
+@redirect3
+go-to: letters_2
+
+@redirect4
+go-to: letters_2
+
+@quincy_letter
+view-if: quincy_support == 0
+
+My Dearest Bruce,
+
+First, let me extend my warmest congratulations. To defeat an incumbent of my stature — a man who single-handedly redefined this city's moral architecture — is no small feat. I tip my cap to you, sir. You ran a spirited campaign. Energetic. Youthful. A bit loud with the posters, perhaps, but spirited nonetheless.
+
+I must confess, I was rather surprised by the outcome. Polling, as you know, is an inexact science. My intern (a very bright young Woman from Gotham Academy) assured me the numbers were "quite favorable." She showed me a chart. A very colorful chart. I assume he misread it. These things happen. No hard feelings.
+
+As I prepare to vacate this office, I have taken the liberty of leaving for you a comprehensive transition binder. It is twelve volumes long, bound in genuine leather, and contains every important thought I have ever had about running a city. You will find my thoughts on ribbon colors for police commendations, the correct brand of chamomile tea for zoning hearings, and a complete list of acceptable floral arrangements for the mayor's foyer (no carnations — I will not elaborate).
+
+Regarding the city's operational matters — the budgets, the crime statistics, the something-or-other about the sewers that my deputy kept mentioning — I am told your people will speak to my people. I have never fully understood what happens in those meetings. I assume it gets handled. It always has.
+
+A few small housekeeping notes:
+
+ The mayor's private washroom is the third door on the left. The lock is temperamental. Give it a firm jiggle.
+ My portrait is already hung in the east corridor. I trust you will not move it. It is load-bearing.
+ If the Arkham board calls, tell them I am "in a meeting." They will understand.
+
+You will find that the job is mostly ceremonial, really. Smiling at parades. Cutting ribbons. Occasionally declaring a "State of Emergency" when the trains don't run on time. The heavy lifting is done by people whose names I have forgotten. You will forget them too. It is part of the job's unique charm.
+
+I leave this office with my head held high, my legacy secure, and my full belief that you will not break anything too expensive. Try not to embarrass the position. It took me too long to build its dignity.
+
+Warmly,
+
+Quincy Sharp
+
+Mayor of Gotham City
+
+P.S. The key to the executive humidor is taped under the globe. Do not smoke the cigars from the left drawer. Those are mine. I am taking them. If you take them, I AM going to take you to court over this, I'm warning you.
+
+P.P.S. Who is your tailor? That suit is remarkable. 
+
+@letters_2
+
+The next letter is .
+
+
+
+
+
+
+@letters_3
+
+The final letter 
+
+The President of the United States. Lex Luthor.
+
+- @luthor_letter: Open it.
+- @bin: Throw it in the bin.
+
+@luthor_letter
+
+
+
+@bin
+
+a
+
+@reports
+
+You open up.
+
+- @city_council: The City Council.
+- @crime: Crime reports.
+- @office_menu: Back to the office.
+
+@city_council
+
+@proceed
+
+@phone
+
+- @harvey_call: Harvey Dent.
+- @jim_call: Commissioner Gordon.
+- @lucius_call: Lucius Fox.
+- @thorne_call: Rupert Thorne
+- @office_menu: No need for any of this. 
+
+@lucius_call
+
+@thorne_call
+
+
+@harvey_call
+
+
+@jim_call
+
+
+@_:

@@ -581,6 +581,7 @@ blockquote + blockquote.attribution {
 }
 
 
+
 #batman_tab {
   display: none;
 }
@@ -717,6 +718,7 @@ a.card:not(:hover) {
   margin-bottom: 0.5em;
   position: relative;
   margin: auto;
+  animation: ease-in carddown 0.1s;
 }
 
 
