@@ -471,6 +471,11 @@ blockquote + blockquote.attribution {
   padding: 1em;
   margin: 0 auto;
 }
+
+#maingamearea.hidden-batman-mode {
+  padding: 0;
+
+}
 /* #mapmonitor {
   width: 100%;
   height: 100%;
