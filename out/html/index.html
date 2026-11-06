@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta prefix="ifiction: http://babel.ifarchive.org/protocol/iFiction/"
-        property="ifiction:ifid" content="7FCDF039-2B77-4179-B795-CBAFA65253AA">
     <title>Gotham: A place you never leave - Autumn Chen</title>
     <link rel="stylesheet" type="text/css" href="game.css">
+    <link rel="stylesheet" type="text/css" href="scripts/sidebar.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <script src="jquery-1.11.1.min.js"></script>
     <script src="d3.v7.js"></script>
     <script src="d3.v7.min.js"></script>
@@ -14,12 +15,19 @@
     <script src="d3-linegraph.js"></script>
     <script src="core.js"></script>
     <script src="game.js"></script>
+    <!-- Game specific scripts down below. -->
     <script src="data.js"></script>
     <script src="speak.js"></script>
     <script src="buttons.js"></script>
     <script src="test.js"></script>
-    <link href="https://fonts.cdnfonts.com/css/iranian-sans" rel="stylesheet">
+    <script src="scripts/main.js"></script>
+    <script src="scripts/battle.js"></script>
+    <script src="scripts/sidebar.js"></script>
+
   </head>
+
+
+
   <body id="body">
     <div class="theantidendry"></div>
 
@@ -318,6 +326,33 @@
 
     <div id='page'>
 
+            <div id="left_wrapper">
+                    
+                    <div id="left_space" class="side_spaces">
+
+                        <div id="qualities"></div>
+
+                    </div>
+
+                    <div id="left_button_bar" class="button_sidebars">
+                        
+                        <img src="img/icon/gov_icon.png" class="sidebar_button" id="main" onclick="window.leftTab('status', 'main')">
+
+                        <div class="sidebar_button" id="domestic_affairs" onclick="window.leftTab('status.domestic_affairs', 'domestic_affairs')"></div>
+
+                        <div class="sidebar_button" id="interest_groups" onclick="window.leftTab('status.interest_groups', 'interest_groups')"></div>
+
+                        <div class="sidebar_button" id="economics" onclick="window.leftTab('status.economics', 'economics')"></div>
+
+                        <button class="sidebar_flat_button">Batcave</button>
+                        <button class="sidebar_flat_button">Mayor Office</button>
+                        <button class="sidebar_flat_button">WayneCorp</button>
+
+                    </div>
+                
+            </div>
+
+
             <div id="mid_panel">
                 <div id="header_panel">
                     <header>
@@ -345,8 +380,6 @@
                                 <button class="tab_button" id="politics_tab" onclick="window.changeTab('status.politics', 'politics_tab');">Politics</button>
                                 <button class="tab_button" id="crime_tab" onclick="window.changeTab('status.crime', 'crime_tab');">Crime</button>
                                 <button class="tab_button" id="batfamily_tab" onclick="window.changeTab('status.family', 'batfamily_tab');">Family</button>
-                            </div>
-                            <div id="qualities">
                             </div>
                             <div id="turn_advice">
                             </div>
@@ -406,12 +439,46 @@
                                 <button class="tab_button" id="robin_tab"></button>
 
                             </div>
-                            <div id="qualities_right">
-                            </div>
                             <div id="mixtapecontainer">
                             </div>
                     </div> 
+
+
+
+
+
+
                 </div>
+
+
+                
+                <div id="right_wrapper" class="decocard">
+
+                    <div id="right_button_bar" class="button_sidebars">
+
+                        <div class="sidebar_button" id="main_two" onclick="window.rightTab('status_right', 'main_two', 'isRight')">Main</div>
+
+                        <div class="sidebar_button" id="party_factions" onclick="window.rightTab('status_right.economy', 'party_factions', 'isRight')">Party Factions</div>
+
+                        <div class="sidebar_button" id="interparty" onclick="window.rightTab('status_right.polls', 'interparty', 'isRight')"></div>
+
+                        <div class="sidebar_button" id="hierarchy" onclick="window.rightTab('status_right.debug', 'hierarchy', 'isRight')">Hierarchy</div>
+
+                    </div>
+
+                    <div id="right_space" class="side_spaces" style="display: none;">
+
+                        <div id="qualities_right"></div>
+
+                    </div>
+
+
+                </div>  
+
+
+
+
+
             </div>
 
            </div>

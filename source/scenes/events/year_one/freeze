@@ -1,11 +1,10 @@
-title: The Office
+title: Cold Heart
 new-page: true
 tags: event
 view-if: year = 1994 and month = 0
 max-visits: 1
 
-= 1991
-
+= Cold Heart
 
 You ran a test over it. 
 
@@ -17,6 +16,7 @@ You ran a test over it.
 - @bruce: Meanwhile...
 
 @bruce
+view-if: bruce > 1
 
 You sit on the .
 
@@ -27,14 +27,24 @@ You sit on the .
 
 
 @batman
+on-arrival: {!
+    Q.freeze_time = 0;
+    Q.freeze_choices = 3;
+    !}
+view-if: batman >= 0
 
-You monitor the situation 
+You monitor the situation closely from the Batcomputer. The city's media has had the first pick of the incident, and everyone is rushing to the scene. 
 
-Alfred behind you says: ""
+Cameras haven't been set up yet, but you managed to catch the first broadcast early. Early images show part of the building frozen.
 
-- @batman_1: Yes, Alfred, .
+Alfred behind you says: "The talk of the town. Breaking into the headquarters of one of Gotham's most prestigious corporations is certainly no easy task."
+
+"Do you think this can affect the admnistration, Master Wayne?"
+
+- @batman_1: Yes, Alfred, he's a madman. I have to rescue Boyle no matter what.
 - @batman_2: This doesn't bodes well for the admnistration, that's for sure. Boyle has been one of our close allies.
 - @batman_3: I don't know. The situation seems suspicious, I have always felt something was off with Ferris Boyle, we won't know until he broadcasts his demands.
+- @batman_4: It doesn't matters. Someone is being held hostage on TV.
 
 @batman_1
 go-to: batcomputer_menu
@@ -45,26 +55,58 @@ go-to: batcomputer_menu
 @batman_3
 go-to: batcomputer_menu
 
+@batman_4
+go-to: batcomputer_menu
+
 @batcomputer_menu
 
 You can prepare, get as much  , but time is ticking. 
 
-If you , you might be able to get there before the police and media start acting. You might even get valuable information such as the hostage holder's demands. But the situation is only bound to get worse the more time you take.
+If you , you might be able to get there before the police and other media outlets start acting. 
 
-
+You might even get valuable information such as the hostage holder's demands. But the situation is only bound to get worse the more time you take.
 
 - @information: This is a hostage situation. I have to be prepared to negotiate if it comes down to it. I need information to get myself an edge. 
-- @tech: I've seen this before. GothTech uses and leases some of the cryogenic technology to Wayne Medical, who uses it to preserve tissue. Alfred, I need you to bring some samples over, I need to examine it.
+- @tech: I've seen this tech before. GothTech uses and leases some of the cryogenic technology to Wayne Medical, who uses it to preserve tissue. Alfred, I need you to bring some samples over, I need to examine it.
 - @location: Pull up the blueprints. Let's see the Gothcorp building.
 - @go: Time is of essence. I'll go.
+
+@time_passes
+go-to: time_passes_one if freeze_time == 2; time_passes_two if freeze_time == 1; time_passes_three if freeze_time == 0
+
+@time_passes_one
+
+You continue monitoring the situation as it develops. 
+
+
+
+
+
+@time_passes_two
+
+
+@time_passes_three
+
 
 
 @go
 subtitle: 
+go-to: freeze_immediate if freeze_time == 3; freeze_tim if freeze_time < 3
 
 @location
 subtitle: We will be able to spend time in exchange for environmental advantages.
+on-arrival: {!
+    
+    if (Q.freeze_choice == 0) {
+        Q.freeze_choice = 3;
+        Q.freeze_time -= 1;
+        Q.freeze_time_flag = 1;
+    }
 
+    !}
+go-to: time_passes if freeze_time_flag == 1 
+
+- @gothcorp_blueprints: A basic blueprint analysis from the entrance to the CEO's room should do best.
 - @gothcorp_entrance: We need entrance points, what are the best ways to get inside?
 - @gothcorp_security: Let's analyse the building's security systems.
 - @gothcorp_escape_routes: Let's see escape routes. Fire exits, maintenance tunnels, vents, how can I get out quickly if needed?
@@ -74,6 +116,16 @@ subtitle: We will be able to spend time in exchange for environmental advantages
 
 @tech
 subtitle: We will be able to spend time in exchange for information on the technology.
+on-arrival: {!
+    
+    if (Q.freeze_choice == 0) {
+        Q.freeze_choice = 3;
+        Q.freeze_time -= 1;
+        Q.freeze_time_flag = 1;
+    }
+
+    !}
+go-to: time_passes if freeze_time_flag == 1 
 
 Alfred returns with the files you wanted, as well as a capsule frozen inside. "Master [+ alfred_name +]."
 
@@ -93,6 +145,16 @@ You walk to a nearby chemicals station, your little workshop. You slide in the c
 
 @information
 subtitle: We will be able to spend time in exchange for information on the suspect.
+on-arrival: {!
+    
+    if (Q.freeze_choice == 0) {
+        Q.freeze_choice = 3;
+        Q.freeze_time -= 1;
+        Q.freeze_time_flag = 1;
+    }
+
+    !}
+go-to: time_passes if freeze_time_flag == 1 
 
 - @victor_fries: Pull up the file on [+ suspect_name +].
 - @nora_fries: Look deeper into his family.
@@ -102,46 +164,351 @@ subtitle: We will be able to spend time in exchange for information on the suspe
 - @company_records: We have access to more tools now that we're in the mayor's office. Let's check the company records for anything of use.
 - @batcomputer_menu: We're done here.
 
+
+
+
+@gothcorp_blueprints
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+You open the BatComputer and find the blueprints of the building. Back in the day, you've  built a database of the important buildings in Gotham, and .
+
+Entering from the Front Door is the building's lobby, a large ornate . From there, you can either go through the stairs, the , or take one of the many corridors into the first floor admnistrative.
+
+The most obvious route, and the one that Fries likely took was simply taking the straight to the highest floor of the building.
+
+- @gothcorp_blueprints_a: If Victor is smart, he should have disabled the elevator. A straight path to the office would lose him the advantage of being in the building's 90th floor.
+- @gothcorp_blueprints_b: ...But even if I somehow re-enabled it, the Elevator poses significant risk. Freeze would be able to see me coming if he were monitoring the building, with the freezing formula cutting the cables off would be trivial. 
+- @gothcorp_blueprints_c: Victor is no master planner. I'll take the elevator first thing I do. 
+
+@gothcorp_blueprints_2
+
+
+
+
+
+
 @gothcorp_entrance
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+You look over the blueprints. There are roughly three obvious ways to enter the building. There's the front door of course, but also the , or we could take the fire escape.
+
+Being , you compare it with the .
+
+
 
 @gothcorp_escape_routes
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+
+
 
 @gothcorp_room
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+
 
 @gothcorp_security
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+
 
 @gothcorp_server
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @gothcorp_suspect_escape
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @chemistry
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+You connect the canister to your chemical j take a look over the .
+
+The core of the Freezing Formula seems to be a s. 
+
+Once it hits a target, the pressure seems to release the  
+
+This pressure based approach made it highly useful for cryogenic treatments, as it , and allowed for minimal collateral damage.
+
+You can see the artistry in the chemistry. 
+
+
 
 @chemistry_2
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @freezing_gun
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+You examine both over the footage of the scene and 
+
+Victor seems to be using some kind of gun-like device, presumably shooting out.
+
+You cross-reference . 
+
+
+
 
 @gadget
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @prototype_fire
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+Moving over to the chemistry station, you isolate the compound 
+
+
 
 @prototype_ice
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+Relatively easy to do, but it takes a while for ALfred. You prepare , and then slide the freezing formula inside.
+
+This is not as good as Victor's freezing gun, the range is much more limited and , but it'll certainly be useful in a pinch.
 
 @victor_fries
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 Name: Victor Fries. Born Hirohito Fuyuki in Sapporo.
 
 Victor's records indicate that he is estranged with most of his family. 
 
-Sometime after getting his citizenship, he renamed himself to Victor Fuyuki, and later on took his wife's, Nora Fries, last name.
+Sometime after getting his citizenship, he changed his first name to Victor, and later on took his wife's, Nora Fries, last name.
 
 @immigration_records
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+
 
 @nora_fries
+on-arrival: {!
+    Q.freeze_choices -= 1;
 
-You find that most of his family is estranged from Japan, 
+    !}
+
+
 
 @goth_corp
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @ferris_boyle
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
 
 @company_records
+on-arrival: {!
+    Q.freeze_choices -= 1;
+
+    !}
+
+
+
+@freeze_immediate
+
+You depart from the batcave, making your way with the batmobile through the city. As you close in, camera feeds , which you monitor.
+
+You've arrived early, there are only a few police cars and little in the manner of media. Only a small crowd as well.
+
+- @immediate_batmobile_park_front: Mostly men in blue. Good. I'll go through the front door. Park the Batmobile.
+- @immediate_batmobile_park_far: Park the Batmobile far. I'll look for another way in.
+
+@freeze_tim
+go-to: freeze_early if freeze_time == 2; freeze_late if freeze_time == 1; freeze_final if freeze_time == 0
+
+As you're about to leave for the batmobile, Tim.
+
+"Batman!"
+
+- @freeze_tim_1: "Not now, Tim."
+- @freeze_tim_2: "Tim. What are you doing here?"
+- @freeze_tim_3: "Is this about Freeze?"
+
+@freeze_tim_1
+
+""
+
+- @no_tim_1: ""
+- @no_tim_2: 
+- @no_tim_3: 
+
+@freeze_tim_2
+
+- @
+- @
+- @
+
+@freeze_tim_3
+
+"Yeah. "
+
+- @
+- @
+- @
+
+
+
+
+@immediate_batmobile_park_far
+
+You do a sharp drift in the streets of Gotham, and then drive into a nearby empty Alley, leaping out of the Batmobile. 
+
+After a brief survey of your surroundings, you press a button on your belt and the Mobile locks itself down. 
+
+Grappling into a nearby rooftop, you make your way towards Gothcorp central.
+
+From the .
+
+- @sewers: 
+- @fire_escape: 
+- @backdoors: We'll take one of the backdoors.
+
+@sewers
+
+
+
+@fire_escape
+
+You move through nearby 
+
+@backdoors
+
+No good. Freeze activated some of the emergency mechanisms. 
+
+- @lockpick: Let's lockpick it.
+- @breach: Time is of essence. Breach the door open.
+- @hack: Hack into Gothcorp's network.
+- @other_way: Let's look for another way in.
+
+
+@lockpick
+subtitle: This might take some time, but it'll be silent and quiet.
+go-to: backrooms
+
+@breach
+subtitle: 
+go-to: backrooms
+
+@hack
+subtitle: The network is being monitored. It'll be very hard to maintain stealth.
+go-to: backrooms
+
+@backrooms
+
+
+
+- @vents: There is a vent system somewhere. I need to make up.
+- @lobby: We'll enter the lobby.
+- @stairs: There are other staircases in the building.
+
+@admnistrative
+
+
+
+- @blast_doors: 
+- @:
+- @:
+
+
+
+
+
+
+@immediate_batmobile_park_front
+
+You park the batmobile in front of the .
+
+
+
+@freeze_early
+
+- @early_batmobile_park_far: Park the Batmobile far. I'll look for another way in.
+- @early_batmobile_park_front: We'll go through the front door. Park the Batmobile.
+
+@freeze_late
+
+- @late_batmobile_park_far: Park the Batmobile far. I'll look for another way in.
+- @late_batmobile_park_front: We'll go through the front door. Park the Batmobile.
+
+@freeze_final
+
+- @final_batmobile_park_far: Park the Batmobile far. I'll look for another way in.
+- @final_batmobile_park_front: We'll go through the front door. Park the Batmobile.
+
+
+
+@final_batmobile_park_far
+subtitle: You don't have enough time.
+
+
+
+
+@freeze_door
+
+
+
+@freeze_inside
+
+Gothcorp
+
+
+
+
+- @freeze_reveal: Reveal yourself.
+- @freeze_surprise: Let's see how we can take him out....
+
+@freeze_surprise
+subtitle: This option will allow us to plan out a surprise strike.
+
+You take a look around the room.
+
+
+

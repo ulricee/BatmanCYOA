@@ -1,0 +1,49 @@
+
+#left_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 5;
+
+}
+
+
+#right_wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    z-index: 5;
+
+}
+
+#left_space, #right_space {
+    display: none;
+    width: 0px;
+    background-color: var(--content-bg-color);
+    overflow-x: scroll;
+    height: 100%;
+}
+
+#left_button_bar, #right_button_bar {
+    width: 10vw;
+    height: 100vh;
+    background-color: var(--content-bg-color);
+    z-index: 5;
+}
+
+.sidebar_button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: black;    
+}
+
+.sidebar_flat_button {
+    width: 100%;
+    background-color: var(--content-bg-color);
+    border: 1px double var(--card-border-color);
+    font-size: 1.2em;
+    color: white;
+}

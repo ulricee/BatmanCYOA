@@ -1,0 +1,223 @@
+title: The Inauguration
+new-page: true
+tags: event
+
+The first day of the new year. It was almost noon. Staring at the towers reflecting the light of the winter sun, rays bleached all in one monochrome hue.
+
+Last night, you heard the fireworks blaring louder. The people have high hopes for you. Or at least, hope that you won’t be as terrible as the previous administration.
+
+Those days pressed on you. Getting crushed by the concrete of an entire city. It lingers. Your eyes struggle to stay open.
+
+“Are you well rested, sir?”
+
+“Yes, Alfred.”
+ 
+He had taken a seat in front. You didn’t ask him to come with you, but he made a compelling case for why he should. You don’t know what made you even consider the contrary.
+
+Usually, families followed new mayors. You had no wife or parents to bring. Still, they both took time to follow you.
+
+“You look worse than usual, Bruce. Are you alright?”
+
+Snapping your eyes awake. You turned to face Dick. Even with his strange ascetic ways at his home, it seems he kept the taste for haute couture you cultivated in him.
+
+“Yes,” you spoke. “With you there, I will.”
+
+Even as you tried, ash pushed through your teeth. No words, only sounds. There was an empty seat across from you. No one.
+
+“Thank you. Thank you for being here.”
+
+You let the moment sit. It comes in waves, yet here, you know you can control it.
+
+Opening the door to the blinding lights. The white snow reflecting off the rays above, dark-dressed men and women standing around you. They stared at each part of you. You knew to give a smile, to wave back. You had rehearsed how not to make it feel rehearsed.
+
+Seeing all those across from you. You know the faces of some of them. Some you’ve met with another visage. You smile, the people of Gotham know your loss. They know your pain.
+
+Is it a white lie to tell them you’re already feeling better? Telling them a lie so they can hope that they can find it too. You didn’t give them the full truth. And yet, they voted for you.
+
+Standing on the podium. You had taken a few papers with you. Looking at the crowd, a mic below your mouth, it finally hit you. You hadn’t said a word. They looked at every step you took, interpreting every twitch of your mouth. Every letter matters in the story they wish to hear.
+
+- @clear: Clarity, let the persona shine. Lucius speech will get through. You cannot disappoint them here.
+- @showman: No need for Lucius handiwork. Speak without rehersal, use the heart as you'd please. Shift to a showman, let the crowd roar and the spectacle use. 
+
+@showman 
+
+
+
+@clear
+
+It took too long for you to see that this was all part of it. Their trust comes not from your successes, but what they saw in you. They want to believe that any man can recover from this. They know Batman will, but they want to see someone like Bruce Wayne do it.
+
+Your mind drifts as you raise your voice. The person wasn’t here, only the persona. You spoke loud, with energy. You had already given this speech a hundred times to an empty room. Now, a full room stared at an empty pulpit. They seemed to like the words, the sounds, and the intonations you gave. You saw their eyes beaming, some clapping. Can they see that the mirror is empty?
+
+
+
+@address_menu
+
+- @address_gentlemen: Ladies and Gentlemen.
+- @address_citizens: Citizens of Gotham.
+- @address_siblings: Brothers and Sisters.
+
+- @address_dedication: "I'd like to dedicate this moment to someone."
+- @address_poetic: Open up with something poetic.
+- @address_promises: Let's skip straight to policy.
+- @address_support: "I couldn't make here without the support of..."
+- @address_opposition: "They said , but we made it anyways."
+
+
+@address_gentlemen
+subtitle: The classic, straightforward address. Talk to the city.
+
+- @address_gentlemen_1: "I must thank everyone who supported me in this journey. We couldn't have made it here today without all of you, and I'll be glad to serve."
+- @address_gentlemen_2: ""
+- @address_gentlemen_3: ""
+
+@address_citizens
+subtitle: A more neutral address, go for a professional tone for the speech.
+
+- @address_citizens_1: "The city is currently under pressure from several angles. We intend to ."
+- @address_citizens_2: ""
+- @address_citizens_3: "Today, my admnistration finishes its transition period. We will start tackling problems as well as ."
+
+@address_siblings
+subtitle: Present yourself as a son of Gotham.
+
+- @address_siblings_1: "I stand here before all of you, not as another politician or businessman, but as a son of Gotham."
+- @address_siblings_2: "Though I have stepped away at points, I could never leave the city I lived my whole life in behind. I understand the beauty , and ."
+- @address_siblings_3: "When I look at how the city is right now, against my memories of the past, I am filled with a deep sense of anger and hatred. What has been done? This city, tattered and destroyed."
+
+@address_siblings_two
+
+- @address_siblings_two_1: "I understand anyone who has their suspicions. I know . But ."
+- @address_siblings_two_2: "I'll swear this: "
+- @address_siblings_two_3: "I "
+
+
+@address_dedication
+
+- @dedication_dead: "To all the dead from our Dark Year, the ones who couldn't make here to today."
+- @dedication_parents: "To my parents, Martha and Thomas Wayne."
+- @dedication_dick: "To my son, Dick Grayson Wayne."
+- @dedication_jason: "Jason Todd Wayne."
+- @dedication_alfred: "Alfred Pennysworth. The man who raised me."
+- @dedication_gordon: "Commissioner Gordon. A true hero of the city."
+- @dedication_police: To all our hard working boys in blue!
+- @dedication_batman: "...The Hero of the City, Batman."
+- @dedication_canary: "...The Hero of the City, the Black Canary."
+- @dedication_harvey: "The unsung Hero of the City, Harvey Dent."
+
+@dedication_dead
+
+- @dedication_dead_evil_high: "There was real evil at play. "
+- @dedication_dead_evil_low: "The ."
+- @dedication_dead_memory: "We cannot forget what took. What ."
+- @dedication_dead_regret: ""
+
+
+@dedication_parents
+
+- @dedication_parents_shadow: "My parents cast a deep shadow over me. They were good people, and I always fear that I might stray from the right path they set me unto. In the end of the day, I hope I am making them proud."
+- @dedication_parents_thomas: "My father, Thomas Wayne was a doctor who . "
+- @dedication_parents_martha: "My mom, Martha Kane Wayne, was an activist and . I intend to follow her legacy ."
+
+- @dedication_parents_death: "My parents were undone by ."
+- @dedication_parents_wealth: ""
+- @dedication_parents_kid: ""
+
+
+@dedication_jason
+on-arrival: relationship_jason -= 50
+
+- @dedication_jason_loss: "When I lost Jason, I felt despair. For weeks, I grieved, and life seemed so dull and hopeless. Everytime I'd look at the newspaper, or , I'd be reminded of my own loss."
+- @dedication_jason_qualities: "Jason was a good kid."
+- @dedication_jason_parents: "It was like an echo of when . The arms of crime . "
+
+@dedication_jason_2
+
+- @dedication_jason_:
+- @dedication_jason_criminal: "Jason was a victim of the crime and relentless evil going through this city. I swear I'll ."
+- @dedication_jason_redemption: ""
+
+@dedication_alfred
+
+- @
+- @
+- @
+
+@dedication_gordon_fired
+
+- @
+- @
+- @
+
+@dedication_gordon
+
+- @dedication_gordon_dark_year: The commissioner's service during the dark year was one of the few . He lost nights, .
+- @dedication_gordon_
+- @dedication_gordon_policy: In a sea of bribery and distrust, Gordon is a man who cannot be corrupted. He serves as a bastion of hope . If we want to get things done, we need to follow his example, this admnistration has to be just as much of a paragon as he is.
+
+@address_poetic 
+
+- @
+- @
+- @
+
+@address_promises
+
+- @
+- @
+- @
+
+@address_support
+subtitle: Focus on the politics, open up with a direct thanks to a group or a specific person, make them know they're the priority.
+
+- @support_demographic_white_collar: ""
+- @support_demographic_blue_collar: ""
+- @support_demographic_business: "The "
+- @support_demographic_black: "The African-American communities of the city, who have "
+- @support_demographic_latino: "The Latino community, "
+- @support_party_democrats: "The Democrats of the city."
+- @support_party_republican: "The Republican Voters of our town."
+- @support_hamilton: "Hamilton Hill."
+- @support_quincy: "Quincy Sharp."
+- @support_president: "I stand with the President. I believe in the movement that he started, and in the questions that he has raised."
+
+
+@address_opposition
+subtitle: Let's go with a harsh critique of the opposition off the bat, it's time to show who's in charge now.
+
+- @opposition_quincy_sharp: "Quincy tried , but now ."
+- @opposition_reactionary: "The "
+- @opposition_conservative: ""
+- @opposition_republican: "The Republican Party." 
+- @opposition_democrats: "The Democratic Elites who tried to , ." 
+- @opposition_progressive: ""
+- @opposition_liberal: ""
+
+- @opposition_business: "Many of the city's businesses put a rock in every step of the way."
+- @opposition_minorities: "The minorities weren't there for me when , ."
+- @opposition_minorities_crime: ""
+- @opposition_blue_collar: ""
+- @opposition_white_collar: ""
+
+- @opposition_crime: ""
+- @opposition_mob: ""
+- @opposition_corrupt: "The Corrupt Elites of the City."
+
+
+@speech_core
+
+- @speech_journey: Our journey.
+- @speech_ideals: Our ideals.
+- @speech_promises: Our promises.
+- @speech_challenges: Our challenges.
+- @speech_world: The world.
+- @speech_finish: Final Address.
+
+@speech_journey
+
+- @: ""
+- @:
+- @:
+
+@speech_ideals
+

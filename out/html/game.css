@@ -50,6 +50,8 @@ body {
   cursor: url('path-to-image.png'), auto;
   text-align: center;
   scroll-behavior: smooth;
+  cursor: url(img/cursor/NORMAL.cur), default;
+
 }
 body.dark-mode {
   --bg-color: #000;

@@ -108,50 +108,45 @@ Q.batman_hp = 3;
 // Barbara
 
 Q.barbara_success = 0;
-Q.barbara_hp = 0;
+Q.barbara_hp = 3;
 
 // Tim
 
 Q.tim_dodge = 0;
-
-// Stephanie
-
-Q.stephanie_dodge = 0;
 
 // Jason
 Q.jason_success = 0;
 Q.jason_injury = 0;
 Q.jason_killrisk = 0;
 Q.jason_cleanhit = 0;
+Q.jason_hp = 5;
 
 // Dick
 Q.dick_success = 0;
 Q.dick_injury = 0;
-Q.dick_hp = 0;
+Q.dick_hp = 3;
 Q.dick_exploit = 0;
 
 // Damian
 Q.damian_success = 0;
+Q.damian_dodge = 0;
 
 // Cassandra
 
 Q.cassandra_success = 0;
 Q.cassandra_cleanhit = 0;
+Q.cassandra_hp = 1;
 
 // Stephanie
 
 Q.stephanie_success = 0;
-Q.stephanie_ = 0;
-
+Q.stephanie_dodge = 0;
+Q.stephanie_hp = 1;
 
 // Dinah Lance
 Q.dinah_success = 0;
 Q.dinah_inspiration = 0;
 Q.dinah_collateral = 0;
-
-
-
-
 
 // non mainstream parties
 
